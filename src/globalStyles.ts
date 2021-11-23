@@ -1,6 +1,9 @@
 import { css } from "linaria";
+import { colors } from "./theme";
 export const globalStyles = css`
   :global() {
+    @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
+
     html,
     body,
     div,
@@ -113,6 +116,8 @@ export const globalStyles = css`
     }
     body {
       line-height: 1;
+      font-family: "Work Sans";
+      letter-spacing: 0.64px;
     }
     ol,
     ul {

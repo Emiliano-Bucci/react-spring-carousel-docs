@@ -7,7 +7,7 @@ import { colors } from "src/theme";
 import PerformantIcon from "public/performant.svg";
 import { FC, useState } from "react";
 import { animated, useSpring } from "react-spring";
-import { Button } from "../src/atoms/Button/Button";
+import { Link } from "../src/atoms/Link/Link";
 
 const text = `<Carousel />`;
 
@@ -270,7 +270,13 @@ export default function Home() {
           justify-content: center;
         `}
       >
-        <Button>Documentation</Button>
+        <Link
+          linkProps={{
+            href: "/",
+          }}
+        >
+          Documentation
+        </Link>
       </div>
     </div>
   );

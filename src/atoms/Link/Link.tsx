@@ -1,10 +1,16 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import NextLink, { LinkProps } from "next/link";
+import {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  PropsWithChildren,
+} from "react";
 import { css, cx } from "linaria";
 import { colors } from "src/theme";
-type Props = DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->;
+
+type Props = PropsWithChildren<{
+  linkProps: LinkProps;
+}> &
+  DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
 const styles = css`
   border: none;
@@ -20,6 +26,7 @@ const styles = css`
   border-radius: 4px;
   letter-spacing: inherit;
   outline: none;
+  text-decoration: none;
   line-height: inherit;
   box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
     0px 6px 15px rgba(0, 0, 0, 0.06);
@@ -31,15 +38,12 @@ const styles = css`
   }
 `;
 
-export function Button({
-  children,
-  type = "button",
-  className = "",
-  ...rest
-}: Props) {
+export function Link({ children, linkProps, className = "", ...rest }: Props) {
   return (
-    <button {...rest} className={cx(styles, className)} type={type}>
-      {children}
-    </button>
+    <NextLink {...linkProps}>
+      <a {...rest} className={cx(styles, className)}>
+        {children}
+      </a>
+    </NextLink>
   );
 }

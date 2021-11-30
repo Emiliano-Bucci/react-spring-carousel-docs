@@ -1,4 +1,4 @@
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import {
   useSpringCarousel,
   useSpringCarouselContext,
@@ -49,6 +49,9 @@ function CarouselItem({
               3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
               4px 12px 30px 4px rgba(0, 0, 0, 0.12);
           }
+          .icon-wrapper {
+            filter: grayscale(0);
+          }
         }
       `}
     >
@@ -71,12 +74,17 @@ function CarouselItem({
         `}
       >
         <div
-          className={css`
-            width: 80px;
-            height: 80px;
-            max-width: 80px;
-            margin-bottom: 0.8rem;
-          `}
+          className={cx(
+            css`
+              width: 80px;
+              height: 80px;
+              max-width: 80px;
+              margin-bottom: 0.8rem;
+              filter: grayscale(100);
+              transition: all 480ms ease;
+            `,
+            "icon-wrapper"
+          )}
         >
           {<Icon />}
         </div>
@@ -274,6 +282,9 @@ export default function Home() {
           linkProps={{
             href: "/",
           }}
+          className={css`
+            font-size: 1.8rem;
+          `}
         >
           Documentation
         </Link>

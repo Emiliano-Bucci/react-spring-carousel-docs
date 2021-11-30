@@ -22,7 +22,7 @@ const styles = css`
   background-color: ${colors.secondary};
   color: #fff;
   transition: all 280ms ease;
-  padding: 0.8rem 1.6rem;
+  padding: 1.2rem 1.6rem;
   border-radius: 4px;
   letter-spacing: inherit;
   outline: none;

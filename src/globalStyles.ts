@@ -108,6 +108,7 @@ export const globalStyles = css`
     }
     html {
       box-sizing: border-box;
+      font-size: 62.5%;
     }
     *,
     *:before,
@@ -115,9 +116,10 @@ export const globalStyles = css`
       box-sizing: inherit;
     }
     body {
-      line-height: 1;
       font-family: "Work Sans";
       letter-spacing: 0.64px;
+      font-size: 1.6rem;
+      color: #414141;
     }
     ol,
     ul {
@@ -137,6 +139,13 @@ export const globalStyles = css`
     table {
       border-collapse: collapse;
       border-spacing: 0;
+    }
+    strong {
+      font-weight: bold;
+    }
+    p,
+    span {
+      color: #515151;
     }
   }
 `;

@@ -1,10 +1,194 @@
 import { css } from "linaria";
-import { useSpringCarousel } from "react-spring-carousel";
-import { colors } from "../src/theme";
+import {
+  useSpringCarousel,
+  useSpringCarouselContext,
+} from "react-spring-carousel";
+import { colors } from "src/theme";
+import PerformantIcon from "public/performant.svg";
+import { FC, useState } from "react";
+import { animated, useSpring } from "react-spring";
 
 const text = `<Carousel />`;
 
+function CarouselItem({
+  title,
+  content,
+  Icon,
+  activeItem,
+  id,
+}: {
+  title: string;
+  content: React.ReactNode;
+  Icon: FC;
+  activeItem: string;
+  id: string;
+}) {
+  const { getIsNextItem, getIsPrevItem } = useSpringCarouselContext();
+  const isActive = activeItem === id;
+  const styles = useSpring({
+    scale: isActive
+      ? 1.08
+      : getIsNextItem(id) || getIsPrevItem(id)
+      ? 0.9
+      : 0.78,
+  });
+  return (
+    <div
+      data-active={isActive}
+      className={css`
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        &[data-active="true"] {
+          z-index: 10;
+        }
+      `}
+    >
+      <animated.article
+        style={styles}
+        className={css`
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          max-width: 280px;
+          width: 100%;
+          border-radius: 8px;
+          padding: 2.4rem;
+          box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
+            3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
+            14px 13px 30px rgba(0, 0, 0, 0.08);
+        `}
+      >
+        <div
+          className={css`
+            width: 80px;
+            height: 80px;
+            max-width: 80px;
+          `}
+        >
+          {<Icon />}
+        </div>
+        <h3
+          className={css`
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.6rem;
+            text-align: center;
+          `}
+        >
+          {title}
+        </h3>
+        <span
+          className={css`
+            text-align: center;
+          `}
+        >
+          {content}
+        </span>
+      </animated.article>
+    </div>
+  );
+}
+
+const items = [
+  {
+    id: "performance",
+    title: "Extreemely performant",
+    Icon: PerformantIcon,
+    content: (
+      <>
+        <strong>react-spring</strong> offers very performant results with smooth
+        and natural animations!🔥
+      </>
+    ),
+  },
+  {
+    id: "mobile-first",
+    title: "Mobile first",
+    Icon: PerformantIcon,
+    content: (
+      <>
+        We use <strong>@use-gesture</strong> to offer the best mobile experience
+        with zero config!
+      </>
+    ),
+  },
+  {
+    id: "custom-events",
+    title: "Custom events",
+    Icon: PerformantIcon,
+    content: (
+      <>
+        Thanks to <strong>RxJS</strong> you'll be able to respond to every
+        carousel action in a very simple and elegant way!
+      </>
+    ),
+  },
+  {
+    id: "headless-ui",
+    title: "Headless UI",
+    Icon: PerformantIcon,
+    content: (
+      <>
+        No more headaches trying to style the elements of the carousel. You
+        control every aspect of the elements of the carousel.
+      </>
+    ),
+  },
+  {
+    id: "composable",
+    title: "Totally composable",
+    Icon: PerformantIcon,
+    content: (
+      <>
+        We give you the instruments (API) and you decide where to place all the
+        elements of the carousel and how they will behave and interact.
+      </>
+    ),
+  },
+  {
+    id: "easy-to-configure",
+    title: "Easy to configure",
+    Icon: PerformantIcon,
+    content: (
+      <>
+        The carousel comes with lots of options, and the configuration is a
+        piece of cake!
+      </>
+    ),
+  },
+];
+
 export default function Home() {
+  const [activeItem, setActiveItem] = useState(items[0].id);
+  const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
+    itemsPerSlide: 5,
+    withLoop: true,
+    initialStartingPosition: "center",
+    items: items.map((i, indx) => ({
+      id: i.id,
+      renderItem: (
+        <CarouselItem
+          id={i.id}
+          key={`${i.id}-${indx}`}
+          title={i.title}
+          Icon={i.Icon}
+          content={i.content}
+          activeItem={activeItem}
+        />
+      ),
+    })),
+  });
+
+  useListenToCustomEvent((event) => {
+    if (event.eventName === "onSlideStartChange") {
+      setActiveItem(event.nextItem.id);
+    }
+  });
+
   return (
     <div
       className={css`
@@ -17,7 +201,7 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 164px 24px;
+          padding: 16.4rem 2.4rem;
           color: #fafafa;
           background-image: linear-gradient(
             to right,
@@ -28,9 +212,9 @@ export default function Home() {
       >
         <h1
           className={css`
-            font-size: 56px;
+            font-size: 5.6rem;
             font-weight: bold;
-            margin-bottom: 16px;
+            margin-bottom: 1.6rem;
             text-shadow: 0 2px 20px ${colors.primaryLight};
           `}
         >
@@ -39,6 +223,7 @@ export default function Home() {
         <span
           className={css`
             font-size: 24px;
+            color: #fff;
           `}
         >
           A new {text} experience
@@ -52,11 +237,22 @@ export default function Home() {
       >
         <div
           className={css`
-            max-width: 800px;
             width: 100%;
-            margin-top: -80px;
+            max-width: 100%;
+            margin-top: -8rem;
+            cursor: grab;
+            & > * {
+              padding: 8rem 0;
+              margin-top: -8rem;
+              margin-bottom: 8rem;
+            }
+            :active {
+              cursor: grabbing;
+            }
           `}
-        ></div>
+        >
+          {carouselFragment}
+        </div>
       </div>
     </div>
   );

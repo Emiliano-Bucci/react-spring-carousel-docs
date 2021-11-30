@@ -7,6 +7,7 @@ import { colors } from "src/theme";
 import PerformantIcon from "public/performant.svg";
 import { FC, useState } from "react";
 import { animated, useSpring } from "react-spring";
+import { Button } from "../src/atoms/Button/Button";
 
 const text = `<Carousel />`;
 
@@ -40,8 +41,14 @@ function CarouselItem({
         justify-content: center;
         width: 100%;
         height: 100%;
+        user-select: none;
         &[data-active="true"] {
           z-index: 10;
+          & > * {
+            box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
+              3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
+              4px 12px 30px 4px rgba(0, 0, 0, 0.12);
+          }
         }
       `}
     >
@@ -57,6 +64,7 @@ function CarouselItem({
           width: 100%;
           border-radius: 8px;
           padding: 2.4rem;
+          transition: box-shadow 480ms ease;
           box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
             3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
             14px 13px 30px rgba(0, 0, 0, 0.08);
@@ -67,6 +75,7 @@ function CarouselItem({
             width: 80px;
             height: 80px;
             max-width: 80px;
+            margin-bottom: 0.8rem;
           `}
         >
           {<Icon />}
@@ -75,7 +84,7 @@ function CarouselItem({
           className={css`
             font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 1.6rem;
+            margin-bottom: 0.8rem;
             text-align: center;
           `}
         >
@@ -214,7 +223,7 @@ export default function Home() {
           className={css`
             font-size: 5.6rem;
             font-weight: bold;
-            margin-bottom: 1.6rem;
+            margin-bottom: 0.8rem;
             text-shadow: 0 2px 20px ${colors.primaryLight};
           `}
         >
@@ -253,6 +262,15 @@ export default function Home() {
         >
           {carouselFragment}
         </div>
+      </div>
+      <div
+        className={css`
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        `}
+      >
+        <Button>Documentation</Button>
       </div>
     </div>
   );

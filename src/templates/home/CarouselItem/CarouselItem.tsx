@@ -76,6 +76,9 @@ export function CarouselItem({
           ${mediaQueries.until.tabletSM} {
             max-width: 400px;
           }
+          ${mediaQueries.until.mobile} {
+            padding: 2rem;
+          }
         `}
       >
         <div

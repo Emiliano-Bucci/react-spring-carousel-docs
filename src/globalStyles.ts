@@ -1,5 +1,4 @@
 import { css } from "linaria";
-import { colors } from "./theme";
 export const globalStyles = css`
   :global() {
     @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
@@ -120,7 +119,6 @@ export const globalStyles = css`
       letter-spacing: 0.64px;
       font-size: 1.6rem;
       color: #414141;
-      overflow-x: hidden;
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
     }

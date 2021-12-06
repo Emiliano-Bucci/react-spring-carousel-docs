@@ -90,7 +90,6 @@ export default function Home() {
     itemsPerSlide: itemsPerSlide,
     withLoop: true,
     initialStartingPosition: "center",
-    touchAction: "pan-y",
     items: items.map((i, indx) => ({
       id: i.id,
       renderItem: (
@@ -157,7 +156,6 @@ export default function Home() {
       className={css`
         display: flex;
         flex-direction: column;
-        overflow-x: hidden;
       `}
     >
       <div
@@ -215,11 +213,13 @@ export default function Home() {
           className={css`
             width: 100%;
             max-width: 100%;
-            margin-top: -8rem;
+            margin-top: -16rem;
+            margin-bottom: 8rem;
             .use-spring-carousel-main-wrapper {
+              overflow: hidden;
+            }
+            .use-spring-carousel-track-wrapper {
               padding: 8rem 0;
-              margin-top: -8rem;
-              margin-bottom: 8rem;
               ${mediaQueries.until.desktop} {
                 padding: 8rem 6.4rem;
               }

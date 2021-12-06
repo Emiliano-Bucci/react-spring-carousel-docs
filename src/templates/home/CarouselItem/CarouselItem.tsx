@@ -2,6 +2,7 @@ import { css, cx } from "linaria";
 import { useSpringCarouselContext } from "react-spring-carousel";
 import { FC } from "react";
 import { animated, useSpring } from "react-spring";
+import { colors } from "../../../theme";
 
 export function CarouselItem({
   title,
@@ -41,8 +42,9 @@ export function CarouselItem({
               3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
               4px 12px 30px 4px rgba(0, 0, 0, 0.12);
           }
-          .icon-wrapper {
-            filter: grayscale(0);
+          .icon-wrapper svg {
+            fill: ${colors.secondaryLight};
+            opacity: 1;
           }
         }
       `}
@@ -68,17 +70,20 @@ export function CarouselItem({
         <div
           className={cx(
             css`
-              width: 80px;
-              height: 80px;
-              max-width: 80px;
+              width: 72px;
+              height: 72px;
+              max-width: 72px;
               margin-bottom: 0.8rem;
-              filter: grayscale(100);
-              transition: all 480ms ease;
+              svg {
+                transition: all 480ms ease;
+                fill: ${colors.primary};
+                opacity: 0.48;
+              }
             `,
             "icon-wrapper"
           )}
         >
-          {<Icon />}
+          <Icon />
         </div>
         <h3
           className={css`

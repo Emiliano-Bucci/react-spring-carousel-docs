@@ -1,10 +1,15 @@
 import { css } from "linaria";
 import { useSpringCarousel } from "react-spring-carousel";
 import { colors } from "src/theme";
-import PerformantIcon from "public/performant.svg";
 import { useState } from "react";
 import { Link } from "atoms/Link/Link";
 import { CarouselItem } from "templates/home/CarouselItem/CarouselItem";
+import PerformanceIcon from "public/performance.svg";
+import ConfigureIcon from "public/configure.svg";
+import MobileIcon from "public/mobile.svg";
+import EventsIcon from "public/events.svg";
+import HeadlessIcon from "public/headless.svg";
+import ComposableIcon from "public/composable.svg";
 
 const text = `<Carousel />`;
 
@@ -12,7 +17,7 @@ const items = [
   {
     id: "performance",
     title: "Extreemely performant",
-    Icon: PerformantIcon,
+    Icon: PerformanceIcon,
     content: (
       <>
         <strong>react-spring</strong> offers very performant results with smooth
@@ -23,7 +28,7 @@ const items = [
   {
     id: "mobile-first",
     title: "Mobile first",
-    Icon: PerformantIcon,
+    Icon: MobileIcon,
     content: (
       <>
         We use <strong>@use-gesture</strong> to offer the best mobile experience
@@ -34,7 +39,7 @@ const items = [
   {
     id: "custom-events",
     title: "Custom events",
-    Icon: PerformantIcon,
+    Icon: EventsIcon,
     content: (
       <>
         Thanks to <strong>RxJS</strong> you'll be able to respond to every
@@ -45,7 +50,7 @@ const items = [
   {
     id: "headless-ui",
     title: "Headless UI",
-    Icon: PerformantIcon,
+    Icon: HeadlessIcon,
     content: (
       <>
         No more headaches trying to style the elements of the carousel. You
@@ -56,7 +61,7 @@ const items = [
   {
     id: "composable",
     title: "Totally composable",
-    Icon: PerformantIcon,
+    Icon: ComposableIcon,
     content: (
       <>
         We give you the instruments (API) and you decide where to place all the
@@ -67,7 +72,7 @@ const items = [
   {
     id: "easy-to-configure",
     title: "Easy to configure",
-    Icon: PerformantIcon,
+    Icon: ConfigureIcon,
     content: (
       <>
         The carousel comes with lots of options, and the configuration is a

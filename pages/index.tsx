@@ -210,7 +210,7 @@ export default function Home() {
         >
           <Link
             linkProps={{
-              href: "/",
+              href: "/docs",
             }}
             className={css`
               font-size: 1.8rem;

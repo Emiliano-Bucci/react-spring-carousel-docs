@@ -22,20 +22,20 @@ export function Footer() {
         `}
       >
         <Img
-          lazy
           withFadeIn
           src="https://img.shields.io/npm/v/react-spring-carousel-js?style=for-the-badge"
           className={css`
             max-width: 180px;
+            height: 28px;
             margin-right: 2.4rem;
           `}
         />
         <Img
-          lazy
           withFadeIn
           src="https://img.shields.io/bundlephobia/min/react-spring-carousel-js?style=for-the-badge"
           className={css`
             max-width: 180px;
+            height: 28px;
           `}
         />
       </div>

@@ -87,7 +87,7 @@ export function CarouselItem({
               width: 72px;
               height: 72px;
               max-width: 72px;
-              margin-bottom: 0.8rem;
+              margin-bottom: 1.2rem;
               svg {
                 transition: all 480ms ease;
                 fill: ${colors.primary};

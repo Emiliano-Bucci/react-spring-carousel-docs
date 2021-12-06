@@ -89,6 +89,7 @@ export function Header() {
         `}
       >
         <Link
+          variant="secondary"
           linkProps={{
             href: "https://github.com/Emiliano-Bucci/react-spring-carousel",
           }}
@@ -106,6 +107,7 @@ export function Header() {
           <GithubIcon />
         </Link>
         <Link
+          variant="secondary"
           linkProps={{
             href: "https://www.npmjs.com/package/react-spring-carousel",
           }}

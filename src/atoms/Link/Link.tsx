@@ -9,7 +9,7 @@ import { colors } from "src/theme";
 
 type Props = PropsWithChildren<{
   linkProps: LinkProps;
-  variant?: "primary" | "none";
+  variant?: "primary" | "secondary" | "none";
 }> &
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
@@ -26,9 +26,9 @@ const styles = css`
   line-height: inherit;
   font-size: 1.6rem;
   color: inherit;
+  transition: all 280ms ease;
 
   &[data-variant="primary"] {
-    transition: all 280ms ease;
     background-color: ${colors.secondary};
     color: #fff;
     padding: 1.2rem 1.6rem;
@@ -38,6 +38,20 @@ const styles = css`
     :hover,
     :focus {
       background-color: ${colors.secondaryLight};
+      box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
+        0px 12px 30px rgba(0, 0, 0, 0.12);
+    }
+  }
+  &[data-variant="secondary"] {
+    background-color: ${colors.secondaryLight};
+    color: #fff;
+    padding: 1.2rem 1.6rem;
+    border-radius: 4px;
+    box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
+      0px 6px 15px rgba(0, 0, 0, 0.06);
+    :hover,
+    :focus {
+      background-color: ${colors.secondary};
       box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
         0px 12px 30px rgba(0, 0, 0, 0.12);
     }

@@ -2,7 +2,8 @@ import { css, cx } from "linaria";
 import { useSpringCarouselContext } from "react-spring-carousel";
 import { FC } from "react";
 import { animated, useSpring } from "react-spring";
-import { colors } from "../../../theme";
+import { colors } from "src/theme";
+import { mediaQueries } from "src/mediaQueries";
 
 export function CarouselItem({
   title,
@@ -20,6 +21,7 @@ export function CarouselItem({
   const { getIsNextItem, getIsPrevItem } = useSpringCarouselContext();
   const isActive = activeItem === id;
   const styles = useSpring({
+    x: getIsNextItem(id) ? 22 : getIsPrevItem(id) ? -22 : 0,
     scale: isActive
       ? 1.08
       : getIsNextItem(id) || getIsPrevItem(id)
@@ -57,7 +59,7 @@ export function CarouselItem({
           align-items: center;
           justify-content: center;
           background-color: #fff;
-          max-width: 280px;
+          max-width: 300px;
           width: 100%;
           border-radius: 8px;
           padding: 2.4rem;
@@ -65,6 +67,15 @@ export function CarouselItem({
           box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
             3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
             14px 13px 30px rgba(0, 0, 0, 0.08);
+          ${mediaQueries.until.desktop} {
+            max-width: 340px;
+          }
+          ${mediaQueries.until.tabletM} {
+            max-width: 280px;
+          }
+          ${mediaQueries.until.tabletSM} {
+            max-width: 400px;
+          }
         `}
       >
         <div

@@ -1,7 +1,7 @@
 import { css } from "linaria";
 import { useSpringCarousel } from "react-spring-carousel";
 import { colors } from "src/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "atoms/Link/Link";
 import { CarouselItem } from "templates/home/CarouselItem/CarouselItem";
 import PerformanceIcon from "public/performance.svg";
@@ -10,6 +10,7 @@ import MobileIcon from "public/mobile.svg";
 import EventsIcon from "public/events.svg";
 import HeadlessIcon from "public/headless.svg";
 import ComposableIcon from "public/composable.svg";
+import { mediaQueries, breakpoints } from "src/mediaQueries";
 
 const text = `<Carousel />`;
 
@@ -83,11 +84,13 @@ const items = [
 ];
 
 export default function Home() {
+  const [itemsPerSlide, setItemsPerSlide] = useState(5);
   const [activeItem, setActiveItem] = useState(items[0].id);
   const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
-    itemsPerSlide: 5,
+    itemsPerSlide: itemsPerSlide,
     withLoop: true,
     initialStartingPosition: "center",
+    touchAction: "pan-y",
     items: items.map((i, indx) => ({
       id: i.id,
       renderItem: (
@@ -109,11 +112,52 @@ export default function Home() {
     }
   });
 
+  useEffect(() => {
+    const desktopDevice = window.matchMedia(
+      `(min-width: ${breakpoints.desktop + 1}px)`
+    );
+    const tabletDevice = window.matchMedia(
+      `(min-width: ${breakpoints.tabletSM + 1}px) and (max-width: ${
+        breakpoints.desktop
+      }px)`
+    );
+    const tabletSmDevice = window.matchMedia(
+      `(max-width: ${breakpoints.tabletSM}px)`
+    );
+
+    if (desktopDevice.matches) {
+      setItemsPerSlide(5);
+    } else if (tabletSmDevice.matches) {
+      setItemsPerSlide(1);
+    } else if (tabletDevice.matches) {
+      setItemsPerSlide(3);
+    } else {
+      setItemsPerSlide(5);
+    }
+
+    tabletSmDevice.addListener((e) => {
+      if (e.matches) {
+        setItemsPerSlide(1);
+      }
+    });
+    tabletDevice.addListener((e) => {
+      if (e.matches) {
+        setItemsPerSlide(3);
+      }
+    });
+    desktopDevice.addListener((e) => {
+      if (e.matches) {
+        setItemsPerSlide(5);
+      }
+    });
+  }, []);
+
   return (
     <div
       className={css`
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
       `}
     >
       <div
@@ -123,12 +167,16 @@ export default function Home() {
           align-items: center;
           padding: 16.4rem 2.4rem;
           color: #fafafa;
+          border-bottom: 8px solid ${colors.secondaryLight};
           background-image: linear-gradient(
             to right,
             ${colors.primaryLight},
             ${colors.secondaryLight}
           );
-          border-bottom: 8px solid ${colors.secondaryLight};
+          ${mediaQueries.until.mobile} {
+            padding-top: 6.4rem;
+            padding-bottom: 14rem;
+          }
         `}
       >
         <h1
@@ -137,14 +185,21 @@ export default function Home() {
             font-weight: bold;
             margin-bottom: 0.8rem;
             text-shadow: 0 2px 20px ${colors.primaryLight};
+            text-align: center;
+            ${mediaQueries.until.mobile} {
+              font-size: 4.8rem;
+            }
           `}
         >
           React Spring Carousel
         </h1>
         <span
           className={css`
-            font-size: 24px;
+            font-size: 2.4rem;
             color: #fff;
+            ${mediaQueries.until.mobile} {
+              font-size: 2rem;
+            }
           `}
         >
           A new {text} experience
@@ -161,16 +216,19 @@ export default function Home() {
             width: 100%;
             max-width: 100%;
             margin-top: -8rem;
+            .use-spring-carousel-main-wrapper {
+              padding: 8rem 0;
+              margin-top: -8rem;
+              margin-bottom: 8rem;
+              ${mediaQueries.until.desktop} {
+                padding: 8rem 6.4rem;
+              }
+            }
             .use-spring-carousel-item {
               cursor: grab;
               :active {
                 cursor: grabbing;
               }
-            }
-            & > * {
-              padding: 8rem 0;
-              margin-top: -8rem;
-              margin-bottom: 8rem;
             }
           `}
         >
@@ -182,6 +240,9 @@ export default function Home() {
           width: 100%;
           display: flex;
           justify-content: center;
+          ${mediaQueries.until.mobile} {
+            margin-top: -8.8rem;
+          }
         `}
       >
         <Link

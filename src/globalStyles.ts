@@ -120,7 +120,7 @@ export const globalStyles = css`
       letter-spacing: 0.64px;
       font-size: 1.6rem;
       color: #414141;
-      overflow: hidden;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
     }

@@ -1,7 +1,7 @@
 import { Header } from "templates/docs/Header";
 import { css } from "linaria";
 import { useSpringCarousel } from "react-spring-carousel";
-import { CarouselItem } from "../src/templates/docs/CarouselItem/CarouselItem";
+import { CarouselItem } from "templates/docs/CarouselItem";
 
 const items = [
   {
@@ -81,7 +81,7 @@ export default function Docs() {
     gutter: 24,
     startEndGutter: 24,
     initialStartingPosition: "center",
-    items: items.map((i, index) => ({
+    items: items.map((i) => ({
       id: i.id,
       renderItem: (
         <CarouselItem

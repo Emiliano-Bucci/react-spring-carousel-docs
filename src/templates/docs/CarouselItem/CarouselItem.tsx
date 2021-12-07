@@ -95,14 +95,15 @@ export function CarouselItem({ title, content, id }: Props) {
         border: 8px solid ${colors.secondaryLight};
         background-color: #fff;
         user-select: none;
+        opacity: 0.8;
+        transform: scale(0.9);
         :active {
           cursor: grabbing;
         }
         p {
           line-height: 1.48;
+          color: ${colors.primaryLight};
         }
-        opacity: 0.8;
-        transform: scale(0.9);
       `}
     >
       <h2
@@ -110,6 +111,7 @@ export function CarouselItem({ title, content, id }: Props) {
           font-weight: bold;
           font-size: 4rem;
           line-height: 1.2;
+          color: ${colors.secondary};
         `}
       >
         {title}

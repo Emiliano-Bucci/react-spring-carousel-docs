@@ -122,6 +122,16 @@ export const globalStyles = css`
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
     }
+    html,
+    body,
+    #__next {
+      width: 100%;
+      min-height: 100vh;
+    }
+    #__next {
+      display: flex;
+      flex-direction: column;
+    }
     ol,
     ul {
       list-style: none;

@@ -10,7 +10,7 @@ import { colors } from "src/theme";
 type Props = PropsWithChildren<{
   linkProps: LinkProps;
   variant?: "primary" | "secondary" | "none";
-  size?: "default" | "small" | "icon";
+  size?: "default" | "small" | "icon" | "none";
 }> &
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
@@ -39,6 +39,9 @@ const styles = css`
   }
   &[data-size="icon"] {
     padding: 0.8rem 0.8rem;
+  }
+  &[data-size="none"] {
+    padding: 0;
   }
 
   &[data-variant="primary"] {

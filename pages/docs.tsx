@@ -1,7 +1,6 @@
 import { Header } from "templates/docs/Header";
 import { css } from "linaria";
 import { useSpringCarousel } from "react-spring-carousel";
-import { useState } from "react";
 import { CarouselItem } from "../src/templates/docs/CarouselItem/CarouselItem";
 
 const items = [
@@ -76,8 +75,7 @@ const items = [
 ];
 
 export default function Docs() {
-  const [activeItem, setActiveItem] = useState(0);
-  const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
+  const { carouselFragment } = useSpringCarousel({
     itemsPerSlide: 3,
     withLoop: true,
     gutter: 24,
@@ -90,18 +88,12 @@ export default function Docs() {
           key={i.id}
           title={i.title}
           content={i.content}
-          isActive={index === activeItem}
           id={i.id}
         />
       ),
     })),
   });
 
-  useListenToCustomEvent((event) => {
-    if (event.eventName === "onSlideStartChange") {
-      setActiveItem(event.nextItem.index);
-    }
-  });
   return (
     <div
       className={css`

@@ -1,23 +1,27 @@
 import { animated, useSpring } from "@react-spring/web";
 import { css } from "linaria";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSpringCarouselContext } from "react-spring-carousel";
 import { colors } from "src/theme";
 
 type Props = {
   title: string;
   content: React.ReactNode;
-  isActive: boolean;
   id: string;
 };
 
-export function CarouselItem({ title, content, isActive, id }: Props) {
+export function CarouselItem({ title, content, id }: Props) {
+  const {
+    useListenToCustomEvent,
+    getIsNextItem,
+    getIsPrevItem,
+    getIsActiveItem,
+  } = useSpringCarouselContext();
+  const [isActive, setIsActive] = useState(getIsActiveItem(id));
   const [styles, setStyles] = useSpring(() => ({
     opacity: isActive ? 1 : 0.8,
     scale: isActive ? 1 : 0.9,
   }));
-  const { useListenToCustomEvent, getIsNextItem, getIsPrevItem } =
-    useSpringCarouselContext();
 
   useListenToCustomEvent((event) => {
     if (event.eventName === "onDrag") {
@@ -38,6 +42,9 @@ export function CarouselItem({ title, content, isActive, id }: Props) {
           scale: 0.9,
         });
       }
+    }
+    if (event.eventName === "onSlideStartChange") {
+      setIsActive(event.nextItem.id === id);
     }
     if (event.eventName === "onSlideChange") {
       if (isActive) {
@@ -67,6 +74,7 @@ export function CarouselItem({ title, content, isActive, id }: Props) {
       });
     }
   }, [isActive]);
+
   return (
     <animated.div
       style={styles}

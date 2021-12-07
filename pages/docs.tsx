@@ -1,7 +1,107 @@
 import { Header } from "templates/docs/Header";
 import { css } from "linaria";
-import { colors } from "src/theme";
+import { useSpringCarousel } from "react-spring-carousel";
+import { useState } from "react";
+import { CarouselItem } from "../src/templates/docs/CarouselItem/CarouselItem";
+
+const items = [
+  {
+    id: "overview",
+    title: "Overview",
+    content: (
+      <>
+        <p>
+          <strong>React Spring Carousel</strong> is a new way of intend the
+          carousel experience in the web. It embraces the philosophy of{" "}
+          <strong>Headless UI</strong>, which means that it's up to the
+          developer to decide how it will look, while the library will only take
+          care about the internal logic and the behavior of the carousel.
+        </p>
+        <p>
+          With <strong>React Spring Carousel</strong> you'll feel for the first
+          time that you have total control on how the Carousel behaves, and
+          you'll find how's easy to interact with it, how simple is to put
+          things in the screen, and how dumb is to make the carousel{" "}
+          <strong>work</strong>.
+        </p>
+        <p>
+          <strong>React Spring Carousel</strong> also embraces the full power of
+          the newest React technology, offering <strong>Hooks</strong> and{" "}
+          <strong>Context</strong> to create and manipulate the behavior of the
+          carousel in any possible way.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "motivation",
+    title: "Motivation",
+    content: (
+      <>
+        <p>
+          Many times happened to me that while i was investigating which library
+          to implement a carousel i could use in my new project, i always had
+          the feeling that it was a difficult thing to do - at least, more than
+          i always thought it should've been.
+        </p>
+        <p>
+          Don't get me wrong, there're lots of good libraries out there, but
+          still i didn't feel free regarding the implementation of the carousel
+          at all. I always had the feeling that i was doing some kind of hack to
+          make it work and fit inside my UI.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "features",
+    title: "Features",
+    content: (
+      <>
+        <p>
+          Many times happened to me that while i was investigating which library
+          to implement a carousel i could use in my new project, i always had
+          the feeling that it was a difficult thing to do - at least, more than
+          i always thought it should've been.
+        </p>
+        <p>
+          Don't get me wrong, there're lots of good libraries out there, but
+          still i didn't feel free regarding the implementation of the carousel
+          at all. I always had the feeling that i was doing some kind of hack to
+          make it work and fit inside my UI.
+        </p>
+      </>
+    ),
+  },
+];
+
 export default function Docs() {
+  const [activeItem, setActiveItem] = useState(0);
+  const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
+    itemsPerSlide: 3,
+    withLoop: true,
+    gutter: 24,
+    startEndGutter: 24,
+    initialStartingPosition: "center",
+    items: items.map((i, index) => ({
+      id: i.id,
+      renderItem: (
+        <CarouselItem
+          key={i.id}
+          title={i.title}
+          content={i.content}
+          isActive={index === activeItem}
+          id={i.id}
+        />
+      ),
+    })),
+  });
+
+  useListenToCustomEvent((event) => {
+    if (event.eventName === "onSlideStartChange") {
+      setActiveItem(event.nextItem.index);
+    }
+  });
   return (
     <div
       className={css`
@@ -13,6 +113,7 @@ export default function Docs() {
           content: "";
           display: block;
           position: absolute;
+          pointer-events: none;
           top: 0;
           left: 0;
           width: 100%;
@@ -37,58 +138,9 @@ export default function Docs() {
           margin: 0 auto;
           width: 100%;
           flex: 1;
-          max-width: 1326px;
         `}
       >
-        <div
-          className={css`
-            display: grid;
-            grid-gap: 0.8rem;
-            max-width: 720px;
-            margin: 0 auto;
-            transition: box-shadow 480ms ease;
-            box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
-              3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
-              2px 13px 30px rgba(0, 0, 0, 0.24);
-            padding: 3.2rem;
-            border-radius: 20px;
-            border: 8px solid ${colors.secondaryLight};
-            background-color: #fff;
-            p {
-              line-height: 1.48;
-            }
-          `}
-        >
-          <h2
-            className={css`
-              font-weight: bold;
-              font-size: 4rem;
-              line-height: 1.2;
-            `}
-          >
-            Overview
-          </h2>
-          <p>
-            <strong>React Spring Carousel</strong> is a new way of intend the
-            carousel experience in the web. It embraces the philosophy of{" "}
-            <strong>Headless UI</strong>, which means that it's up to the
-            developer to decide how it will look, while the library will only
-            take care about the internal logic and the behavior of the carousel.
-          </p>
-          <p>
-            With <strong>React Spring Carousel</strong> you'll feel for the
-            first time that you have total control on how the Carousel behaves,
-            and you'll find how's easy to interact with it, how simple is to put
-            things in the screen, and how dumb is to make the carousel{" "}
-            <strong>work</strong>.
-          </p>
-          <p>
-            <strong>React Spring Carousel</strong> also embraces the full power
-            of the newest React technology, offering <strong>Hooks</strong> and{" "}
-            <strong>Context</strong> to create and manipulate the behavior of
-            the carousel in any possible way.
-          </p>
-        </div>
+        {carouselFragment}
       </div>
     </div>
   );

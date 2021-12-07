@@ -70,21 +70,23 @@ export default function Docs() {
           </h2>
           <p>
             <strong>React Spring Carousel</strong> is a new way of intend the
-            carousel experience in the web. It embraces the philosophy of
+            carousel experience in the web. It embraces the philosophy of{" "}
             <strong>Headless UI</strong>, which means that it's up to the
             developer to decide how it will look, while the library will only
-            care about the internal logic and the behavior of the carousel.
+            take care about the internal logic and the behavior of the carousel.
           </p>
           <p>
             With <strong>React Spring Carousel</strong> you'll feel for the
             first time that you have total control on how the Carousel behaves,
-            and you'll find how's easy to interact with it.
+            and you'll find how's easy to interact with it, how simple is to put
+            things in the screen, and how dumb is to make the carousel{" "}
+            <strong>work</strong>.
           </p>
           <p>
-            It also embraces the full power of the newest React technology,
-            offering
-            <strong>Hooks</strong> and <strong>Context</strong> to create and
-            manipulate the behavior of the carousel in any possible way.
+            <strong>React Spring Carousel</strong> also embraces the full power
+            of the newest React technology, offering <strong>Hooks</strong> and{" "}
+            <strong>Context</strong> to create and manipulate the behavior of
+            the carousel in any possible way.
           </p>
         </div>
       </div>

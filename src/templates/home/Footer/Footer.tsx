@@ -26,6 +26,18 @@ const badges = [
   },
 ];
 
+function Divider() {
+  return (
+    <span
+      className={css`
+        margin: 0 0.8rem;
+      `}
+    >
+      |
+    </span>
+  );
+}
+
 export function Footer() {
   return (
     <footer
@@ -52,11 +64,16 @@ export function Footer() {
           <Img key={i.src} {...i} />
         ))}
       </div>
-      <span
+      <div
         className={css`
-          display: inline-block;
+          display: flex;
+          align-items: center;
           margin-top: 2.4rem;
           font-size: 1.4rem;
+          span {
+            display: inline-block;
+            color: ${colors.primaryLight};
+          }
           a {
             display: inline-block;
             font-size: inherit;
@@ -67,18 +84,37 @@ export function Footer() {
           }
         `}
       >
-        Made by{" "}
-        <Link
-          variant="none"
-          size="none"
-          title="https://cv.emilianobucci.com/"
-          linkProps={{
-            href: "https://cv.emilianobucci.com/",
-          }}
-        >
-          Emiliano Bucci
-        </Link>
-      </span>
+        <span>
+          Made by{" "}
+          <Link
+            variant="none"
+            size="none"
+            title="https://cv.emilianobucci.com/"
+            linkProps={{
+              href: "https://cv.emilianobucci.com/",
+            }}
+          >
+            Emiliano Bucci
+          </Link>
+        </span>
+        <Divider />
+        <span>Build with</span>
+        <Divider />
+        <span>
+          Icons made by{" "}
+          <Link
+            variant="none"
+            size="none"
+            target="_blank"
+            title="https://freeicons.io/profile/3335"
+            linkProps={{
+              href: "https://freeicons.io/profile/3335",
+            }}
+          >
+            MD Badsha Meah
+          </Link>
+        </span>
+      </div>
     </footer>
   );
 }

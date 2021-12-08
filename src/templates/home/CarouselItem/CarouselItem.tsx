@@ -47,6 +47,7 @@ export function CarouselItem({
           .icon-wrapper svg {
             fill: ${colors.secondaryLight};
             opacity: 1;
+            filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.16));
           }
         }
       `}

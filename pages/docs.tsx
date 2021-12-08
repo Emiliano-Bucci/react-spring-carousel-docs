@@ -38,16 +38,29 @@ const items = [
     content: (
       <>
         <p>
-          Many times happened to me that while i was investigating which library
-          to implement a carousel i could use in my new project, i always had
-          the feeling that it was a difficult thing to do - at least, more than
-          i always thought it should've been.
+          <strong>Why another carousel library?</strong> Many times happened to
+          me that while i was investigating which library to implement a
+          carousel i could use in my new project, i always had the feeling that
+          there was something wrong with something (implementation, logic,
+          animation result, ecc)
         </p>
         <p>
           Don't get me wrong, there're lots of good libraries out there, but
-          still i didn't feel free regarding the implementation of the carousel
-          at all. I always had the feeling that i was doing some kind of hack to
-          make it work and fit inside my UI.
+          still i didn't feel enough free regarding the implementation of the
+          carousel at all. I always had the feeling that i was doing some kind
+          of hack to make it work and fit inside my UI. It wasn't something
+          natural, and that feeling always bothered me.
+        </p>
+        <p>
+          With <strong>React Spring Carousel</strong> you're free to create and
+          compose your own carousel without any kind of bounds, without having
+          to override styles or adding weird class names, or some other kind of
+          strange hack, and animations feel naturals and reals. They respond to
+          user interaction like you've always expected to do.
+        </p>
+        <p>
+          <strong>React Spring Carousel</strong> is <strong>declarative</strong>
+          , <strong>simple</strong> and <strong>efficient</strong>.
         </p>
       </>
     ),

@@ -81,6 +81,7 @@ export function CarouselItem({ title, content, id }: Props) {
       data-active={isActive}
       className={css`
         cursor: grab;
+        width: 100%;
         display: grid;
         align-content: start;
         grid-gap: 0.8rem;
@@ -111,6 +112,7 @@ export function CarouselItem({ title, content, id }: Props) {
           font-weight: bold;
           font-size: 4rem;
           line-height: 1.2;
+          margin-bottom: 0.8rem;
           color: ${colors.secondary};
         `}
       >

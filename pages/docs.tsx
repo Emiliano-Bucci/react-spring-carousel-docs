@@ -2,6 +2,35 @@ import { Header } from "templates/docs/Header";
 import { css } from "linaria";
 import { useSpringCarousel } from "react-spring-carousel";
 import { CarouselItem } from "templates/docs/CarouselItem";
+import CheckedSVG from "public/checked.svg";
+import { PropsWithChildren } from "react";
+import { colors } from "src/theme";
+
+function ListItem({ children }: PropsWithChildren<{}>) {
+  return (
+    <li
+      className={css`
+        display: flex;
+        align-items: flex-start;
+      `}
+    >
+      <div
+        className={css`
+          min-width: 26px;
+          min-height: 26px;
+          margin-right: 1.2rem;
+        `}
+      >
+        <CheckedSVG
+          className={css`
+            fill: ${colors.secondary};
+          `}
+        />
+      </div>
+      <span>{children}</span>
+    </li>
+  );
+}
 
 const items = [
   {
@@ -69,20 +98,38 @@ const items = [
     id: "features",
     title: "Features",
     content: (
-      <>
-        <p>
-          Many times happened to me that while i was investigating which library
-          to implement a carousel i could use in my new project, i always had
-          the feeling that it was a difficult thing to do - at least, more than
-          i always thought it should've been.
-        </p>
-        <p>
-          Don't get me wrong, there're lots of good libraries out there, but
-          still i didn't feel free regarding the implementation of the carousel
-          at all. I always had the feeling that i was doing some kind of hack to
-          make it work and fit inside my UI.
-        </p>
-      </>
+      <ul
+        className={css`
+          display: grid;
+          grid-gap: 1.6rem;
+        `}
+      >
+        <ListItem>
+          <strong>Performance</strong>: Thanks to React Spring, performances are
+          on top!
+        </ListItem>
+        <ListItem>
+          <strong>Mobile</strong>: <strong>@use-gesture</strong> offers an
+          excelent mobile experience out of the box!
+        </ListItem>
+        <ListItem>
+          <strong>Resizable</strong>: The carousel will listen to any resize
+          event and will re adapt accordingly.
+        </ListItem>
+        <ListItem>
+          <strong>Slide types</strong>: You have different types of scroll
+          solutions to choose with.
+        </ListItem>
+        <ListItem>
+          <strong>Headless UI</strong>: You can compose all the pieces of the
+          Carousel in any way you want.
+        </ListItem>
+        <ListItem>
+          <strong>Fullscreen capable</strong>: We use{" "}
+          <strong>screenfull.js</strong> to offer a cross browser efficient
+          solution.
+        </ListItem>
+      </ul>
     ),
   },
 ];

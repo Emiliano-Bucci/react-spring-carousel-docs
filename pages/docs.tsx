@@ -18,8 +18,8 @@ function Decorator() {
         className={css`
           display: flex;
           span {
-            width: 20px;
-            height: 4px;
+            width: 22px;
+            height: 6px;
             border-radius: 20px;
             transform: rotate(45deg);
           }
@@ -27,7 +27,11 @@ function Decorator() {
       >
         <span
           className={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: ${colors.primaryLight};
+            position: relative;
           `}
         />
         <span
@@ -120,7 +124,21 @@ export default function Docs() {
             font-weight: bold;
             margin-bottom: 2rem;
             color: ${colors.secondary};
-            border-bottom: 2px solid ${colors.secondaryLight};
+            position: relative;
+            ::before {
+              content: "";
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              border-radius: 20px;
+              background-image: linear-gradient(
+                to right,
+                ${colors.primaryLight},
+                ${colors.secondaryLight}
+              );
+            }
             &:not(:first-of-type) {
               margin-top: 2.4rem;
             }

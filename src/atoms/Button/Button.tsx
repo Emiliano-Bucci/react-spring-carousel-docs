@@ -17,7 +17,7 @@ const styles = css`
   color: #fff;
   transition: all 280ms ease;
   padding: 0.8rem 1.6rem;
-  border-radius: 4px;
+  border-radius: 8px;
   letter-spacing: inherit;
   outline: none;
   line-height: inherit;

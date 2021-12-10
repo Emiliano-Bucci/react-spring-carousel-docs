@@ -98,6 +98,7 @@ export function Header() {
           }}
           title="https://github.com/Emiliano-Bucci/react-spring-carousel"
           target="_blank"
+          size="default"
           className={cx(
             linkStyles,
             css`
@@ -112,6 +113,7 @@ export function Header() {
         </Link>
         <Link
           variant="secondary"
+          size="default"
           linkProps={{
             href: "https://www.npmjs.com/package/react-spring-carousel",
           }}

@@ -4,6 +4,42 @@ import { PropsWithChildren } from "react";
 import { colors } from "src/theme";
 import { HighlightText } from "atoms/HighlightText";
 
+function Decorator() {
+  return (
+    <div
+      className={css`
+        display: flex;
+        justify-content: center;
+        margin: 0.8rem 0;
+        margin-top: 2.4rem;
+      `}
+    >
+      <div
+        className={css`
+          display: flex;
+          span {
+            width: 20px;
+            height: 4px;
+            border-radius: 20px;
+            transform: rotate(45deg);
+          }
+        `}
+      >
+        <span
+          className={css`
+            background-color: ${colors.primaryLight};
+          `}
+        />
+        <span
+          className={css`
+            background-color: ${colors.secondaryLight};
+          `}
+        />
+      </div>
+    </div>
+  );
+}
+
 function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
   return (
     <li
@@ -82,7 +118,9 @@ export default function Docs() {
           h2 {
             font-size: 3.4rem;
             font-weight: bold;
-            margin-bottom: 1.2rem;
+            margin-bottom: 2rem;
+            color: ${colors.secondary};
+            border-bottom: 2px solid ${colors.secondaryLight};
             &:not(:first-of-type) {
               margin-top: 2.4rem;
             }
@@ -123,6 +161,7 @@ export default function Docs() {
             <strong>Context</strong> to create and manipulate the behavior of
             the carousel in any possible way.
           </p>
+          <Decorator />
           <h2>Motivation</h2>
           <p>
             <strong>Why another carousel library?</strong> Many times happened
@@ -145,13 +184,18 @@ export default function Docs() {
             kind of strange hack, and animations feel naturals and reals. They
             respond to user interaction like you've always expected to do.
           </p>
-          <HighlightText>
+          <HighlightText
+            className={css`
+              margin-bottom: 2.4rem;
+            `}
+          >
             <p>
               <strong>React Spring Carousel</strong> is{" "}
               <strong>intuitive</strong>, <strong>simple</strong> and{" "}
               <strong>efficient</strong>.
             </p>
           </HighlightText>
+          <Decorator />
           <h2>Features</h2>
           <ul
             className={css`

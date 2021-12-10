@@ -47,7 +47,7 @@ const styles = css`
   &[data-variant="primary"] {
     background-color: ${colors.secondary};
     color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
       0px 6px 15px rgba(0, 0, 0, 0.06);
     :hover,
@@ -60,7 +60,7 @@ const styles = css`
   &[data-variant="secondary"] {
     background-color: ${colors.secondaryLight};
     color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
       0px 6px 15px rgba(0, 0, 0, 0.06);
     :hover,

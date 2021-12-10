@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/dist/client/router";
 import { Header } from "templates/docs/Header";
 import { Footer } from "templates/home/Footer";
+import { css } from "linaria";
 import "src/globalStyles";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,7 +11,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   if (isDocsPage) {
     return (
-      <div>
+      <div
+        className={css`
+          display: flex;
+          flex-direction: column;
+        `}
+      >
         <Header />
         <Component {...pageProps} />;
         <Footer />

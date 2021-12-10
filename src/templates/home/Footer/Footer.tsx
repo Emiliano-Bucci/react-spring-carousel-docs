@@ -5,22 +5,22 @@ import { Img } from "atoms/Img";
 
 const badges = [
   {
-    src: "https://img.shields.io/bundlephobia/minzip/react-spring-carousel-js",
+    src: "https://img.shields.io/bundlephobia/minzip/react-spring-carousel?style=for-the-badge",
     title: "Shield bundlefobia minzip",
     alt: "Shield bundlefobia minzip",
   },
   {
-    src: "https://img.shields.io/bundlephobia/minzip/react-spring-carousel-js",
+    src: "https://img.shields.io/npm/v/react-spring-carousel?style=for-the-badge",
     title: "Shield npm version",
     alt: "Shield npm version",
   },
   {
-    src: "https://img.shields.io/npm/dm/react-spring-carousel-js",
+    src: "https://img.shields.io/npm/dm/react-spring-carousel?style=for-the-badge",
     title: "Shields month downloads",
     alt: "Shields month downloads",
   },
   {
-    src: "https://img.shields.io/npm/l/react-spring-carousel-js",
+    src: "https://img.shields.io/npm/l/react-spring-carousel?style=for-the-badge",
     title: "Shields license",
     alt: "Shields license",
   },

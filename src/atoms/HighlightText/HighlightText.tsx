@@ -20,6 +20,9 @@ export function HighlightText({
           background-color: ${colors.primaryLighter};
           box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
             0px 8px 20px rgba(0, 0, 0, 0.04);
+          strong {
+            color: ${colors.secondary};
+          }
         `
       )}
       {...rest}

@@ -15,10 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         className={css`
           display: flex;
           flex-direction: column;
+          flex: 1;
         `}
       >
         <Header />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
         <Footer />
       </div>
     );

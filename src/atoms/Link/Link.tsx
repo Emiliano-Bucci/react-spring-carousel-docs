@@ -30,6 +30,7 @@ const styles = css`
   line-height: inherit;
   color: inherit;
   transition: all 280ms ease;
+  border: 2px solid transparent;
 
   &[data-size="default"] {
     padding: 1.2rem 1.6rem;
@@ -45,7 +46,7 @@ const styles = css`
   }
 
   &[data-variant="primary"] {
-    background-color: ${colors.secondary};
+    background-color: ${colors.primaryLight};
     color: #fff;
     border-radius: 8px;
     box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
@@ -55,6 +56,7 @@ const styles = css`
       background-color: ${colors.secondaryLight};
       box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
         0px 12px 30px rgba(0, 0, 0, 0.12);
+      border-color: ${colors.secondary};
     }
   }
   &[data-variant="secondary"] {
@@ -65,9 +67,10 @@ const styles = css`
       0px 6px 15px rgba(0, 0, 0, 0.06);
     :hover,
     :focus {
-      background-color: ${colors.secondary};
+      background-color: ${colors.primaryLight};
       box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
         0px 12px 30px rgba(0, 0, 0, 0.12);
+      border-color: ${colors.primary};
     }
   }
 `;

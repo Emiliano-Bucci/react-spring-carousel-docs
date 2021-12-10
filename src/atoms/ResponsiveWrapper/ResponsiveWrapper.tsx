@@ -15,6 +15,7 @@ export function ResponsiveWrapper({
           margin: 0 auto;
           width: 100%;
           flex: 1;
+          padding: 0 2.4rem;
         `
       )}
     >

@@ -13,14 +13,25 @@ export function Header() {
         padding: 2.4rem;
         position: sticky;
         top: 0;
-        background-image: linear-gradient(
-          to right,
-          ${colors.primaryLight},
-          ${colors.secondaryLight}
-        );
+        z-index: 100;
         box-shadow: 0px 0.9px 2px rgba(0, 0, 0, 0.009),
           0px 2.9px 6.7px rgba(97, 66, 66, 0.016),
           0px 6px 12px rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(2px);
+        ::before {
+          content: "";
+          opacity: 0.9;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: linear-gradient(
+            to right,
+            ${colors.primaryLight},
+            ${colors.secondaryLight}
+          );
+        }
       `}
     >
       <div
@@ -31,6 +42,7 @@ export function Header() {
           width: 100%;
           flex: 1;
           max-width: 1326px;
+          z-index: 100;
         `}
       >
         <h1

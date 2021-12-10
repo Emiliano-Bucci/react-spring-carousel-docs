@@ -146,6 +146,7 @@ export default function Page() {
           flex-direction: column;
           max-width: 800px;
           margin: 0 auto;
+          width: 100%;
         `}
       >
         <h2>Overview</h2>
@@ -238,11 +239,12 @@ export default function Page() {
         className={css`
           display: flex;
           justify-content: center;
+          margin-top: 8rem;
         `}
       >
         <Link
           linkProps={{
-            href: "/install",
+            href: "/docs/install",
           }}
         >
           Let's start!

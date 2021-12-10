@@ -46,7 +46,7 @@ export function Footer() {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 16rem;
+        margin-top: 8rem;
         padding: 4rem;
         background-color: #fff;
         border-top: 4px solid ${colors.secondary};

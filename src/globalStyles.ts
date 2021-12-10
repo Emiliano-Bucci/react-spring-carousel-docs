@@ -154,6 +154,9 @@ export const globalStyles = css`
     strong {
       font-weight: bold;
     }
+    p {
+      line-height: 1.48;
+    }
     p,
     span {
       color: #515151;

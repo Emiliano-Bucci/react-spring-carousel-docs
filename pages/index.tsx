@@ -11,7 +11,6 @@ import HeadlessIcon from "public/headless.svg";
 import ComposableIcon from "public/composable.svg";
 import { mediaQueries, breakpoints } from "src/mediaQueries";
 import { Header } from "templates/home/Header";
-import { Footer } from "templates/home/Footer";
 
 const items = [
   {
@@ -220,7 +219,6 @@ export default function Home() {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

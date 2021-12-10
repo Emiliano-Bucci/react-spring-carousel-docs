@@ -11,6 +11,8 @@ export function Header() {
         display: flex;
         justify-content: center;
         padding: 2.4rem;
+        position: sticky;
+        top: 0;
         background-image: linear-gradient(
           to right,
           ${colors.primaryLight},

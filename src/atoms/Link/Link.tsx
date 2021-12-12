@@ -45,6 +45,18 @@ const styles = css`
     padding: 0;
   }
 
+  &[data-variant="none"] {
+    display: inline-flex;
+    justify-content: flex-start;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 3px;
+
+    :hover,
+    :focus {
+      color: ${colors.secondaryLight};
+    }
+  }
   &[data-variant="primary"] {
     background-color: ${colors.primaryLight};
     color: #fff;

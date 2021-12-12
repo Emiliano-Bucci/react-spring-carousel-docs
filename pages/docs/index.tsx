@@ -3,6 +3,7 @@ import CheckedSVG from "public/checked.svg";
 import { PropsWithChildren } from "react";
 import { colors } from "src/theme";
 import { HighlightText } from "atoms/HighlightText";
+import { NextSeo } from "next-seo";
 
 import { Link } from "atoms/Link";
 
@@ -107,6 +108,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
 export default function Page() {
   return (
     <>
+      <NextSeo title="Introduction - React Spring Carousel" />
       <div
         className={css`
           display: flex;
@@ -177,6 +179,10 @@ export default function Page() {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             grid-gap: 2rem;
+            && {
+              padding-left: 0;
+              list-style: none;
+            }
           `}
         >
           <ListItem title="Performance">

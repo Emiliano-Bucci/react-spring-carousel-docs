@@ -7,10 +7,12 @@ import "src/globalStyles";
 import Head from "next/head";
 import { PropsWithChildren } from "react";
 import { NavLayout } from "templates/docs/Header/NavLayout";
+import { NextSeo } from "next-seo";
 
 function MainWrapper({ children }: PropsWithChildren<Record<string, unknown>>) {
   return (
     <>
+      <NextSeo title="React Spring Carousel" />
       <Head>
         <link
           rel="preload"

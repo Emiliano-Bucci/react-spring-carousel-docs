@@ -24,8 +24,8 @@ export function NavLayout({
   const { pathname } = useRouter();
   const sidebarItems: AccordionRow[] = [
     {
-      id: "about",
-      renderItem: <SidebarNavItem label="About" isSectionTitle />,
+      id: "start",
+      renderItem: <SidebarNavItem label="Start" isSectionTitle />,
       shouldBeInteractive: false,
       children: [
         {
@@ -35,6 +35,16 @@ export function NavLayout({
               label="Introduction"
               href="/docs"
               isActive={pathname === "/docs"}
+            />
+          ),
+        },
+        {
+          id: "premise",
+          renderItem: (
+            <SidebarNavItem
+              label="Premise"
+              href="/docs/premise"
+              isActive={pathname === "/docs/premise"}
             />
           ),
         },
@@ -79,6 +89,10 @@ export function NavLayout({
       <div
         className={css`
           display: flex;
+          ul {
+            list-style: initial;
+            padding-left: 2.4rem;
+          }
           h2 {
             font-size: 3.4rem;
             font-weight: bold;

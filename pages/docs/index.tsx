@@ -217,7 +217,7 @@ export default function Page() {
       >
         <Link
           linkProps={{
-            href: "/docs/install",
+            href: "/docs/premise",
           }}
         >
           Let's start!

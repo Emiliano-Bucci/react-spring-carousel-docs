@@ -93,6 +93,9 @@ export function NavLayout({
             list-style: initial;
             padding-left: 2.4rem;
           }
+          strong {
+            color: ${colors.secondary};
+          }
           h2 {
             font-size: 3.4rem;
             font-weight: bold;
@@ -132,6 +135,16 @@ export function NavLayout({
             & > * {
               position: sticky;
               top: calc(88px + 40px);
+              border: 1px solid ${colors.secondaryLight};
+              padding: 1.6rem;
+              border-radius: 8px;
+              box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
+                0px 6px 15px rgba(0, 0, 0, 0.06);
+              transition: all 280ms ease;
+              :hover {
+                box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
+                  0px 12px 30px rgba(0, 0, 0, 0.12);
+              }
             }
           `}
         >

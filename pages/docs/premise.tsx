@@ -1,6 +1,7 @@
 import { NextSeo } from "next-seo";
 import { BasicList } from "molecoles/BasicList";
 import { Link } from "atoms/Link";
+import { HighlightText } from "atoms/HighlightText";
 export default function Page() {
   return (
     <>
@@ -17,7 +18,7 @@ export default function Page() {
           <Link
             key="https://react-spring.io/hooks/use-spring"
             title="https://react-spring.io/hooks/use-spring"
-            variant="none"
+            variant="default-link"
             size="none"
             target="_blank"
             linkProps={{
@@ -29,7 +30,7 @@ export default function Page() {
           <Link
             key="https://react-spring.io/hooks/use-transition"
             title="https://react-spring.io/hooks/use-transition"
-            variant="none"
+            variant="default-link"
             size="none"
             target="_blank"
             linkProps={{
@@ -40,6 +41,14 @@ export default function Page() {
           </Link>,
         ]}
       />
+      <HighlightText>
+        To be completely honest, the library isn't completely{" "}
+        <strong>Headless UI</strong>, since we must render some{" "}
+        <strong>{`<div />`}</strong> wrappers and apply some{" "}
+        <strong>important</strong> styles to make the carousel work and appear
+        as expected. Apart from that, the library doesn't apply any extra css,
+        or came with some fancy .css file that you need to import.
+      </HighlightText>
     </>
   );
 }

@@ -9,7 +9,7 @@ import { colors } from "src/theme";
 
 type Props = PropsWithChildren<{
   linkProps: LinkProps;
-  variant?: "primary" | "secondary" | "none";
+  variant?: "primary" | "secondary" | "none" | "default-link";
   size?: "default" | "small" | "icon" | "none";
 }> &
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
@@ -45,7 +45,7 @@ const styles = css`
     padding: 0;
   }
 
-  &[data-variant="none"] {
+  &[data-variant="default-link"] {
     display: inline-flex;
     justify-content: flex-start;
     text-decoration: underline;

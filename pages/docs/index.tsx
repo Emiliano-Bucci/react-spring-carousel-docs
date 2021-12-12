@@ -3,7 +3,7 @@ import CheckedSVG from "public/checked.svg";
 import { PropsWithChildren } from "react";
 import { colors } from "src/theme";
 import { HighlightText } from "atoms/HighlightText";
-import { ResponsiveWrapper } from "atoms/ResponsiveWrapper";
+
 import { Link } from "atoms/Link";
 
 function Decorator() {
@@ -106,7 +106,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
 
 export default function Page() {
   return (
-    <ResponsiveWrapper
+    <div
       className={css`
         h2 {
           font-size: 3.4rem;
@@ -250,6 +250,6 @@ export default function Page() {
           Let's start!
         </Link>
       </div>
-    </ResponsiveWrapper>
+    </div>
   );
 }

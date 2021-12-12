@@ -1,7 +1,21 @@
 import { css } from "linaria";
 export const globalStyles = css`
   :global() {
-    @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
+    @font-face {
+      font-family: "Catamaran";
+      src: url("/fonts/Catamaran-Bold.woff2") format("woff2");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Catamaran";
+      src: url("/fonts/Catamaran-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
 
     html,
     body,

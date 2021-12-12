@@ -4,6 +4,7 @@ import { Header } from "templates/docs/Header";
 import { Footer } from "templates/home/Footer";
 import { css } from "linaria";
 import "src/globalStyles";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
@@ -18,6 +19,22 @@ function MyApp({ Component, pageProps }: AppProps) {
           flex: 1;
         `}
       >
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/Catamaran-Medium.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            href="/fonts/Catamaran-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="true"
+          />
+        </Head>
         <Header />
         <Component {...pageProps} />
         <Footer />

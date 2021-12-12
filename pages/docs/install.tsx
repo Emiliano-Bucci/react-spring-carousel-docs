@@ -1,6 +1,54 @@
 import { ResponsiveWrapper } from "atoms/ResponsiveWrapper";
 import { css } from "linaria";
-import { Accordion } from "molecoles/Accordion/Accordion";
+import { Accordion, AccordionRow } from "molecoles/Accordion";
+import { SidebarNavItem } from "atoms/SidebarNavItem";
+
+const sectionItemStyles = css`
+  &:not(:last-of-type) {
+    margin-bottom: 1.6rem;
+  }
+`;
+
+const sectionProps = {
+  props: {
+    className: sectionItemStyles,
+  },
+};
+
+const sidebarItems: AccordionRow[] = [
+  {
+    id: "about",
+    renderItem: <SidebarNavItem label="About" isSectionTitle />,
+    shouldBeInteractive: false,
+    children: [
+      {
+        id: "introduction",
+        renderItem: <SidebarNavItem label="Introduction" />,
+      },
+    ],
+    ...sectionProps,
+  },
+  {
+    id: "docs",
+    renderItem: <SidebarNavItem label="Docs" isSectionTitle />,
+    shouldBeInteractive: false,
+    children: [
+      {
+        id: "install",
+        renderItem: <SidebarNavItem label="Install" />,
+      },
+      {
+        id: "examples",
+        renderItem: <SidebarNavItem label="Examples" />,
+      },
+    ],
+    ...sectionProps,
+  },
+  {
+    id: "references",
+    renderItem: <SidebarNavItem label="References" isSectionTitle />,
+  },
+];
 
 export default function Page() {
   return (
@@ -16,38 +64,7 @@ export default function Page() {
             max-width: 200px;
           `}
         >
-          <Accordion
-            data={[
-              {
-                id: "item 1",
-                renderItem: <div>Item 1</div>,
-                children: [
-                  {
-                    id: "child item 1a",
-                    renderItem: <div>Child item 1a</div>,
-                  },
-                  {
-                    id: "child item 1b",
-                    renderItem: <div>Child item 1b</div>,
-                  },
-                ],
-              },
-              {
-                id: "item 2",
-                renderItem: <div>Item 2</div>,
-                children: [
-                  {
-                    id: "child item 2a",
-                    renderItem: <div>Child item 2a</div>,
-                  },
-                  {
-                    id: "child item 2b",
-                    renderItem: <div>Child item 2b</div>,
-                  },
-                ],
-              },
-            ]}
-          />
+          <Accordion data={sidebarItems} />
         </aside>
         <div
           className={css`

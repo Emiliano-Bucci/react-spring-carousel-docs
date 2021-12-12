@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { css } from "linaria";
+import { HTMLAttributes, useMemo, useState } from "react";
+import { css, cx } from "linaria";
 import { useMeasure } from "utils/useMeasure";
 import React from "react";
 import { animated, useSpring } from "react-spring";
@@ -28,15 +28,17 @@ export function assignDepth(arr, depth = 0, index = 0) {
   return newArray as RowWithDepth[];
 }
 
-type Row = {
+export type AccordionRow = {
   id: string;
   renderItem: React.ReactNode;
-  children?: Row[];
+  children?: AccordionRow[];
+  shouldBeInteractive?: boolean;
   isInitiallyExpanded?: boolean;
+  props?: HTMLAttributes<HTMLDivElement>;
 };
 
 type Props = {
-  data: Row[];
+  data: AccordionRow[];
 };
 
 function RowItem({
@@ -46,31 +48,38 @@ function RowItem({
   expandItem,
   toggle,
   id,
-}: Row & {
+  shouldBeInteractive = true,
+  props = {},
+}: AccordionRow & {
   activeItems: string[];
   expandItem(id: string): void;
   toggle(id: string): void;
 }) {
+  const { className, ...restProps } = props;
   const isExpanded = activeItems.includes(id);
   const [{ ref }, { height }] = useMeasure();
   const { height: springHeight } = useSpring({
-    height: isExpanded ? height : 0,
+    height: isExpanded || !shouldBeInteractive ? height : 0,
+    immediate: !shouldBeInteractive,
   });
   function handleToggleItem() {
     toggle(id);
   }
   return (
     <div
-      onClick={handleToggleItem}
-      className={css`
-        display: grid;
-        cursor: pointer;
-      `}
+      onClick={shouldBeInteractive ? handleToggleItem : undefined}
+      className={cx(
+        className,
+        css`
+          display: grid;
+        `
+      )}
+      {...restProps}
     >
       {renderItem}
       <animated.div
         style={{
-          height: springHeight,
+          height: !shouldBeInteractive ? "auto" : springHeight,
         }}
         className={css`
           overflow: hidden;

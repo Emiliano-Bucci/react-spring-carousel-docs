@@ -4,6 +4,7 @@ import { Accordion, AccordionRow } from "molecoles/Accordion";
 import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useRouter } from "next/dist/client/router";
 import { PropsWithChildren } from "react";
+import { colors } from "src/theme";
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
@@ -78,6 +79,36 @@ export function NavLayout({
       <div
         className={css`
           display: flex;
+          h2 {
+            font-size: 3.4rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: ${colors.secondary};
+            position: relative;
+            padding-left: 1.2rem;
+            ::before {
+              content: "";
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              border-radius: 20px;
+              background-image: linear-gradient(
+                to right,
+                ${colors.primaryLight},
+                ${colors.secondaryLight}
+              );
+            }
+            &:not(:first-of-type) {
+              margin-top: 2.4rem;
+            }
+          }
+          p {
+            &:not(:last-child) {
+              margin-bottom: 2.4rem;
+            }
+          }
         `}
       >
         <nav

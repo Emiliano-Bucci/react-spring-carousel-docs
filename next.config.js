@@ -1,5 +1,4 @@
 const withLinaria = require("next-linaria");
-const withPlugins = require("next-compose-plugins");
 
 const nextConfig = {
   webpack: (config) => {

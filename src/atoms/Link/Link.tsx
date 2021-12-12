@@ -56,7 +56,7 @@ const styles = css`
       background-color: ${colors.secondaryLight};
       box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
         0px 12px 30px rgba(0, 0, 0, 0.12);
-      border-color: ${colors.secondary};
+      border-color: ${colors.secondaryDarker};
     }
   }
   &[data-variant="secondary"] {

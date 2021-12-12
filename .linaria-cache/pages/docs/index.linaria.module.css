@@ -4,10 +4,10 @@
 .s2lcsrv{background-color:#ED707D;}
 .l1i2zsoq{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;text-align:center;border-radius:12px;border:1px solid #ED707D;padding:1.6rem;-webkit-transition:all 280ms ease;transition:all 280ms ease;box-shadow:0px 1.5px 3.8px rgba(0,0,0,0.03), 0px 6px 15px rgba(0,0,0,0.06);}.l1i2zsoq:hover{box-shadow:0.9px 0.9px 2px rgba(0,0,0,0.009), 3.1px 2.9px 6.7px rgba(97,66,66,0.016), 2px 13px 30px rgba(0,0,0,0.12);}.l1i2zsoq:hover svg{fill:#ED707D;}
 .d18yp9on{min-width:32px;min-height:32px;margin-bottom:0.8rem;}
-.c1bovq7d{fill:#BA6980;-webkit-transition:all 280ms ease;transition:all 280ms ease;}
+.c1bovq7d{fill:#b96980;-webkit-transition:all 280ms ease;transition:all 280ms ease;}
 .h12fdj11{font-size:1.8rem;}
 .s1r7alz1{font-size:1.48rem;}
-.rp8ugd3 h2{font-size:3.4rem;font-weight:bold;margin-bottom:2rem;color:#BA6980;position:relative;padding-left:1.2rem;}.rp8ugd3 h2::before{content:"";position:absolute;top:100%;left:0;width:100%;height:4px;border-radius:20px;background-image:linear-gradient( to right, #6A5A79, #ED707D );}.rp8ugd3 h2:not(:first-of-type){margin-top:2.4rem;}.rp8ugd3 p:not(:last-child){margin-bottom:2.4rem;}
+.rp8ugd3 h2{font-size:3.4rem;font-weight:bold;margin-bottom:2rem;color:#b96980;position:relative;padding-left:1.2rem;}.rp8ugd3 h2::before{content:"";position:absolute;top:100%;left:0;width:100%;height:4px;border-radius:20px;background-image:linear-gradient( to right, #6A5A79, #ED707D );}.rp8ugd3 h2:not(:first-of-type){margin-top:2.4rem;}.rp8ugd3 p:not(:last-child){margin-bottom:2.4rem;}
 .d17x888n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;max-width:800px;margin:0 auto;width:100%;}
 .h1yxa6pr{margin-bottom:2.4rem;}
 .ui4xl1h{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));grid-gap:2rem;}

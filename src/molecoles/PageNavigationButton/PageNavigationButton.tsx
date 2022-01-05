@@ -71,6 +71,11 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
           margin-bottom: 0.24rem;
           text-transform: uppercase;
           font-size: 1.2rem;
+          transition: color 280ms ease;
+          a:hover &,
+          a:focus & {
+            color: ${colors.secondaryLight};
+          }
         `}
       >
         {type}
@@ -78,6 +83,11 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
       <span
         className={css`
           font-weight: bold;
+          transition: color 280ms ease;
+          a:hover &,
+          a:focus & {
+            color: ${colors.secondaryLight};
+          }
         `}
       >
         {children}
@@ -90,6 +100,11 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
             height: 12px;
             position: absolute;
             transition: all 280ms ease;
+            fill: ${colors.primary};
+            a:hover &,
+            a:focus & {
+              fill: ${colors.secondary};
+            }
           `
         )}
       />

@@ -1,5 +1,6 @@
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
+import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 
 const npmInstallCode = `// npm v7+
 npm install --save react-spring-carousel`;
@@ -10,7 +11,7 @@ yarn add react-spring-carousel react-spring`;
 
 export default function Page() {
   return (
-    <div>
+    <>
       <h2>Installation</h2>
       <div
         className={css`
@@ -22,6 +23,16 @@ export default function Page() {
         <SyntaxHiglight showLineNumbers={false} code={npmOldInstallCode} />
         <SyntaxHiglight showLineNumbers={false} code={yarnInstallCode} />
       </div>
-    </div>
+      <PageNavigationFooter
+        prevBtn={{
+          label: "Premise",
+          href: "/docs/premise",
+        }}
+        nextBtn={{
+          label: "Examples",
+          href: "/docs/examples",
+        }}
+      />
+    </>
   );
 }

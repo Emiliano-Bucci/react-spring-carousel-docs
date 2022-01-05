@@ -50,12 +50,7 @@ export default function Page() {
         as expected. Apart from that, the library doesn't apply any extra css,
         or came with some fancy .css file that you need to import.
       </HighlightText>
-
       <PageNavigationFooter
-        prevBtn={{
-          label: "Install",
-          href: "/docs/install",
-        }}
         nextBtn={{
           label: "Install",
           href: "/docs/install",

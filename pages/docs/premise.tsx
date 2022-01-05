@@ -1,4 +1,3 @@
-import { NextSeo } from "next-seo";
 import { BasicList } from "molecoles/BasicList";
 import { Link } from "atoms/Link";
 import { HighlightText } from "atoms/HighlightText";
@@ -6,7 +5,6 @@ import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 export default function Page() {
   return (
     <>
-      <NextSeo title="Premise - React Spring Carousel" />
       <h2>Premise</h2>
       <p>The library cames with two solutions depending on your needs:</p>
       <BasicList items={["useSpringCarousel", "useTransitionCarousel"]} />
@@ -58,4 +56,12 @@ export default function Page() {
       />
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: "Premise",
+    },
+  };
 }

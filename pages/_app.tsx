@@ -1,4 +1,4 @@
-import type { AppProps } from "next/app";
+import type { AppProps as NextAppProps } from "next/app";
 import { useRouter } from "next/dist/client/router";
 import { Header } from "templates/docs/Header";
 import { Footer } from "templates/home/Footer";
@@ -9,10 +9,21 @@ import { PropsWithChildren } from "react";
 import { NavLayout } from "templates/docs/Header/NavLayout";
 import { NextSeo } from "next-seo";
 
-function MainWrapper({ children }: PropsWithChildren<Record<string, unknown>>) {
+type AppProps<P = Record<string, never>> = {
+  pageProps: P;
+} & Omit<NextAppProps<P>, "pageProps">;
+
+function MainWrapper({
+  children,
+  title,
+}: PropsWithChildren<{ title?: string }>) {
   return (
     <>
-      <NextSeo title="React Spring Carousel" />
+      <NextSeo
+        title={
+          title ? `${title} - React Spring Carousel` : "React Spring Carousel"
+        }
+      />
       <Head>
         <link
           rel="preload"
@@ -34,13 +45,13 @@ function MainWrapper({ children }: PropsWithChildren<Record<string, unknown>>) {
   );
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
   const { pathname } = useRouter();
   const isDocsPage = pathname.includes("/docs");
 
   if (isDocsPage) {
     return (
-      <MainWrapper>
+      <MainWrapper title={pageProps.title ?? ""}>
         <div
           className={css`
             display: flex;

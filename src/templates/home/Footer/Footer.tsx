@@ -47,26 +47,10 @@ export function Footer() {
         justify-content: center;
         align-items: center;
         margin-top: 8rem;
-        padding: 4rem;
+        padding: 3.2rem;
         background-color: #fff;
         border-top: 4px solid ${colors.secondary};
         position: relative;
-        ::before {
-          content: "";
-          display: block;
-          position: absolute;
-          pointer-events: none;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1;
-          background-image: radial-gradient(
-            ${colors.secondary},
-            ${colors.secondaryLight}
-          );
-          opacity: 0.28;
-        }
       `}
     >
       <div

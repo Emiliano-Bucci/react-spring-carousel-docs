@@ -125,6 +125,10 @@ export function NavLayout({
             &:not(:last-child) {
               margin-bottom: 2.4rem;
             }
+
+            + ul {
+              margin-top: -1.2rem;
+            }
           }
         `}
       >
@@ -135,7 +139,7 @@ export function NavLayout({
             & > * {
               position: sticky;
               top: calc(88px + 40px);
-              border: 1px solid ${colors.secondaryLight};
+              border: 2px solid ${colors.secondaryLight};
               padding: 1.6rem;
               border-radius: 8px;
               box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),

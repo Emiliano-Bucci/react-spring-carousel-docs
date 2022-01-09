@@ -5,7 +5,7 @@ import {
   PropsWithChildren,
 } from "react";
 import { css, cx } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 
 export type Props = PropsWithChildren<{
   linkProps: LinkProps;
@@ -30,7 +30,6 @@ const styles = css`
   line-height: inherit;
   color: inherit;
   transition: all 280ms ease;
-  border: 2px solid transparent;
 
   &[data-size="default"] {
     padding: 1.2rem 1.6rem;
@@ -58,28 +57,22 @@ const styles = css`
     background-color: ${colors.primaryLight};
     color: #fff;
     border-radius: 8px;
-    box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-      0px 6px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: ${shadows.small};
     :hover,
     :focus {
-      background-color: ${colors.secondaryLight};
-      box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-        0px 12px 30px rgba(0, 0, 0, 0.12);
-      border-color: ${colors.secondaryDarker};
+      background-color: ${colors.primary};
+      box-shadow: ${shadows.medium};
     }
   }
   &[data-variant="secondary"] {
     background-color: ${colors.secondaryLight};
     color: #fff;
     border-radius: 8px;
-    box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-      0px 6px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: ${shadows.small};
     :hover,
     :focus {
-      background-color: ${colors.primaryLight};
-      box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-        0px 12px 30px rgba(0, 0, 0, 0.12);
-      border-color: ${colors.primary};
+      background-color: ${colors.secondary};
+      box-shadow: ${shadows.medium};
     }
   }
 `;

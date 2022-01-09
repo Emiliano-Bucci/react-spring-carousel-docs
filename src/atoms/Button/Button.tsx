@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import { css, cx } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 
 type Props = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -22,13 +22,11 @@ const styles = css`
   letter-spacing: inherit;
   outline: none;
   line-height: inherit;
-  box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-    0px 6px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: ${shadows.small};
   :hover,
   :focus {
     background-color: ${colors.secondaryLight};
-    box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-      0px 12px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: ${shadows.medium};
   }
 `;
 

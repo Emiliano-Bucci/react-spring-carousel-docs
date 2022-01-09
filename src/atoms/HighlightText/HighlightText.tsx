@@ -1,6 +1,6 @@
 import { HTMLAttributes, PropsWithChildren } from "react";
 import { css, cx } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 
 export function HighlightText({
   children,
@@ -15,9 +15,7 @@ export function HighlightText({
           border-radius: 8px;
           padding: 2rem 1.6rem;
           border-left: 6px solid ${colors.secondaryLight};
-          background-color: ${colors.primaryLighter};
-          box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.008),
-            0px 8px 20px rgba(255, 102, 102, 0.056);
+          box-shadow: ${shadows.small};
           strong {
             color: ${colors.secondary};
           }

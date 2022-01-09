@@ -9,15 +9,8 @@ const nextConfig = {
       //
       // This allows configuring other behavior for
       // svgs imported from other file types (such as .css)
-      issuer: { and: [/\.(js|ts|md)x?$/] },
-      use: [
-        {
-          loader: "@svgr/webpack",
-          options: {
-            svgoConfig: { plugins: [{ removeViewBox: false }] },
-          },
-        },
-      ],
+      issuer: { and: [/\.(js|ts|md|tsx)x?$/] },
+      use: ["@svgr/webpack"],
     });
     return config;
   },

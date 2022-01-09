@@ -5,6 +5,7 @@ import { colors } from "src/theme";
 import { HighlightText } from "atoms/HighlightText";
 
 import { Link } from "atoms/Link";
+import { shadows } from "src/theme";
 
 function Decorator() {
   return (
@@ -60,12 +61,9 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
         border: 1px solid ${colors.secondaryLight};
         padding: 1.6rem;
         transition: all 280ms ease;
-        box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-          0px 6px 15px rgba(0, 0, 0, 0.06);
+        box-shadow: ${shadows.small};
         :hover {
-          box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
-            3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
-            2px 13px 30px rgba(0, 0, 0, 0.12);
+          box-shadow: ${shadows.large};
           svg {
             fill: ${colors.secondaryLight};
           }

@@ -1,7 +1,6 @@
 import { css, cx } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
-
 import GithubIcon from "public/github.svg";
 import NpmIcon from "public/npm.svg";
 import { Link } from "atoms/Link";
@@ -27,9 +26,7 @@ export function Header() {
         color: #fafafa;
         z-index: 10;
         border-bottom: 8px solid ${colors.secondaryLight};
-        box-shadow: 0px 0.9px 2px rgba(0, 0, 0, 0.009),
-          0px 2.9px 6.7px rgba(97, 66, 66, 0.016),
-          0px 6px 12px rgba(0, 0, 0, 0.12);
+        box-shadow: ${shadows.large}
         background-image: linear-gradient(
           to right,
           ${colors.primaryLight},

@@ -2,7 +2,7 @@ import { css, cx } from "linaria";
 import { useSpringCarouselContext } from "react-spring-carousel";
 import { FC } from "react";
 import { animated, useSpring } from "react-spring";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
 
 export function CarouselItem({
@@ -40,9 +40,7 @@ export function CarouselItem({
         &[data-active="true"] {
           z-index: 10;
           & > * {
-            box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
-              3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
-              4px 12px 30px 4px rgba(0, 0, 0, 0.12);
+            box-shadow: ${shadows.large};
           }
           .icon-wrapper svg {
             fill: ${colors.secondaryLight};
@@ -65,10 +63,7 @@ export function CarouselItem({
           border-radius: 16px;
           padding: 2.4rem;
           transition: box-shadow 480ms ease;
-          box-shadow: 0.9px 0.9px 2px rgba(0, 0, 0, 0.009),
-            3.1px 2.9px 6.7px rgba(97, 66, 66, 0.016),
-            14px 13px 30px rgba(0, 0, 0, 0.08);
-          ${mediaQueries.until.desktop} {
+          box-shadow: ${shadows.large} ${mediaQueries.until.desktop} {
             max-width: 340px;
           }
           ${mediaQueries.until.tabletM} {

@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react";
 import { Props as LinkProps } from "atoms/Link";
 import { cx, css } from "linaria";
 import ArrowIcon from "public/arrow.svg";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 
 type Props = PropsWithChildren<{ type: "prev" | "next" } & LinkProps>;
 
@@ -54,13 +54,11 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
           padding: 1.2rem 1.4rem;
           border-radius: 8px;
           transition: all 280ms ease;
-          box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-            0px 6px 15px rgba(0, 0, 0, 0.06);
+          box-shadow: ${shadows.small};
           :hover,
           :focus {
             border-color: ${colors.primaryLight};
-            box-shadow: 0px 1.5px 3.8px rgba(0, 0, 0, 0.03),
-              0px 12px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: ${shadows.medium};
           }
         `
       )}

@@ -1,8 +1,8 @@
 import { css, cx } from "linaria";
-import { colors } from "src/theme";
 import GithubIcon from "public/github.svg";
 import NpmIcon from "public/npm.svg";
 import { Link } from "atoms/Link";
+import { colors, shadows } from "src/theme";
 
 export function Header() {
   return (
@@ -10,28 +10,12 @@ export function Header() {
       className={css`
         display: flex;
         justify-content: center;
-        padding: 2.4rem;
+        padding: 1.6rem 2.4rem;
         position: sticky;
         top: 0;
-        z-index: 100;
-        box-shadow: 0px 0.9px 2px rgba(0, 0, 0, 0.009),
-          0px 2.9px 6.7px rgba(97, 66, 66, 0.016),
-          0px 6px 12px rgba(0, 0, 0, 0.12);
         backdrop-filter: blur(2px);
-        ::before {
-          content: "";
-          opacity: 0.9;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: linear-gradient(
-            to right,
-            ${colors.primaryLight},
-            ${colors.secondaryLight}
-          );
-        }
+        z-index: 100;
+        box-shadow: ${shadows.small};
       `}
     >
       <div
@@ -49,7 +33,7 @@ export function Header() {
           className={css`
             font-weight: bold;
             font-size: 2.4rem;
-            color: #fff;
+            color: ${colors.secondary};
           `}
         >
           React Spring Carousel

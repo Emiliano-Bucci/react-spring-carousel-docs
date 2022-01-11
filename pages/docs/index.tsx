@@ -3,7 +3,6 @@ import CheckedSVG from "public/checked.svg";
 import { PropsWithChildren } from "react";
 import { colors } from "src/theme";
 import { HighlightText } from "atoms/HighlightText";
-
 import { Link } from "atoms/Link";
 import { shadows } from "src/theme";
 
@@ -47,7 +46,6 @@ function Decorator() {
     </div>
   );
 }
-
 function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
   return (
     <li
@@ -105,15 +103,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
 export default function Page() {
   return (
     <>
-      <div
-        className={css`
-          display: flex;
-          flex-direction: column;
-          max-width: 800px;
-          margin: 0 auto;
-          width: 100%;
-        `}
-      >
+      <div>
         <h2>Overview</h2>
         <p>
           <strong>React Spring Carousel</strong> is a new way of intend the

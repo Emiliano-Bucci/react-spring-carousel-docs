@@ -39,6 +39,12 @@ const styles = css`
   }
   &[data-size="icon"] {
     padding: 0.8rem 0.8rem;
+    width: 38px;
+    height: 38px;
+    svg {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &[data-variant="default-link"] {
@@ -47,7 +53,6 @@ const styles = css`
     text-decoration: underline;
     text-underline-offset: 2px;
     text-decoration-thickness: 3px;
-
     :hover,
     :focus {
       color: ${colors.secondaryLight};
@@ -57,7 +62,7 @@ const styles = css`
     background-color: ${colors.primaryLight};
     color: #fff;
     border-radius: 8px;
-    box-shadow: ${shadows.small};
+    box-shadow: ${shadows.medium};
     :hover,
     :focus {
       background-color: ${colors.primary};
@@ -68,7 +73,7 @@ const styles = css`
     background-color: ${colors.secondaryLight};
     color: #fff;
     border-radius: 8px;
-    box-shadow: ${shadows.small};
+    box-shadow: ${shadows.medium};
     :hover,
     :focus {
       background-color: ${colors.secondary};

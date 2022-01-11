@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import { Link } from "atoms/Link/Link";
 import { Img } from "atoms/Img";
 
@@ -46,11 +46,11 @@ export function Footer() {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 8rem;
         padding: 3.2rem;
         background-color: #fff;
-        border-top: 4px solid ${colors.secondary};
         position: relative;
+        margin-top: auto;
+        box-shadow: ${shadows.large};
       `}
     >
       <div

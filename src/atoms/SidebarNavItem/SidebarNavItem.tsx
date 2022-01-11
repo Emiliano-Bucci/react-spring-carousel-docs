@@ -10,8 +10,8 @@ type Props = {
 };
 
 const activeStyles = css`
-  background-color: ${colors.secondaryLight};
-  color: ${colors.secondaryLight} !important;
+  background-color: ${colors.secondaryDarker};
+  color: ${colors.secondaryDarker} !important;
 `;
 
 export function SidebarNavItem({
@@ -26,10 +26,12 @@ export function SidebarNavItem({
         className={css`
           display: flex;
           align-items: center;
-          color: ${colors.secondaryDarker};
           font-weight: bold;
           text-transform: uppercase;
           margin-bottom: 0.4rem;
+          span {
+            color: ${colors.secondaryDarker};
+          }
         `}
       >
         <span>{label}</span>
@@ -42,7 +44,7 @@ export function SidebarNavItem({
       variant="none"
       size="none"
       className={css`
-        color: ${colors.secondaryDarker};
+        color: ${colors.secondary};
         padding: 0.4rem 0.8rem;
         cursor: pointer;
         justify-content: flex-start;

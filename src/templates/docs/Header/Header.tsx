@@ -55,10 +55,6 @@ export function Header() {
             className={cx(
               css`
                 margin-right: 1.2rem;
-                svg {
-                  width: 20px;
-                  height: 20px;
-                }
               `
             )}
           >
@@ -67,19 +63,11 @@ export function Header() {
           <Link
             variant="secondary"
             size="icon"
+            title="https://www.npmjs.com/package/react-spring-carousel"
+            target="_blank"
             linkProps={{
               href: "https://www.npmjs.com/package/react-spring-carousel",
             }}
-            title="https://www.npmjs.com/package/react-spring-carousel"
-            target="_blank"
-            className={cx(
-              css`
-                svg {
-                  width: 20px;
-                  height: 20px;
-                }
-              `
-            )}
           >
             <NpmIcon />
           </Link>

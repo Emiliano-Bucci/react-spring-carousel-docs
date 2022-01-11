@@ -1,10 +1,9 @@
-import { ResponsiveWrapper } from "atoms/ResponsiveWrapper";
 import { css } from "linaria";
 import { Accordion, AccordionRow } from "molecoles/Accordion";
 import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useRouter } from "next/dist/client/router";
-import { PropsWithChildren } from "react";
-import { colors, shadows } from "src/theme";
+import { ReactNode } from "react";
+import { colors } from "src/theme";
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
@@ -18,9 +17,68 @@ const sectionProps = {
   },
 };
 
-export function NavLayout({
-  children,
-}: PropsWithChildren<Record<string, unknown>>) {
+function Wrapper({ children }: { children: ReactNode }) {
+  return (
+    <div
+      className={css`
+        display: flex;
+        ul {
+          list-style: initial;
+          padding-left: 2.4rem;
+          li:not(:last-of-type) {
+            margin-bottom: 0.8rem;
+          }
+        }
+        strong {
+          color: ${colors.secondary};
+        }
+        h2 {
+          font-size: 3.4rem;
+          font-weight: bold;
+          margin-bottom: 3.2rem;
+          color: ${colors.secondary};
+          position: relative;
+          padding-left: 1.2rem;
+          ::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            border-radius: 20px;
+            background-image: linear-gradient(
+              to right,
+              ${colors.primaryLight},
+              ${colors.secondaryLight}
+            );
+          }
+          &:not(:first-of-type) {
+            margin-top: 2.4rem;
+          }
+        }
+        p {
+          &:not(:last-child) {
+            margin-bottom: 2.4rem;
+          }
+
+          + ul {
+            margin-top: -1.2rem;
+          }
+        }
+      `}
+    >
+      {children}
+    </div>
+  );
+}
+
+type Props = {
+  pageContent: ReactNode;
+  footerFragment: ReactNode;
+};
+
+export function NavLayout({ pageContent, footerFragment }: Props) {
   const { pathname } = useRouter();
   const sidebarItems: AccordionRow[] = [
     {
@@ -85,85 +143,54 @@ export function NavLayout({
     },
   ];
   return (
-    <ResponsiveWrapper>
+    <Wrapper>
       <div
         className={css`
-          display: flex;
-          ul {
-            list-style: initial;
-            padding-left: 2.4rem;
-          }
-          strong {
-            color: ${colors.secondary};
-          }
-          h2 {
-            font-size: 3.4rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            color: ${colors.secondary};
-            position: relative;
-            padding-left: 1.2rem;
-            ::before {
-              content: "";
-              position: absolute;
-              top: 100%;
-              left: 0;
-              width: 100%;
-              height: 4px;
-              border-radius: 20px;
-              background-image: linear-gradient(
-                to right,
-                ${colors.primaryLight},
-                ${colors.secondaryLight}
-              );
-            }
-            &:not(:first-of-type) {
-              margin-top: 2.4rem;
-            }
-          }
-          p {
-            &:not(:last-child) {
-              margin-bottom: 2.4rem;
-            }
-
-            + ul {
-              margin-top: -1.2rem;
-            }
-          }
+          width: 100%;
+          height: 100vh;
+          position: sticky;
+          top: 0;
+          max-width: 320px;
+          padding: 2.4rem;
+          background-color: ${colors.dark};
         `}
       >
-        <nav
+        <h1
           className={css`
-            width: 100%;
-            max-width: 200px;
-            & > * {
-              position: sticky;
-              top: calc(88px + 40px);
-              border: 2px solid ${colors.secondaryLight};
-              padding: 1.6rem;
-              border-radius: 8px;
-              box-shadow: ${shadows.small};
-              transition: all 280ms ease;
-              :hover {
-                box-shadow: ${shadows.large};
-              }
-            }
+            color: ${colors.secondary};
+            font-size: 2.4rem;
+            margin-bottom: 2.4rem;
           `}
         >
+          React Spring Carousel
+        </h1>
+        <nav>
           <Accordion data={sidebarItems} />
         </nav>
+      </div>
+      <div
+        className={css`
+          width: 100%;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        `}
+      >
         <div
           className={css`
+            flex: 1;
             display: flex;
             flex-direction: column;
-            max-width: 800px;
+            max-width: 960px;
             margin: 0 auto;
             width: 100%;
+            padding: 8rem;
           `}
         >
-          {children}
+          {pageContent}
         </div>
+        {footerFragment}
       </div>
-    </ResponsiveWrapper>
+    </Wrapper>
   );
 }

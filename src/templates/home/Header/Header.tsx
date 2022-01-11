@@ -26,7 +26,7 @@ export function Header() {
         color: #fafafa;
         z-index: 10;
         border-bottom: 8px solid ${colors.secondaryLight};
-        box-shadow: ${shadows.large}
+        box-shadow: ${shadows.large};
         background-image: linear-gradient(
           to right,
           ${colors.primaryLight},

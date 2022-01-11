@@ -1,6 +1,5 @@
 import type { AppProps as NextAppProps } from "next/app";
 import { useRouter } from "next/dist/client/router";
-import { Header } from "templates/docs/Header";
 import { Footer } from "templates/home/Footer";
 import { css } from "linaria";
 import "src/globalStyles";
@@ -59,11 +58,11 @@ function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
             flex: 1;
           `}
         >
-          <Header />
-          <NavLayout>
-            <Component {...pageProps} />
-          </NavLayout>
-          <Footer />
+          {/* <Header /> */}
+          <NavLayout
+            pageContent={<Component {...pageProps} />}
+            footerFragment={<Footer />}
+          />
         </div>
       </MainWrapper>
     );

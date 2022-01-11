@@ -63,7 +63,8 @@ export function CarouselItem({
           border-radius: 16px;
           padding: 2.4rem;
           transition: box-shadow 480ms ease;
-          box-shadow: ${shadows.large} ${mediaQueries.until.desktop} {
+          box-shadow: ${shadows.small};
+          ${mediaQueries.until.desktop} {
             max-width: 340px;
           }
           ${mediaQueries.until.tabletM} {
@@ -79,6 +80,7 @@ export function CarouselItem({
       >
         <div
           className={cx(
+            "icon-wrapper",
             css`
               width: 72px;
               height: 72px;
@@ -89,8 +91,7 @@ export function CarouselItem({
                 fill: ${colors.primary};
                 opacity: 0.48;
               }
-            `,
-            "icon-wrapper"
+            `
           )}
         >
           <Icon />

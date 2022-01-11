@@ -16,7 +16,8 @@ export function PageNavigationFooter({ prevBtn, nextBtn }: Props) {
       className={css`
         display: flex;
         justify-content: space-between;
-        margin-top: 8rem;
+        padding-top: 8rem;
+        margin-top: auto;
         & > * {
           :last-of-type {
             margin-left: auto;

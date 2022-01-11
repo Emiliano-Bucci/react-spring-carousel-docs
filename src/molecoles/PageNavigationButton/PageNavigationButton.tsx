@@ -55,6 +55,7 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
           border-radius: 8px;
           transition: all 280ms ease;
           box-shadow: ${shadows.small};
+          background-color: #fff;
           :hover,
           :focus {
             border-color: ${colors.primaryLight};

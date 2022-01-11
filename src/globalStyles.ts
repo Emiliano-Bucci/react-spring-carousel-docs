@@ -133,6 +133,7 @@ export const globalStyles = css`
       letter-spacing: 0.64px;
       font-size: 1.6rem;
       color: #515151;
+      background-color: #fefcfa;
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
     }

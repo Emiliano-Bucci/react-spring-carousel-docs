@@ -42,13 +42,13 @@ export function Footer() {
   return (
     <footer
       className={css`
+        bottom: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 3.2rem;
+        padding: 2.4rem;
         background-color: #fff;
-        position: relative;
         margin-top: auto;
         box-shadow: ${shadows.large};
       `}

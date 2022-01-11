@@ -103,7 +103,12 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
 export default function Page() {
   return (
     <>
-      <div>
+      <div
+        className={css`
+          display: flex;
+          flex-direction: column;
+        `}
+      >
         <h2>Overview</h2>
         <p>
           <strong>React Spring Carousel</strong> is a new way of intend the
@@ -165,6 +170,9 @@ export default function Page() {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             grid-gap: 2rem;
+            && li:not(:last-of-type) {
+              margin-bottom: 0rem;
+            }
             && {
               padding-left: 0;
               list-style: none;

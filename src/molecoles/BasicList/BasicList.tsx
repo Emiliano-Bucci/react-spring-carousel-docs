@@ -10,7 +10,7 @@ export function BasicList({ items }: Props) {
     <ul
       className={css`
         &:not(:last-child) {
-          margin-bottom: 2.4rem;
+          margin-bottom: 3.2rem;
         }
       `}
     >

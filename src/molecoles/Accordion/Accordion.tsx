@@ -1,4 +1,4 @@
-import { HTMLAttributes, useMemo, useState } from "react";
+import { HTMLAttributes, useMemo, useRef, useState } from "react";
 import { css, cx } from "linaria";
 import { useMeasure } from "utils/useMeasure";
 import React from "react";
@@ -49,6 +49,7 @@ function RowItem({
   toggle,
   id,
   shouldBeInteractive = true,
+  isInitiallyExpanded,
   props = {},
 }: AccordionRow & {
   activeItems: string[];
@@ -56,18 +57,23 @@ function RowItem({
   toggle(id: string): void;
 }) {
   const { className, ...restProps } = props;
+  const initiallyExpanded = useRef(isInitiallyExpanded);
   const isExpanded = activeItems.includes(id);
   const [{ ref }, { height }] = useMeasure();
   const { height: springHeight } = useSpring({
-    height: isExpanded || !shouldBeInteractive ? height : 0,
-    immediate: !shouldBeInteractive,
+    immediate: !shouldBeInteractive || initiallyExpanded.current,
+    height:
+      initiallyExpanded.current || isExpanded || !shouldBeInteractive
+        ? height
+        : 0,
   });
   function handleToggleItem() {
     toggle(id);
+    initiallyExpanded.current = false;
   }
+
   return (
     <div
-      onClick={shouldBeInteractive ? handleToggleItem : undefined}
       className={cx(
         className,
         css`
@@ -76,10 +82,15 @@ function RowItem({
       )}
       {...restProps}
     >
-      {renderItem}
+      <div onClick={shouldBeInteractive ? handleToggleItem : undefined}>
+        {renderItem}
+      </div>
       <animated.div
         style={{
-          height: !shouldBeInteractive ? "auto" : springHeight,
+          height:
+            !shouldBeInteractive || initiallyExpanded.current
+              ? "auto"
+              : springHeight,
         }}
         className={css`
           overflow: hidden;

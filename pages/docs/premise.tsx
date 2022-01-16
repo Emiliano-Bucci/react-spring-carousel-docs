@@ -42,7 +42,7 @@ export default function Page() {
       />
       <HighlightText>
         To be completely honest, the library isn't completely{" "}
-        <strong>Headless UI</strong>, since we must render some{" "}
+        <strong>headless</strong>, since we must render some{" "}
         <strong>{`<div />`}</strong> wrappers and apply some{" "}
         <strong>important</strong> styles to make the carousel work and appear
         as expected. Apart from that, the library doesn't apply any extra css,

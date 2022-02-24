@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { useSpringCarousel } from "react-spring-carousel";
+
 import { useEffect, useState } from "react";
 import { Link } from "atoms/Link/Link";
 import { CarouselItem } from "templates/home/CarouselItem/CarouselItem";
@@ -11,6 +11,7 @@ import HeadlessIcon from "public/headless.svg";
 import ComposableIcon from "public/composable.svg";
 import { mediaQueries, breakpoints } from "src/mediaQueries";
 import { Header } from "templates/home/Header";
+import { useSpringCarousel } from "react-spring-carousel";
 
 const items = [
   {

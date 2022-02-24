@@ -29,7 +29,7 @@ export function SidebarNavItem({
           text-transform: uppercase;
           margin-bottom: 0.4rem;
           span {
-            color: ${colors.secondaryDarker};
+            color: #bebed3;
           }
         `}
       >
@@ -44,7 +44,7 @@ export function SidebarNavItem({
       size="none"
       className={css`
         display: flex;
-        color: ${colors.secondary};
+        color: #d8d8e4;
         padding: 0.4rem 0.8rem;
         cursor: pointer;
         align-items: center;

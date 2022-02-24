@@ -25,12 +25,12 @@ export default function Page() {
       </div>
       <PageNavigationFooter
         prevBtn={{
-          label: "Premise",
-          href: "/docs/premise",
+          label: "Introduction",
+          href: "/docs",
         }}
         nextBtn={{
-          label: "Examples",
-          href: "/docs/examples",
+          label: "Premise",
+          href: "/docs/premise",
         }}
       />
     </>

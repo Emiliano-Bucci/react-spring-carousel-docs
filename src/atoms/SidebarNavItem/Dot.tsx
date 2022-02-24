@@ -2,7 +2,8 @@ import { css, cx } from "linaria";
 import { colors } from "src/theme";
 
 const activeStyles = css`
-  background-color: ${colors.secondaryDarker};
+  background-color: ${colors.secondaryDarker} !important;
+  border-color: ${colors.secondaryLight} !important;
   color: ${colors.secondaryDarker} !important;
 `;
 type Props = {
@@ -17,8 +18,8 @@ export function Dot({ isActive }: Props) {
         css`
           width: 12px;
           height: 12px;
-          transition: background-color 280ms ease;
-          border: 2px solid ${colors.secondaryDarker};
+          transition: all 280ms ease;
+          border: 2px solid #d8d8e4;
           border-radius: 50%;
           margin-right: 0.8rem;
         `

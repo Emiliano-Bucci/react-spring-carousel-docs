@@ -60,6 +60,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
         padding: 1.6rem;
         transition: all 280ms ease;
         box-shadow: ${shadows.small};
+        background-color: #fff;
         :hover {
           box-shadow: ${shadows.large};
           svg {
@@ -211,7 +212,7 @@ export default function Page() {
       >
         <Link
           linkProps={{
-            href: "/docs/premise",
+            href: "/docs/install",
           }}
         >
           Let's start!

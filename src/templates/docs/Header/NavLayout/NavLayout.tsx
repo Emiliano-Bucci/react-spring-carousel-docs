@@ -7,21 +7,13 @@ import { colors, shadows } from "src/theme";
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
   }
-`;
-const childStyles = css`
-  margin-left: 1.2rem;
 `;
 
 const sectionProps = {
   props: {
     className: sectionItemStyles,
-  },
-};
-const childProps = {
-  props: {
-    className: childStyles,
   },
 };
 
@@ -105,12 +97,12 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             ),
           },
           {
-            id: "premise",
+            id: "install",
             renderItem: (
               <SidebarNavItem
-                label="Premise"
-                href="/docs/premise"
-                isActive={pathname === "/docs/premise"}
+                label="Install"
+                isActive={pathname === "/docs/install"}
+                href="/docs/install"
               />
             ),
           },
@@ -123,40 +115,35 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         shouldBeInteractive: false,
         children: [
           {
-            id: "install",
+            id: "premise",
             renderItem: (
               <SidebarNavItem
-                label="Install"
-                isActive={pathname === "/docs/install"}
-                href="/docs/install"
+                label="Premise"
+                href="/docs/premise"
+                isActive={pathname === "/docs/premise"}
+              />
+            ),
+          },
+
+          {
+            id: "use-spring-carousel",
+            renderItem: (
+              <SidebarNavItem
+                label="useSpringCarousel"
+                isActive={pathname === "/docs/use-spring-carousel"}
+                href="/docs/use-spring-carousel"
               />
             ),
           },
           {
-            id: "examples",
-            isInitiallyExpanded: true,
-            shouldBeInteractive: false,
+            id: "use-transition-carousel",
             renderItem: (
               <SidebarNavItem
-                label="Examples"
-                isActive={pathname.includes("/docs/examples")}
-                href="/docs/examples"
+                label="useTransitionCarousel"
+                href="/docs/use-transition-carousel"
+                isActive={pathname === "/docs/use-transition-carousel"}
               />
             ),
-            children: [
-              {
-                id: "use-spring-carousel",
-                renderItem: (
-                  <SidebarNavItem
-                    label="useSpringCarousel"
-                    isActive={pathname === "/docs/examples/use-spring-carousel"}
-                    href="/docs/examples/use-spring-carousel"
-                    isChild
-                  />
-                ),
-                ...childProps,
-              },
-            ],
           },
         ],
         ...sectionProps,
@@ -178,15 +165,17 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           top: 0;
           max-width: 320px;
           padding: 2.4rem;
-          background-color: ${colors.dark};
+          background-color: #393954;
           box-shadow: ${shadows.large};
         `}
       >
         <h1
           className={css`
-            color: ${colors.secondary};
+            color: #bebed3;
             font-size: 2.4rem;
             margin-bottom: 2.4rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px solid #bebed3;
           `}
         >
           React Spring Carousel

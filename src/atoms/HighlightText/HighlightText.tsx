@@ -13,7 +13,7 @@ export function HighlightText({
         className,
         css`
           border-radius: 8px;
-          padding: 2rem 1.6rem;
+          padding: 1.6rem;
           border-left: 6px solid ${colors.secondaryLight};
           box-shadow: ${shadows.small};
           background-color: #fff;

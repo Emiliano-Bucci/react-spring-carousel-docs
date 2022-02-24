@@ -19,7 +19,7 @@ export function Line({ isActive }: Props) {
           width: 12px;
           height: 4px;
           transition: transform 280ms ease;
-          background-color: ${colors.secondaryDarker};
+          background-color: ${colors.secondaryLight};
           border-radius: 40px;
           margin-right: 1.2rem;
           transform-origin: left;

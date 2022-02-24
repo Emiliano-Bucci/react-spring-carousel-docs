@@ -6,10 +6,12 @@ export default function Page() {
   return (
     <>
       <h2>Premise</h2>
-      <p>The library cames with two solutions depending on your needs:</p>
+      <p>
+        The library offers two solutions that should cover all of your needs:
+      </p>
       <BasicList items={["useSpringCarousel", "useTransitionCarousel"]} />
       <p>
-        Both solutions are built on top of two of <strong>react-spring</strong>{" "}
+        Both solutions are built on top of two <strong>react-spring</strong>{" "}
         hooks, which respectively are:
       </p>
       <BasicList
@@ -49,6 +51,10 @@ export default function Page() {
         or came with some fancy .css file that you need to import.
       </HighlightText>
       <PageNavigationFooter
+        prevBtn={{
+          label: "Install",
+          href: "/docs/install",
+        }}
         nextBtn={{
           label: "Install",
           href: "/docs/install",

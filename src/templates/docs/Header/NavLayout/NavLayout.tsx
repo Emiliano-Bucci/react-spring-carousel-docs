@@ -82,6 +82,10 @@ function Wrapper({ children }: { children: ReactNode }) {
               margin-bottom: 3.2rem;
             }
           }
+          .code-snippet {
+            margin: 2.4rem -8rem !important;
+            border-radius: 0px;
+          }
         }
       `}
     >

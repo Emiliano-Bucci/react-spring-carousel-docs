@@ -101,7 +101,7 @@ export const code3 = `
     } = useSpringCarousel({
       withThumbs: true,
       prepareThumbsData(items) {
-        const newItems = [
+        return [
           ...items,
           {
             id: "Button",
@@ -111,8 +111,7 @@ export const code3 = `
               </button>
             ),
           },
-        ];
-        return newItems;
+        ]
       },
       items: items.map((i) => ({
         id: i.id,

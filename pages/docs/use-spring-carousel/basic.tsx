@@ -34,7 +34,8 @@ export default function Page() {
         <strong>React State</strong> at all, so there're no rerenders; plus,
         since the whole rendering structure of the carousel isn't a component,
         the rendering tree is very light, and this gives us better animation
-        results.
+        results, since react won't execute any lifecycle for the carousel
+        component; in most cases, rerenders will be <strong>faster</strong> 🚄.
       </p>
       <PageNavigationFooter
         nextBtn={{

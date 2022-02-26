@@ -16,7 +16,7 @@ export const code = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 3,
+      itemsPerSlide: 3 // -> yup, it's me!,
       withLoop: true,
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -78,7 +78,6 @@ export const code3 = `
       itemsPerSlide: 3,
       withLoop: true,
       gutter: 16,
-      initialStartingPosition: 'start' | 'center' | 'end',
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -108,7 +107,6 @@ export const code4 = `
       itemsPerSlide: 3,
       withLoop: true,
       startEndGutter: 16,
-      initialStartingPosition: 'start' | 'center' | 'end',
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (

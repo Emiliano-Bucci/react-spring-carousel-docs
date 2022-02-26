@@ -3,7 +3,7 @@ import {
   SyntaxHighlighterProps,
 } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import { shadows } from "src/theme";
 
 export function SyntaxHiglight({
@@ -16,17 +16,20 @@ export function SyntaxHiglight({
       style={tomorrow}
       language="tsx"
       {...rest}
-      className={css`
-        margin: 0 !important;
-        border-radius: 16px;
-        box-shadow: ${shadows.medium};
-        background-color: #393954 !important;
-        padding: 2.4rem !important;
-        .plain-text,
-        span {
-          color: inherit;
-        }
-      `}
+      className={cx(
+        "code-snippet",
+        css`
+          margin: 0 !important;
+          border-radius: 16px;
+          box-shadow: ${shadows.medium};
+          background-color: #393954 !important;
+          padding: 2.4rem !important;
+          .plain-text,
+          span {
+            color: inherit;
+          }
+        `
+      )}
     >
       {code}
     </SyntaxHighlighter>

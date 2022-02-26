@@ -12,7 +12,7 @@ export default function Page() {
       <h1>Thumb list</h1>
       <p>
         Let's go now a bit deeper in the carousel world and let's add some
-        thumbnails
+        thumbnails:
       </p>
       <UseSpringCarouselThumbListExample />
       <p>Again, things are easier:</p>
@@ -63,7 +63,7 @@ export default function Page() {
         <strong>prepareThumbsData</strong>, a function that receive the list of
         thumbs as the only argument, and it <strong>must</strong> return a list
         of thumbs as well. <strong>prepareThumbsData</strong> is executed before
-        the rendering of the thumbs, so you can easily manipulated the list of
+        the rendering of the thumbs, so you can easily manipulate the list of
         items by adding or removing some items.
       </p>
       <HighlightText>

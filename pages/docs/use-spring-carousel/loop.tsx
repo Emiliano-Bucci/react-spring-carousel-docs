@@ -7,7 +7,7 @@ export default function Page() {
       <p>
         Being able to loop through the items of your carousel is a very common
         funcionality; <strong>React Spring Carousel</strong> makes it even
-        easier to use 😃
+        easier to implement 😃
       </p>
       <UseSpringCarouselLoopExample />
       <PageNavigationFooter

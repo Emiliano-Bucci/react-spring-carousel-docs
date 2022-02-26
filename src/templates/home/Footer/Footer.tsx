@@ -50,7 +50,7 @@ export function Footer() {
         padding: 2.4rem;
         background-color: #fff;
         margin-top: auto;
-        box-shadow: ${shadows.large};
+        box-shadow: ${shadows.small};
       `}
     >
       <div

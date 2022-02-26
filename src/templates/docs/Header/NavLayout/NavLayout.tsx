@@ -25,6 +25,9 @@ function Wrapper({ children }: { children: ReactNode }) {
         display: flex;
 
         .page-wrapper {
+          background-color: #fdfdfc;
+          border-left: 1px solid ${colors.primaryLighter};
+          border-right: 1px solid ${colors.primaryLighter};
           ul {
             list-style: initial;
             padding-left: 2.4rem;
@@ -280,24 +283,26 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           height: 100vh;
           position: sticky;
           top: 0;
-          max-width: 320px;
-          padding: 3.2rem;
-          background-color: #393954;
-          box-shadow: ${shadows.large};
+          max-width: 364px;
+          background-color: ${colors.primary};
+          box-shadow: ${shadows.small};
         `}
       >
         <h1
           className={css`
-            color: #bebed3;
+            color: ${colors.warm};
             font-size: 2.4rem;
-            margin-bottom: 4rem;
-            padding-bottom: 1.6rem;
-            border-bottom: 1px solid #bebed3;
+            padding: 4rem;
+            background-color: ${colors.secondary};
           `}
         >
           React Spring Carousel
         </h1>
-        <nav>
+        <nav
+          className={css`
+            padding: 4rem;
+          `}
+        >
           <Accordion data={sidebarItems} />
         </nav>
       </div>

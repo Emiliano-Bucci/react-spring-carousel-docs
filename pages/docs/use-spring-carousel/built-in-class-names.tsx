@@ -4,7 +4,7 @@ export default function Page() {
     <>
       <h1>Built in classNames</h1>
       <p>
-        Even if the library tries to do the best he can to be recognized as a{" "}
+        Even if the library tries to do the best he can to be defined as a{" "}
         <strong>headless UI library</strong>, there might be some cases where we{" "}
         <strong>need</strong> to apply some custom styles to the{" "}
         <strong>hidden</strong> part of the Carousel. Here's the list of the

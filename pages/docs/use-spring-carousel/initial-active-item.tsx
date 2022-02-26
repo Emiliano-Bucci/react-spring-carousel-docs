@@ -1,5 +1,6 @@
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 import { UseSpringCarouselInitialActiveItemExample } from "templates/docs/Examples/useSpringCarousel/InitialActiveItem";
+
 export default function Page() {
   return (
     <>

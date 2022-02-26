@@ -38,13 +38,16 @@ const prevIconStyles = css`
   }
 `;
 
-export function PageNavigationButton({ type, children, ...rest }: Props) {
+export function PageNavigationButton({
+  type,
+  children,
+  ...rest
+}: Omit<Props, "ref">) {
   return (
     <Link
       variant="none"
       size="none"
       title={`Visit the page ${rest.linkProps.href.toString()}`}
-      {...rest}
       className={cx(
         type === "next" ? nextStyles : prevStyles,
         css`
@@ -58,6 +61,7 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
           transition: all 280ms ease;
           box-shadow: ${shadows.small};
           background-color: #fff;
+          min-width: 132px;
           :hover,
           :focus {
             border-color: ${colors.primaryLight};
@@ -65,6 +69,7 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
           }
         `
       )}
+      {...rest}
     >
       <span
         className={css`

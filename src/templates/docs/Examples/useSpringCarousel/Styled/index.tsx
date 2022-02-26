@@ -6,15 +6,16 @@ export const code = `
   import { useSpringCarousel } from 'react-spring-carousel'
 
   export function Component() {
-    const { 
-      carouselFragment, 
-      slideToPrevItem,
-      slideToNextItem 
-    } = useSpringCarousel({
-      items: [
-        /** ...items */
-      ]
-    })
+    const { carouselFragment } = useSpringCarousel({
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color}>
+            {i.title}
+          </CarouselItem>
+        ),
+      })),
+    });
 
     return (
       <div>

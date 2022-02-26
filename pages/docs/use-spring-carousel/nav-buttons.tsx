@@ -7,7 +7,7 @@ export default function Page() {
       <h1>Nav buttons</h1>
       <p>
         So far so good. Now let's add some interactivity. You may wonder how to
-        programmatically interact with the carousel: let me introduce you{" "}
+        programmatically interact with the carousel: let me introduce you the{" "}
         <strong>slideToPrevItem</strong> and <strong>slideToNextItem</strong>{" "}
         methods 🚀
       </p>
@@ -17,15 +17,14 @@ export default function Page() {
         <strong>very readable</strong>. Furthermore, you have{" "}
         <strong>total</strong> control of the carousel interactivity.
       </p>
-
       <PageNavigationFooter
         prevBtn={{
           label: "Styled",
           href: "/docs/use-spring-carousel/styled",
         }}
         nextBtn={{
-          label: "Nav buttons",
-          href: "/docs/use-spring-carousel/nav-buttons",
+          label: "Loop",
+          href: "/docs/use-spring-carousel/loop",
         }}
       />
     </>
@@ -35,7 +34,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Styled version",
+      title: "Nav buttons example",
     },
   };
 }

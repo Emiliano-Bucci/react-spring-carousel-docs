@@ -7,8 +7,11 @@ export default function Page() {
       <h1>Styled version</h1>
       <p>Here's a styled version of the previous example:</p>
       <UseSpringCarouselStyledExample />
-
       <PageNavigationFooter
+        prevBtn={{
+          label: "Basic",
+          href: "/docs/use-spring-carousel/basic",
+        }}
         nextBtn={{
           label: "Nav buttons",
           href: "/docs/use-spring-carousel/nav-buttons",
@@ -21,7 +24,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Styled version",
+      title: "Styled example",
     },
   };
 }

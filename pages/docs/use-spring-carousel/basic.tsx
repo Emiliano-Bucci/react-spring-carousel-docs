@@ -37,10 +37,6 @@ export default function Page() {
         results.
       </p>
       <PageNavigationFooter
-        prevBtn={{
-          label: "Basic",
-          href: "/docs/use-spring-carousel/basic",
-        }}
         nextBtn={{
           label: "Styled",
           href: "/docs/use-spring-carousel/styled",
@@ -53,7 +49,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Basic",
+      title: "Basic example",
     },
   };
 }

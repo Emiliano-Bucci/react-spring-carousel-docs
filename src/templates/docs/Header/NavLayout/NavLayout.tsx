@@ -175,11 +175,35 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 renderItem: (
                   <SidebarNavItem
                     label="Nav buttons"
+                    isChild
+                    href="/docs/use-spring-carousel/nav-buttons"
                     isActive={
                       pathname === "/docs/use-spring-carousel/nav-buttons"
                     }
-                    href="/docs/use-spring-carousel/nav-buttons"
+                  />
+                ),
+              },
+              {
+                id: "loop",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Loop"
                     isChild
+                    href="/docs/use-spring-carousel/loop"
+                    isActive={pathname === "/docs/use-spring-carousel/loop"}
+                  />
+                ),
+              },
+              {
+                id: "thumb-list",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Thumb list"
+                    isChild
+                    href="/docs/use-spring-carousel/thumb-list"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/thumb-list"
+                    }
                   />
                 ),
               },

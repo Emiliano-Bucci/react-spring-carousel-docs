@@ -11,14 +11,12 @@ export const code = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      items: mockedItems.map((i) => ({
-        id: i.id,
-        renderItem: (
-          <CarouselItem color={i.color}>
-            {i.title}
-          </CarouselItem>
-        ),
-      })),
+      withLoop: true, // -> make me loop!
+      items: (
+        <CarouselItem color={i.color}>
+          {i.title}
+        </CarouselItem>
+      ),
     });
 
     return (
@@ -31,7 +29,7 @@ export const code = `
   }
 `;
 
-export function UseSpringCarouselNavButtonsExample() {
+export function UseSpringCarouselLoopExample() {
   return (
     <div
       className={css`

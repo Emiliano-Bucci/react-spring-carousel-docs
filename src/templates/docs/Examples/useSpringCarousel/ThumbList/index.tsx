@@ -8,6 +8,7 @@ export const code = `
   export function Component() {
     const { 
       carouselFragment, 
+      thumbsFragment,
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
@@ -18,6 +19,11 @@ export const code = `
             {i.title}
           </CarouselItem>
         ),
+        renderThumb: (
+          <CarouselThumb color={i.color}>
+            {i.title}
+          </CarouselThumb>
+        )
       })),
     });
 
@@ -26,12 +32,13 @@ export const code = `
         <button onClick={slideToPrevItem}>Prev item</button>
         {carouselFragment}
         <button onClick={slideToNextItem}>Next item</button>
+        <div>{thumbsFragment}</div>
       </div>
     );
   }
 `;
 
-export function UseSpringCarouselNavButtonsExample() {
+export function UseSpringCarouselThumbListExample() {
   return (
     <div
       className={css`

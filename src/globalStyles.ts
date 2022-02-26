@@ -133,7 +133,7 @@ export const globalStyles = css`
       font-family: "Catamaran";
       letter-spacing: 0.64px;
       font-size: 1.6rem;
-      color: #515151;
+      color: #616161;
       background-color: ${colors.warm};
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
@@ -177,7 +177,7 @@ export const globalStyles = css`
     }
     p,
     span {
-      color: #515151;
+      color: inherit;
     }
   }
 `;

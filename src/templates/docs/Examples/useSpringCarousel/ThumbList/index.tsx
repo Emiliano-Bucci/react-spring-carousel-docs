@@ -1,6 +1,6 @@
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
-import { Playground, Playground2 } from "./Playground";
+import { Playground, Playground2, Playground3 } from "./Playground";
 
 export const code = `
   import { useSpringCarousel } from 'react-spring-carousel'
@@ -43,6 +43,47 @@ export const code2 = `
   import { useSpringCarousel } from 'react-spring-carousel'
 
   export function Component() {
+    const { 
+      carouselFragment, 
+      thumbsFragment,
+      slideToPrevItem, 
+      slideToNextItem,
+      slideToItem // -> slide me to the moon
+    } = useSpringCarousel({
+      withLoop: true,
+      withThumbs: true, 
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color}>
+            {i.title}
+          </CarouselItem>
+        ),
+        renderThumb: (
+          <CarouselThumb 
+            color={i.color} 
+            onClick={() => slideToItem(i.id)}
+          />
+            {i.title}
+          </CarouselThumb>
+        )
+      })),
+    });
+
+    return (
+      <div>
+        <button onClick={slideToPrevItem}>Prev item</button>
+        {carouselFragment}
+        <button onClick={slideToNextItem}>Next item</button>
+        <div>{thumbsFragment}</div>
+      </div>
+    );
+  }
+`;
+export const code3 = `
+  import { useSpringCarousel } from 'react-spring-carousel'
+
+  export function Component() {
     const [showExtraItems, setShowExtraItems] = useState(false);
     let items = [...mockedItems];
 
@@ -58,7 +99,6 @@ export const code2 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      withLoop: true,
       withThumbs: true,
       prepareThumbsData(items) {
         const newItems = [
@@ -67,7 +107,7 @@ export const code2 = `
             id: "Button",
             renderThumb: (
               <button onClick={() => setShowExtraItems((p) => !p)}>
-                Load more items!
+                Toggle items!
               </button>
             ),
           },
@@ -113,8 +153,7 @@ function UseSpringCarouselThumbListExample() {
     </div>
   );
 }
-
-function UseSpringCarouselThumbListExampl2() {
+function UseSpringCarouselThumbListExample2() {
   return (
     <div
       className={css`
@@ -128,4 +167,22 @@ function UseSpringCarouselThumbListExampl2() {
   );
 }
 
-export { UseSpringCarouselThumbListExample, UseSpringCarouselThumbListExampl2 };
+function UseSpringCarouselThumbListExample3() {
+  return (
+    <div
+      className={css`
+        display: grid;
+        grid-gap: 4rem;
+      `}
+    >
+      <SyntaxHiglight showLineNumbers={false} code={code3} />
+      <Playground3 />
+    </div>
+  );
+}
+
+export {
+  UseSpringCarouselThumbListExample,
+  UseSpringCarouselThumbListExample2,
+  UseSpringCarouselThumbListExample3,
+};

@@ -1,3 +1,4 @@
+import { Button } from "atoms/Button";
 import { CarouselItem } from "atoms/CarouselItem";
 import { CarouselThumb } from "atoms/CarouselThumb";
 import { PlaygroundWrapper } from "atoms/PlaygroundWrapper";
@@ -26,6 +27,36 @@ function Playground() {
     </PlaygroundWrapper>
   );
 }
+function Playground2() {
+  const {
+    carouselFragment,
+    thumbsFragment,
+    slideToPrevItem,
+    slideToNextItem,
+    slideToItem,
+  } = useSpringCarousel({
+    withLoop: true,
+    withThumbs: true,
+    items: mockedItems.map((i) => ({
+      id: i.id,
+      renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
+      renderThumb: (
+        <CarouselThumb color={i.color} onClick={() => slideToItem(i.id)}>
+          {i.title}
+        </CarouselThumb>
+      ),
+    })),
+  });
+  return (
+    <PlaygroundWrapper
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+      thumbsFragment={thumbsFragment}
+    >
+      {carouselFragment}
+    </PlaygroundWrapper>
+  );
+}
 const extraItems = [
   {
     id: "extra-item-1",
@@ -38,7 +69,7 @@ const extraItems = [
     color: "#2D7D9A",
   },
 ];
-function Playground2() {
+function Playground3() {
   const [showExtraItems, setShowExtraItems] = useState(false);
   let items = [...mockedItems];
 
@@ -50,7 +81,6 @@ function Playground2() {
 
   const { carouselFragment, thumbsFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
-      withLoop: true,
       withThumbs: true,
       prepareThumbsData(items) {
         const newItems = [
@@ -58,9 +88,9 @@ function Playground2() {
           {
             id: "Button",
             renderThumb: (
-              <button onClick={() => setShowExtraItems((p) => !p)}>
-                Load more items!
-              </button>
+              <Button onClick={() => setShowExtraItems((p) => !p)}>
+                Toggle items!
+              </Button>
             ),
           },
         ];
@@ -83,4 +113,4 @@ function Playground2() {
   );
 }
 
-export { Playground, Playground2 };
+export { Playground, Playground2, Playground3 };

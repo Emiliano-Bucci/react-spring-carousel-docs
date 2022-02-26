@@ -1,7 +1,8 @@
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 import {
   UseSpringCarouselThumbListExample,
-  UseSpringCarouselThumbListExampl2,
+  UseSpringCarouselThumbListExample2,
+  UseSpringCarouselThumbListExample3,
 } from "templates/docs/Examples/useSpringCarousel/ThumbList";
 import { HighlightText } from "atoms/HighlightText";
 
@@ -40,6 +41,16 @@ export default function Page() {
         the thumbs scrollBar, you'll have to do it by yourselve. To archive
         that, check the next example.
       </HighlightText>
+      <h2>Slide to item</h2>
+      <p>
+        I know, let me guess: if you click on a thumb nothing happen, right?
+        Yeah, that goes against the common pattern, that <strong>should</strong>{" "}
+        slide the carousel to the clicked item. But as you may already know, i
+        don't like to force people to act in a particular way; instead, i give
+        total freedom to the developer who will, if is the case, replicate that
+        pattern. But how? Check the next example 😏
+      </p>
+      <UseSpringCarouselThumbListExample2 />
       <h2>prepareThumbsData</h2>
       <p>
         Let's say you want to display a beautiful high quality images carousel;
@@ -48,11 +59,14 @@ export default function Page() {
         <strong>React Spring Carousel</strong> makes it easy for you.{" "}
       </p>
       <p>
-        The carousel expose a method, <strong>prepareThumbsData</strong>, that
-        receive the list of thumbs as the only argument, and the function{" "}
-        <strong>must</strong> return a list of thumbs. Pretty cool uh? 😎
+        The <strong>useSpringCarousel</strong> hook has a property,{" "}
+        <strong>prepareThumbsData</strong>, a function that receive the list of
+        thumbs as the only argument, and it <strong>must</strong> return a list
+        of thumbs as well. If the quantity of items change, and the new items
+        are less than the previous one (it means that we remove some items), the
+        carousel will set as active the last item. Pretty cool uh? 😎
       </p>
-      <UseSpringCarouselThumbListExampl2 />
+      <UseSpringCarouselThumbListExample3 />
       <PageNavigationFooter
         prevBtn={{
           label: "Nav buttons",

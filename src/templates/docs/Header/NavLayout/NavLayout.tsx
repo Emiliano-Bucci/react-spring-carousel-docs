@@ -40,6 +40,9 @@ function Wrapper({ children }: { children: ReactNode }) {
           }
           h2 {
             font-size: 3.2rem;
+            &:not(:first-child) {
+              margin-top: 2.4rem;
+            }
           }
           h1,
           h2 {
@@ -48,7 +51,6 @@ function Wrapper({ children }: { children: ReactNode }) {
             color: ${colors.secondary};
             position: relative;
             padding-left: 1.2rem;
-
             &:not(:first-of-type) {
               margin-top: 2.4rem;
             }

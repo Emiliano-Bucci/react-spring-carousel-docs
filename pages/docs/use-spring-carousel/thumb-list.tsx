@@ -1,5 +1,8 @@
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
-import { UseSpringCarouselThumbListExample } from "templates/docs/Examples/useSpringCarousel/ThumbList";
+import {
+  UseSpringCarouselThumbListExample,
+  UseSpringCarouselThumbListExampl2,
+} from "templates/docs/Examples/useSpringCarousel/ThumbList";
 import { HighlightText } from "atoms/HighlightText";
 
 export default function Page() {
@@ -37,6 +40,19 @@ export default function Page() {
         the thumbs scrollBar, you'll have to do it by yourselve. To archive
         that, check the next example.
       </HighlightText>
+      <h2>prepareThumbsData</h2>
+      <p>
+        Let's say you want to display a beautiful high quality images carousel;
+        maybe you'll need to show images in bucket of 10 and, eventually, if the
+        user want to, load more and more images. If that's the case, well,{" "}
+        <strong>React Spring Carousel</strong> makes it easy for you.{" "}
+      </p>
+      <p>
+        The carousel expose a method, <strong>prepareThumbsData</strong>, that
+        receive the list of thumbs as the only argument, and the function{" "}
+        <strong>must</strong> return a list of thumbs. Pretty cool uh? 😎
+      </p>
+      <UseSpringCarouselThumbListExampl2 />
       <PageNavigationFooter
         prevBtn={{
           label: "Nav buttons",

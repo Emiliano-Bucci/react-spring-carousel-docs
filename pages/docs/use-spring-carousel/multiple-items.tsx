@@ -2,6 +2,8 @@ import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 import {
   UseSpringCarouselMultipleItemsExample,
   UseSpringCarouselMultipleItemsExample2,
+  UseSpringCarouselMultipleItemsExample3,
+  UseSpringCarouselMultipleItemsExample4,
 } from "templates/docs/Examples/useSpringCarousel/MultipleItems";
 
 export default function Page() {
@@ -15,7 +17,7 @@ export default function Page() {
       <UseSpringCarouselMultipleItemsExample />
       <h2>Starting position</h2>
       <p>
-        If you want to, you can also change the starting position of the
+        If you want to, you can also change the starting position of the{" "}
         <strong>initial</strong> active item; the accepted values are:
       </p>
       <ul>
@@ -24,6 +26,15 @@ export default function Page() {
         <li>end</li>
       </ul>
       <UseSpringCarouselMultipleItemsExample2 />
+      <h2>Gutter</h2>
+      <p>You can also easily add some gutter to add space between the items:</p>
+      <UseSpringCarouselMultipleItemsExample3 />
+      <h2>Gutter on sides</h2>
+      <p>
+        You can also add gutter on the <strong>sides</strong> of the{" "}
+        <strong>visible</strong> items:
+      </p>
+      <UseSpringCarouselMultipleItemsExample4 />
       <PageNavigationFooter
         prevBtn={{
           label: "Initial active item",

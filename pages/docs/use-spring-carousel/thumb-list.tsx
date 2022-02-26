@@ -62,10 +62,15 @@ export default function Page() {
         The <strong>useSpringCarousel</strong> hook has a property,{" "}
         <strong>prepareThumbsData</strong>, a function that receive the list of
         thumbs as the only argument, and it <strong>must</strong> return a list
-        of thumbs as well. If the quantity of items change, and the new items
-        are less than the previous one (it means that we remove some items), the
-        carousel will set as active the last existing item. Pretty cool uh? 😎
+        of thumbs as well. <strong>prepareThumbsData</strong> is executed before
+        the rendering of the thumbs, so you can easily manipulated the list of
+        items by adding or removing some items.
       </p>
+      <HighlightText>
+        If the quantity of items change, and the new items are less than the
+        previous one (it means that we remove some items), the carousel will
+        automatically set as active the last existing item. Pretty cool uh? 😎
+      </HighlightText>
       <UseSpringCarouselThumbListExample3 />
       <PageNavigationFooter
         prevBtn={{

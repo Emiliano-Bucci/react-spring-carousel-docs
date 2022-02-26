@@ -58,7 +58,7 @@ export function SidebarNavItem({
           margin-bottom: 0.4rem;
           font-size: 2rem;
           span {
-            color: #bebed3;
+            color: ${colors.warmDarker};
           }
         `}
       >
@@ -77,7 +77,7 @@ export function SidebarNavItem({
         isActive && activeStyles,
         css`
           display: flex;
-          color: #d8d8e4;
+          color: ${colors.warm};
           padding: 0.4rem 0.8rem;
           cursor: pointer;
           align-items: center;

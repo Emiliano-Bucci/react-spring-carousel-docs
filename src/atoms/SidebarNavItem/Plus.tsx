@@ -4,7 +4,7 @@ import { colors } from "src/theme";
 const activeStyles = css`
   transform: rotate(90deg);
   span {
-    background-color: ${colors.secondaryDarker} !important;
+    background-color: ${colors.secondaryLight} !important;
     &:first-child {
       opacity: 0;
     }
@@ -34,7 +34,7 @@ export function Plus({ isActive }: Props) {
           width: 14px;
           height: 4px;
           border-radius: 20px;
-          background-color: #d8d8e4;
+          background-color: ${colors.warm};
           transition: all 280ms ease;
         `}
       />
@@ -42,7 +42,7 @@ export function Plus({ isActive }: Props) {
         className={css`
           width: 14px;
           height: 4px;
-          background-color: #d8d8e4;
+          background-color: ${colors.warm};
           position: absolute;
           border-radius: 20px;
           transform: rotate(90deg);

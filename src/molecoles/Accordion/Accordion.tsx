@@ -175,8 +175,6 @@ export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
     return items;
   });
 
-  console.log(activeItems);
-
   function toggleItems(id: string, parentId: string, depth: number) {
     const item = {
       id,

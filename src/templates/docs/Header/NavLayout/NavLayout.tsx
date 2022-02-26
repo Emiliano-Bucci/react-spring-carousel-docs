@@ -284,7 +284,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           position: sticky;
           top: 0;
           max-width: 364px;
-          background-color: ${colors.primary};
+          background-color: ${colors.secondaryDarker};
           box-shadow: ${shadows.small};
         `}
       >

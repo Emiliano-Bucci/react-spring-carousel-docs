@@ -144,8 +144,38 @@ type Props = {
 type ActiveItem = { id: string; parentId: string; depth: number };
 
 export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
-  const [activeItems, setActiveItems] = useState<ActiveItem[]>([]);
   const dataWithDepth = useMemo(() => assignDepth(data), [data]);
+  const [activeItems, setActiveItems] = useState<ActiveItem[]>(() => {
+    const items = [] as ActiveItem[];
+
+    function addItem(item: RowWithDepth, parentId: string) {
+      if (item.isInitiallyExpanded) {
+        items.push({
+          id: item.id,
+          depth: item.depth,
+          parentId,
+        });
+      }
+    }
+    function checkItem(item: RowWithDepth, parentId: string) {
+      addItem(item, parentId);
+
+      const childrenItems = item.children;
+
+      if (
+        childrenItems &&
+        Array.isArray(childrenItems) &&
+        childrenItems.length > 0
+      ) {
+        childrenItems.forEach((i) => checkItem(i, parentId));
+      }
+    }
+
+    dataWithDepth.forEach((i) => checkItem(i, i.id));
+    return items;
+  });
+
+  console.log(activeItems);
 
   function toggleItems(id: string, parentId: string, depth: number) {
     const item = {

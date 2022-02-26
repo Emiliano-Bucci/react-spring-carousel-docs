@@ -4,7 +4,7 @@ import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useRouter } from "next/dist/client/router";
 import { ReactNode, useMemo } from "react";
 import { colors, shadows } from "src/theme";
-import { ParentSidebarNavItem } from "../../../../atoms/SidebarNavItem/ParentSidebarNavItem";
+import { ParentSidebarNavItem } from "atoms/SidebarNavItem/ParentSidebarNavItem";
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
@@ -25,51 +25,57 @@ function Wrapper({ children }: { children: ReactNode }) {
         display: flex;
 
         .page-wrapper {
+          ul {
+            list-style: initial;
+            padding-left: 2.4rem;
+            li:not(:last-of-type) {
+              margin-bottom: 1.2rem;
+            }
+          }
+          strong {
+            color: ${colors.secondary};
+          }
+          h1 {
+            font-size: 4rem;
+          }
+          h2 {
+            font-size: 3.2rem;
+          }
+          h1,
+          h2 {
+            font-weight: bold;
+            margin-bottom: 3.2rem;
+            color: ${colors.secondary};
+            position: relative;
+            padding-left: 1.2rem;
+
+            &:not(:first-of-type) {
+              margin-top: 2.4rem;
+            }
+            ::before {
+              content: "";
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              border-radius: 20px;
+              background-image: linear-gradient(
+                to right,
+                ${colors.primaryLight},
+                ${colors.secondaryLight}
+              );
+            }
+          }
+          p {
+            + ul {
+              margin-top: -2rem;
+            }
+          }
           & > * {
             :not(:last-child) {
               margin-bottom: 3.2rem;
             }
-          }
-        }
-
-        ul {
-          list-style: initial;
-          padding-left: 2.4rem;
-          li:not(:last-of-type) {
-            margin-bottom: 1.2rem;
-          }
-        }
-        strong {
-          color: ${colors.secondary};
-        }
-        h2 {
-          font-size: 3.4rem;
-          font-weight: bold;
-          margin-bottom: 3.2rem;
-          color: ${colors.secondary};
-          position: relative;
-          padding-left: 1.2rem;
-          ::before {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            border-radius: 20px;
-            background-image: linear-gradient(
-              to right,
-              ${colors.primaryLight},
-              ${colors.secondaryLight}
-            );
-          }
-          &:not(:first-of-type) {
-            margin-top: 2.4rem;
-          }
-        }
-        p {
-          + ul {
-            margin-top: -2rem;
           }
         }
       `}
@@ -133,6 +139,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           },
           {
             id: "use-spring-carousel",
+            isInitiallyExpanded: pathname.includes("/docs/use-spring-carousel"),
             renderItem: (
               <ParentSidebarNavItem
                 label="useSpringCarousel"
@@ -148,6 +155,30 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                     label="Basic"
                     isActive={pathname === "/docs/use-spring-carousel/basic"}
                     href="/docs/use-spring-carousel/basic"
+                    isChild
+                  />
+                ),
+              },
+              {
+                id: "styled",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Styled"
+                    isActive={pathname === "/docs/use-spring-carousel/styled"}
+                    href="/docs/use-spring-carousel/styled"
+                    isChild
+                  />
+                ),
+              },
+              {
+                id: "nav-buttons",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Nav buttons"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/nav-buttons"
+                    }
+                    href="/docs/use-spring-carousel/nav-buttons"
                     isChild
                   />
                 ),

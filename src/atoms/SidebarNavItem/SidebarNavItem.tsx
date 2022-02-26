@@ -1,5 +1,6 @@
 import { Link } from "atoms/Link";
 import { css, cx } from "linaria";
+import { useEffect, useRef } from "react";
 import { colors } from "src/theme";
 import { Dot } from "./Dot";
 import { Line } from "./Line";
@@ -7,6 +8,10 @@ import { Plus } from "./Plus";
 
 const childStyles = css`
   margin-left: 1.2rem;
+`;
+
+const activeStyles = css`
+  color: ${colors.secondaryLight} !important;
 `;
 
 type Props = {
@@ -28,6 +33,20 @@ export function SidebarNavItem({
   isChildParent = false,
   isExpanded = false,
 }: Props) {
+  const ref = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    if (isExpanded && !isActive && ref.current) {
+      ref.current.blur();
+    }
+  }, [isActive, isExpanded, label]);
+
+  useEffect(() => {
+    if (isActive && ref.current) {
+      ref.current.focus();
+    }
+  }, [isActive, label]);
+
   if (isSectionTitle) {
     return (
       <div
@@ -52,8 +71,10 @@ export function SidebarNavItem({
     <Link
       variant="none"
       size="none"
+      ref={ref}
       className={cx(
         isChild && childStyles,
+        isActive && activeStyles,
         css`
           display: flex;
           color: #d8d8e4;

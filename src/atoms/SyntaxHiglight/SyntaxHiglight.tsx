@@ -14,7 +14,7 @@ export function SyntaxHiglight({
     <SyntaxHighlighter
       showLineNumbers
       style={tomorrow}
-      language="jsx"
+      language="tsx"
       {...rest}
       className={css`
         margin: 0 !important;

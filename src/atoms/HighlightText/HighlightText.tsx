@@ -17,6 +17,7 @@ export function HighlightText({
           border-left: 6px solid ${colors.secondaryLight};
           box-shadow: ${shadows.small};
           background-color: #fff;
+          font-size: 1.8rem;
           strong {
             color: ${colors.secondary};
           }

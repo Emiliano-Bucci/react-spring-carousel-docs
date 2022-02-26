@@ -8,12 +8,10 @@ export const code = `
   export function Component() {
     const { 
       carouselFragment, 
-      thumbsFragment,
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      withLoop: true,
-      withThumbs: true, // -> let me thumb!
+      initialActiveItem: 2,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -21,11 +19,6 @@ export const code = `
             {i.title}
           </CarouselItem>
         ),
-        renderThumb: (
-          <CarouselThumb color={i.color}>
-            {i.title}
-          </CarouselThumb>
-        )
       })),
     });
 
@@ -34,13 +27,12 @@ export const code = `
         <button onClick={slideToPrevItem}>Prev item</button>
         {carouselFragment}
         <button onClick={slideToNextItem}>Next item</button>
-        <div>{thumbsFragment}</div>
       </div>
     );
   }
 `;
 
-export function UseSpringCarouselThumbListExample() {
+export function UseSpringCarouselInitialActiveItemExample() {
   return (
     <div
       className={css`

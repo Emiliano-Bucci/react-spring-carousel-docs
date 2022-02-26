@@ -50,6 +50,7 @@ export function PlaygroundWrapper({
           .use-spring-carousel-main-wrapper {
             overflow: hidden;
             box-shadow: ${shadows.medium};
+            border-radius: 16px;
           }
           .item {
             display: flex;
@@ -101,6 +102,12 @@ export function PlaygroundWrapper({
             padding: 3.2rem;
             border-radius: 16px;
             box-shadow: ${shadows.medium};
+            overflow: hidden;
+            .thumb-item {
+              &:not(:last-child) {
+                margin-right: 3.2rem;
+              }
+            }
           `}
         >
           {thumbsFragment}

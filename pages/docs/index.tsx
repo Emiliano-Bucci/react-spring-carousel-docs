@@ -167,7 +167,7 @@ export default function Page() {
           && li:not(:last-of-type) {
             margin-bottom: 0rem;
           }
-          && {
+          &&&& {
             padding-left: 0;
             list-style: none;
           }

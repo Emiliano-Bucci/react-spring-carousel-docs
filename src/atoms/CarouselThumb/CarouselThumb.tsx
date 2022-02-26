@@ -13,10 +13,13 @@ export function CarouselThumb({ color, children }: PropsWithChildren<Props>) {
         backgroundColor: color,
       }}
       className={css`
-        padding: 1.6rem 2.4rem;
-        border-radius: 8px;
+        padding: 4rem;
+        min-width: 240px;
+        border-radius: 16px;
         box-shadow: ${shadows.small};
         color: #fff;
+        text-align: center;
+        font-size: 1.8rem;
       `}
     >
       {children}

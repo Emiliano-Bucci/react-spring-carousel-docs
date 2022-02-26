@@ -207,6 +207,47 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                   />
                 ),
               },
+              {
+                id: "built-in-class-names",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Built in classNames"
+                    isChild
+                    href="/docs/use-spring-carousel/built-in-class-names"
+                    isActive={
+                      pathname ===
+                      "/docs/use-spring-carousel/built-in-class-names"
+                    }
+                  />
+                ),
+              },
+              {
+                id: "initial-active-item",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Initial active item"
+                    isChild
+                    href="/docs/use-spring-carousel/initial-active-item"
+                    isActive={
+                      pathname ===
+                      "/docs/use-spring-carousel/initial-active-item"
+                    }
+                  />
+                ),
+              },
+              {
+                id: "multiple-items",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Multiple items"
+                    isChild
+                    href="/docs/use-spring-carousel/multiple-items"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/multiple-items"
+                    }
+                  />
+                ),
+              },
             ],
           },
           {

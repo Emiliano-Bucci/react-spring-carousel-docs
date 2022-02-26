@@ -13,7 +13,7 @@ export function CarouselItem({ children, color }: PropsWithChildren<Props>) {
         css`
           &&&& {
             color: #fff;
-            height: 364px;
+            height: 440px;
             font-size: 3.2rem;
           }
         `

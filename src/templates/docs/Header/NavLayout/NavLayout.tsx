@@ -316,7 +316,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               flex: 1;
               display: flex;
               flex-direction: column;
-              max-width: 960px;
+              max-width: 1110px;
               margin: 0 auto;
               width: 100%;
               padding: 8rem;

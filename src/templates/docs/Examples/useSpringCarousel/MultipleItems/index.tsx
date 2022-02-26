@@ -1,6 +1,6 @@
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
-import { Playground } from "./Playground";
+import { Playground, Playground2 } from "./Playground";
 
 export const code = `
   import { useSpringCarousel } from 'react-spring-carousel'
@@ -33,7 +33,7 @@ export const code = `
   }
 `;
 
-export function UseSpringCarouselMultipleItemsExample() {
+function UseSpringCarouselMultipleItemsExample() {
   return (
     <div
       className={css`
@@ -46,3 +46,21 @@ export function UseSpringCarouselMultipleItemsExample() {
     </div>
   );
 }
+function UseSpringCarouselMultipleItemsExample2() {
+  return (
+    <div
+      className={css`
+        display: grid;
+        grid-gap: 4rem;
+      `}
+    >
+      <SyntaxHiglight showLineNumbers={false} code={code} />
+      <Playground2 />
+    </div>
+  );
+}
+
+export {
+  UseSpringCarouselMultipleItemsExample,
+  UseSpringCarouselMultipleItemsExample2,
+};

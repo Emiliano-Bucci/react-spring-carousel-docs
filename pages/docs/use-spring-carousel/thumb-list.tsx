@@ -64,7 +64,7 @@ export default function Page() {
         thumbs as the only argument, and it <strong>must</strong> return a list
         of thumbs as well. If the quantity of items change, and the new items
         are less than the previous one (it means that we remove some items), the
-        carousel will set as active the last item. Pretty cool uh? 😎
+        carousel will set as active the last existing item. Pretty cool uh? 😎
       </p>
       <UseSpringCarouselThumbListExample3 />
       <PageNavigationFooter

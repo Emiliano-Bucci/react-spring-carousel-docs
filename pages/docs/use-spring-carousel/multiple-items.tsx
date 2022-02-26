@@ -1,5 +1,8 @@
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
-import { UseSpringCarouselMultipleItemsExample } from "templates/docs/Examples/useSpringCarousel/MultipleItems";
+import {
+  UseSpringCarouselMultipleItemsExample,
+  UseSpringCarouselMultipleItemsExample2,
+} from "templates/docs/Examples/useSpringCarousel/MultipleItems";
 
 export default function Page() {
   return (
@@ -10,6 +13,17 @@ export default function Page() {
         item, but not for <strong>React Spring Carousel</strong> 🦾
       </p>
       <UseSpringCarouselMultipleItemsExample />
+      <h2>Starting position</h2>
+      <p>
+        If you want to, you can also change the starting position of the
+        <strong>initial</strong> active item; the accepted values are:
+      </p>
+      <ul>
+        <li>start - the default one</li>
+        <li>center</li>
+        <li>end</li>
+      </ul>
+      <UseSpringCarouselMultipleItemsExample2 />
       <PageNavigationFooter
         prevBtn={{
           label: "Initial active item",

@@ -44,13 +44,12 @@ export function PlaygroundWrapper({
           border-radius: 16px;
           background-color: #fff;
           box-shadow: ${shadows.medium};
-          padding: 3.2rem;
           position: relative;
           overflow: hidden;
-          .use-spring-carousel-main-wrapper {
-            overflow: hidden;
-            box-shadow: ${shadows.medium};
-            border-radius: 16px;
+          box-shadow: ${shadows.medium};
+          transition: all 280ms ease;
+          :hover  {
+            box-shadow: ${shadows.large};
           }
           .item {
             display: flex;
@@ -72,9 +71,9 @@ export function PlaygroundWrapper({
               display: flex;
               justify-content: space-between;
               position: absolute;
-              bottom: 48px;
-              left: 48px;
-              right: 48px;
+              bottom: 24px;
+              left: 24px;
+              right: 24px;
               background-color: #fff;
               box-shadow: ${shadows.medium};
               z-index: 10;

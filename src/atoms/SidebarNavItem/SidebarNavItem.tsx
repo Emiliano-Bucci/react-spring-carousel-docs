@@ -1,8 +1,13 @@
 import { Link } from "atoms/Link";
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import { colors } from "src/theme";
 import { Dot } from "./Dot";
 import { Line } from "./Line";
+import { Plus } from "./Plus";
+
+const childStyles = css`
+  margin-left: 1.2rem;
+`;
 
 type Props = {
   label: string;
@@ -10,6 +15,8 @@ type Props = {
   isActive?: boolean;
   href?: string;
   isChild?: boolean;
+  isChildParent?: boolean;
+  isExpanded?: boolean;
 };
 
 export function SidebarNavItem({
@@ -18,6 +25,8 @@ export function SidebarNavItem({
   isActive = false,
   href = "",
   isChild = false,
+  isChildParent = false,
+  isExpanded = false,
 }: Props) {
   if (isSectionTitle) {
     return (
@@ -28,6 +37,7 @@ export function SidebarNavItem({
           font-weight: bold;
           text-transform: uppercase;
           margin-bottom: 0.4rem;
+          font-size: 2rem;
           span {
             color: #bebed3;
           }
@@ -42,27 +52,37 @@ export function SidebarNavItem({
     <Link
       variant="none"
       size="none"
-      className={css`
-        display: flex;
-        color: #d8d8e4;
-        padding: 0.4rem 0.8rem;
-        cursor: pointer;
-        align-items: center;
-        justify-content: flex-start;
-        transition: color 280ms ease;
-        span {
-          color: inherit;
-        }
-        :hover,
-        :focus {
-          color: ${colors.secondaryLight};
-        }
-      `}
+      className={cx(
+        isChild && childStyles,
+        css`
+          display: flex;
+          color: #d8d8e4;
+          padding: 0.4rem 0.8rem;
+          cursor: pointer;
+          align-items: center;
+          justify-content: flex-start;
+          transition: color 280ms ease;
+          font-size: 1.8rem;
+          span {
+            color: inherit;
+          }
+          :hover,
+          :focus {
+            color: ${colors.secondaryLight};
+          }
+        `
+      )}
       linkProps={{
         href,
       }}
     >
-      {isChild ? <Line isActive={isActive} /> : <Dot isActive={isActive} />}
+      {isChild ? (
+        <Line isActive={isActive} />
+      ) : isChildParent ? (
+        <Plus isActive={isExpanded} />
+      ) : (
+        <Dot isActive={isActive} />
+      )}
       <span>{label}</span>
     </Link>
   );

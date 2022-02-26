@@ -18,8 +18,10 @@ export function SyntaxHiglight({
       {...rest}
       className={css`
         margin: 0 !important;
-        border-radius: 8px;
-        box-shadow: ${shadows.small};
+        border-radius: 16px;
+        box-shadow: ${shadows.medium};
+        background-color: #393954 !important;
+        padding: 2.4rem !important;
         .plain-text,
         span {
           color: inherit;

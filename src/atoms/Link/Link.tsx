@@ -2,6 +2,7 @@ import NextLink, { LinkProps } from "next/link";
 import {
   AnchorHTMLAttributes,
   DetailedHTMLProps,
+  forwardRef,
   PropsWithChildren,
 } from "react";
 import { css, cx } from "linaria";
@@ -82,24 +83,30 @@ const styles = css`
   }
 `;
 
-export function Link({
-  children,
-  linkProps,
-  className = "",
-  variant = "primary",
-  size = "default",
-  ...rest
-}: Props) {
-  return (
-    <NextLink {...linkProps}>
-      <a
-        {...rest}
-        data-variant={variant}
-        data-size={size}
-        className={cx(styles, className)}
-      >
-        {children}
-      </a>
-    </NextLink>
-  );
-}
+export const Link = forwardRef<HTMLAnchorElement, Props>(
+  (
+    {
+      children,
+      linkProps,
+      className = "",
+      variant = "primary",
+      size = "default",
+      ...rest
+    },
+    ref
+  ) => {
+    return (
+      <NextLink {...linkProps}>
+        <a
+          {...rest}
+          ref={ref}
+          data-variant={variant}
+          data-size={size}
+          className={cx(styles, className)}
+        >
+          {children}
+        </a>
+      </NextLink>
+    );
+  }
+);

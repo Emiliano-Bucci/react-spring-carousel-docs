@@ -1,9 +1,10 @@
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import { Accordion, AccordionRow } from "molecoles/Accordion";
 import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useRouter } from "next/dist/client/router";
 import { ReactNode, useMemo } from "react";
 import { colors, shadows } from "src/theme";
+import { ParentSidebarNavItem } from "../../../../atoms/SidebarNavItem/ParentSidebarNavItem";
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
@@ -22,6 +23,15 @@ function Wrapper({ children }: { children: ReactNode }) {
     <div
       className={css`
         display: flex;
+
+        .page-wrapper {
+          & > * {
+            :not(:last-child) {
+              margin-bottom: 3.2rem;
+            }
+          }
+        }
+
         ul {
           list-style: initial;
           padding-left: 2.4rem;
@@ -58,9 +68,6 @@ function Wrapper({ children }: { children: ReactNode }) {
           }
         }
         p {
-          &:not(:last-child) {
-            margin-bottom: 3.2rem;
-          }
           + ul {
             margin-top: -2rem;
           }
@@ -124,24 +131,36 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               />
             ),
           },
-
           {
             id: "use-spring-carousel",
             renderItem: (
-              <SidebarNavItem
+              <ParentSidebarNavItem
                 label="useSpringCarousel"
-                isActive={pathname === "/docs/use-spring-carousel"}
-                href="/docs/use-spring-carousel"
+                href="/docs/use-spring-carousel/basic"
+                id="use-spring-carousel"
               />
             ),
+            children: [
+              {
+                id: "basic",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Basic"
+                    isActive={pathname === "/docs/use-spring-carousel/basic"}
+                    href="/docs/use-spring-carousel/basic"
+                    isChild
+                  />
+                ),
+              },
+            ],
           },
           {
             id: "use-transition-carousel",
             renderItem: (
-              <SidebarNavItem
+              <ParentSidebarNavItem
                 label="useTransitionCarousel"
                 href="/docs/use-transition-carousel"
-                isActive={pathname === "/docs/use-transition-carousel"}
+                id="use-transition-carousel"
               />
             ),
           },
@@ -164,7 +183,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           position: sticky;
           top: 0;
           max-width: 320px;
-          padding: 2.4rem;
+          padding: 3.2rem;
           background-color: #393954;
           box-shadow: ${shadows.large};
         `}
@@ -173,7 +192,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           className={css`
             color: #bebed3;
             font-size: 2.4rem;
-            margin-bottom: 2.4rem;
+            margin-bottom: 4rem;
             padding-bottom: 1.6rem;
             border-bottom: 1px solid #bebed3;
           `}
@@ -193,15 +212,18 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         `}
       >
         <div
-          className={css`
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            max-width: 960px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 8rem;
-          `}
+          className={cx(
+            "page-wrapper",
+            css`
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              max-width: 960px;
+              margin: 0 auto;
+              width: 100%;
+              padding: 8rem;
+            `
+          )}
         >
           {pageContent}
         </div>

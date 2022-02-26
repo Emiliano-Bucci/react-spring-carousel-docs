@@ -16,12 +16,12 @@ export function Line({ isActive }: Props) {
       className={cx(
         isActive ? activeStyles : undefined,
         css`
-          width: 12px;
+          width: 8px;
           height: 4px;
           transition: transform 280ms ease;
           background-color: ${colors.secondaryLight};
           border-radius: 40px;
-          margin-right: 1.2rem;
+          margin-right: 0.8rem;
           transform-origin: left;
           margin-top: 0.24rem;
         `

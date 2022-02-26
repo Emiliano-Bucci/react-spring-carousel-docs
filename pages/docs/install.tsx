@@ -16,7 +16,7 @@ export default function Page() {
       <div
         className={css`
           display: grid;
-          grid-gap: 1.6rem;
+          grid-gap: 3.2rem;
         `}
       >
         <SyntaxHiglight showLineNumbers={false} code={npmInstallCode} />

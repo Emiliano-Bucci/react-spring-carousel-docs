@@ -12,8 +12,8 @@ export function HighlightText({
       className={cx(
         className,
         css`
-          border-radius: 8px;
-          padding: 1.6rem;
+          border-radius: 16px;
+          padding: 2.4rem;
           border-left: 6px solid ${colors.secondaryLight};
           box-shadow: ${shadows.small};
           background-color: #fff;

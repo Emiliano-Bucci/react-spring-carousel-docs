@@ -1,4 +1,4 @@
-import { HTMLAttributes, useMemo, useRef, useState } from "react";
+import { HTMLAttributes, useContext, useMemo, useRef, useState } from "react";
 import { css, cx } from "linaria";
 import { useMeasure } from "utils/useMeasure";
 import React from "react";
@@ -35,31 +35,34 @@ export type AccordionRow = {
   shouldBeInteractive?: boolean;
   isInitiallyExpanded?: boolean;
   props?: HTMLAttributes<HTMLDivElement>;
-};
-
-type Props = {
-  data: AccordionRow[];
+  depth: number;
 };
 
 function RowItem({
   renderItem,
   children,
   activeItems,
-  expandItem,
   toggle,
   id,
   shouldBeInteractive = true,
   isInitiallyExpanded,
   props = {},
+  depth,
+  getIsExpanded,
+  setActiveItem,
+  parentId,
 }: AccordionRow & {
-  activeItems: string[];
-  expandItem(id: string): void;
-  toggle(id: string): void;
+  activeItems: ActiveItem[];
+  toggle: ContextProps["toggle"];
+  getIsExpanded: ContextProps["getIsExpanded"];
+  setActiveItem: ContextProps["toggle"];
+  parentId: string;
 }) {
+  const [{ ref }, { height }] = useMeasure();
   const { className, ...restProps } = props;
   const initiallyExpanded = useRef(isInitiallyExpanded);
-  const isExpanded = activeItems.includes(id);
-  const [{ ref }, { height }] = useMeasure();
+  const isExpanded = getIsExpanded(id);
+  const itemHasChildren = Array.isArray(children) && children.length > 0;
   const { height: springHeight } = useSpring({
     immediate: !shouldBeInteractive || initiallyExpanded.current,
     height:
@@ -68,8 +71,16 @@ function RowItem({
         : 0,
   });
   function handleToggleItem() {
-    toggle(id);
+    toggle(id, parentId, depth);
     initiallyExpanded.current = false;
+  }
+
+  function handleOnClick() {
+    if (itemHasChildren) {
+      handleToggleItem();
+    } else {
+      setActiveItem(id, parentId, depth);
+    }
   }
 
   return (
@@ -82,7 +93,7 @@ function RowItem({
       )}
       {...restProps}
     >
-      <div onClick={shouldBeInteractive ? handleToggleItem : undefined}>
+      <div onClick={shouldBeInteractive ? handleOnClick : undefined}>
         {renderItem}
       </div>
       <animated.div
@@ -97,15 +108,16 @@ function RowItem({
         `}
       >
         <div ref={ref}>
-          {Array.isArray(children) &&
-            children.length > 0 &&
+          {itemHasChildren &&
             children.map((child) => (
               <RowItem
                 key={child.id}
                 {...child}
+                parentId={parentId}
                 activeItems={activeItems}
-                expandItem={expandItem}
                 toggle={toggle}
+                getIsExpanded={getIsExpanded}
+                setActiveItem={setActiveItem}
               />
             ))}
         </div>
@@ -116,36 +128,62 @@ function RowItem({
 
 type ContextProps = {
   getIsExpanded(id: string): boolean;
-  setActiveItem(id: string): void;
-  toggle(id: string): void;
+  toggle(id: string, parentId: string, depth: number): void;
 };
 
 const AccordionContext = React.createContext<ContextProps>({
   getIsExpanded: () => false,
-  setActiveItem: () => {},
   toggle: () => {},
 });
 
-export function Accordion({ data }: Props) {
-  const [activeItems, setActiveItems] = useState<string[]>([]);
+type Props = {
+  data: AccordionRow[];
+  shouldExpandOnlyOneItem?: boolean;
+};
+
+type ActiveItem = { id: string; parentId: string; depth: number };
+
+export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
+  const [activeItems, setActiveItems] = useState<ActiveItem[]>([]);
   const dataWithDepth = useMemo(() => assignDepth(data), [data]);
-  function expandItem(id: string) {
-    setActiveItems((p) => [...p, id]);
+
+  function toggleItems(id: string, parentId: string, depth: number) {
+    const item = {
+      id,
+      depth,
+      parentId,
+    };
+
+    if (shouldExpandOnlyOneItem) {
+      setActiveItems((p) => {
+        if (p.some((i) => i.id === item.id)) {
+          return [];
+        } else {
+          return [item];
+        }
+      });
+    } else {
+      setActiveItems((p) => {
+        if (p.some((i) => i.id === item.id)) {
+          return p.filter((v) => v.id !== item.id);
+        } else {
+          return [...p, item];
+        }
+      });
+    }
   }
-  function toggleItems(id: string) {
-    setActiveItems((p) => {
-      if (p.includes(id)) {
-        return p.filter((v) => v !== id);
-      } else {
-        return [...p, id];
-      }
-    });
+  function setActiveItem(id: string, parentId: string, depth: number) {
+    setActiveItems((p) => [...p, { id, depth, parentId }]);
   }
+
+  function getIsExpanded(id: string) {
+    return activeItems.some((i) => i.id === id);
+  }
+
   return (
     <AccordionContext.Provider
       value={{
-        getIsExpanded: (id) => activeItems.includes(id),
-        setActiveItem: (id) => setActiveItems((p) => [...p, id]),
+        getIsExpanded: getIsExpanded,
         toggle: toggleItems,
       }}
     >
@@ -159,11 +197,23 @@ export function Accordion({ data }: Props) {
             key={item.id}
             {...item}
             activeItems={activeItems}
-            expandItem={expandItem}
             toggle={toggleItems}
+            getIsExpanded={getIsExpanded}
+            setActiveItem={setActiveItem}
+            parentId={item.id}
           />
         ))}
       </div>
     </AccordionContext.Provider>
   );
+}
+
+export function useAccordionProvider() {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error(
+      "You should use useAccordionProvider inside <Accordion /> component!"
+    );
+  }
+  return context;
 }

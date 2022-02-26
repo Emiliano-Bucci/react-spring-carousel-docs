@@ -15,14 +15,8 @@ export function PageNavigationFooter({ prevBtn, nextBtn }: Props) {
     <div
       className={css`
         display: flex;
-        justify-content: space-between;
         padding-top: 8rem;
         margin-top: auto;
-        & > * {
-          :last-of-type {
-            margin-left: auto;
-          }
-        }
       `}
     >
       {prevBtn && (

@@ -2,12 +2,13 @@ import { BasicList } from "molecoles/BasicList";
 import { Link } from "atoms/Link";
 import { HighlightText } from "atoms/HighlightText";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
+
 export default function Page() {
   return (
     <>
       <h2>Premise</h2>
       <p>
-        The library offers two solutions that should cover all of your needs:
+        The library offers two solutions that should cover all of your UI needs:
       </p>
       <BasicList items={["useSpringCarousel", "useTransitionCarousel"]} />
       <p>
@@ -50,12 +51,9 @@ export default function Page() {
         as expected. Apart from that, the library doesn't apply any extra css,
         or came with some fancy .css file that you need to import.
       </HighlightText>
+      <h2>Start!</h2>
       <PageNavigationFooter
         prevBtn={{
-          label: "Install",
-          href: "/docs/install",
-        }}
-        nextBtn={{
           label: "Install",
           href: "/docs/install",
         }}

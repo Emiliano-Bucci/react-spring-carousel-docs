@@ -11,6 +11,7 @@ const nextStyles = css`
   && {
     padding-right: 4.8rem;
     align-items: flex-start;
+    margin-left: auto;
   }
 `;
 const nextIconStyles = css`
@@ -25,6 +26,7 @@ const prevStyles = css`
   && {
     padding-left: 4.8rem;
     align-items: flex-end;
+    margin-right: auto;
   }
 `;
 const prevIconStyles = css`
@@ -69,7 +71,7 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
           display: block;
           margin-bottom: 0.24rem;
           text-transform: uppercase;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           transition: color 280ms ease;
           a:hover &,
           a:focus & {
@@ -83,6 +85,7 @@ export function PageNavigationButton({ type, children, ...rest }: Props) {
         className={css`
           font-weight: bold;
           transition: color 280ms ease;
+          font-size: 1.8rem;
           a:hover &,
           a:focus & {
             color: ${colors.secondaryLight};

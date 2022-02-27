@@ -3,6 +3,8 @@ import {
   UseSpringCarouselSlideTypesExample,
   UseSpringCarouselSlideTypesExample2,
   UseSpringCarouselSlideTypesExample3,
+  UseSpringCarouselSlideTypesExample4,
+  UseSpringCarouselSlideTypesExample5,
 } from "templates/docs/Examples/useSpringCarousel/SlideTypes";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 
@@ -43,6 +45,19 @@ export default function Page() {
         or greater than the items width.
       </HighlightText>
       <UseSpringCarouselSlideTypesExample3 />
+      <h2>Free scroll</h2>
+      <p>
+        You can also enable the <strong>free scroll</strong> modality, which
+        basically enables the default browser scroll (it enables the mouse -
+        trackpad scroll behavior), powered by <strong>react-spring</strong>{" "}
+        animations!
+      </p>
+      <UseSpringCarouselSlideTypesExample4 />
+      <p>
+        and, if you want to, you can also combine default browser scroll + react
+        spring carousel programmatically animations and dragging sliding!
+      </p>
+      <UseSpringCarouselSlideTypesExample5 />
       <PageNavigationFooter
         prevBtn={{
           label: "Multiple items",

@@ -82,10 +82,6 @@ function Wrapper({ children }: { children: ReactNode }) {
               margin-bottom: 3.2rem;
             }
           }
-          .code-snippet {
-            margin: 2.4rem -8rem !important;
-            border-radius: 0px;
-          }
         }
       `}
     >
@@ -217,20 +213,6 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "built-in-class-names",
-                renderItem: (
-                  <SidebarNavItem
-                    label="Built in classNames"
-                    isChild
-                    href="/docs/use-spring-carousel/built-in-class-names"
-                    isActive={
-                      pathname ===
-                      "/docs/use-spring-carousel/built-in-class-names"
-                    }
-                  />
-                ),
-              },
-              {
                 id: "initial-active-item",
                 renderItem: (
                   <SidebarNavItem
@@ -253,6 +235,33 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                     href="/docs/use-spring-carousel/multiple-items"
                     isActive={
                       pathname === "/docs/use-spring-carousel/multiple-items"
+                    }
+                  />
+                ),
+              },
+              {
+                id: "slide-type",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Slide types"
+                    isChild
+                    href="/docs/use-spring-carousel/slide-types"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/slide-types"
+                    }
+                  />
+                ),
+              },
+              {
+                id: "built-in-class-names",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Built in classNames"
+                    isChild
+                    href="/docs/use-spring-carousel/built-in-class-names"
+                    isActive={
+                      pathname ===
+                      "/docs/use-spring-carousel/built-in-class-names"
                     }
                   />
                 ),

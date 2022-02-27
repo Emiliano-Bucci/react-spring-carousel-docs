@@ -4,12 +4,12 @@ export default function Page() {
     <>
       <h1>Built in classNames</h1>
       <p>
-        Even if the library tries to do the best he can to be defined as a{" "}
+        Even if the library tries to do it's best to be defined as a{" "}
         <strong>headless UI library</strong>, there might be some cases where we{" "}
         <strong>need</strong> to apply some custom styles to the{" "}
         <strong>hidden</strong> part of the Carousel. Here's the list of the
         classNames that the library apply to the html elements the library needs
-        to render to make the Carousel work:
+        to render to make the Carousel work in the proper way:
       </p>
       <ul>
         <li>use-spring-carousel-main-wrapper</li>
@@ -22,7 +22,7 @@ export default function Page() {
         You can use the browser inspector to better check where those classNames
         are applied.
       </p>
-      <PageNavigationFooter
+      {/* <PageNavigationFooter
         prevBtn={{
           label: "Thumb list",
           href: "/docs/use-spring-carousel/thumb-list",
@@ -31,7 +31,7 @@ export default function Page() {
           label: "Initial active item",
           href: "/docs/use-spring-carousel/initial-active-item",
         }}
-      />
+      /> */}
     </>
   );
 }

@@ -78,8 +78,8 @@ export default function Page() {
           href: "/docs/use-spring-carousel/nav-buttons",
         }}
         nextBtn={{
-          label: "Built in classNames",
-          href: "/docs/use-spring-carousel/built-in-class-names",
+          label: "Initial active item",
+          href: "/docs/use-spring-carousel/initial-active-item",
         }}
       />
     </>

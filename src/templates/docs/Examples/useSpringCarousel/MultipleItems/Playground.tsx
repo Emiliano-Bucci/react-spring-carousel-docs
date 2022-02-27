@@ -34,9 +34,22 @@ function Playground2() {
     itemsPerSlide: 3,
     withLoop: true,
     initialStartingPosition: startingPosition,
-    items: mockedItems.map((i) => ({
+    items: mockedItems.map((i, indx) => ({
       id: i.id,
-      renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
+      renderItem: (
+        <CarouselItem
+          color={i.color}
+          className={
+            indx > 0
+              ? css`
+                  filter: brightness(0.2) !important;
+                `
+              : undefined
+          }
+        >
+          {i.title}
+        </CarouselItem>
+      ),
     })),
   });
   return (

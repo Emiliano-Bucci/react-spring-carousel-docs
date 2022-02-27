@@ -3,13 +3,21 @@ import { css, cx } from "linaria";
 
 type Props = {
   color: string;
+  className?: string;
+  width?: number;
 };
 
-export function CarouselItem({ children, color }: PropsWithChildren<Props>) {
+export function CarouselItem({
+  children,
+  color,
+  className,
+  width,
+}: PropsWithChildren<Props>) {
   return (
     <div
       className={cx(
         "item",
+        className,
         css`
           &&&& {
             color: #fff;
@@ -20,6 +28,7 @@ export function CarouselItem({ children, color }: PropsWithChildren<Props>) {
       )}
       style={{
         backgroundColor: color,
+        width,
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import { useMeasure } from "utils/useMeasure";
 import React from "react";
 import { animated, useSpring } from "react-spring";
 
-type RowWithDepth = {
+type RowWithDepth = Omit<AccordionRow, "children"> & {
   id: string;
   renderItem: React.ReactNode;
   children?: RowWithDepth[];
@@ -28,13 +28,12 @@ export function assignDepth(arr, depth = 0, index = 0) {
   return newArray as RowWithDepth[];
 }
 
-export type AccordionRow = {
-  id: string;
-  renderItem: React.ReactNode;
-  children?: AccordionRow[];
-  shouldBeInteractive?: boolean;
-  isInitiallyExpanded?: boolean;
-  props?: HTMLAttributes<HTMLDivElement>;
+type RowItem = RowWithDepth & {
+  activeItems: ActiveItem[];
+  toggle: ContextProps["toggle"];
+  getIsExpanded: ContextProps["getIsExpanded"];
+  setActiveItem: ContextProps["toggle"];
+  parentId: string;
   depth: number;
 };
 
@@ -51,13 +50,7 @@ function RowItem({
   getIsExpanded,
   setActiveItem,
   parentId,
-}: AccordionRow & {
-  activeItems: ActiveItem[];
-  toggle: ContextProps["toggle"];
-  getIsExpanded: ContextProps["getIsExpanded"];
-  setActiveItem: ContextProps["toggle"];
-  parentId: string;
-}) {
+}: RowItem) {
   const [{ ref }, { height }] = useMeasure();
   const { className, ...restProps } = props;
   const initiallyExpanded = useRef(isInitiallyExpanded);
@@ -135,6 +128,15 @@ const AccordionContext = React.createContext<ContextProps>({
   getIsExpanded: () => false,
   toggle: () => {},
 });
+
+export type AccordionRow = {
+  id: string;
+  renderItem: React.ReactNode;
+  children?: AccordionRow[];
+  shouldBeInteractive?: boolean;
+  isInitiallyExpanded?: boolean;
+  props?: HTMLAttributes<HTMLDivElement>;
+};
 
 type Props = {
   data: AccordionRow[];

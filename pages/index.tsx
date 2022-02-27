@@ -86,7 +86,7 @@ export default function Home() {
   const [itemsPerSlide, setItemsPerSlide] = useState(5);
   const [activeItem, setActiveItem] = useState(items[0].id);
   const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
-    itemsPerSlide: itemsPerSlide,
+    itemsPerSlide,
     withLoop: true,
     initialStartingPosition: "center",
     items: items.map((i, indx) => ({

@@ -63,12 +63,12 @@ function Playground2() {
           left: 24px;
           right: 24px;
           background-color: #fff;
-          border-radius: 16px;
+          border-radius: 8px;
           box-shadow: ${shadows.medium};
           z-index: 10;
           padding: 1.6rem;
           button {
-            border-radius: 12px;
+            border-radius: 8px;
             margin: 0 0.8rem;
           }
         `}
@@ -124,12 +124,12 @@ function Playground3() {
           left: 24px;
           right: 24px;
           background-color: #fff;
-          border-radius: 16px;
+          border-radius: 8px;
           box-shadow: ${shadows.medium};
           z-index: 10;
           padding: 1.6rem;
           button {
-            border-radius: 12px;
+            border-radius: 8px;
             margin: 0 0.8rem;
           }
         `}
@@ -167,12 +167,12 @@ function Playground4() {
           left: 24px;
           right: 24px;
           background-color: #fff;
-          border-radius: 16px;
+          border-radius: 8px;
           box-shadow: ${shadows.medium};
           z-index: 10;
           padding: 1.6rem;
           button {
-            border-radius: 12px;
+            border-radius: 8px;
             margin: 0 0.8rem;
           }
         `}

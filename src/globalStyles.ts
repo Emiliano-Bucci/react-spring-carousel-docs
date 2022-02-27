@@ -172,7 +172,7 @@ export const globalStyles = css`
     }
     p {
       line-height: 1.48;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       letter-spacing: 0.8px;
     }
     p,

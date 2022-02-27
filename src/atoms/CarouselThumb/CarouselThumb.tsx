@@ -25,7 +25,7 @@ export function CarouselThumb({
         css`
           padding: 4rem;
           min-width: 240px;
-          border-radius: 16px;
+          border-radius: 8px;
           box-shadow: ${shadows.small};
           color: #fff;
           text-align: center;

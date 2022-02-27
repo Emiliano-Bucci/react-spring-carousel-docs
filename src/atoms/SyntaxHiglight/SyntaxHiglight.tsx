@@ -20,10 +20,10 @@ export function SyntaxHiglight({
         "code-snippet",
         css`
           margin: 0 !important;
-          border-radius: 16px;
+          border-radius: 8px;
           box-shadow: ${shadows.medium};
           background-color: #393954 !important;
-          padding: 2.4rem !important;
+          font-size: 1.4rem !important;
           .plain-text,
           span {
             color: inherit;

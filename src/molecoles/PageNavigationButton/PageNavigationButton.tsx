@@ -15,7 +15,7 @@ const nextStyles = css`
   }
 `;
 const nextIconStyles = css`
-  right: 12px;
+  right: 8px;
   transform: rotate(90deg);
   a:hover &,
   a:focus & {
@@ -30,7 +30,7 @@ const prevStyles = css`
   }
 `;
 const prevIconStyles = css`
-  left: 12px;
+  left: 8px;
   transform: rotate(-90deg);
   a:hover &,
   a:focus & {

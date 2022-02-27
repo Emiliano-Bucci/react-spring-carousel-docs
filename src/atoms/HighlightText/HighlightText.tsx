@@ -12,12 +12,12 @@ export function HighlightText({
       className={cx(
         className,
         css`
-          border-radius: 16px;
+          border-radius: 8px;
           padding: 2.4rem;
           border-left: 6px solid ${colors.secondaryLight};
           box-shadow: ${shadows.small};
           background-color: #fff;
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           strong {
             color: ${colors.secondary};
           }

@@ -16,8 +16,8 @@ export function Dot({ isActive }: Props) {
       className={cx(
         isActive ? activeStyles : undefined,
         css`
-          width: 12px;
-          height: 12px;
+          width: 8px;
+          height: 8px;
           transition: all 280ms ease;
           border: 2px solid #d8d8e4;
           border-radius: 50%;

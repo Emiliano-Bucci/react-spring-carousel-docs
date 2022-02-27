@@ -53,7 +53,8 @@ function Wrapper({ children }: { children: ReactNode }) {
             margin-bottom: 3.2rem;
             color: ${colors.secondary};
             position: relative;
-            padding-left: 1.2rem;
+            padding-left: 2.4rem;
+            padding-bottom: 0.8rem;
             &:not(:first-of-type) {
               margin-top: 2.4rem;
             }
@@ -334,7 +335,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               flex: 1;
               display: flex;
               flex-direction: column;
-              max-width: 1110px;
+              max-width: 980px;
               margin: 0 auto;
               width: 100%;
               padding: 8rem;

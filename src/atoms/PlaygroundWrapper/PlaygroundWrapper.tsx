@@ -14,7 +14,7 @@ function CarouselNavigationButton({
     <Button
       onClick={onClick}
       className={css`
-        border-radius: 12px;
+        border-radius: 8px;
         z-index: 10;
       `}
     >
@@ -41,7 +41,7 @@ export function PlaygroundWrapper({
       <div
         className={css`
           display: flex;
-          border-radius: 16px;
+          border-radius: 8px;
           background-color: #fff;
           box-shadow: ${shadows.medium};
           position: relative;
@@ -77,7 +77,7 @@ export function PlaygroundWrapper({
               background-color: #fff;
               box-shadow: ${shadows.medium};
               z-index: 10;
-              border-radius: 16px;
+              border-radius: 8px;
               padding: 1.6rem;
             `}
           >
@@ -99,7 +99,7 @@ export function PlaygroundWrapper({
           className={css`
             background-color: #fff;
             padding: 3.2rem;
-            border-radius: 16px;
+            border-radius: 8px;
             box-shadow: ${shadows.medium};
             overflow: hidden;
             .thumb-item {

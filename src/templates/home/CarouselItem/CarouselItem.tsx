@@ -60,7 +60,7 @@ export function CarouselItem({
           background-color: #fff;
           max-width: 300px;
           width: 100%;
-          border-radius: 16px;
+          border-radius: 8px;
           padding: 2.4rem;
           transition: box-shadow 480ms ease;
           box-shadow: ${shadows.small};

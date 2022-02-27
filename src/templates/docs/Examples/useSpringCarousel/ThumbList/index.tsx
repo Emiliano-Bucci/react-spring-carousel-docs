@@ -1,5 +1,4 @@
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
-import { css } from "linaria";
 import { Playground, Playground2, Playground3 } from "./Playground";
 
 export const code = `
@@ -141,42 +140,22 @@ export const code3 = `
 
 function UseSpringCarouselThumbListExample() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code} />
-      <Playground />
-    </div>
+    <Playground code={<SyntaxHiglight showLineNumbers={false} code={code} />} />
   );
 }
 function UseSpringCarouselThumbListExample2() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code2} />
-      <Playground2 />
-    </div>
+    <Playground2
+      code={<SyntaxHiglight showLineNumbers={false} code={code2} />}
+    />
   );
 }
 
 function UseSpringCarouselThumbListExample3() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code3} />
-      <Playground3 />
-    </div>
+    <Playground3
+      code={<SyntaxHiglight showLineNumbers={false} code={code3} />}
+    />
   );
 }
 

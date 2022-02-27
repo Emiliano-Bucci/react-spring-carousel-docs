@@ -2,8 +2,13 @@ import { CarouselItem } from "atoms/CarouselItem";
 import { PlaygroundWrapper } from "atoms/PlaygroundWrapper";
 import { useSpringCarousel } from "react-spring-carousel";
 import { mockedItems } from "utils/mockedItems";
+import { ReactNode } from "react";
 
-export function Playground() {
+type Props = {
+  code: ReactNode;
+};
+
+export function Playground({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       initialActiveItem: 2,
@@ -16,6 +21,7 @@ export function Playground() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>

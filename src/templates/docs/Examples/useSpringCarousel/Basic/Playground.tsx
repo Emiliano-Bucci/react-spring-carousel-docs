@@ -1,7 +1,12 @@
 import { useSpringCarousel } from "react-spring-carousel";
 import { PlaygroundWrapper } from "atoms/PlaygroundWrapper";
+import { ReactNode } from "react";
 
-export function Playground() {
+type Props = {
+  code: ReactNode;
+};
+
+export function Playground({ code }: Props) {
   const { carouselFragment } = useSpringCarousel({
     items: [
       {
@@ -15,5 +20,5 @@ export function Playground() {
     ],
   });
 
-  return <PlaygroundWrapper>{carouselFragment}</PlaygroundWrapper>;
+  return <PlaygroundWrapper code={code}>{carouselFragment}</PlaygroundWrapper>;
 }

@@ -2,12 +2,16 @@ import { Button } from "atoms/Button";
 import { CarouselItem } from "atoms/CarouselItem";
 import { PlaygroundWrapper } from "atoms/PlaygroundWrapper";
 import { css } from "linaria";
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import { useSpringCarousel } from "react-spring-carousel";
 import { shadows } from "src/theme";
 import { mockedItems } from "utils/mockedItems";
 
-function Playground() {
+type Props = {
+  code: ReactNode;
+};
+
+function Playground({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       itemsPerSlide: 3,
@@ -21,12 +25,13 @@ function Playground() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
   );
 }
-function Playground2() {
+function Playground2({ code }: Props) {
   const [startingPosition, setStartingPosition] = useState<
     "start" | "center" | "end"
   >("start");
@@ -53,7 +58,7 @@ function Playground2() {
     })),
   });
   return (
-    <PlaygroundWrapper>
+    <PlaygroundWrapper code={code}>
       <div
         className={css`
           display: flex;
@@ -102,7 +107,7 @@ function Playground2() {
     </PlaygroundWrapper>
   );
 }
-function Playground3() {
+function Playground3({ code }: Props) {
   const [gutter, setGutter] = useState(0);
   const { carouselFragment } = useSpringCarousel({
     itemsPerSlide: 3,
@@ -114,7 +119,7 @@ function Playground3() {
     })),
   });
   return (
-    <PlaygroundWrapper>
+    <PlaygroundWrapper code={code}>
       <div
         className={css`
           display: flex;
@@ -145,7 +150,7 @@ function Playground3() {
     </PlaygroundWrapper>
   );
 }
-function Playground4() {
+function Playground4({ code }: Props) {
   const [gutter, setGutter] = useState(0);
   const { carouselFragment } = useSpringCarousel({
     itemsPerSlide: 3,
@@ -157,7 +162,7 @@ function Playground4() {
     })),
   });
   return (
-    <PlaygroundWrapper>
+    <PlaygroundWrapper code={code}>
       <div
         className={css`
           display: flex;

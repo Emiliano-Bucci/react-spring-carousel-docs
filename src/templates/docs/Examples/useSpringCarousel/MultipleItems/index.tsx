@@ -1,5 +1,4 @@
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
-import { css } from "linaria";
 import {
   Playground,
   Playground2,
@@ -127,54 +126,28 @@ export const code4 = `
 
 function UseSpringCarouselMultipleItemsExample() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code} />
-      <Playground />
-    </div>
+    <Playground code={<SyntaxHiglight showLineNumbers={false} code={code} />} />
   );
 }
 function UseSpringCarouselMultipleItemsExample2() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code2} />
-      <Playground2 />
-    </div>
+    <Playground2
+      code={<SyntaxHiglight showLineNumbers={false} code={code2} />}
+    />
   );
 }
 function UseSpringCarouselMultipleItemsExample3() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code3} />
-      <Playground3 />
-    </div>
+    <Playground3
+      code={<SyntaxHiglight showLineNumbers={false} code={code3} />}
+    />
   );
 }
 function UseSpringCarouselMultipleItemsExample4() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code4} />
-      <Playground4 />
-    </div>
+    <Playground4
+      code={<SyntaxHiglight showLineNumbers={false} code={code4} />}
+    />
   );
 }
 

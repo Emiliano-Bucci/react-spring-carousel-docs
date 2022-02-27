@@ -1,5 +1,4 @@
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
-import { css } from "linaria";
 import {
   Playground,
   Playground2,
@@ -163,67 +162,35 @@ const code5 = `
 
 function UseSpringCarouselSlideTypesExample() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code} />
-      <Playground />
-    </div>
+    <Playground code={<SyntaxHiglight showLineNumbers={false} code={code} />} />
   );
 }
 function UseSpringCarouselSlideTypesExample2() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code2} />
-      <Playground2 />
-    </div>
+    <Playground2
+      code={<SyntaxHiglight showLineNumbers={false} code={code2} />}
+    />
   );
 }
 function UseSpringCarouselSlideTypesExample3() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code3} />
-      <Playground3 />
-    </div>
+    <Playground3
+      code={<SyntaxHiglight showLineNumbers={false} code={code3} />}
+    />
   );
 }
 function UseSpringCarouselSlideTypesExample4() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code4} />
-      <Playground4 />
-    </div>
+    <Playground4
+      code={<SyntaxHiglight showLineNumbers={false} code={code4} />}
+    />
   );
 }
 function UseSpringCarouselSlideTypesExample5() {
   return (
-    <div
-      className={css`
-        display: grid;
-        grid-gap: 4rem;
-      `}
-    >
-      <SyntaxHiglight showLineNumbers={false} code={code5} />
-      <Playground5 />
-    </div>
+    <Playground5
+      code={<SyntaxHiglight showLineNumbers={false} code={code5} />}
+    />
   );
 }
 

@@ -2,11 +2,15 @@ import { Button } from "atoms/Button";
 import { CarouselItem } from "atoms/CarouselItem";
 import { CarouselThumb } from "atoms/CarouselThumb";
 import { PlaygroundWrapper } from "atoms/PlaygroundWrapper";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { useSpringCarousel } from "react-spring-carousel";
 import { mockedItems } from "utils/mockedItems";
 
-function Playground() {
+type Props = {
+  code: ReactNode;
+};
+
+function Playground({ code }: Props) {
   const { carouselFragment, thumbsFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       withLoop: true,
@@ -22,12 +26,13 @@ function Playground() {
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
       thumbsFragment={thumbsFragment}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
   );
 }
-function Playground2() {
+function Playground2({ code }: Props) {
   const {
     carouselFragment,
     thumbsFragment,
@@ -52,6 +57,7 @@ function Playground2() {
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
       thumbsFragment={thumbsFragment}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
@@ -69,7 +75,7 @@ const extraItems = [
     color: "#2D7D9A",
   },
 ];
-function Playground3() {
+function Playground3({ code }: Props) {
   const [showExtraItems, setShowExtraItems] = useState(false);
   let items = [...mockedItems];
 
@@ -107,6 +113,7 @@ function Playground3() {
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
       thumbsFragment={thumbsFragment}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>

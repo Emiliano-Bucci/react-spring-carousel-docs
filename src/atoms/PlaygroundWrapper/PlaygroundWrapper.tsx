@@ -1,6 +1,7 @@
 import { Button } from "atoms/Button";
 import { css } from "linaria";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { Dialog } from "react-spring-dialog";
 import { shadows } from "src/theme";
 
 function CarouselNavigationButton({
@@ -26,6 +27,7 @@ function CarouselNavigationButton({
 type Props = {
   children: ReactNode;
   thumbsFragment?: ReactNode;
+  code?: ReactNode;
   slideToPrevItem?(): void;
   slideToNextItem?(): void;
 };
@@ -35,7 +37,9 @@ export function PlaygroundWrapper({
   thumbsFragment,
   slideToPrevItem,
   slideToNextItem,
+  code,
 }: Props) {
+  const [showDialog, setShowDialog] = useState(false);
   return (
     <>
       <div
@@ -93,6 +97,21 @@ export function PlaygroundWrapper({
             )}
           </div>
         )}
+        {code && (
+          <Button
+            onClick={() => setShowDialog(true)}
+            className={css`
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: 24px;
+              right: 24px;
+            `}
+          >
+            Snippet
+          </Button>
+        )}
       </div>
       {thumbsFragment && (
         <div
@@ -111,6 +130,41 @@ export function PlaygroundWrapper({
         >
           {thumbsFragment}
         </div>
+      )}
+      {code && (
+        <Dialog
+          isActive={showDialog}
+          onClose={() => setShowDialog(false)}
+          className={css`
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 840px;
+            background-color: #fff;
+            padding: 2.4rem;
+            border-radius: 8px;
+            overflow: hidden;
+            overflow-y: auto;
+            max-height: 90%;
+          `}
+          focusTrapProps={{
+            active: false,
+          }}
+        >
+          {code}
+          <div
+            className={css`
+              margin-left: auto;
+              margin-top: 1.6rem;
+              button {
+                font-size: 1.8rem;
+                padding: 1.2rem 2rem;
+              }
+            `}
+          >
+            <Button onClick={() => setShowDialog(false)}>Close</Button>
+          </div>
+        </Dialog>
       )}
     </>
   );

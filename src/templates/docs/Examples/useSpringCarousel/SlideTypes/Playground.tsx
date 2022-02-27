@@ -2,8 +2,13 @@ import { CarouselItem } from "atoms/CarouselItem";
 import { PlaygroundWrapper } from "atoms/PlaygroundWrapper";
 import { useSpringCarousel } from "react-spring-carousel";
 import { mockedItems } from "utils/mockedItems";
+import { ReactNode } from "react";
 
-function Playground() {
+type Props = {
+  code: ReactNode;
+};
+
+function Playground({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel<"fluid">({
       itemsPerSlide: "fluid",
@@ -21,12 +26,13 @@ function Playground() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
   );
 }
-function Playground2() {
+function Playground2({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel<"fluid">({
       itemsPerSlide: "fluid",
@@ -43,12 +49,13 @@ function Playground2() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
   );
 }
-function Playground3() {
+function Playground3({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel<"fluid">({
       itemsPerSlide: "fluid",
@@ -66,12 +73,13 @@ function Playground3() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
   );
 }
-function Playground4() {
+function Playground4({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel<"fluid">({
       itemsPerSlide: "fluid",
@@ -90,12 +98,13 @@ function Playground4() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>
   );
 }
-function Playground5() {
+function Playground5({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel<"fluid">({
       itemsPerSlide: "fluid",
@@ -115,6 +124,7 @@ function Playground5() {
     <PlaygroundWrapper
       slideToPrevItem={slideToPrevItem}
       slideToNextItem={slideToNextItem}
+      code={code}
     >
       {carouselFragment}
     </PlaygroundWrapper>

@@ -17,15 +17,22 @@ export default function Page() {
         <strong>React Spring Carousel</strong>, covering all the basics. The
         library, though, tries to go beyond that.
       </p>
+      <p>
+        By default, the <strong>useSpringCarousel</strong> hook uses a{" "}
+        <strong>fixed</strong> sliding type. This means that the hook will
+        calculate the quantity of items the user wants to display in the{" "}
+        <strong>viewport</strong> of the carousel (
+        <strong>itemsPerSlide</strong> - default to 1), and the library will
+        dispose all the items that will occupy all the available space.
+      </p>
       <h2>Fluidity</h2>
       <p>
         Now things starts to become interesting; by specifying{" "}
-        <strong>itemsPerSlide: fluid</strong>, the philosofy of the carousel
+        <strong>slideType: fluid</strong>, the philosofy of the carousel
         completely change and the concept of{" "}
         <strong>current active item</strong> totally dissappear. This means that
-        the <strong>scrolling type</strong> will be fluid (aka, the items won't
-        fit anymore in the entire carousel viewport, but will normally occupy
-        all the available space, depending on the single item width).
+        the <strong>scrolling type</strong> will be fluid. The items will be
+        disposed occupying their intrinsic width space.
       </p>
       <UseSpringCarouselSlideTypesExample />
       <p>
@@ -58,6 +65,10 @@ export default function Page() {
         spring carousel programmatically animations and dragging sliding!
       </p>
       <UseSpringCarouselSlideTypesExample5 />
+      <HighlightText>
+        You may find, though, that <strong>some</strong> properties cannot be
+        combined together; you'll find more about it later 😇
+      </HighlightText>
       <PageNavigationFooter
         prevBtn={{
           label: "Multiple items",

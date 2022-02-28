@@ -10,9 +10,8 @@ type Props = {
 
 function Playground({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
-    useSpringCarousel<"fluid">({
-      itemsPerSlide: "fluid",
-      withLoop: true,
+    useSpringCarousel({
+      slideType: "fluid",
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -34,8 +33,9 @@ function Playground({ code }: Props) {
 }
 function Playground2({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
-    useSpringCarousel<"fluid">({
-      itemsPerSlide: "fluid",
+    useSpringCarousel({
+      slideType: "fluid",
+      withLoop: true,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -57,8 +57,8 @@ function Playground2({ code }: Props) {
 }
 function Playground3({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
-    useSpringCarousel<"fluid">({
-      itemsPerSlide: "fluid",
+    useSpringCarousel({
+      slideType: "fluid",
       slideAmount: 375,
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -81,8 +81,8 @@ function Playground3({ code }: Props) {
 }
 function Playground4({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
-    useSpringCarousel<"fluid">({
-      itemsPerSlide: "fluid",
+    useSpringCarousel({
+      slideType: "fluid",
       slideAmount: 375,
       freeScroll: true,
       items: mockedItems.map((i) => ({
@@ -106,8 +106,8 @@ function Playground4({ code }: Props) {
 }
 function Playground5({ code }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
-    useSpringCarousel<"fluid">({
-      itemsPerSlide: "fluid",
+    useSpringCarousel({
+      slideType: "fluid",
       slideAmount: 375,
       freeScroll: true,
       enableFreeScrollDrag: true,

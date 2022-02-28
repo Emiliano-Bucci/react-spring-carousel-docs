@@ -98,8 +98,7 @@ export function PlaygroundWrapper({
           </div>
         )}
         {code && (
-          <Button
-            onClick={() => setShowDialog(true)}
+          <div
             className={css`
               display: flex;
               justify-content: center;
@@ -107,10 +106,14 @@ export function PlaygroundWrapper({
               position: absolute;
               top: 24px;
               right: 24px;
+              background-color: #fff;
+              padding: 1.6rem;
+              border-radius: 8px;
+              box-shadow: ${shadows.medium};
             `}
           >
-            Snippet
-          </Button>
+            <Button onClick={() => setShowDialog(true)}>Snippet</Button>
+          </div>
         )}
       </div>
       {thumbsFragment && (

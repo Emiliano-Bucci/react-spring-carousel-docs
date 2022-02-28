@@ -163,7 +163,10 @@ export default function Page() {
         className={css`
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          grid-gap: 2rem;
+          grid-gap: 2.4rem;
+          &&&& li {
+            margin: 0;
+          }
           && li:not(:last-of-type) {
             margin-bottom: 0rem;
           }

@@ -5,6 +5,7 @@ import { useRouter } from "next/dist/client/router";
 import { ReactNode, useMemo } from "react";
 import { colors, shadows } from "src/theme";
 import { ParentSidebarNavItem } from "atoms/SidebarNavItem/ParentSidebarNavItem";
+import { GlobalPlayground } from "./GlobalPlayground";
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
@@ -26,8 +27,6 @@ function Wrapper({ children }: { children: ReactNode }) {
 
         .page-wrapper {
           background-color: #fdfdfc;
-          border-left: 1px solid ${colors.primaryLighter};
-          border-right: 1px solid ${colors.primaryLighter};
           ul {
             list-style: initial;
             padding-left: 2.4rem;
@@ -298,34 +297,30 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           position: sticky;
           top: 0;
           max-width: 364px;
-          background-color: ${colors.secondaryDarker};
+          background-color: ${colors.primaryLight};
           box-shadow: ${shadows.small};
         `}
       >
         <h1
           className={css`
-            color: ${colors.warm};
+            color: #fafafa;
             font-size: 2.4rem;
             padding: 4rem;
-            background-color: ${colors.secondary};
           `}
         >
           React Spring Carousel
         </h1>
-        <nav
-          className={css`
-            padding: 4rem;
-          `}
-        >
+        <nav>
           <Accordion data={sidebarItems} />
         </nav>
       </div>
       <div
         className={css`
-          width: 100%;
-          flex: 1;
           display: flex;
           flex-direction: column;
+          flex: 1;
+          width: 100%;
+          background-color: #fff;
         `}
       >
         <div
@@ -335,10 +330,8 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               flex: 1;
               display: flex;
               flex-direction: column;
-              max-width: 980px;
-              margin: 0 auto;
               width: 100%;
-              padding: 8rem;
+              padding: 4.8rem;
             `
           )}
         >
@@ -346,6 +339,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         </div>
         {footerFragment}
       </div>
+      <GlobalPlayground />
     </Wrapper>
   );
 }

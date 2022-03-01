@@ -2,12 +2,11 @@ import { Link } from "atoms/Link";
 import { css, cx } from "linaria";
 import { useEffect, useRef } from "react";
 import { colors } from "src/theme";
-import { Dot } from "./Dot";
-import { Line } from "./Line";
-import { Plus } from "./Plus";
 
 const childStyles = css`
-  margin-left: 1.2rem;
+  && {
+    padding-left: 6.4rem;
+  }
 `;
 
 const activeStyles = css`
@@ -55,10 +54,14 @@ export function SidebarNavItem({
           align-items: center;
           font-weight: bold;
           text-transform: uppercase;
-          margin-bottom: 0.4rem;
           font-size: 2rem;
+          padding: 1.6rem 2.4rem;
+          padding-bottom: 1.2rem;
+          padding-left: 4rem;
+          width: 100%;
           span {
-            color: ${colors.warmDarker};
+            width: 100%;
+            color: #fafafa;
           }
         `}
       >
@@ -76,20 +79,24 @@ export function SidebarNavItem({
         isChild && childStyles,
         isActive && activeStyles,
         css`
+          width: 100%;
           display: flex;
-          color: ${colors.warm};
-          padding: 0.4rem 0.8rem;
+          color: #fafafa;
+          padding: 0.8rem;
+          padding-left: 2.4rem;
           cursor: pointer;
           align-items: center;
           justify-content: flex-start;
-          transition: color 280ms ease;
+          transition: all 280ms ease;
+          padding-left: 4.8rem;
           font-size: 1.8rem;
           span {
             color: inherit;
           }
           :hover,
           :focus {
-            color: ${colors.secondaryLight};
+            color: #fff;
+            background-color: ${colors.secondaryLight};
           }
         `
       )}
@@ -97,13 +104,6 @@ export function SidebarNavItem({
         href,
       }}
     >
-      {isChild ? (
-        <Line isActive={isActive} />
-      ) : isChildParent ? (
-        <Plus isActive={isExpanded} />
-      ) : (
-        <Dot isActive={isActive} />
-      )}
       <span>{label}</span>
     </Link>
   );

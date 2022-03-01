@@ -5,6 +5,7 @@ import {
   UseSpringCarouselMultipleItemsExample3,
   UseSpringCarouselMultipleItemsExample4,
 } from "templates/docs/Examples/useSpringCarousel/MultipleItems";
+import { HighlightText } from "atoms/HighlightText";
 
 export default function Page() {
   return (
@@ -25,9 +26,13 @@ export default function Page() {
         <li>center</li>
         <li>end</li>
       </ul>
+      <HighlightText type="warning">
+        <strong>Note:</strong> <strong>initialStartingPosition</strong> only
+        work if <strong>withLoop: true</strong>;
+      </HighlightText>
       <UseSpringCarouselMultipleItemsExample2 />
       <h2>Gutter</h2>
-      <p>You can also easily add some gutter to add space between the items:</p>
+      <p>You can also easily add some space between the items:</p>
       <UseSpringCarouselMultipleItemsExample3 />
       <h2>Gutter on sides</h2>
       <p>

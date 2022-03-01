@@ -15,29 +15,29 @@ export default function Page() {
       <p>
         So far we've been scratching the surface of the possibilities offered by{" "}
         <strong>React Spring Carousel</strong>, covering all the basics. The
-        library, though, tries to go beyond that.
+        library, though, tries to go beyond that, and that's when things starts
+        to become interesting.
       </p>
       <p>
         By default, the <strong>useSpringCarousel</strong> hook uses a{" "}
         <strong>fixed</strong> sliding type. This means that the hook will
         calculate the quantity of items the user wants to display in the{" "}
         <strong>viewport</strong> of the carousel (
-        <strong>itemsPerSlide</strong> - default to 1), and the library will
-        dispose all the items that will occupy all the available space.
+        <strong>itemsPerSlide</strong> which defaults to 1), and N items will
+        fit in the entire viewport.
       </p>
       <h2>Fluidity</h2>
       <p>
-        Now things starts to become interesting; by specifying{" "}
-        <strong>slideType: fluid</strong>, the philosofy of the carousel
-        completely change and the concept of{" "}
+        By specifying <strong>slideType: fluid</strong>, the philosofy of the
+        carousel completely change and the concept of{" "}
         <strong>current active item</strong> totally dissappear. This means that
-        the <strong>scrolling type</strong> will be fluid. The items will be
+        the <strong>scrolling type</strong> will be fluid and the items will be
         disposed occupying their intrinsic width space.
       </p>
       <UseSpringCarouselSlideTypesExample />
       <p>
         You may find that things start to beautifully work together; you can,
-        for example, combine <strong>itemsPerSlide: fluid</strong> and{" "}
+        for example, combine <strong>slideType: fluid</strong> and{" "}
         <strong>withLoop: true</strong> properties! 👉
       </p>
       <UseSpringCarouselSlideTypesExample2 />
@@ -47,7 +47,7 @@ export default function Page() {
         use that value to decide the quantity of px the carousel will slide.
         Eventually, you can specify a custom value 😌
       </p>
-      <HighlightText>
+      <HighlightText type="warning">
         <strong>Note:</strong> Keep in mind that the custom value must be equal
         or greater than the items width.
       </HighlightText>

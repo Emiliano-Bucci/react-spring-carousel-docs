@@ -171,7 +171,7 @@ export const globalStyles = css`
       font-weight: bold;
     }
     p {
-      line-height: 1.48;
+      line-height: 1.6;
       font-size: 1.6rem;
       letter-spacing: 0.8px;
     }

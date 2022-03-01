@@ -16,7 +16,7 @@ const code = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 'fluid // -> Fluidity is the key,
+      slideType: 'fluid' // -> Fluidity is the key,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -45,7 +45,7 @@ const code2 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 'fluid // -> Fluidity is the key,
+      slideType: 'fluid '// -> Fluidity is the key,
       withLoop: true // -> together is better,
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -75,7 +75,7 @@ const code3 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 'fluid,
+      slideType: 'fluid',
       slideAmount: 375,
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -105,7 +105,7 @@ const code4 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 'fluid,
+      slideType: 'fluid',
       slideAmount: 375,
       freeScroll: true,
       items: mockedItems.map((i) => ({
@@ -136,10 +136,10 @@ const code5 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 'fluid,
+      slideType: 'fluid',
       slideAmount: 375,
       freeScroll: true,
-      enableFreeScrollDrag: true,
+      enableFreeScrollDrag: true // -> yooo!,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (

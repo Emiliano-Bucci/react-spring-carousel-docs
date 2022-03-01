@@ -1,5 +1,7 @@
-import { SyntaxHiglight } from "atoms/SyntaxHiglight";
-import { Playground } from "./Playground";
+import { css } from "linaria";
+import { useSpringCarousel } from "react-spring-carousel";
+
+import { Playground, PlaygroundButtonExample } from "molecoles/Playground";
 
 export const code = `
   import { useSpringCarousel } from 'react-spring-carousel'
@@ -30,8 +32,47 @@ export const code = `
   }
 `;
 
+function Carousel() {
+  const { carouselFragment } = useSpringCarousel({
+    items: [
+      {
+        id: "item-1",
+        renderItem: (
+          <div
+            className={css`
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.8rem;
+            `}
+          >
+            Item 1
+          </div>
+        ),
+      },
+      {
+        id: "item-2",
+        renderItem: (
+          <div
+            className={css`
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.8rem;
+            `}
+          >
+            Item 2
+          </div>
+        ),
+      },
+    ],
+  });
+  return <Playground>{carouselFragment}</Playground>;
+}
 export function UseSpringCarouselBasicExample() {
-  return (
-    <Playground code={<SyntaxHiglight showLineNumbers={false} code={code} />} />
-  );
+  return <PlaygroundButtonExample code={code} component={<Carousel />} />;
 }

@@ -15,7 +15,7 @@ export default function Page() {
         for styling. Furthermore, the library <strong>doesn't</strong> come with
         abstracted components. <strong>Everything</strong> is up to you.
       </HighlightText>
-      <p>To start using the carousel you can do the following:</p>
+      <p>Start using the carousel is simple; check the following example!</p>
       <UseSpringCarouselBasicExample />
       <p>
         As you can see from the rendering code snippet,{" "}

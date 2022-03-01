@@ -7,6 +7,7 @@ import Head from "next/head";
 import { PropsWithChildren } from "react";
 import { NavLayout } from "templates/docs/Header/NavLayout";
 import { NextSeo } from "next-seo";
+import { GlobalPlaygroundProvider } from "templates/docs/Header/NavLayout/GlobalPlayground";
 
 type AppProps<P = Record<string, never>> = {
   pageProps: P;
@@ -58,11 +59,12 @@ function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
             flex: 1;
           `}
         >
-          {/* <Header /> */}
-          <NavLayout
-            pageContent={<Component {...pageProps} />}
-            footerFragment={<Footer />}
-          />
+          <GlobalPlaygroundProvider>
+            <NavLayout
+              pageContent={<Component {...pageProps} />}
+              footerFragment={<Footer />}
+            />
+          </GlobalPlaygroundProvider>
         </div>
       </MainWrapper>
     );

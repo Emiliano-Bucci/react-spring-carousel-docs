@@ -12,6 +12,8 @@ export const colors = {
   lighter: "#F6F6F6",
   warm: "#f7f6f0",
   warmDarker: "#E9E5DB",
+  warning: "#F1C40F",
+  warningDarker: "#F39C12",
 };
 export const shadows = {
   small: `0px 1.5px 3.8px rgba(0, 0, 0, 0.018), 0px 5px 14px 2px rgba(0, 0, 0, 0.05);`,

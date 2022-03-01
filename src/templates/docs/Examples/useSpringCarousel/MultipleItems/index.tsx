@@ -47,6 +47,7 @@ export const code2 = `
     } = useSpringCarousel({
       itemsPerSlide: 3,
       withLoop: true,
+      disableGestures: true,
       initialStartingPosition: 'start' | 'center' | 'end',
       items: mockedItems.map((i) => ({
         id: i.id,

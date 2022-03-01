@@ -35,12 +35,15 @@ export default function Page() {
         the center of the container. Of course, if you want to, you can manually
         scroll since the scroll behavior is the default browser one.
       </p>
-      <HighlightText>
+      <HighlightText type="warning">
         <strong>Note:</strong> Since the library don't use any css library (the
         only styles that the library applies are inlined), if you want to hide
-        the thumbs scrollBar, you'll have to do it by yourselve. To archive
-        that, check the next example.
+        the thumbs scrollBar, you'll have to do it by yourselve.
       </HighlightText>
+      <p>
+        You can also disable the automatic scroll of the thumbs if you desire
+        to; in case, just pass <strong>enableThumbsWrapperScroll: false</strong>
+      </p>
       <h2>Slide to item</h2>
       <p>
         I know, let me guess: if you click on a thumb nothing happen, right?

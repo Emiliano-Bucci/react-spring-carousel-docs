@@ -16,13 +16,18 @@ export function CarouselItem({
   return (
     <div
       className={cx(
-        "item",
         className,
         css`
-          &&&& {
-            color: #fff;
-            height: 440px;
-            font-size: 3.2rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+          font-size: 3.2rem;
+          cursor: grab;
+          :active {
+            cursor: grabbing;
           }
         `
       )}

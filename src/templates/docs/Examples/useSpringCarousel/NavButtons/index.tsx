@@ -1,5 +1,7 @@
-import { SyntaxHiglight } from "atoms/SyntaxHiglight";
-import { Playground } from "./Playground";
+import { Playground, PlaygroundButtonExample } from "molecoles/Playground";
+import { useSpringCarousel } from "react-spring-carousel";
+import { mockedItems } from "utils/mockedItems";
+import { CarouselItem } from "atoms/CarouselItem";
 
 export const code = `
   import { useSpringCarousel } from 'react-spring-carousel'
@@ -30,8 +32,24 @@ export const code = `
   }
 `;
 
-export function UseSpringCarouselNavButtonsExample() {
+function Carousel() {
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
+      })),
+    });
   return (
-    <Playground code={<SyntaxHiglight showLineNumbers={false} code={code} />} />
+    <Playground
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+    >
+      {carouselFragment}
+    </Playground>
   );
+}
+
+export function UseSpringCarouselNavButtonsExample() {
+  return <PlaygroundButtonExample code={code} component={<Carousel />} />;
 }

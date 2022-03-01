@@ -39,6 +39,7 @@ function Playground2({ code }: Props) {
     itemsPerSlide: 3,
     withLoop: true,
     initialStartingPosition: startingPosition,
+    disableGestures: true,
     items: mockedItems.map((i, indx) => ({
       id: i.id,
       renderItem: (
@@ -81,7 +82,7 @@ function Playground2({ code }: Props) {
         <Button
           onClick={() => {
             setStartingPosition("start");
-            slideToItem(0);
+            slideToItem!(0);
           }}
         >
           Start
@@ -89,7 +90,7 @@ function Playground2({ code }: Props) {
         <Button
           onClick={() => {
             setStartingPosition("center");
-            slideToItem(0);
+            slideToItem!(0);
           }}
         >
           Center
@@ -97,7 +98,7 @@ function Playground2({ code }: Props) {
         <Button
           onClick={() => {
             setStartingPosition("end");
-            slideToItem(0);
+            slideToItem!(0);
           }}
         >
           End

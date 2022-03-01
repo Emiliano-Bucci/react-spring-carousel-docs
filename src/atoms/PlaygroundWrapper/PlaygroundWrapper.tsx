@@ -60,7 +60,7 @@ export function PlaygroundWrapper({
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 280px;
+            height: 100%;
             cursor: grab;
             &:active {
               cursor: grabbing;

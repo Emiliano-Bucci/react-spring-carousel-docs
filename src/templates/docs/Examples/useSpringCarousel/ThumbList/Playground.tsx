@@ -46,7 +46,7 @@ function Playground2({ code }: Props) {
       id: i.id,
       renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
       renderThumb: (
-        <CarouselThumb color={i.color} onClick={() => slideToItem(i.id)}>
+        <CarouselThumb color={i.color} onClick={() => slideToItem!(i.id)}>
           {i.title}
         </CarouselThumb>
       ),

@@ -122,9 +122,12 @@ function GlobalPlayground() {
               width: 50%;
               height: 100% !important;
               background-color: #474769;
+              padding: 4rem;
+              overflow-y: auto;
               pre {
                 padding: 3.2rem !important;
                 padding-right: 4.8rem !important;
+                max-height: 100%;
               }
             `}
           >

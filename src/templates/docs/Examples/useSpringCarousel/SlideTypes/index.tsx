@@ -1,11 +1,7 @@
-import { SyntaxHiglight } from "atoms/SyntaxHiglight";
-import {
-  Playground,
-  Playground2,
-  Playground3,
-  Playground4,
-  Playground5,
-} from "./Playground";
+import { useSpringCarousel } from "react-spring-carousel";
+import { mockedItems } from "utils/mockedItems";
+import { CarouselItem } from "atoms/CarouselItem";
+import { Playground, PlaygroundButtonExample } from "molecoles/Playground";
 
 const code = `
   import { useSpringCarousel } from 'react-spring-carousel'
@@ -160,36 +156,166 @@ const code5 = `
   }
 `;
 
+function Carousel1() {
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      slideType: "fluid",
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color} width={300}>
+            {i.title}
+          </CarouselItem>
+        ),
+      })),
+    });
+  return (
+    <Playground
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+    >
+      {carouselFragment}
+    </Playground>
+  );
+}
+function Carousel2() {
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      slideType: "fluid",
+      withLoop: true,
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color} width={300}>
+            {i.title}
+          </CarouselItem>
+        ),
+      })),
+    });
+  return (
+    <Playground
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+    >
+      {carouselFragment}
+    </Playground>
+  );
+}
+function Carousel3() {
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      slideType: "fluid",
+      slideAmount: 375,
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color} width={300}>
+            {i.title}
+          </CarouselItem>
+        ),
+      })),
+    });
+  return (
+    <Playground
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+    >
+      {carouselFragment}
+    </Playground>
+  );
+}
+function Carousel4() {
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      slideType: "fluid",
+      slideAmount: 375,
+      freeScroll: true,
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color} width={300}>
+            {i.title}
+          </CarouselItem>
+        ),
+      })),
+    });
+  return (
+    <Playground
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+    >
+      {carouselFragment}
+    </Playground>
+  );
+}
+function Carousel5() {
+  const { carouselFragment, slideToPrevItem, slideToNextItem } =
+    useSpringCarousel({
+      slideType: "fluid",
+      slideAmount: 375,
+      freeScroll: true,
+      enableFreeScrollDrag: true,
+      items: mockedItems.map((i) => ({
+        id: i.id,
+        renderItem: (
+          <CarouselItem color={i.color} width={300}>
+            {i.title}
+          </CarouselItem>
+        ),
+      })),
+    });
+  return (
+    <Playground
+      slideToPrevItem={slideToPrevItem}
+      slideToNextItem={slideToNextItem}
+    >
+      {carouselFragment}
+    </Playground>
+  );
+}
+
 function UseSpringCarouselSlideTypesExample() {
   return (
-    <Playground code={<SyntaxHiglight showLineNumbers={false} code={code} />} />
+    <PlaygroundButtonExample
+      code={code}
+      title="Slide types example 1"
+      component={<Carousel1 />}
+    />
   );
 }
 function UseSpringCarouselSlideTypesExample2() {
   return (
-    <Playground2
-      code={<SyntaxHiglight showLineNumbers={false} code={code2} />}
+    <PlaygroundButtonExample
+      code={code2}
+      title="Slide types example 2"
+      component={<Carousel2 />}
     />
   );
 }
 function UseSpringCarouselSlideTypesExample3() {
   return (
-    <Playground3
-      code={<SyntaxHiglight showLineNumbers={false} code={code3} />}
+    <PlaygroundButtonExample
+      code={code3}
+      title="Slide types example 3"
+      component={<Carousel3 />}
     />
   );
 }
 function UseSpringCarouselSlideTypesExample4() {
   return (
-    <Playground4
-      code={<SyntaxHiglight showLineNumbers={false} code={code4} />}
+    <PlaygroundButtonExample
+      code={code4}
+      title="Slide types example 4"
+      component={<Carousel4 />}
     />
   );
 }
 function UseSpringCarouselSlideTypesExample5() {
   return (
-    <Playground5
-      code={<SyntaxHiglight showLineNumbers={false} code={code5} />}
+    <PlaygroundButtonExample
+      code={code5}
+      title="Slide types example 5"
+      component={<Carousel5 />}
     />
   );
 }

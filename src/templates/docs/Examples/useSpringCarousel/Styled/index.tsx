@@ -36,5 +36,11 @@ function Carousel() {
   return <Playground>{carouselFragment}</Playground>;
 }
 export function UseSpringCarouselStyledExample() {
-  return <PlaygroundButtonExample code={code} component={<Carousel />} />;
+  return (
+    <PlaygroundButtonExample
+      code={code}
+      title="Styled example"
+      component={<Carousel />}
+    />
+  );
 }

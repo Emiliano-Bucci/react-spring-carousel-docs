@@ -1,24 +1,32 @@
 import { css } from "linaria";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { Button } from "atoms/Button";
 import {
   useGlobalPlayground,
   DispatchProps,
 } from "templates/docs/Header/NavLayout/GlobalPlayground";
+import { SyntaxHiglight } from "atoms/SyntaxHiglight";
+import { colors } from "src/theme";
 
 type Props = {
   slideToPrevItem?(): void;
   slideToNextItem?(): void;
+  thumbsFragment?: ReactNode;
+  customControls?: ReactNode;
 };
 
 function Playground({
   children,
   slideToPrevItem,
   slideToNextItem,
+  thumbsFragment,
+  customControls,
 }: PropsWithChildren<Props>) {
   return (
     <div
       className={css`
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         background-color: #fff;
@@ -26,15 +34,28 @@ function Playground({
         position: relative;
       `}
     >
+      {customControls}
       {children}
+      {thumbsFragment && (
+        <div
+          className={css`
+            padding: 2.4rem;
+            background-color: ${colors.warm};
+            .use-spring-carousel-thumbs-wrapper {
+              & > *:not(:last-of-type) {
+                margin-right: 1.6rem;
+              }
+            }
+          `}
+        >
+          {thumbsFragment}
+        </div>
+      )}
       {slideToPrevItem && slideToNextItem && (
         <div
           className={css`
             display: flex;
             justify-content: space-between;
-            position: absolute;
-            bottom: 0;
-            left: 0;
             background-color: #fff;
             padding: 1.6rem;
             right: 0;
@@ -48,19 +69,31 @@ function Playground({
   );
 }
 
-function PlaygroundButtonExample(props: DispatchProps) {
+function PlaygroundButtonExample({
+  children,
+  code,
+  ...rest
+}: PropsWithChildren<DispatchProps & { code: string }>) {
   const { dispatch } = useGlobalPlayground();
 
   return (
     <div
       className={css`
-        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        pre {
+          width: 100%;
+          padding: 0.8rem !important;
+        }
         button {
           padding: 1.6rem 2.4rem;
+          margin: auto;
+          margin-top: 2.4rem;
         }
       `}
     >
-      <Button onClick={() => dispatch(props)}>Show example</Button>
+      <SyntaxHiglight code={code} showLineNumbers={false} />
+      <Button onClick={() => dispatch(rest)}>Open playground</Button>
     </div>
   );
 }

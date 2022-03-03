@@ -1,16 +1,15 @@
-import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
 import { createContext, ReactNode, useContext, useState } from "react";
-import { shadows } from "src/theme";
+import { colors } from "src/theme";
 
 export type DispatchProps = {
-  code: ContextProps["code"];
+  title: ContextProps["title"];
   component: ContextProps["component"];
 };
 
 type ContextProps = {
-  code: string;
   component: ReactNode | null;
+  title: string;
   dispatch(props: DispatchProps): void;
 };
 
@@ -20,7 +19,7 @@ const GlobalPlaygroundContext = createContext<ContextProps | undefined>(
 
 function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
   const [state, seteState] = useState<DispatchProps>({
-    code: "",
+    title: "",
     component: null,
   });
   return (
@@ -38,7 +37,7 @@ function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
 }
 
 function GlobalPlayground() {
-  const { code, component } = useGlobalPlayground();
+  const { title, component } = useGlobalPlayground();
   return (
     <div
       className={css`
@@ -52,24 +51,27 @@ function GlobalPlayground() {
         height: 100vh;
         width: 100%;
         z-index: 100;
-        box-shadow: ${shadows.large};
+        border-left: 1px solid ${colors.warmDarker};
         & > * {
           flex: 1;
           height: 50%;
         }
       `}
     >
-      {code && (
-        <div
+      {title && (
+        <h3
           className={css`
-            pre {
-              border-radius: 0px !important;
-              height: 100%;
-            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.2rem;
+            color: #fff;
+            background-color: ${colors.primaryLight};
+            max-height: 80px;
           `}
         >
-          <SyntaxHiglight code={code} />
-        </div>
+          {title}
+        </h3>
       )}
       {component && (
         <div

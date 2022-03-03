@@ -51,5 +51,11 @@ function Carousel() {
 }
 
 export function UseSpringCarouselNavButtonsExample() {
-  return <PlaygroundButtonExample code={code} component={<Carousel />} />;
+  return (
+    <PlaygroundButtonExample
+      code={code}
+      title="Nav buttons example"
+      component={<Carousel />}
+    />
+  );
 }

@@ -74,5 +74,11 @@ function Carousel() {
   return <Playground>{carouselFragment}</Playground>;
 }
 export function UseSpringCarouselBasicExample() {
-  return <PlaygroundButtonExample code={code} component={<Carousel />} />;
+  return (
+    <PlaygroundButtonExample
+      title="Basic example"
+      code={code}
+      component={<Carousel />}
+    />
+  );
 }

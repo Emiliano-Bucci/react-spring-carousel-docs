@@ -34,7 +34,7 @@ function Playground({
         position: relative;
       `}
     >
-      {customControls}
+      {slideToPrevItem && slideToNextItem && customControls}
       {children}
       {thumbsFragment && (
         <div
@@ -51,6 +51,7 @@ function Playground({
           {thumbsFragment}
         </div>
       )}
+      {!slideToPrevItem && !slideToNextItem && customControls}
       {slideToPrevItem && slideToNextItem && (
         <div
           className={css`
@@ -73,7 +74,7 @@ function PlaygroundButtonExample({
   children,
   code,
   ...rest
-}: PropsWithChildren<DispatchProps & { code: string }>) {
+}: PropsWithChildren<Omit<DispatchProps, "isActive"> & { code: string }>) {
   const { dispatch } = useGlobalPlayground();
 
   return (
@@ -93,7 +94,17 @@ function PlaygroundButtonExample({
       `}
     >
       <SyntaxHiglight code={code} showLineNumbers={false} />
-      <Button onClick={() => dispatch(rest)}>Open playground</Button>
+      <Button
+        onClick={() =>
+          dispatch({
+            ...rest,
+            code,
+            isActive: true,
+          })
+        }
+      >
+        Open playground
+      </Button>
     </div>
   );
 }

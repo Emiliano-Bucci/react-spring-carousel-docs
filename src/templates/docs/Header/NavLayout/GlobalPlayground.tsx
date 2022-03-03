@@ -1,15 +1,21 @@
+import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
 import { createContext, ReactNode, useContext, useState } from "react";
+import { Dialog } from "react-spring-dialog";
 import { colors } from "src/theme";
 
 export type DispatchProps = {
   title: ContextProps["title"];
   component: ContextProps["component"];
+  isActive: ContextProps["isActive"];
+  code: ContextProps["code"];
 };
 
 type ContextProps = {
   component: ReactNode | null;
   title: string;
+  isActive: boolean;
+  code: string;
   dispatch(props: DispatchProps): void;
 };
 
@@ -21,6 +27,8 @@ function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
   const [state, seteState] = useState<DispatchProps>({
     title: "",
     component: null,
+    isActive: false,
+    code: "",
   });
   return (
     <GlobalPlaygroundContext.Provider
@@ -37,53 +45,81 @@ function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
 }
 
 function GlobalPlayground() {
-  const { title, component } = useGlobalPlayground();
+  const { title, component, isActive, dispatch, code } = useGlobalPlayground();
+  console.log(code);
   return (
-    <div
-      className={css`
-        display: flex;
-        flex-direction: column;
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-        right: 0;
-        max-width: 680px;
-        height: 100vh;
-        width: 100%;
-        z-index: 100;
-        border-left: 1px solid ${colors.warmDarker};
-        & > * {
-          flex: 1;
-          height: 50%;
-        }
-      `}
+    <Dialog
+      isActive={isActive}
+      focusTrapProps={{
+        active: false,
+      }}
+      onClose={() => {
+        dispatch({
+          title,
+          component,
+          code,
+          isActive: false,
+        });
+      }}
     >
-      {title && (
-        <h3
-          className={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3.2rem;
-            color: #fff;
-            background-color: ${colors.primaryLight};
-            max-height: 80px;
-          `}
-        >
-          {title}
-        </h3>
-      )}
-      {component && (
+      <div
+        className={css`
+          display: flex;
+          background-color: #fff;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 100;
+          border-left: 1px solid ${colors.warmDarker};
+          pre {
+            box-shadow: none !important;
+            border-radius: 0px !important;
+            height: 100% !important;
+            flex: 1;
+            width: 50%;
+          }
+        `}
+      >
         <div
           className={css`
-            overflow: hidden;
-            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 50%;
           `}
         >
-          {component}
+          {title && (
+            <h3
+              className={css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3.2rem;
+                color: #fff;
+                background-color: ${colors.primaryLight};
+                height: 80px;
+              `}
+            >
+              {title}
+            </h3>
+          )}
+          {component && (
+            <div
+              className={css`
+                overflow: hidden;
+                background-color: #fff;
+                flex: 1;
+              `}
+            >
+              {component}
+            </div>
+          )}
         </div>
-      )}
-    </div>
+        {code && <SyntaxHiglight code={code} />}
+      </div>
+    </Dialog>
   );
 }
 

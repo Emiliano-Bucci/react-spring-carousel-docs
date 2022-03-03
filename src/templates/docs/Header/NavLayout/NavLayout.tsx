@@ -124,14 +124,6 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               />
             ),
           },
-        ],
-        ...sectionProps,
-      },
-      {
-        id: "docs",
-        renderItem: <SidebarNavItem label="Docs" isSectionTitle />,
-        shouldBeInteractive: false,
-        children: [
           {
             id: "premise",
             renderItem: (
@@ -142,6 +134,14 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               />
             ),
           },
+        ],
+        ...sectionProps,
+      },
+      {
+        id: "docs",
+        renderItem: <SidebarNavItem label="Docs" isSectionTitle />,
+        shouldBeInteractive: false,
+        children: [
           {
             id: "use-spring-carousel",
             isInitiallyExpanded: pathname.includes("/docs/use-spring-carousel"),
@@ -296,7 +296,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           height: 100vh;
           position: sticky;
           top: 0;
-          max-width: 364px;
+          max-width: 400px;
           background-color: ${colors.primaryLight};
           box-shadow: ${shadows.small};
         `}
@@ -306,11 +306,16 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             color: #fafafa;
             font-size: 2.4rem;
             padding: 4rem;
+            background: ${colors.primary};
           `}
         >
           React Spring Carousel
         </h1>
-        <nav>
+        <nav
+          className={css`
+            padding-top: 1.6rem;
+          `}
+        >
           <Accordion data={sidebarItems} />
         </nav>
       </div>
@@ -331,7 +336,8 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               display: flex;
               flex-direction: column;
               width: 100%;
-              padding: 4.8rem;
+              padding: 8rem;
+              margin: 0 auto;
             `
           )}
         >

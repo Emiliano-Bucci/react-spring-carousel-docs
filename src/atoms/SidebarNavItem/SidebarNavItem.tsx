@@ -96,7 +96,7 @@ export function SidebarNavItem({
           :hover,
           :focus {
             color: #fff;
-            background-color: ${colors.secondaryLight};
+            background-color: ${colors.primary};
           }
         `
       )}

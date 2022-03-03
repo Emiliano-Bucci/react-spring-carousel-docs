@@ -336,8 +336,11 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               display: flex;
               flex-direction: column;
               width: 100%;
-              padding: 8rem;
+              padding: 8rem 12rem;
               margin: 0 auto;
+              max-width: 1240px;
+              border-left: 1px solid ${colors.warm};
+              border-right: 1px solid ${colors.warm};
             `
           )}
         >

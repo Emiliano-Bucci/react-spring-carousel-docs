@@ -1,8 +1,10 @@
+import { Button } from "atoms/Button";
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Dialog } from "react-spring-dialog";
 import { colors } from "src/theme";
+import Close from "public/close.svg";
 
 export type DispatchProps = {
   title: ContextProps["title"];
@@ -46,20 +48,20 @@ function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
 
 function GlobalPlayground() {
   const { title, component, isActive, dispatch, code } = useGlobalPlayground();
-  console.log(code);
+  function handleOnClose() {
+    dispatch({
+      title,
+      component,
+      code,
+      isActive: false,
+    });
+  }
   return (
     <Dialog
       isActive={isActive}
+      onClose={handleOnClose}
       focusTrapProps={{
         active: false,
-      }}
-      onClose={() => {
-        dispatch({
-          title,
-          component,
-          code,
-          isActive: false,
-        });
       }}
     >
       <div
@@ -73,13 +75,6 @@ function GlobalPlayground() {
           height: 100%;
           z-index: 100;
           border-left: 1px solid ${colors.warmDarker};
-          pre {
-            box-shadow: none !important;
-            border-radius: 0px !important;
-            height: 100% !important;
-            flex: 1;
-            width: 50%;
-          }
         `}
       >
         <div
@@ -98,8 +93,8 @@ function GlobalPlayground() {
                 align-items: center;
                 font-size: 3.2rem;
                 color: #fff;
-                background-color: ${colors.primaryLight};
-                height: 80px;
+                background-color: ${colors.secondary};
+                height: 96px;
               `}
             >
               {title}
@@ -117,8 +112,48 @@ function GlobalPlayground() {
             </div>
           )}
         </div>
-        {code && <SyntaxHiglight code={code} />}
+        {code && (
+          <div
+            className={css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex: 1;
+              width: 50%;
+              height: 100% !important;
+              background-color: #474769;
+              pre {
+                padding: 3.2rem !important;
+                padding-right: 4.8rem !important;
+              }
+            `}
+          >
+            <SyntaxHiglight code={code.trim()} />
+          </div>
+        )}
       </div>
+      <Button
+        onClick={handleOnClose}
+        className={css`
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          z-index: 100;
+          padding: 0px !important;
+          width: 48px;
+          height: 48px;
+          svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+          }
+        `}
+      >
+        <Close />
+      </Button>
     </Dialog>
   );
 }

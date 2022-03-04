@@ -15,7 +15,7 @@ export type Props = PropsWithChildren<{
 }> &
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
-const styles = css`
+export const styles = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,13 +32,13 @@ const styles = css`
   color: inherit;
   transition: all 280ms ease;
 
-  &[data-size="default"] {
+  &&[data-size="default"] {
     padding: 1.2rem 1.6rem;
   }
-  &[data-size="small"] {
+  &&[data-size="small"] {
     padding: 0.8rem 1.2rem;
   }
-  &[data-size="icon"] {
+  &&[data-size="icon"] {
     padding: 0.8rem 0.8rem;
     width: 38px;
     height: 38px;
@@ -48,7 +48,7 @@ const styles = css`
     }
   }
 
-  &[data-variant="default-link"] {
+  &&[data-variant="default-link"] {
     display: inline-flex;
     justify-content: flex-start;
     text-decoration: underline;

@@ -172,12 +172,24 @@ function Carousel2() {
             }
           `}
         >
-          <Button onClick={() => setGutter(0)}>0</Button>
-          <Button onClick={() => setGutter(8)}>8</Button>
-          <Button onClick={() => setGutter(16)}>16</Button>
-          <Button onClick={() => setGutter(24)}>24</Button>
-          <Button onClick={() => setGutter(32)}>32</Button>
-          <Button onClick={() => setGutter(40)}>40</Button>
+          <Button variant="secondary" onClick={() => setGutter(0)}>
+            0
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(8)}>
+            8
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(16)}>
+            16
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(24)}>
+            24
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(32)}>
+            32
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(40)}>
+            40
+          </Button>
         </div>
       }
     >

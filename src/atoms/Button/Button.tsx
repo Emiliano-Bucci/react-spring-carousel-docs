@@ -1,43 +1,46 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import { css, cx } from "linaria";
-import { colors, shadows } from "src/theme";
+import { styles } from "../Link/Link";
 
 type Props = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
->;
+> & {
+  variant?: "primary" | "secondary" | "none" | "default-link";
+  size?: "default" | "small" | "icon" | "none";
+};
 
-const styles = css`
+const baseButtonStyles = css`
   border: none;
   font-family: inherit;
   -webkit-appearance: none;
   font-size: 1.6rem;
   cursor: pointer;
   background: none;
-  background-color: ${colors.secondary};
-  color: #fff;
   transition: all 280ms ease;
   padding: 0.8rem 1.6rem;
   border-radius: 8px;
   letter-spacing: inherit;
   outline: none;
   line-height: inherit;
-  box-shadow: ${shadows.small};
-  :hover,
-  :focus {
-    background-color: ${colors.secondaryLight};
-    box-shadow: ${shadows.medium};
-  }
 `;
 
 export function Button({
   children,
   type = "button",
   className = "",
+  variant = "primary",
+  size = "default",
   ...rest
 }: Props) {
   return (
-    <button {...rest} className={cx(styles, className)} type={type}>
+    <button
+      {...rest}
+      data-variant={variant}
+      data-size={size}
+      type={type}
+      className={cx(baseButtonStyles, styles, className)}
+    >
       {children}
     </button>
   );

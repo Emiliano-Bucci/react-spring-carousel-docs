@@ -204,6 +204,7 @@ function GlobalPlayground() {
       >
         <Button
           onClick={handleOnClose}
+          variant="secondary"
           className={css`
             display: flex;
             justify-content: center;

@@ -75,8 +75,12 @@ const Playground = forwardRef<HTMLDivElement, PropsWithChildren<Props>>(
               right: 0;
             `}
           >
-            <Button onClick={slideToPrevItem}>Prev item</Button>
-            <Button onClick={slideToNextItem}>Next item</Button>
+            <Button variant="secondary" onClick={slideToPrevItem}>
+              Prev item
+            </Button>
+            <Button variant="secondary" onClick={slideToNextItem}>
+              Next item
+            </Button>
           </div>
         )}
       </div>
@@ -108,6 +112,7 @@ function PlaygroundButtonExample({
     >
       <SyntaxHiglight code={code} showLineNumbers={false} />
       <Button
+        variant="secondary"
         onClick={() => {
           dispatch({
             ...rest,

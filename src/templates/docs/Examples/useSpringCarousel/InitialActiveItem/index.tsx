@@ -65,10 +65,18 @@ function Carousel() {
             }
           `}
         >
-          <Button onClick={() => setInitialActiveItem(0)}>0</Button>
-          <Button onClick={() => setInitialActiveItem(1)}>1</Button>
-          <Button onClick={() => setInitialActiveItem(2)}>2</Button>
-          <Button onClick={() => setInitialActiveItem(3)}>3</Button>
+          <Button variant="secondary" onClick={() => setInitialActiveItem(0)}>
+            0
+          </Button>
+          <Button variant="secondary" onClick={() => setInitialActiveItem(1)}>
+            1
+          </Button>
+          <Button variant="secondary" onClick={() => setInitialActiveItem(2)}>
+            2
+          </Button>
+          <Button variant="secondary" onClick={() => setInitialActiveItem(3)}>
+            3
+          </Button>
         </div>
       }
     >

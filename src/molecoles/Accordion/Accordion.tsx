@@ -50,6 +50,7 @@ function RowItem({
   getIsExpanded,
   setActiveItem,
   parentId,
+  onItemShouldExpand,
 }: RowItem) {
   const [{ ref }, { height }] = useMeasure();
   const { className, ...restProps } = props;
@@ -65,6 +66,7 @@ function RowItem({
   });
   function handleToggleItem() {
     toggle(id, parentId, depth);
+    onItemShouldExpand && onItemShouldExpand(!isExpanded);
     initiallyExpanded.current = false;
   }
 
@@ -136,6 +138,7 @@ export type AccordionRow = {
   shouldBeInteractive?: boolean;
   isInitiallyExpanded?: boolean;
   props?: HTMLAttributes<HTMLDivElement>;
+  onItemShouldExpand?(isExpanded: boolean): void;
 };
 
 type Props = {

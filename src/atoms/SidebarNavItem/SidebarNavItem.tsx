@@ -1,3 +1,4 @@
+import { Button } from "atoms/Button";
 import { Link } from "atoms/Link";
 import { css, cx } from "linaria";
 import { useEffect, useRef } from "react";
@@ -19,7 +20,6 @@ type Props = {
   isActive?: boolean;
   href?: string;
   isChild?: boolean;
-  isChildParent?: boolean;
   isExpanded?: boolean;
 };
 
@@ -29,7 +29,6 @@ export function SidebarNavItem({
   isActive = false,
   href = "",
   isChild = false,
-  isChildParent = false,
   isExpanded = false,
 }: Props) {
   const ref = useRef<HTMLAnchorElement | null>(null);
@@ -67,6 +66,45 @@ export function SidebarNavItem({
       >
         <span>{label}</span>
       </div>
+    );
+  }
+
+  if (!href) {
+    return (
+      <Button
+        variant="none"
+        size="none"
+        className={cx(
+          isChild && childStyles,
+          isActive && activeStyles,
+          css`
+            && {
+              width: 100%;
+              display: flex;
+              color: #fafafa;
+              padding: 0.8rem;
+              padding-left: 2.4rem;
+              cursor: pointer;
+              align-items: center;
+              justify-content: flex-start;
+              transition: all 280ms ease;
+              padding-left: 4.8rem;
+              border-radius: 0px;
+              font-size: 1.8rem;
+              span {
+                color: inherit;
+              }
+              :hover,
+              :focus {
+                color: #fff;
+                background-color: ${colors.primary};
+              }
+            }
+          `
+        )}
+      >
+        <span>{label}</span>
+      </Button>
     );
   }
 

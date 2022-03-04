@@ -96,7 +96,7 @@ type Props = {
 };
 
 export function NavLayout({ pageContent, footerFragment }: Props) {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
   const sidebarItems = useMemo(() => {
     return [
       {
@@ -145,10 +145,14 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           {
             id: "use-spring-carousel",
             isInitiallyExpanded: pathname.includes("/docs/use-spring-carousel"),
+            onItemShouldExpand(expanded) {
+              if (expanded && !pathname.includes("/docs/use-spring-carousel")) {
+                push("/docs/use-spring-carousel/basic");
+              }
+            },
             renderItem: (
               <ParentSidebarNavItem
                 label="useSpringCarousel"
-                href="/docs/use-spring-carousel/basic"
                 id="use-spring-carousel"
               />
             ),
@@ -307,10 +311,17 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             isInitiallyExpanded: pathname.includes(
               "/docs/use-transition-carousel"
             ),
+            onItemShouldExpand(expanded) {
+              if (
+                expanded &&
+                !pathname.includes("/docs/use-transition-carousel")
+              ) {
+                push("/docs/use-transition-carousel/basic");
+              }
+            },
             renderItem: (
               <ParentSidebarNavItem
                 label="useTransitionCarousel"
-                href="/docs/use-transition-carousel"
                 id="use-transition-carousel"
               />
             ),
@@ -400,12 +411,15 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         ],
       },
     ] as AccordionRow[];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
     <Wrapper>
       <div
         className={css`
+          display: flex;
+          flex-direction: column;
           width: 100%;
           height: 100vh;
           position: sticky;
@@ -427,10 +441,13 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         </h1>
         <nav
           className={css`
+          flex: 1;
+          overflow-y: auto
             padding-top: 1.6rem;
+            padding-bottom: 3.2rem;
           `}
         >
-          <Accordion data={sidebarItems} />
+          <Accordion shouldExpandOnlyOneItem data={sidebarItems} />
         </nav>
       </div>
       <div

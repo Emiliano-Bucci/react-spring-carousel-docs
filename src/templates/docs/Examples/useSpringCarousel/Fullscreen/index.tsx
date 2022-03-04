@@ -111,6 +111,7 @@ function Carousel() {
           `}
         >
           <Button
+            variant="secondary"
             onClick={() => {
               enterFullscreen();
             }}
@@ -159,6 +160,7 @@ function Carousel2() {
           `}
         >
           <Button
+            variant="secondary"
             onClick={() => {
               if (ref.current) {
                 if (getIsFullscreen()) {

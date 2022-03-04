@@ -264,6 +264,19 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
+                id: "slide-axis",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Slide axis"
+                    isChild
+                    href="/docs/use-spring-carousel/slide-axis"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/slide-axis"
+                    }
+                  />
+                ),
+              },
+              {
                 id: "built-in-class-names",
                 renderItem: (
                   <SidebarNavItem

@@ -1,4 +1,4 @@
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import { PropsWithChildren, ReactNode } from "react";
 import { Button } from "atoms/Button";
 import {
@@ -13,6 +13,7 @@ type Props = {
   slideToNextItem?(): void;
   thumbsFragment?: ReactNode;
   customControls?: ReactNode;
+  className?: string;
 };
 
 function Playground({
@@ -21,32 +22,39 @@ function Playground({
   slideToNextItem,
   thumbsFragment,
   customControls,
+  className,
 }: PropsWithChildren<Props>) {
   return (
     <div
-      className={css`
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        background-color: #fff;
-        overflow: hidden;
-        position: relative;
-      `}
+      className={cx(
+        className,
+        css`
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          overflow: hidden;
+          position: relative;
+        `
+      )}
     >
       {slideToPrevItem && slideToNextItem && customControls}
       {children}
       {thumbsFragment && (
         <div
-          className={css`
-            padding: 2.4rem;
-            background-color: ${colors.warm};
-            .use-spring-carousel-thumbs-wrapper {
-              & > *:not(:last-of-type) {
-                margin-right: 1.6rem;
+          className={cx(
+            "thumbs-fragment",
+            css`
+              padding: 2.4rem;
+              background-color: ${colors.warm};
+              .use-spring-carousel-thumbs-wrapper {
+                & > *:not(:last-of-type) {
+                  margin-right: 1.6rem;
+                }
               }
-            }
-          `}
+            `
+          )}
         >
           {thumbsFragment}
         </div>

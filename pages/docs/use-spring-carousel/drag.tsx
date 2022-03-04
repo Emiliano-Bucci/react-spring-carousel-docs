@@ -5,6 +5,7 @@ import {
   UseSpringCarouselDragExample,
   UseSpringCarouselDragExample2,
 } from "templates/docs/Examples/useSpringCarousel/Drag";
+import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 
 export default function Page() {
   return (
@@ -43,6 +44,16 @@ export default function Page() {
         item.
       </HighlightText>
       <UseSpringCarouselDragExample2 />
+      <PageNavigationFooter
+        prevBtn={{
+          label: "Slide types",
+          href: "/docs/use-spring-carousel/slide-types",
+        }}
+        nextBtn={{
+          label: "Slide axis",
+          href: "/docs/use-spring-carousel/slide-axis",
+        }}
+      />
     </>
   );
 }

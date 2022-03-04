@@ -77,7 +77,7 @@ function Carousel() {
 function Carousel2() {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
-      // draggingSlideTreshold: 35,
+      draggingSlideTreshold: 35,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,

@@ -72,8 +72,8 @@ export default function Page() {
           href: "/docs/use-spring-carousel/multiple-items",
         }}
         nextBtn={{
-          label: "Initial active item",
-          href: "/docs/use-spring-carousel/initial-active-item",
+          label: "Drag",
+          href: "/docs/use-spring-carousel/drag",
         }}
       />
     </>

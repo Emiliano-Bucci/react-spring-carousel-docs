@@ -97,6 +97,7 @@ export function SidebarNavItem({
               padding-left: 2.4rem;
               cursor: pointer;
               align-items: center;
+              height: 42px;
               justify-content: flex-start;
               transition: all 280ms ease;
               padding-left: 4.8rem;
@@ -148,6 +149,7 @@ export function SidebarNavItem({
           display: flex;
           color: #fafafa;
           padding: 0.8rem;
+          height: 42px;
           padding-left: 2.4rem;
           cursor: pointer;
           align-items: center;

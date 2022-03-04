@@ -14,9 +14,10 @@ import { a, useSpring } from "react-spring";
 
 function ParentDecorator({ id }: { id: string }) {
   const { getActiveItems } = useAccordionProvider();
-  const heightValue = 41;
+  const heightValue = 42;
   const activeItems = getActiveItems();
   const isChild = activeItems[activeItems.length - 1]?.id.includes(id);
+  const parentIsActive = activeItems.find((i) => i.id === id)?.isActive;
 
   const lastActiveItem =
     activeItems.length === 0 || activeItems.length === 1
@@ -26,6 +27,7 @@ function ParentDecorator({ id }: { id: string }) {
       : 0;
   const trackStyles = useSpring({
     y: lastActiveItem * heightValue,
+    opacity: parentIsActive ? 1 : 0,
   });
   return (
     <div
@@ -71,7 +73,6 @@ function Wrapper({ children }: { children: ReactNode }) {
     <div
       className={css`
         display: flex;
-
         .page-wrapper {
           background-color: #fdfdfc;
           ul {
@@ -195,12 +196,16 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           {
             id: "use-spring-carousel",
             isInitiallyExpanded: pathname.includes("/docs/use-spring-carousel"),
-            onItemShouldExpand({ isExpanded }) {
+            onItemShouldExpand({ isExpanded, toggle }) {
               if (
                 isExpanded &&
                 !pathname.includes("/docs/use-spring-carousel")
               ) {
-                replace("/docs/use-spring-carousel/basic");
+                replace("/docs/use-spring-carousel/basic").then(() => {
+                  toggle();
+                });
+              } else {
+                toggle();
               }
             },
             extraChildrenSlot: <ParentDecorator id="use-spring-carousel" />,
@@ -212,7 +217,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             ),
             children: [
               {
-                id: "/docs/use-spring-carousel",
+                id: "/docs/use-spring-carousel/basic",
                 isInitiallyExpanded:
                   pathname === "/docs/use-spring-carousel/basic",
                 renderItem: (
@@ -390,12 +395,16 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               "/docs/use-transition-carousel"
             ),
             extraChildrenSlot: <ParentDecorator id="use-transition-carousel" />,
-            onItemShouldExpand({ isExpanded }) {
+            onItemShouldExpand({ isExpanded, toggle }) {
               if (
                 isExpanded &&
                 !pathname.includes("/docs/use-transition-carousel")
               ) {
-                replace("/docs/use-transition-carousel/basic");
+                replace("/docs/use-transition-carousel/basic").then(() => {
+                  toggle();
+                });
+              } else {
+                toggle();
               }
             },
             renderItem: (

@@ -17,10 +17,9 @@ export type Props = RowWithDepth & {
   activeItems: ActiveItem[];
   toggle: ContextProps["toggle"];
   getIsExpanded: ContextProps["getIsExpanded"];
-  setActiveItem: ContextProps["toggle"];
+  getIsActive: ContextProps["getIsActive"];
+  setActiveItem(id: string): void;
   parentId: string;
-  depth: number;
-  index: number;
 };
 
 export function RowItem({
@@ -32,34 +31,41 @@ export function RowItem({
   shouldBeInteractive = true,
   isInitiallyExpanded,
   props = {},
-  depth,
   getIsExpanded,
   setActiveItem,
   parentId,
   onItemShouldExpand,
   extraChildrenSlot,
-  index,
+  getIsActive,
 }: Props) {
   const [{ ref }, { height }] = useMeasure();
   const { className, ...restProps } = props;
   const initiallyExpanded = useRef(isInitiallyExpanded);
+
   const isExpanded = getIsExpanded(id);
+  const isActive = getIsActive(id);
   const itemHasChildren = Array.isArray(children) && children.length > 0;
+
   const { height: springHeight } = useSpring({
     immediate: !shouldBeInteractive || initiallyExpanded.current,
     height:
-      initiallyExpanded.current || isExpanded || !shouldBeInteractive
+      initiallyExpanded.current ||
+      isExpanded ||
+      isActive ||
+      !shouldBeInteractive
         ? height
         : 0,
   });
   function handleToggleItem() {
     initiallyExpanded.current = false;
-    toggle(id, parentId, depth, index);
 
     if (onItemShouldExpand) {
       onItemShouldExpand({
         isExpanded: !isExpanded,
+        toggle: () => toggle(id),
       });
+    } else {
+      toggle(id);
     }
   }
 
@@ -67,7 +73,7 @@ export function RowItem({
     if (itemHasChildren) {
       handleToggleItem();
     } else {
-      setActiveItem(id, parentId, depth, index);
+      setActiveItem(id);
     }
   }
 
@@ -99,7 +105,7 @@ export function RowItem({
         {extraChildrenSlot}
         <div ref={ref}>
           {itemHasChildren &&
-            children.map((child, indx) => (
+            children.map((child) => (
               <RowItem
                 {...child}
                 key={child.id}
@@ -108,7 +114,7 @@ export function RowItem({
                 toggle={toggle}
                 getIsExpanded={getIsExpanded}
                 setActiveItem={setActiveItem}
-                index={indx}
+                getIsActive={getIsActive}
               />
             ))}
         </div>

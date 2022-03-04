@@ -1,11 +1,59 @@
 import { css, cx } from "linaria";
-import { Accordion, AccordionRow } from "molecoles/Accordion";
+import {
+  Accordion,
+  AccordionRow,
+  useAccordionProvider,
+} from "molecoles/Accordion";
 import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useRouter } from "next/dist/client/router";
 import { ReactNode, useMemo } from "react";
 import { colors, shadows } from "src/theme";
 import { ParentSidebarNavItem } from "atoms/SidebarNavItem/ParentSidebarNavItem";
 import { GlobalPlayground } from "./GlobalPlayground";
+import { a, useSpring } from "react-spring";
+
+function ParentDecorator({ id }: { id: string }) {
+  const { getIsExpanded, getActiveItems } = useAccordionProvider();
+  const isExpanded = getIsExpanded(id);
+  const styles = useSpring({
+    y: isExpanded ? 100 : 0,
+  });
+  const heightValue = 41;
+  const activeItems = getActiveItems();
+  console.log({ activeItems });
+  const lastActiveItem =
+    activeItems.length === 0 ? 0 : activeItems[activeItems.length - 1].index;
+  const trackStyles = useSpring({
+    y: lastActiveItem * heightValue,
+  });
+  return (
+    <a.div
+      style={{
+        transform: styles.y.to((v) => `scaleY(${v}%)`),
+      }}
+      className={css`
+        position: absolute;
+        top: 0px;
+        left: 54px;
+        width: 2px;
+        bottom: 0px;
+        background-color: #fff;
+        transform-origin: top;
+      `}
+    >
+      <a.div
+        style={trackStyles}
+        className={css`
+          width: 8px;
+          height: 41px;
+          border-radius: 20px;
+          background-color: ${colors.secondaryLight};
+          margin-left: -3px;
+        `}
+      />
+    </a.div>
+  );
+}
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
@@ -96,7 +144,7 @@ type Props = {
 };
 
 export function NavLayout({ pageContent, footerFragment }: Props) {
-  const { pathname, push } = useRouter();
+  const { pathname, replace } = useRouter();
   const sidebarItems = useMemo(() => {
     return [
       {
@@ -106,6 +154,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         children: [
           {
             id: "introduction",
+            isInitiallyExpanded: pathname === "/docs",
             renderItem: (
               <SidebarNavItem
                 label="Introduction"
@@ -116,6 +165,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           },
           {
             id: "install",
+            isInitiallyExpanded: pathname === "/docs/install",
             renderItem: (
               <SidebarNavItem
                 label="Install"
@@ -126,6 +176,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           },
           {
             id: "premise",
+            isInitiallyExpanded: pathname === "/docs/premise",
             renderItem: (
               <SidebarNavItem
                 label="Premise"
@@ -145,11 +196,15 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           {
             id: "use-spring-carousel",
             isInitiallyExpanded: pathname.includes("/docs/use-spring-carousel"),
-            onItemShouldExpand(expanded) {
-              if (expanded && !pathname.includes("/docs/use-spring-carousel")) {
-                push("/docs/use-spring-carousel/basic");
+            onItemShouldExpand({ isExpanded }) {
+              if (
+                isExpanded &&
+                !pathname.includes("/docs/use-spring-carousel")
+              ) {
+                replace("/docs/use-spring-carousel/basic");
               }
             },
+            extraChildrenSlot: <ParentDecorator id="use-spring-carousel" />,
             renderItem: (
               <ParentSidebarNavItem
                 label="useSpringCarousel"
@@ -158,7 +213,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             ),
             children: [
               {
-                id: "basic",
+                id: "/docs/use-spring-carousel",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/basic",
                 renderItem: (
                   <SidebarNavItem
                     label="Basic"
@@ -169,7 +226,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "styled",
+                id: "/docs/use-spring-carousel/styled",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/styled",
                 renderItem: (
                   <SidebarNavItem
                     label="Styled"
@@ -180,7 +239,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "nav-buttons",
+                id: "/docs/use-spring-carousel/nav-buttons",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/nav-buttons",
                 renderItem: (
                   <SidebarNavItem
                     label="Nav buttons"
@@ -193,7 +254,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "loop",
+                id: "/docs/use-spring-carousel/loop",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/loop",
                 renderItem: (
                   <SidebarNavItem
                     label="Loop"
@@ -204,7 +267,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "thumb-list",
+                id: "/docs/use-spring-carousel/thumb-list",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/thumb-list",
                 renderItem: (
                   <SidebarNavItem
                     label="Thumb list"
@@ -217,7 +282,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "initial-active-item",
+                id: "/docs/use-spring-carousel/initial-active-item",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/initial-active-item",
                 renderItem: (
                   <SidebarNavItem
                     label="Initial active item"
@@ -231,7 +298,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "multiple-items",
+                id: "/docs/use-spring-carousel/multiple-items",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/multiple-items",
                 renderItem: (
                   <SidebarNavItem
                     label="Multiple items"
@@ -244,7 +313,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "slide-type",
+                id: "/docs/use-spring-carousel/slide-types",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/slide-types",
                 renderItem: (
                   <SidebarNavItem
                     label="Slide types"
@@ -257,7 +328,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "drag",
+                id: "/docs/use-spring-carousel/drag",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/drag",
                 renderItem: (
                   <SidebarNavItem
                     label="Drag"
@@ -268,7 +341,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "slide-axis",
+                id: "/docs/use-spring-carousel/slide-axis",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/slide-axis",
                 renderItem: (
                   <SidebarNavItem
                     label="Slide axis"
@@ -281,7 +356,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "fullscreen",
+                id: "/docs/use-spring-carousel/fullscreen",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/fullscreen",
                 renderItem: (
                   <SidebarNavItem
                     label="Fullscreen"
@@ -294,7 +371,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "extra",
+                id: "/docs/use-spring-carousel/extra",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/extra",
                 renderItem: (
                   <SidebarNavItem
                     label="Extra"
@@ -311,12 +390,13 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             isInitiallyExpanded: pathname.includes(
               "/docs/use-transition-carousel"
             ),
-            onItemShouldExpand(expanded) {
+            extraChildrenSlot: <ParentDecorator id="use-transition-carousel" />,
+            onItemShouldExpand({ isExpanded }) {
               if (
-                expanded &&
+                isExpanded &&
                 !pathname.includes("/docs/use-transition-carousel")
               ) {
-                push("/docs/use-transition-carousel/basic");
+                replace("/docs/use-transition-carousel/basic");
               }
             },
             renderItem: (
@@ -327,7 +407,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
             ),
             children: [
               {
-                id: "basic",
+                id: "/docs/use-transition-carousel/basic",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-transition-carousel/basic",
                 renderItem: (
                   <SidebarNavItem
                     label="Basic"
@@ -340,7 +422,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "loop",
+                id: "/docs/use-transition-carousel/loop",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-transition-carousel/loop",
                 renderItem: (
                   <SidebarNavItem
                     label="Loop"
@@ -351,7 +435,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "swipe",
+                id: "/docs/use-transition-carousel/swipe",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-transition-carousel/swipe",
                 renderItem: (
                   <SidebarNavItem
                     label="Swipe"
@@ -364,7 +450,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "axis-animation",
+                id: "/docs/use-transition-carousel/axis-animation",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-transition-carousel/axis-animation",
                 renderItem: (
                   <SidebarNavItem
                     label="Axis animation"
@@ -390,6 +478,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         children: [
           {
             id: "events",
+            isInitiallyExpanded: pathname === "/docs/events",
             renderItem: (
               <SidebarNavItem
                 label="Events"
@@ -400,6 +489,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           },
           {
             id: "context",
+            isInitiallyExpanded: pathname === "/docs/context",
             renderItem: (
               <SidebarNavItem
                 label="Context"
@@ -441,8 +531,8 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         </h1>
         <nav
           className={css`
-          flex: 1;
-          overflow-y: auto
+            flex: 1;
+            overflow-y: auto;
             padding-top: 1.6rem;
             padding-bottom: 3.2rem;
           `}

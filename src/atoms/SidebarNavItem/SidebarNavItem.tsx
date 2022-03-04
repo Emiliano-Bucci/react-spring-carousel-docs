@@ -4,14 +4,24 @@ import { css, cx } from "linaria";
 import { useEffect, useRef } from "react";
 import { colors } from "src/theme";
 
+import Arrow from "public/up-arrow.svg";
+
 const childStyles = css`
   && {
-    padding-left: 6.4rem;
+    padding-left: 7rem;
   }
 `;
 
 const activeStyles = css`
   color: ${colors.secondaryLight} !important;
+`;
+
+const expandedStyles = css`
+  && {
+    svg {
+      transform: rotate(0deg);
+    }
+  }
 `;
 
 type Props = {
@@ -77,6 +87,7 @@ export function SidebarNavItem({
         className={cx(
           isChild && childStyles,
           isActive && activeStyles,
+          isExpanded && expandedStyles,
           css`
             && {
               width: 100%;
@@ -103,6 +114,22 @@ export function SidebarNavItem({
           `
         )}
       >
+        <div
+          className={css`
+            display: flex;
+            width: 14px;
+            height: 14px;
+            margin-right: 0.8rem;
+            margin-top: 0.4rem;
+            svg {
+              transition: all 320ms ease;
+              fill: #fff;
+              transform: rotate(180deg);
+            }
+          `}
+        >
+          <Arrow />
+        </div>
         <span>{label}</span>
       </Button>
     );

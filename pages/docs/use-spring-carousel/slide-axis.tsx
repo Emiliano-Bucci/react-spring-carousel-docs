@@ -36,7 +36,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Slide axis examples",
+      title: "useSpringCarousel docs - Slide axis examples",
     },
   };
 }

@@ -18,7 +18,7 @@ export default function Page() {
       <p>Again, things are easier:</p>
       <ul>
         <li>
-          Add <strong>withThumbs:true</strong>
+          Add <strong>withThumbs: true</strong>
         </li>
         <li>
           Add the property <strong>renderThumb</strong> like you do with{" "}
@@ -92,7 +92,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Thumb list example",
+      title: "useSpringCarousel docs - Thumb list example",
     },
   };
 }

@@ -10,7 +10,6 @@ export const code = `
     const { 
       carouselFragment, 
     } = useTransitionCarousel({
-      withLoop: true, // -> make me loop!
       items: (
         <CarouselItem color={i.color}>
           {i.title}

@@ -74,7 +74,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useTransitionCarousel - Axis animation example",
+      title: "useTransitionCarousel docs - Axis animation example",
     },
   };
 }

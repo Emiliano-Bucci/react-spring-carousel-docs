@@ -62,7 +62,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Fullscreen example",
+      title: "useSpringCarousel docs - Fullscreen example",
     },
   };
 }

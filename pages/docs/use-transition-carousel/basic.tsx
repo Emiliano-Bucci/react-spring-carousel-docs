@@ -31,6 +31,12 @@ export default function Page() {
         </Link>
         .
       </p>
+      <HighlightText type="warning">
+        <strong>Note</strong>: Unlike what happen with{" "}
+        <strong>useSpringCarousel</strong>, the{" "}
+        <strong>useTransitionCarousel</strong> hook makes use of react state,
+        aka <strong>useState</strong>, to trigger the carousel navigation.
+      </HighlightText>
       <PageNavigationFooter
         nextBtn={{
           label: "Loop",
@@ -44,7 +50,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useTransitionCarousel - Basic example",
+      title: "useTransitionCarousel docs - Basic example",
     },
   };
 }

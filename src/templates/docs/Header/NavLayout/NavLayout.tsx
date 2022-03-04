@@ -372,8 +372,32 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
         ...sectionProps,
       },
       {
-        id: "references",
-        renderItem: <SidebarNavItem label="References" isSectionTitle />,
+        id: "more",
+        shouldBeInteractive: false,
+        renderItem: <SidebarNavItem label="More" isSectionTitle />,
+        ...sectionProps,
+        children: [
+          {
+            id: "events",
+            renderItem: (
+              <SidebarNavItem
+                label="Events"
+                href="/docs/events"
+                isActive={pathname === "/docs/events"}
+              />
+            ),
+          },
+          {
+            id: "context",
+            renderItem: (
+              <SidebarNavItem
+                label="Context"
+                href="/docs/context"
+                isActive={pathname === "/docs/context"}
+              />
+            ),
+          },
+        ],
       },
     ] as AccordionRow[];
   }, [pathname]);

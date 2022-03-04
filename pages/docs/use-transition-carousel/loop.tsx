@@ -28,7 +28,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useTransitionCarousel - Loop example",
+      title: "useTransitionCarousel docs - Loop example",
     },
   };
 }

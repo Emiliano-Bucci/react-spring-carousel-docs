@@ -29,6 +29,7 @@ export default function Page() {
         results, since react won't execute any lifecycle for the carousel
         component; in most cases, rerenders will be <strong>faster</strong> 🚄.
       </p>
+
       <PageNavigationFooter
         nextBtn={{
           label: "Styled",
@@ -42,7 +43,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Basic example",
+      title: "useSpringCarousel docs - Basic example",
     },
   };
 }

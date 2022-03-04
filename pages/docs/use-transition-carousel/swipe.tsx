@@ -24,7 +24,7 @@ export default function Page() {
       <UseTransitionCarouselSwipeExample />
       <p>
         You can, eventually, disable it by passing{" "}
-        <strong>disableGestures:true</strong>
+        <strong>disableGestures: true</strong>
       </p>
       <SyntaxHiglight code={code} />
       <PageNavigationFooter
@@ -44,7 +44,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useTransitionCarousel - Loop example",
+      title: "useTransitionCarousel docs - Loop example",
     },
   };
 }

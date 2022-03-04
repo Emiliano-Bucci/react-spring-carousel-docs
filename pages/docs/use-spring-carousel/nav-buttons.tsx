@@ -34,7 +34,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Nav buttons example",
+      title: "useSpringCarousel docs - Nav buttons example",
     },
   };
 }

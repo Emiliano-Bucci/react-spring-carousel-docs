@@ -56,7 +56,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Multiple items example",
+      title: "useSpringCarousel docs - Multiple items example",
     },
   };
 }

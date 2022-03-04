@@ -83,7 +83,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringCarousel - Slide types examples",
+      title: "useSpringCarousel docs - Slide types examples",
     },
   };
 }

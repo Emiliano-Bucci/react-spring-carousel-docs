@@ -13,26 +13,22 @@ import { GlobalPlayground } from "./GlobalPlayground";
 import { a, useSpring } from "react-spring";
 
 function ParentDecorator({ id }: { id: string }) {
-  const { getIsExpanded, getActiveItems } = useAccordionProvider();
-  const isExpanded = getIsExpanded(id);
-  const styles = useSpring({
-    y: isExpanded ? 100 : 0,
-  });
+  const { getActiveItems } = useAccordionProvider();
   const heightValue = 41;
   const activeItems = getActiveItems();
+  const isChild = activeItems[activeItems.length - 1]?.id.includes(id);
 
   const lastActiveItem =
     activeItems.length === 0 || activeItems.length === 1
       ? 0
-      : activeItems[activeItems.length - 1].index;
+      : isChild
+      ? activeItems[activeItems.length - 1].index
+      : 0;
   const trackStyles = useSpring({
     y: lastActiveItem * heightValue,
   });
   return (
-    <a.div
-      style={{
-        transform: styles.y.to((v) => `scaleY(${v}%)`),
-      }}
+    <div
       className={css`
         position: absolute;
         top: 0px;
@@ -51,9 +47,10 @@ function ParentDecorator({ id }: { id: string }) {
           border-radius: 20px;
           background-color: ${colors.secondaryLight};
           margin-left: -3px;
+          transform-origin: top;
         `}
       />
-    </a.div>
+    </div>
   );
 }
 

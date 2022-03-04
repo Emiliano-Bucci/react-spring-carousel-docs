@@ -11,9 +11,8 @@ export default function Page() {
     <>
       <h1>Fullscreen</h1>
       <p>
-        This for me is a quiet common feature i've always looked up, but not
-        every library cames with an easy built in functionality to make the
-        carousel fullscreen, and without suffering. Well,{" "}
+        For me, this is an <strong>essential</strong> feature that i've hardly
+        find ease to use (when implemented 😒) in other libraries. Well,{" "}
         <strong>React Spring Carousel</strong>, of course, make it easy for you
         - thanks to{" "}
         <Link
@@ -52,8 +51,8 @@ export default function Page() {
           href: "/docs/use-spring-carousel/slide-axis",
         }}
         nextBtn={{
-          label: "Fullscreen",
-          href: "/docs/use-spring-carousel/fullscreen",
+          label: "Extra",
+          href: "/docs/use-spring-carousel/extra",
         }}
       />
     </>

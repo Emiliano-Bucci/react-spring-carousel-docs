@@ -290,16 +290,13 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
-                id: "built-in-class-names",
+                id: "extra",
                 renderItem: (
                   <SidebarNavItem
-                    label="Built in classNames"
+                    label="Extra"
                     isChild
-                    href="/docs/use-spring-carousel/built-in-class-names"
-                    isActive={
-                      pathname ===
-                      "/docs/use-spring-carousel/built-in-class-names"
-                    }
+                    href="/docs/use-spring-carousel/extra"
+                    isActive={pathname === "/docs/use-spring-carousel/extra"}
                   />
                 ),
               },
@@ -307,6 +304,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           },
           {
             id: "use-transition-carousel",
+            isInitiallyExpanded: pathname.includes(
+              "/docs/use-transition-carousel"
+            ),
             renderItem: (
               <ParentSidebarNavItem
                 label="useTransitionCarousel"
@@ -314,6 +314,45 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 id="use-transition-carousel"
               />
             ),
+            children: [
+              {
+                id: "basic",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Basic"
+                    href="/docs/use-transition-carousel/basic"
+                    isChild
+                    isActive={
+                      pathname === "/docs/use-transition-carousel/basic"
+                    }
+                  />
+                ),
+              },
+              {
+                id: "loop",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Loop"
+                    href="/docs/use-transition-carousel/loop"
+                    isChild
+                    isActive={pathname === "/docs/use-transition-carousel/loop"}
+                  />
+                ),
+              },
+              {
+                id: "swipe",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Swipe"
+                    href="/docs/use-transition-carousel/swipe"
+                    isChild
+                    isActive={
+                      pathname === "/docs/use-transition-carousel/swipe"
+                    }
+                  />
+                ),
+              },
+            ],
           },
         ],
         ...sectionProps,

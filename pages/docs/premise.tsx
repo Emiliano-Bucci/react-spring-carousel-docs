@@ -113,6 +113,13 @@ export default function Page() {
         or came with some fancy .css file that you need to import.
       </HighlightText>
       <h2>Start!</h2>
+      <HighlightText type="warning">
+        <strong>Note:</strong> In the following examples, i'll be using some
+        wrapper's components and <strong>linaria</strong> for the styling part,
+        but remember that the carousel gives you freedom about the tool to use
+        for styling. Furthermore, the library <strong>doesn't</strong> come with
+        abstracted components. <strong>Everything</strong> is up to you.
+      </HighlightText>
       <ul
         className={css`
           display: grid;

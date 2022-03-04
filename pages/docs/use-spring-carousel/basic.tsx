@@ -1,4 +1,3 @@
-import { HighlightText } from "atoms/HighlightText/HighlightText";
 import { UseSpringCarouselBasicExample } from "templates/docs/Examples/useSpringCarousel/Basic";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 
@@ -8,13 +7,6 @@ export default function Page() {
   return (
     <>
       <h1>Basic</h1>
-      <HighlightText>
-        <strong>Note:</strong> In the following examples, i'll be using some
-        wrapper's components and <strong>linaria</strong> for the styling part,
-        but remember that the carousel gives you freedom about the tool to use
-        for styling. Furthermore, the library <strong>doesn't</strong> come with
-        abstracted components. <strong>Everything</strong> is up to you.
-      </HighlightText>
       <p>Start using the carousel is simple!</p>
       <UseSpringCarouselBasicExample />
       <p>

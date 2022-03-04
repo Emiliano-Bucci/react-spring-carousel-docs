@@ -40,9 +40,9 @@ const code2 = `
       carouselFragment,
       slideToPrevItem,
       slideToNextItem,
-      enterFullscreen,
-      exitFullscreen,
-      getIsFullscreen
+      enterFullscreen // -> All for one,
+      exitFullscreen // -> and
+      getIsFullscreen // -> one for all 
     } = useSpringCarousel({
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -59,20 +59,18 @@ const code2 = `
         slideToPrevItem={slideToPrevItem}
         slideToNextItem={slideToNextItem}
         customControls={
-          <div>
-            <Button
-              onClick={() => {
-                if (getIsFullscreen()) {
-                  exitFullscreen();
-                } else {
-                  // Pass the ref!
-                  enterFullscreen(ref.current);
-                }
-              }}
-            >
-              Toggle fullscreen!
-            </Button>
-          </div>
+          <Button
+            onClick={() => {
+              if (getIsFullscreen()) {
+                exitFullscreen();
+              } else {
+                // Pass the ref!
+                enterFullscreen(ref.current);
+              }
+            }}
+          >
+            Toggle fullscreen!
+          </Button>
         }
       >
         {carouselFragment}

@@ -1,4 +1,4 @@
-import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
+// import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 export default function Page() {
   return (
     <>
@@ -38,7 +38,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Built in classNames example",
+      title: "useSpringCarousel - Built in classNames example",
     },
   };
 }

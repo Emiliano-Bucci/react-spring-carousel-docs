@@ -89,19 +89,19 @@ function PlaygroundButtonExample({
         button {
           padding: 1.6rem 2.4rem;
           margin: auto;
-          margin-top: 2.4rem;
+          margin-top: 3.2rem;
         }
       `}
     >
       <SyntaxHiglight code={code} showLineNumbers={false} />
       <Button
-        onClick={() =>
+        onClick={() => {
           dispatch({
             ...rest,
             code,
             isActive: true,
-          })
-        }
+          });
+        }}
       >
         Open playground
       </Button>

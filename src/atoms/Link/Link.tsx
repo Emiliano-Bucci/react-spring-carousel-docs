@@ -91,6 +91,7 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(
       className = "",
       variant = "primary",
       size = "default",
+      type = "default",
       ...rest
     },
     ref
@@ -102,6 +103,7 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(
           ref={ref}
           data-variant={variant}
           data-size={size}
+          data-type={type}
           className={cx(styles, className)}
         >
           {children}

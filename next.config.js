@@ -14,6 +14,20 @@ const nextConfig = {
     });
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/docs/use-spring-carousel",
+        destination: "/docs/use-spring-carousel/basic",
+        permanent: true,
+      },
+      {
+        source: "/docs/use-transition-carousel",
+        destination: "/docs/use-transition-carousel/basic",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = withLinaria(nextConfig);

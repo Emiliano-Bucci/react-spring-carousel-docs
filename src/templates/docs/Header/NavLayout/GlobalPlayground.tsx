@@ -3,8 +3,9 @@ import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { Dialog } from "react-spring-dialog";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import Close from "public/close.svg";
+import { a, useTransition } from "@react-spring/web";
 
 export type DispatchProps = {
   title: ContextProps["title"];
@@ -48,6 +49,32 @@ function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
 
 function GlobalPlayground() {
   const { title, component, isActive, dispatch, code } = useGlobalPlayground();
+  const syntax = useTransition(isActive, {
+    from: {
+      opacity: 0,
+      x: 32,
+    },
+    enter: {
+      opacity: 1,
+      x: 0,
+      delay: 60,
+    },
+    leave: {
+      opacity: 0,
+      x: -32,
+      delay: 60,
+    },
+  });
+  const syntaxFragment = syntax((styles, item) => {
+    if (item) {
+      return (
+        <a.div style={styles}>
+          <SyntaxHiglight code={code.trim()} />
+        </a.div>
+      );
+    }
+    return null;
+  });
   function handleOnClose() {
     dispatch({
       title,
@@ -60,21 +87,37 @@ function GlobalPlayground() {
     <Dialog
       isActive={isActive}
       onClose={handleOnClose}
+      initial={{
+        opacity: 0,
+        x: 40,
+      }}
+      enter={{
+        opacity: 1,
+        x: 0,
+      }}
+      leave={{
+        opacity: 0,
+        x: -40,
+      }}
       focusTrapProps={{
         active: false,
       }}
+      className={css`
+        display: flex;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        border-left: 1px solid ${colors.warmDarker};
+      `}
     >
       <div
         className={css`
           display: flex;
-          background-color: #fff;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 100;
-          border-left: 1px solid ${colors.warmDarker};
+          flex: 1;
         `}
       >
         <div
@@ -83,6 +126,8 @@ function GlobalPlayground() {
             flex-direction: column;
             flex: 1;
             width: 50%;
+            box-shadow: ${shadows.large};
+            z-index: 50;
           `}
         >
           {title && (
@@ -131,32 +176,43 @@ function GlobalPlayground() {
               }
             `}
           >
-            <SyntaxHiglight code={code.trim()} />
+            {syntaxFragment}
           </div>
         )}
       </div>
-      <Button
-        onClick={handleOnClose}
+      <div
         className={css`
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: flex-end;
           position: absolute;
-          top: 24px;
-          right: 24px;
+          top: 0;
+          right: 0;
           z-index: 100;
-          padding: 0px !important;
-          width: 48px;
-          height: 48px;
-          svg {
-            width: 32px;
-            height: 32px;
-            fill: #fff;
-          }
+          height: 96px;
+          padding: 2.4rem;
+          flex: 1;
         `}
       >
-        <Close />
-      </Button>
+        <Button
+          onClick={handleOnClose}
+          className={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px !important;
+            width: 48px;
+            height: 48px;
+            svg {
+              width: 32px;
+              height: 32px;
+              fill: #fff;
+            }
+          `}
+        >
+          <Close />
+        </Button>
+      </div>
     </Dialog>
   );
 }

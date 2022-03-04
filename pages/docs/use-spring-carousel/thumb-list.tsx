@@ -92,7 +92,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Thumb list example",
+      title: "useSpringCarousel - Thumb list example",
     },
   };
 }

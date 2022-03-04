@@ -1,6 +1,5 @@
 import { css } from "linaria";
-
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { Link } from "atoms/Link/Link";
 import { CarouselItem } from "templates/home/CarouselItem/CarouselItem";
 import PerformanceIcon from "public/performance.svg";
@@ -110,7 +109,7 @@ export default function Home() {
     }
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const desktopDevice = window.matchMedia(
       `(min-width: ${breakpoints.desktop + 1}px)`
     );

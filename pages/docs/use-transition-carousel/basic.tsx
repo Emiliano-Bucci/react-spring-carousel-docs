@@ -9,7 +9,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "useSpringTransition",
+      title: "useTransitionCarousel - Basic example",
     },
   };
 }

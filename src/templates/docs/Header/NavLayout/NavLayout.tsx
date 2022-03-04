@@ -253,6 +253,17 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
+                id: "drag",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Drag"
+                    isChild
+                    href="/docs/use-spring-carousel/drag"
+                    isActive={pathname === "/docs/use-spring-carousel/drag"}
+                  />
+                ),
+              },
+              {
                 id: "built-in-class-names",
                 renderItem: (
                   <SidebarNavItem

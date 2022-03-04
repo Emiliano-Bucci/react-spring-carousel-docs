@@ -24,7 +24,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Styled example",
+      title: "useSpringCarousel - Styled example",
     },
   };
 }

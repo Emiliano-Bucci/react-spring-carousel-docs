@@ -16,15 +16,12 @@ export default function Page() {
         So far we've been scratching the surface of the possibilities offered by{" "}
         <strong>React Spring Carousel</strong>, covering all the basics. The
         library, though, tries to go beyond that, and that's when things starts
-        to become interesting.
-      </p>
-      <p>
-        By default, the <strong>useSpringCarousel</strong> hook uses a{" "}
-        <strong>fixed</strong> sliding type. This means that the hook will
-        calculate the quantity of items the user wants to display in the{" "}
-        <strong>viewport</strong> of the carousel (
-        <strong>itemsPerSlide</strong> which defaults to 1), and N items will
-        fit in the entire viewport.
+        to become interesting. By default, the{" "}
+        <strong>useSpringCarousel</strong> hook uses a <strong>fixed</strong>{" "}
+        sliding type. This means that the hook will calculate the quantity of
+        items the user wants to display in the <strong>viewport</strong> of the
+        carousel (<strong>itemsPerSlide</strong> which defaults to 1), and N
+        items will fit in the entire viewport.
       </p>
       <h2>Fluidity</h2>
       <p>
@@ -62,7 +59,7 @@ export default function Page() {
       <UseSpringCarouselSlideTypesExample4 />
       <p>
         and, if you want to, you can also combine default browser scroll + react
-        spring carousel programmatically animations and dragging sliding!
+        spring carousel programmatically animations and dragging sliding! 🔥
       </p>
       <UseSpringCarouselSlideTypesExample5 />
       <HighlightText>
@@ -86,7 +83,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Slide types examples",
+      title: "useSpringCarousel - Slide types examples",
     },
   };
 }

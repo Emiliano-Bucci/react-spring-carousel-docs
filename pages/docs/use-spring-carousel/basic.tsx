@@ -50,7 +50,7 @@ export default function Page() {
 export async function getStaticProps() {
   return {
     props: {
-      title: "Basic example",
+      title: "useSpringCarousel - Basic example",
     },
   };
 }

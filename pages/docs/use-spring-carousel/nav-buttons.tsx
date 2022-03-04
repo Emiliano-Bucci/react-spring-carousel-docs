@@ -15,7 +15,8 @@ export default function Page() {
       <p>
         As you can see, interactivity implementation is very easy, and also{" "}
         <strong>very readable</strong>. Furthermore, you have{" "}
-        <strong>total</strong> control of the carousel interactivity.
+        <strong>total</strong> control about <strong>who</strong> will trigger
+        the carousel slide.
       </p>
       <PageNavigationFooter
         prevBtn={{

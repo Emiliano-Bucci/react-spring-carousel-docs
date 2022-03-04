@@ -106,7 +106,7 @@ export default function Page() {
     <>
       <h2>Overview</h2>
       <p>
-        <strong>React Spring Carousel</strong> is a new way of intend the
+        <strong>React Spring Carousel</strong> is a new way of approach the
         carousel experience in the web. It embraces the philosophy of{" "}
         <strong>Headless UI</strong>, which means that it's up to the developer
         to decide how it will look, while the library will only take care about

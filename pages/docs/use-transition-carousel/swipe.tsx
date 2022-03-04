@@ -30,11 +30,11 @@ export default function Page() {
       <PageNavigationFooter
         prevBtn={{
           label: "Loop",
-          href: "/docs/use-spring-carousel/loop",
+          href: "/docs/use-transition-carousel/loop",
         }}
         nextBtn={{
-          label: "Swipe",
-          href: "/docs/use-spring-carousel/swipe",
+          label: "Axis animation",
+          href: "/docs/use-transition-carousel/axis-animation",
         }}
       />
     </>

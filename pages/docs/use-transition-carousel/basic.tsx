@@ -1,3 +1,4 @@
+import { HighlightText } from "atoms/HighlightText";
 import { Link } from "atoms/Link";
 import { UseTransitionCarouselBasicExample } from "templates/docs/Examples/useTransitionCarousel/Basic";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
@@ -6,6 +7,12 @@ export default function Page() {
   return (
     <>
       <h1>useTransitionCarousel</h1>
+      <HighlightText type="warning">
+        Most of the properties/behaviors are are shared between{" "}
+        <strong>useSpringCarousel</strong> and{" "}
+        <strong>useTransitionCarousel</strong>; i suggest to check the first one
+        for a complete overview of the capabilities of the library.
+      </HighlightText>
       <p>Start using the carousel is simple!</p>
       <UseTransitionCarouselBasicExample />
       <p>

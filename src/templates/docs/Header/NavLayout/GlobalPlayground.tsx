@@ -179,6 +179,7 @@ function GlobalPlayground() {
               pre {
                 padding: 3.2rem !important;
                 padding-right: 4.8rem !important;
+                padding-left: 2.4rem !important;
                 max-height: 100%;
               }
             `}

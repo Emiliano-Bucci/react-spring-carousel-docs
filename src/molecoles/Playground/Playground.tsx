@@ -98,7 +98,6 @@ function PlaygroundButtonExample({
         flex-direction: column;
         pre {
           width: 100%;
-          padding: 0.8rem !important;
         }
         button {
           padding: 1.6rem 2.4rem;

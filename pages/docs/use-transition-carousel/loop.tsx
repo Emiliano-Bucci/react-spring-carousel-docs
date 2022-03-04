@@ -14,11 +14,11 @@ export default function Page() {
       <PageNavigationFooter
         prevBtn={{
           label: "Basic",
-          href: "/docs/use-spring-carousel/basic",
+          href: "/docs/use-transition-carousel/loop",
         }}
         nextBtn={{
           label: "Swipe",
-          href: "/docs/use-spring-carousel/swipe",
+          href: "/docs/use-transition-carousel/swipe",
         }}
       />
     </>

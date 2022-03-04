@@ -32,7 +32,7 @@ export default function Page() {
       <PageNavigationFooter
         nextBtn={{
           label: "Styled",
-          href: "/docs/use-spring-carousel/styled",
+          href: "/docs/use-transition-carousel/styled",
         }}
       />
     </>

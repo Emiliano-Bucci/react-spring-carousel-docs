@@ -79,7 +79,7 @@ function Wrapper({ children }: { children: ReactNode }) {
           }
           & > * {
             :not(:last-child) {
-              margin-bottom: 3.2rem;
+              margin-bottom: 3.2rem !important;
             }
           }
         }
@@ -348,6 +348,20 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                     isChild
                     isActive={
                       pathname === "/docs/use-transition-carousel/swipe"
+                    }
+                  />
+                ),
+              },
+              {
+                id: "axis-animation",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Axis animation"
+                    href="/docs/use-transition-carousel/axis-animation"
+                    isChild
+                    isActive={
+                      pathname ===
+                      "/docs/use-transition-carousel/axis-animation"
                     }
                   />
                 ),

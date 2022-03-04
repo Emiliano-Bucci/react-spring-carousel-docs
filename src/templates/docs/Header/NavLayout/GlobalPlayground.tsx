@@ -161,14 +161,21 @@ function GlobalPlayground() {
           <div
             className={css`
               display: flex;
-              align-items: center;
-              justify-content: center;
               flex: 1;
               width: 50%;
               height: 100% !important;
               background-color: #474769;
               padding: 4rem;
               overflow-y: auto;
+              & > * {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                overflow: hidden;
+              }
               pre {
                 padding: 3.2rem !important;
                 padding-right: 4.8rem !important;

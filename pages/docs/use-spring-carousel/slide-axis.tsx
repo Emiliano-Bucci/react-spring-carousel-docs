@@ -2,6 +2,7 @@ import {
   UseSpringCarouselSlideAxisExample,
   UseSpringCarouselSlideAxisExample2,
 } from "templates/docs/Examples/useSpringCarousel/SlideAxis";
+import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 
 export default function Page() {
   return (
@@ -18,6 +19,16 @@ export default function Page() {
         why should the library go against that cool rule?
       </p>
       <UseSpringCarouselSlideAxisExample2 />
+      <PageNavigationFooter
+        prevBtn={{
+          label: "Drag",
+          href: "/docs/use-spring-carousel/drag",
+        }}
+        nextBtn={{
+          label: "Fullscreen",
+          href: "/docs/use-spring-carousel/fullscreen",
+        }}
+      />
     </>
   );
 }

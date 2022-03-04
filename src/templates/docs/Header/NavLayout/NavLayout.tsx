@@ -277,6 +277,19 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
                 ),
               },
               {
+                id: "fullscreen",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Fullscreen"
+                    isChild
+                    href="/docs/use-spring-carousel/fullscreen"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/fullscreen"
+                    }
+                  />
+                ),
+              },
+              {
                 id: "built-in-class-names",
                 renderItem: (
                   <SidebarNavItem

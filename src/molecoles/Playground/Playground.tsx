@@ -1,5 +1,5 @@
 import { css, cx } from "linaria";
-import { PropsWithChildren, ReactNode } from "react";
+import { forwardRef, PropsWithChildren, ReactNode } from "react";
 import { Button } from "atoms/Button";
 import {
   useGlobalPlayground,
@@ -16,67 +16,73 @@ type Props = {
   className?: string;
 };
 
-function Playground({
-  children,
-  slideToPrevItem,
-  slideToNextItem,
-  thumbsFragment,
-  customControls,
-  className,
-}: PropsWithChildren<Props>) {
-  return (
-    <div
-      className={cx(
-        className,
-        css`
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          height: 100%;
-          background-color: #fff;
-          overflow: hidden;
-          position: relative;
-        `
-      )}
-    >
-      {slideToPrevItem && slideToNextItem && customControls}
-      {children}
-      {thumbsFragment && (
-        <div
-          className={cx(
-            "thumbs-fragment",
-            css`
-              padding: 2.4rem;
-              background-color: ${colors.warm};
-              .use-spring-carousel-thumbs-wrapper {
-                & > *:not(:last-of-type) {
-                  margin-right: 1.6rem;
-                }
-              }
-            `
-          )}
-        >
-          {thumbsFragment}
-        </div>
-      )}
-      {!slideToPrevItem && !slideToNextItem && customControls}
-      {slideToPrevItem && slideToNextItem && (
-        <div
-          className={css`
+const Playground = forwardRef<HTMLDivElement, PropsWithChildren<Props>>(
+  (
+    {
+      children,
+      slideToPrevItem,
+      slideToNextItem,
+      thumbsFragment,
+      customControls,
+      className,
+    },
+    ref
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={cx(
+          className,
+          css`
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
             background-color: #fff;
-            padding: 1.6rem;
-            right: 0;
-          `}
-        >
-          <Button onClick={slideToPrevItem}>Prev item</Button>
-          <Button onClick={slideToNextItem}>Next item</Button>
-        </div>
-      )}
-    </div>
-  );
-}
+            overflow: hidden;
+            position: relative;
+          `
+        )}
+      >
+        {slideToPrevItem && slideToNextItem && customControls}
+        {children}
+        {thumbsFragment && (
+          <div
+            className={cx(
+              "thumbs-fragment",
+              css`
+                padding: 2.4rem;
+                background-color: ${colors.warm};
+                .use-spring-carousel-thumbs-wrapper {
+                  & > *:not(:last-of-type) {
+                    margin-right: 1.6rem;
+                  }
+                }
+              `
+            )}
+          >
+            {thumbsFragment}
+          </div>
+        )}
+        {!slideToPrevItem && !slideToNextItem && customControls}
+        {slideToPrevItem && slideToNextItem && (
+          <div
+            className={css`
+              display: flex;
+              justify-content: space-between;
+              background-color: #fff;
+              padding: 1.6rem;
+              right: 0;
+            `}
+          >
+            <Button onClick={slideToPrevItem}>Prev item</Button>
+            <Button onClick={slideToNextItem}>Next item</Button>
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
 function PlaygroundButtonExample({
   children,

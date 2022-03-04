@@ -20,9 +20,11 @@ function ParentDecorator({ id }: { id: string }) {
   });
   const heightValue = 41;
   const activeItems = getActiveItems();
-  console.log({ activeItems });
+
   const lastActiveItem =
-    activeItems.length === 0 ? 0 : activeItems[activeItems.length - 1].index;
+    activeItems.length === 0 || activeItems.length === 1
+      ? 0
+      : activeItems[activeItems.length - 1].index;
   const trackStyles = useSpring({
     y: lastActiveItem * heightValue,
   });

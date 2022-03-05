@@ -2,6 +2,7 @@ import {
   HTMLAttributes,
   ReactNode,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -192,15 +193,17 @@ export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
     return !!activeItems.find((i) => i.id === id)?.isActive;
   }
 
+  useEffect(() => {
+    setActiveItems(initializeData(dataWithDepth));
+  }, [dataWithDepth]);
+
   return (
     <AccordionContext.Provider
       value={{
         toggle: toggleItems,
         getIsExpanded,
         getIsActive,
-        getActiveItems() {
-          return activeItems;
-        },
+        getActiveItems: () => activeItems,
       }}
     >
       <div

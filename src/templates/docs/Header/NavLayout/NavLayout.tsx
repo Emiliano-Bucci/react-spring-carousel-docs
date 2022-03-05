@@ -6,28 +6,36 @@ import {
 } from "molecoles/Accordion";
 import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useRouter } from "next/dist/client/router";
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useRef } from "react";
 import { colors, shadows } from "src/theme";
 import { ParentSidebarNavItem } from "atoms/SidebarNavItem/ParentSidebarNavItem";
 import { GlobalPlayground } from "./GlobalPlayground";
 import { a, useSpring } from "react-spring";
 
+const heightValue = 42;
+
 function ParentDecorator({ id }: { id: string }) {
   const { getActiveItems } = useAccordionProvider();
-  const heightValue = 42;
   const activeItems = getActiveItems();
-  const isChild = activeItems[activeItems.length - 1]?.id.includes(id);
-  const parentIsActive = activeItems.find((i) => i.id === id)?.isActive;
+  const currentSlidedValue = useRef(0);
 
-  const lastActiveItem =
-    activeItems.length === 0 || activeItems.length === 1
-      ? 0
-      : isChild
-      ? activeItems[activeItems.length - 1].index
-      : 0;
+  const parentIsActive = activeItems.find((p) => p.id === id)?.isActive;
+  const currentActiveItem = activeItems.find(
+    (p) => p.isActive && !p.isExpanded
+  );
+
   const trackStyles = useSpring({
-    y: lastActiveItem * heightValue,
+    y:
+      parentIsActive && currentActiveItem
+        ? heightValue * currentActiveItem.index
+        : currentSlidedValue.current,
     opacity: parentIsActive ? 1 : 0,
+    config: {
+      tension: 350,
+    },
+    onChange: ({ value }) => {
+      currentSlidedValue.current = value.y;
+    },
   });
   return (
     <div

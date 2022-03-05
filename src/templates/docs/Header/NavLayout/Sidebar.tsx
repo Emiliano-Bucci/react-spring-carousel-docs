@@ -27,16 +27,24 @@ function ParentDecorator({ id }: { id: string }) {
     (p) => p.isActive && !p.isExpanded
   );
 
-  // useEffect(() => {
-  //   console.log("hereee", parentItem, currentActiveItem);
-  // }, [parentItem, currentActiveItem]);
+  function getYvalue() {
+    if (
+      !parentItem?.isExpanded &&
+      currentActiveItem?.parentId !== parentItem?.id
+    ) {
+      return 0;
+    }
+    if (parentIsActive && currentActiveItem) {
+      return heightValue * currentActiveItem.index;
+    }
+    return currentSlidedValue.current;
+  }
 
   const trackStyles = useSpring({
-    y:
-      parentIsActive && currentActiveItem
-        ? heightValue * currentActiveItem.index
-        : currentSlidedValue.current,
+    y: getYvalue(),
     opacity: parentIsActive ? 1 : 0,
+    immediate:
+      !parentItem?.isExpanded && currentActiveItem?.parentId !== parentItem?.id,
     config: {
       tension: 350,
     },

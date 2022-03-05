@@ -118,8 +118,6 @@ export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
         const newExpandedItem = p.find((i) => i.id === id);
         const currentExpandedItem = p.find((i) => i.isExpanded);
 
-        console.log(newExpandedItem, currentExpandedItem);
-
         if (currentExpandedItem?.id === newExpandedItem?.id) {
           currentExpandedItem!.isActive = false;
           currentExpandedItem!.isExpanded = false;

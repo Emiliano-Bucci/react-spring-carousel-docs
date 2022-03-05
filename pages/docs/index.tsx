@@ -57,7 +57,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
         text-align: center;
         border-radius: 8px;
         border: 1px solid ${colors.secondaryLight};
-        padding: 1.6rem;
+        padding: 2.4rem;
         transition: all 280ms ease;
         box-shadow: ${shadows.small};
         background-color: #fff;
@@ -162,7 +162,7 @@ export default function Page() {
       <ul
         className={css`
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
           grid-gap: 2.4rem;
           &&&& li {
             margin: 0;

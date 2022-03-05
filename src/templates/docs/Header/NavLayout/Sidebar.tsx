@@ -68,7 +68,7 @@ function ParentDecorator({ id }: { id: string }) {
         style={trackStyles}
         className={css`
           width: 8px;
-          height: 41px;
+          height: 42px;
           border-radius: 20px;
           background-color: ${colors.secondaryLight};
           margin-left: -3px;
@@ -81,7 +81,7 @@ function ParentDecorator({ id }: { id: string }) {
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
   }
 `;
 
@@ -426,6 +426,22 @@ export function Sidebar() {
                   />
                 ),
               },
+              {
+                id: "/docs/use-transition-carousel/slideshow",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-transition-carousel/slideshow",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Slideshow"
+                    href="/docs/use-transition-carousel/slideshow"
+                    isChild
+                    isActive={
+                      pathname ===
+                      "/docs/use-transition-carousel/axis-animation"
+                    }
+                  />
+                ),
+              },
             ],
           },
         ],
@@ -568,7 +584,7 @@ export function Sidebar() {
             color: #fafafa;
             font-size: 2.4rem;
             padding: 4rem;
-            background: ${colors.primary};
+            background: ${colors.secondary};
             ${mediaQueries.until.tablet} {
               padding-left: 2.8rem;
             }

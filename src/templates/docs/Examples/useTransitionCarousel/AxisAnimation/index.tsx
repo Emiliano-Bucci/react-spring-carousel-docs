@@ -4,7 +4,7 @@ import { mockedItems } from "utils/mockedItems";
 import { CarouselItem } from "atoms/CarouselItem";
 
 export const code = `
-  import { useSpringCarousel } from 'react-spring-carousel'
+  import { useTransitionCarousel } from 'react-spring-carousel'
 
   export function Component() {
     const { 

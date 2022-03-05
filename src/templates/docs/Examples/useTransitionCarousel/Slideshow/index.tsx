@@ -2,6 +2,7 @@ import { PlaygroundButtonExample, Playground } from "molecoles/Playground";
 import { useTransitionCarousel } from "react-spring-carousel";
 import { mockedItems } from "utils/mockedItems";
 import { CarouselItem } from "atoms/CarouselItem";
+import { useEffect } from "react";
 
 export const code = `
   import { useTransitionCarousel } from 'react-spring-carousel'
@@ -12,13 +13,22 @@ export const code = `
       slideToPrevItem, 
       slideToNextItem 
     } = useTransitionCarousel({
-      withLoop: true, // -> make me loop!
       items: (
         <CarouselItem color={i.color}>
           {i.title}
         </CarouselItem>
       ),
     });
+
+    useEffect(() => {
+      const timer = setInterval(() => {
+        slideToNextItem();
+      }, 1500);
+      return () => {
+        window.clearInterval(timer);
+      };
+      // You MUST add the slide methods to the dependency list useEffect!
+    }, [slideToNextItem]);
 
     return (
       <div>
@@ -39,6 +49,16 @@ function Carousel() {
         renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
       })),
     });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      slideToNextItem();
+    }, 1500);
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [slideToNextItem]);
+
   return (
     <Playground
       slideToPrevItem={slideToPrevItem}
@@ -49,7 +69,7 @@ function Carousel() {
   );
 }
 
-export function UseTransitionCarouselLoopExample() {
+export function UseTransitionCarouselSlideshowExample() {
   return (
     <PlaygroundButtonExample
       code={code}

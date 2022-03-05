@@ -44,6 +44,16 @@ function MainWrapper({
           type="font/woff2"
           crossOrigin="true"
         />
+        <link
+          rel="preconnect"
+          as="script"
+          href="https://queue.simpleanalyticscdn.com"
+        />
+        <script
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+          async={true}
+          defer={true}
+        />
       </Head>
       {children}
     </>

@@ -13,7 +13,7 @@ export default function Page() {
       <h1>Drag</h1>
       <p>
         Dragging functionality is enabled by default, and under the hood is
-        powered by the excelent library of{" "}
+        powered by the excellent library of{" "}
         <Link
           variant="default-link"
           size="none"

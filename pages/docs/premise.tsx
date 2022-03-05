@@ -110,12 +110,12 @@ export default function Page() {
         <strong>headless</strong>, since we must render some{" "}
         <strong>{`<div />`}</strong> wrappers and apply some{" "}
         <strong>important</strong> styles to make the carousel work and appear
-        as expected. Apart from that, the library doesn't apply any extra css,
-        or came with some fancy .css file that you need to import.
+        as expected. Apart from that, the library doesn't apply any extra css or
+        came with some fancy .css file that you need to import.
       </HighlightText>
       <h2>Start!</h2>
       <HighlightText type="warning">
-        <strong>Note:</strong> In the following examples, i'll be using some
+        <strong>Note:</strong> In the following examples, I'll be using some
         wrapper's components and <strong>linaria</strong> for the styling part,
         but remember that the carousel gives you freedom about the tool to use
         for styling. Furthermore, the library <strong>doesn't</strong> come with

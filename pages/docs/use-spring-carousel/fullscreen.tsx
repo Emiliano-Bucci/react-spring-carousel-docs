@@ -11,8 +11,8 @@ export default function Page() {
     <>
       <h1>Fullscreen</h1>
       <p>
-        For me, this is an <strong>essential</strong> feature that i've hardly
-        find ease to use (when implemented 😒) in other libraries. Well,{" "}
+        For me, this is an <strong>essential</strong> feature that I've hardly
+        found easy to use (when implemented 😒) in other libraries. Well,{" "}
         <strong>React Spring Carousel</strong>, of course, make it easy for you
         - thanks to{" "}
         <Link
@@ -37,7 +37,7 @@ export default function Page() {
       </p>
       <HighlightText type="warning">
         For completeness, and to make the example clear, the following snippet
-        will contain all the rendering items that i'll use in the site (my
+        will contain all the rendering items that I'll use in the site (my
         custom Playground).
       </HighlightText>
       <UseSpringCarouselFullscreenExample2 />

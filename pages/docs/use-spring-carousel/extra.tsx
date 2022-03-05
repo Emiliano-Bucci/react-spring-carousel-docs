@@ -18,12 +18,12 @@ export default function Page() {
     <>
       <h2>Built in classNames</h2>
       <p>
-        Even if the library tries to do it's best to be defined as a{" "}
+        Even if the library tries to do its best to be defined as a{" "}
         <strong>headless UI library</strong>, there might be some cases where we{" "}
         <strong>need</strong> to apply some custom styles to the{" "}
         <strong>hidden</strong> part of the Carousel. Here's the list of the
-        classNames that the library apply to the html elements the library needs
-        to render to make the Carousel work in the proper way:
+        classNames that the library applies to the html elements the library
+        needs to render to make the Carousel works properly:
       </p>
       <ul>
         <li>use-spring-carousel-main-wrapper</li>

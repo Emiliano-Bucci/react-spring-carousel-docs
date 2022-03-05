@@ -106,16 +106,16 @@ export default function Page() {
     <>
       <h2>Overview</h2>
       <p>
-        <strong>React Spring Carousel</strong> is a new way of approach the
-        carousel experience in the web. It embraces the philosophy of{" "}
+        <strong>React Spring Carousel</strong> is a new way of approaching the
+        carousel experience on the web. It embraces the philosophy of{" "}
         <strong>Headless UI</strong>, which means that it's up to the developer
-        to decide how it will look, while the library will only take care about
-        the internal logic and the behavior of the carousel.
+        to decide how it will look, while the library will only take care of the
+        internal logic and the behavior of the carousel.
       </p>
       <p>
         With <strong>React Spring Carousel</strong> you'll feel for the first
         time that you have total control on how the Carousel behaves, and you'll
-        find how's easy to interact with it, how simple is to put things in the
+        find how easy is to interact with it, how simple is to put things on the
         screen, and how dumb is to make the carousel <strong>work</strong>.
       </p>
       <p>
@@ -128,24 +128,24 @@ export default function Page() {
       <h2>Motivation</h2>
       <p>
         <strong>Why another carousel library?</strong> Many times happened to me
-        that while i was investigating which library to implement a carousel i
-        could use in my new project, i always had the feeling that there was
+        that while I was investigating which library to implement a carousel I
+        could use in my new project, I always had the feeling that there was
         something wrong with something (implementation, logic, animation result,
-        ecc)
+        etc)
       </p>
       <p>
-        Don't get me wrong, there're lots of good libraries out there, but still
-        i didn't feel enough free regarding the implementation of the carousel
-        at all. I always had the feeling that i was doing some kind of hack to
-        make it work and fit inside my UI. It wasn't something natural, and that
-        feeling always bothered me.
+        Don't get me wrong, there're lots of good libraries out there, but
+        still, I didn't feel enough free regarding the implementation of the
+        carousel at all. I always had the feeling that I was doing some kind of
+        hack to make it work and fit inside my UI. It wasn't something natural,
+        and that feeling always bothered me.
       </p>
       <p>
         With <strong>React Spring Carousel</strong> you're free to create and
         compose your own carousel without any kind of bounds, without having to
         override styles or adding weird class names, or some other kind of
-        strange hack, and animations feel naturals and reals. They respond to
-        user interaction like you've always expected to do.
+        strange hack and animations feel natural and reals. They respond to user
+        interaction as you've always expected to do.
       </p>
       <HighlightText
         className={css`
@@ -180,21 +180,21 @@ export default function Page() {
           Thanks to React Spring, performances are on top!
         </ListItem>
         <ListItem title="Mobile">
-          <strong>@use-gesture</strong> offers an excelent mobile experience out
-          of the box!
+          <strong>@use-gesture</strong> offers an excellent mobile experience
+          out of the box!
         </ListItem>
         <ListItem title="Resizable">
           The carousel will listen to any resize event and will re-adapt itself
           accordingly.
         </ListItem>
         <ListItem title="Slide types">
-          You have different types of scroll solutions to choose with.
+          You have different types of scroll solutions to choose from.
         </ListItem>
         <ListItem title="Headless UI">
           You can compose all the pieces of the Carousel in any way you want.
         </ListItem>
         <ListItem title="Fullscreen capable">
-          We use <strong>screenfull.js</strong> to offer a cross browser
+          We use <strong>screenfull.js</strong> to offer a cross-browser
           efficient solution.
         </ListItem>
       </ul>

@@ -53,7 +53,7 @@ export default function Page() {
       <SyntaxHiglight code={code2} showLineNumbers={false} />
       <p>
         This could be just fine if you need a slideshow that goes only in one
-        direction, but how to do it if you want to slide on the both directions?
+        direction, but how to do it if you want to slide on both directions?
         Well, <strong>Reaect Spring Carousel</strong> is here to help you!
       </p>
       <UseTransitionCarouselAxisAnimationExample />

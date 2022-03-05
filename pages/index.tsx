@@ -16,7 +16,7 @@ import { a, useSprings } from "react-spring";
 const items = [
   {
     id: "performance",
-    title: "Extreemely performant",
+    title: "Extremely performant",
     Icon: PerformanceIcon,
     content: (
       <>
@@ -75,8 +75,8 @@ const items = [
     Icon: ConfigureIcon,
     content: (
       <>
-        The carousel comes with lots of options, and the configuration is a
-        piece of cake!
+        The carousel comes with lots of options, and configuring the carousel is
+        like a piece of cake!
       </>
     ),
   },

@@ -21,7 +21,7 @@ export default function Page() {
     <>
       <h1>Context</h1>
       <p>
-        If you have complex and nested carousel item componens and you need to
+        If you have complex and nested carousel item components and you need to
         access to some methods that the hook you're using expose and you don't
         like the prop drilling solution, both hooks expose a context that you
         can import. Through the context you can access to all the methods that

@@ -114,7 +114,7 @@ export default function Page() {
       </HighlightText>
       <p>
         Every event will also came with some extra/useful data that you can
-        eventually use; remember also that epending on the hook you're using,
+        eventually use; remember also that depending on the hook you're using,
         the events will slightly vary:
       </p>
       <h2>useSpringCarousel events</h2>

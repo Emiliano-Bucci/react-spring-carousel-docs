@@ -4,6 +4,7 @@ import { colors, shadows } from "src/theme";
 import { css } from "linaria";
 
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
+import { mediaQueries } from "src/mediaQueries";
 
 const onSlideStartChangeCode = `{
   // Indicates where you're sliding to
@@ -53,8 +54,10 @@ function TypeDescriptor({ title, description, extraProps }: Props) {
         border: 1px solid ${colors.warmDarker};
         border-radius: 8px;
         padding: 3.2rem;
-        /* max-width: 560px; */
         box-shadow: ${shadows.small};
+        ${mediaQueries.until.tabletSM} {
+          padding: 2.4rem;
+        }
       `}
     >
       <span
@@ -67,6 +70,10 @@ function TypeDescriptor({ title, description, extraProps }: Props) {
           padding: 0.8rem 1.6rem;
           box-shadow: ${shadows.small};
           margin-bottom: 1.2rem;
+          ${mediaQueries.until.tabletSM} {
+            margin-bottom: 0.4rem;
+            font-size: 1.8rem;
+          }
         `}
       >
         {title}

@@ -65,8 +65,10 @@ function Carousel() {
     if (event.eventName === "onDrag") {
       // Triggered when the slide is about to slide
     } else if (event.eventName === "onSlideStartChange") {
+      alert("onSlideStartChange");
       // Triggered when the slide animation is completed
     } else if (event.eventName === "onSlideChange") {
+      alert("onSlideChange");
       // Triggered on fullscreen change
     } else if (event.eventName === "onFullscreenChange") {
     }

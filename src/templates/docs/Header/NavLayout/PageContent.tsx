@@ -1,0 +1,52 @@
+import { css, cx } from "linaria";
+import { colors } from "src/theme";
+import { mediaQueries } from "src/mediaQueries";
+import { ReactNode } from "react";
+
+type Props = {
+  pageContent: ReactNode;
+  footerFragment: ReactNode;
+};
+
+export function PageContent({ pageContent, footerFragment }: Props) {
+  return (
+    <div
+      className={css`
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        background-color: #fff;
+      `}
+    >
+      <div
+        className={cx(
+          "page-wrapper",
+          css`
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 8rem 12rem;
+            margin: 0 auto;
+            max-width: 1240px;
+            border-left: 1px solid ${colors.warm};
+            border-right: 1px solid ${colors.warm};
+            ${mediaQueries.until.tablet} {
+              padding: 4rem 4.8rem;
+            }
+            ${mediaQueries.until.tabletSM} {
+              padding: 3.2rem;
+            }
+            ${mediaQueries.until.mobile} {
+              padding: 2.4rem;
+            }
+          `
+        )}
+      >
+        {pageContent}
+      </div>
+      {footerFragment}
+    </div>
+  );
+}

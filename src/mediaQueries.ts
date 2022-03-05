@@ -1,4 +1,4 @@
-export const breakpoints = {
+const breakpoints = {
   mobile: 480,
   tabletSM: 768,
   tabletM: 1024,
@@ -8,7 +8,7 @@ export const breakpoints = {
 
 type BreakpointKeys = keyof typeof breakpoints;
 
-export const mediaQueries = {
+const mediaQueries = {
   until: Object.keys(breakpoints).reduce((acc, item) => {
     acc[item as BreakpointKeys] = `@media all and (max-width: ${
       breakpoints[item as BreakpointKeys]
@@ -16,3 +16,5 @@ export const mediaQueries = {
     return acc;
   }, {} as Record<BreakpointKeys, string>),
 };
+
+export { breakpoints, mediaQueries };

@@ -28,7 +28,7 @@ const nextIconStyles = css`
 `;
 const prevStyles = css`
   && {
-    padding-left: 4.8rem;
+    padding-left: 4.2rem;
     align-items: flex-end;
     margin-right: auto;
   }

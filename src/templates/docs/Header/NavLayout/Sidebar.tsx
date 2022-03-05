@@ -21,10 +21,15 @@ function ParentDecorator({ id }: { id: string }) {
   const activeItems = getActiveItems();
   const currentSlidedValue = useRef(0);
 
-  const parentIsActive = activeItems.find((p) => p.id === id)?.isActive;
+  const parentItem = activeItems.find((p) => p.id === id);
+  const parentIsActive = parentItem?.isActive;
   const currentActiveItem = activeItems.find(
     (p) => p.isActive && !p.isExpanded
   );
+
+  // useEffect(() => {
+  //   console.log("hereee", parentItem, currentActiveItem);
+  // }, [parentItem, currentActiveItem]);
 
   const trackStyles = useSpring({
     y:

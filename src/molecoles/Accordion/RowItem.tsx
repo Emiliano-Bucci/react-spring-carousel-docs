@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { css, cx } from "linaria";
 import { useMeasure } from "utils/useMeasure";
 import { animated, useSpring } from "react-spring";
@@ -17,8 +17,8 @@ export type Props = RowWithDepth & {
   activeItems: ActiveItem[];
   toggle: ContextProps["toggle"];
   getIsExpanded: ContextProps["getIsExpanded"];
-  getIsActive: ContextProps["getIsActive"];
   setActiveItem(id: string): void;
+  isExpanded: boolean;
   parentId: string;
 };
 
@@ -36,26 +36,28 @@ export function RowItem({
   parentId,
   onItemShouldExpand,
   extraChildrenSlot,
-  getIsActive,
+  isExpanded,
 }: Props) {
   const [{ ref }, { height }] = useMeasure();
   const { className, ...restProps } = props;
   const initiallyExpanded = useRef(isInitiallyExpanded);
-
-  const isExpanded = getIsExpanded(id);
-  const isActive = getIsActive(id);
   const itemHasChildren = Array.isArray(children) && children.length > 0;
-
+  const isFirstMount = useRef(true);
   const { height: springHeight } = useSpring({
     immediate: !shouldBeInteractive || initiallyExpanded.current,
     height:
-      initiallyExpanded.current ||
-      isExpanded ||
-      isActive ||
-      !shouldBeInteractive
+      initiallyExpanded.current || isExpanded || !shouldBeInteractive
         ? height
         : 0,
   });
+
+  useEffect(() => {
+    if (!isFirstMount.current) {
+      initiallyExpanded.current = false;
+    }
+    isFirstMount.current = false;
+  }, [isExpanded]);
+
   function handleToggleItem() {
     initiallyExpanded.current = false;
 
@@ -114,7 +116,7 @@ export function RowItem({
                 toggle={toggle}
                 getIsExpanded={getIsExpanded}
                 setActiveItem={setActiveItem}
-                getIsActive={getIsActive}
+                isExpanded={getIsExpanded(child.id)}
               />
             ))}
         </div>

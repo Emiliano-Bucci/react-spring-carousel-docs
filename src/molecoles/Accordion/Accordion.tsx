@@ -118,6 +118,8 @@ export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
         const newExpandedItem = p.find((i) => i.id === id);
         const currentExpandedItem = p.find((i) => i.isExpanded);
 
+        console.log(newExpandedItem, currentExpandedItem);
+
         if (currentExpandedItem?.id === newExpandedItem?.id) {
           currentExpandedItem!.isActive = false;
           currentExpandedItem!.isExpanded = false;
@@ -211,16 +213,16 @@ export function Accordion({ data, shouldExpandOnlyOneItem = true }: Props) {
           display: grid;
         `}
       >
-        {dataWithDepth.map((item) => (
+        {dataWithDepth.map((item, index) => (
           <RowItem
             {...item}
-            key={item.id}
+            key={`${item.id}-${index}`}
             activeItems={activeItems}
             toggle={toggleItems}
             getIsExpanded={getIsExpanded}
             setActiveItem={setActiveItem}
-            getIsActive={getIsActive}
             parentId={item.id}
+            isExpanded={getIsExpanded(item.id)}
           />
         ))}
       </div>

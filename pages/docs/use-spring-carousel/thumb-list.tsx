@@ -46,31 +46,31 @@ export default function Page() {
       </p>
       <h2>Slide to item</h2>
       <p>
-        I know, let me guess: if you click on a thumb nothing happen, right?
+        I know, let me guess: if you click on a thumb nothing happens, right?
         Yeah, that goes against the common pattern, that <strong>should</strong>{" "}
-        slide the carousel to the clicked item. But as you may already know, i
-        don't like to force people to act in a particular way; instead, i give
+        slide the carousel to the clicked item. But as you may already know, I
+        don't like to force people to act in a particular way; instead, I give
         total freedom to the developer who will, if is the case, replicate that
         pattern. But how? Check the next example 😏
       </p>
       <UseSpringCarouselThumbListExample2 />
       <h2>prepareThumbsData</h2>
       <p>
-        Let's say you want to display a beautiful high quality images carousel;
-        maybe you'll need to show images in bucket of 10 and, eventually, if the
-        user want to, load more and more images. If that's the case, well,{" "}
+        Let's say you want to display a beautiful high-quality images carousel;
+        maybe you'll need to show images in buckets of 10 and, eventually, if
+        the user wants to, load more and more images. If that's the case, well,{" "}
         <strong>React Spring Carousel</strong> makes it easy for you.{" "}
       </p>
       <p>
         The <strong>useSpringCarousel</strong> hook has a property,{" "}
-        <strong>prepareThumbsData</strong>, a function that receive the list of
+        <strong>prepareThumbsData</strong>, a function that receives the list of
         thumbs as the only argument, and it <strong>must</strong> return a list
         of thumbs as well. <strong>prepareThumbsData</strong> is executed before
         the rendering of the thumbs, so you can easily manipulate the list of
         items by adding or removing some items.
       </p>
       <HighlightText>
-        If the quantity of items change, and the new items are less than the
+        If the number of items change, and the new items are less than the
         previous one (it means that we remove some items), the carousel will
         automatically set as active the last existing item. Pretty cool uh? 😎
       </HighlightText>

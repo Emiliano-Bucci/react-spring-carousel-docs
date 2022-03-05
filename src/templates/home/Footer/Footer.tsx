@@ -2,6 +2,7 @@ import { css } from "linaria";
 import { colors } from "src/theme";
 import { Link } from "atoms/Link/Link";
 import { Img } from "atoms/Img";
+import { mediaQueries } from "src/mediaQueries";
 
 const badges = [
   {
@@ -31,6 +32,11 @@ function Divider() {
     <span
       className={css`
         margin: 0 0.8rem;
+        && {
+          ${mediaQueries.until.tablet} {
+            display: none;
+          }
+        }
       `}
     >
       |
@@ -64,6 +70,14 @@ export function Footer() {
           .image-wrapper {
             height: 28px;
           }
+          ${mediaQueries.until.tablet} {
+            width: 100%;
+            display: grid;
+            grid-gap: 0.8rem;
+            justify-items: center;
+            border-bottom: 1px solid ${colors.warmDarker};
+            padding-bottom: 2rem;
+          }
         `}
       >
         {badges.map((i) => (
@@ -83,10 +97,13 @@ export function Footer() {
           a {
             display: inline-block;
             font-size: inherit;
-            :hover,
-            :focus {
-              text-decoration: underline;
-            }
+            text-decoration: underline;
+          }
+          ${mediaQueries.until.tablet} {
+            display: grid;
+            grid-gap: 0.8rem;
+            justify-items: center;
+            margin-top: 2rem;
           }
         `}
       >

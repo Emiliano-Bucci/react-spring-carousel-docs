@@ -544,7 +544,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           max-width: 400px;
           background-color: ${colors.primaryLight};
           box-shadow: ${shadows.small};
-          ${mediaQueries.until.tabletSM} {
+          ${mediaQueries.until.tabletM} {
             display: none;
           }
         `}

@@ -33,7 +33,7 @@ function Divider() {
       className={css`
         margin: 0 0.8rem;
         && {
-          ${mediaQueries.until.tablet} {
+          ${mediaQueries.until.tabletSM} {
             display: none;
           }
         }
@@ -70,7 +70,7 @@ export function Footer() {
           .image-wrapper {
             height: 28px;
           }
-          ${mediaQueries.until.tablet} {
+          ${mediaQueries.until.tabletSM} {
             width: 100%;
             display: grid;
             grid-gap: 0.8rem;
@@ -99,7 +99,7 @@ export function Footer() {
             font-size: inherit;
             text-decoration: underline;
           }
-          ${mediaQueries.until.tablet} {
+          ${mediaQueries.until.tabletSM} {
             display: grid;
             grid-gap: 0.8rem;
             justify-items: center;

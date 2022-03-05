@@ -103,12 +103,15 @@ function PlaygroundButtonExample({
         flex-direction: column;
         pre {
           width: 100%;
-          ${mediaQueries.until.tablet} {
-            margin: 0 -2.4rem !important;
+          ${mediaQueries.until.tabletSM} {
+            margin: 0 -3.2rem !important;
             width: auto;
             border-radius: 0px !important;
             padding: 0rem !important;
             padding-right: 1.6rem !important;
+          }
+          ${mediaQueries.until.mobile} {
+            margin: 0 -2.4rem !important;
           }
         }
         button {

@@ -135,9 +135,7 @@ function GlobalPlayground() {
             z-index: 50;
             ${mediaQueries.until.tablet} {
               width: 100%;
-              height: 100%;
-              flex: unset;
-              flex-shrink: 0;
+              min-height: 480px;
             }
           `}
         >

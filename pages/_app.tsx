@@ -149,7 +149,7 @@ function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
   }
   return (
     <MainWrapper>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </MainWrapper>
   );
 }

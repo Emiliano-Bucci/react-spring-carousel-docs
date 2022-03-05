@@ -8,7 +8,7 @@ import MobileIcon from "public/mobile.svg";
 import EventsIcon from "public/events.svg";
 import HeadlessIcon from "public/headless.svg";
 import ComposableIcon from "public/composable.svg";
-import { mediaQueries, breakpoints } from "src/mediaQueries";
+import { breakpoints, mediaQueries } from "src/mediaQueries";
 import { Header } from "templates/home/Header";
 import { useSpringCarousel } from "react-spring-carousel";
 

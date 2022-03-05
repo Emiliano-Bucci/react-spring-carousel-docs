@@ -158,9 +158,7 @@ export function Sidebar() {
                 isExpanded &&
                 !pathname.includes("/docs/use-spring-carousel")
               ) {
-                replace("/docs/use-spring-carousel/basic").then(() => {
-                  toggle();
-                });
+                replace("/docs/use-spring-carousel/basic");
               } else {
                 toggle();
               }
@@ -357,9 +355,7 @@ export function Sidebar() {
                 isExpanded &&
                 !pathname.includes("/docs/use-transition-carousel")
               ) {
-                replace("/docs/use-transition-carousel/basic").then(() => {
-                  toggle();
-                });
+                replace("/docs/use-transition-carousel/basic");
               } else {
                 toggle();
               }
@@ -573,6 +569,9 @@ export function Sidebar() {
             font-size: 2.4rem;
             padding: 4rem;
             background: ${colors.primary};
+            ${mediaQueries.until.tablet} {
+              padding-left: 2.8rem;
+            }
             ${mediaQueries.until.tabletM} {
               display: none;
             }

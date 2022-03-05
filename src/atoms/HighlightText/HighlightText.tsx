@@ -1,6 +1,7 @@
 import { HTMLAttributes, PropsWithChildren } from "react";
 import { css, cx } from "linaria";
 import { colors, shadows } from "src/theme";
+import { mediaQueries } from "src/mediaQueries";
 
 type Types = "default" | "warning";
 
@@ -27,6 +28,9 @@ export function HighlightText({
           font-size: 1.6rem;
           strong {
             color: ${colors.secondary};
+          }
+          ${mediaQueries.until.mobile} {
+            padding: 2rem;
           }
         `
       )}

@@ -4,6 +4,7 @@ import { HighlightText } from "atoms/HighlightText";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 import { css } from "linaria";
 import { colors, shadows } from "src/theme";
+import { mediaQueries } from "src/mediaQueries";
 
 function LinkItem({
   title,
@@ -40,7 +41,7 @@ function LinkItem({
     >
       <h4
         className={css`
-          font-size: 2.4rem;
+          font-size: 2rem;
           font-weight: bold;
           background-color: ${colors.secondary};
           color: #fff;
@@ -131,6 +132,15 @@ export default function Page() {
             li {
               margin: 0;
             }
+          }
+          ${mediaQueries.until.tablet} {
+            grid-auto-flow: unset;
+          }
+          ${mediaQueries.until.tabletM} {
+            grid-auto-flow: column;
+          }
+          ${mediaQueries.until.tabletSM} {
+            grid-auto-flow: unset;
           }
         `}
       >

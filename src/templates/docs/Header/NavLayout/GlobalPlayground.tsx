@@ -118,7 +118,7 @@ function GlobalPlayground() {
       <div
         className={css`
           display: flex;
-          flex: 1;
+          width: 100%;
           ${mediaQueries.until.tablet} {
             flex-direction: column;
             overflow-y: auto;

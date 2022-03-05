@@ -6,6 +6,7 @@ import { Dialog } from "react-spring-dialog";
 import { colors, shadows } from "src/theme";
 import Close from "public/close.svg";
 import { a, useTransition } from "@react-spring/web";
+import { mediaQueries } from "src/mediaQueries";
 
 export type DispatchProps = {
   title: ContextProps["title"];
@@ -118,6 +119,10 @@ function GlobalPlayground() {
         className={css`
           display: flex;
           flex: 1;
+          ${mediaQueries.until.tablet} {
+            flex-direction: column;
+            overflow-y: auto;
+          }
         `}
       >
         <div
@@ -128,6 +133,12 @@ function GlobalPlayground() {
             width: 50%;
             box-shadow: ${shadows.large};
             z-index: 50;
+            ${mediaQueries.until.tablet} {
+              width: 100%;
+              height: 100%;
+              flex: unset;
+              flex-shrink: 0;
+            }
           `}
         >
           {title && (
@@ -140,6 +151,10 @@ function GlobalPlayground() {
                 color: #fff;
                 background-color: ${colors.secondary};
                 height: 96px;
+                ${mediaQueries.until.tablet} {
+                  font-size: 2.4rem;
+                  height: 64px;
+                }
               `}
             >
               {title}
@@ -163,7 +178,7 @@ function GlobalPlayground() {
               display: flex;
               flex: 1;
               width: 50%;
-              height: 100% !important;
+              height: 100%;
               background-color: #474769;
               padding: 4rem;
               overflow-y: auto;
@@ -181,6 +196,17 @@ function GlobalPlayground() {
                 padding-right: 4.8rem !important;
                 padding-left: 2.4rem !important;
                 max-height: 724px;
+                ${mediaQueries.until.tablet} {
+                  padding: 1.6rem !important;
+                  font-size: 1.32rem !important;
+                }
+              }
+              ${mediaQueries.until.tablet} {
+                width: 100%;
+                height: auto;
+                flex: unset;
+                flex-shrink: 0;
+                padding: 2.4rem;
               }
             `}
           >
@@ -200,6 +226,18 @@ function GlobalPlayground() {
           height: 96px;
           padding: 2.4rem;
           flex: 1;
+          ${mediaQueries.until.tablet} {
+            height: 64px;
+            padding: 1.6rem;
+            button {
+              width: 40px;
+              height: 40px;
+              svg {
+                width: 28px;
+                height: 28px;
+              }
+            }
+          }
         `}
       >
         <Button

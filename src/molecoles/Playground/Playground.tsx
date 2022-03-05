@@ -7,6 +7,7 @@ import {
 } from "templates/docs/Header/NavLayout/GlobalPlayground";
 import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { colors } from "src/theme";
+import { mediaQueries } from "../../mediaQueries";
 
 type Props = {
   slideToPrevItem?(): void;
@@ -102,6 +103,13 @@ function PlaygroundButtonExample({
         flex-direction: column;
         pre {
           width: 100%;
+          ${mediaQueries.until.tablet} {
+            margin: 0 -2.4rem !important;
+            width: auto;
+            border-radius: 0px !important;
+            padding: 0rem !important;
+            padding-right: 1.6rem !important;
+          }
         }
         button {
           padding: 1.6rem 2.4rem;

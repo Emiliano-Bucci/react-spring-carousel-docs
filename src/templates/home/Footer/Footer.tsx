@@ -61,6 +61,9 @@ export function Footer() {
           & > *:not(:last-of-type) {
             margin-right: 1.2rem;
           }
+          .image-wrapper {
+            height: 28px;
+          }
         `}
       >
         {badges.map((i) => (

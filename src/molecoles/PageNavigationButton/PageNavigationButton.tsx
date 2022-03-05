@@ -4,6 +4,7 @@ import { Props as LinkProps } from "atoms/Link";
 import { cx, css } from "linaria";
 import ArrowIcon from "public/arrow.svg";
 import { colors, shadows } from "src/theme";
+import { mediaQueries } from "../../mediaQueries";
 
 type Props = PropsWithChildren<{ type: "prev" | "next" } & LinkProps>;
 
@@ -21,6 +22,9 @@ const nextIconStyles = css`
   a:focus & {
     transform: rotate(90deg) translateY(-2px);
   }
+  ${mediaQueries.until.tablet} {
+    right: 16px;
+  }
 `;
 const prevStyles = css`
   && {
@@ -35,6 +39,9 @@ const prevIconStyles = css`
   a:hover &,
   a:focus & {
     transform: rotate(-90deg) translateY(-2px);
+  }
+  ${mediaQueries.until.tablet} {
+    left: 16px;
   }
 `;
 
@@ -67,6 +74,9 @@ export function PageNavigationButton({
             border-color: ${colors.primaryLight};
             box-shadow: ${shadows.medium};
           }
+          ${mediaQueries.until.tablet} {
+            padding: 1.6rem;
+          }
         `
       )}
       {...rest}
@@ -94,6 +104,9 @@ export function PageNavigationButton({
           a:hover &,
           a:focus & {
             color: ${colors.secondaryLight};
+          }
+          ${mediaQueries.until.mobile} {
+            font-size: 1.6rem;
           }
         `}
       >

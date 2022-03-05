@@ -1,5 +1,6 @@
 import { css } from "linaria";
 import { PageNavigationButton } from "molecoles/PageNavigationButton";
+import { mediaQueries } from "src/mediaQueries";
 
 type BtnProps = {
   label: string;
@@ -17,6 +18,15 @@ export function PageNavigationFooter({ prevBtn, nextBtn }: Props) {
         display: flex;
         padding-top: 8rem;
         margin-top: auto;
+        ${mediaQueries.until.tablet} {
+          display: grid;
+          grid-gap: 2rem;
+          padding-top: 4rem;
+          a {
+            margin: 0;
+            width: 100%;
+          }
+        }
       `}
     >
       {prevBtn && (

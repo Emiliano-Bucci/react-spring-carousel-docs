@@ -11,6 +11,7 @@ import { colors, shadows } from "src/theme";
 import { ParentSidebarNavItem } from "atoms/SidebarNavItem/ParentSidebarNavItem";
 import { GlobalPlayground } from "./GlobalPlayground";
 import { a, useSpring } from "react-spring";
+import { mediaQueries } from "src/mediaQueries";
 
 const heightValue = 42;
 
@@ -95,11 +96,17 @@ function Wrapper({ children }: { children: ReactNode }) {
           }
           h1 {
             font-size: 4rem;
+            ${mediaQueries.until.tablet} {
+              font-size: 3.2rem;
+            }
           }
           h2 {
             font-size: 3.2rem;
             &:not(:first-child) {
               margin-top: 2.4rem;
+            }
+            ${mediaQueries.until.tablet} {
+              font-size: 2.4rem;
             }
           }
           h1,
@@ -126,6 +133,10 @@ function Wrapper({ children }: { children: ReactNode }) {
                 ${colors.primaryLight},
                 ${colors.secondaryLight}
               );
+            }
+            ${mediaQueries.until.tablet} {
+              padding-left: 2rem;
+              padding-bottom: 0.4rem;
             }
           }
           p {
@@ -533,6 +544,9 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
           max-width: 400px;
           background-color: ${colors.primaryLight};
           box-shadow: ${shadows.small};
+          ${mediaQueries.until.tabletSM} {
+            display: none;
+          }
         `}
       >
         <h1
@@ -578,6 +592,15 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
               max-width: 1240px;
               border-left: 1px solid ${colors.warm};
               border-right: 1px solid ${colors.warm};
+              ${mediaQueries.until.tablet} {
+                padding: 4rem 4.8rem;
+              }
+              ${mediaQueries.until.tabletSM} {
+                padding: 3.2rem;
+              }
+              ${mediaQueries.until.mobile} {
+                padding: 2.4rem;
+              }
             `
           )}
         >

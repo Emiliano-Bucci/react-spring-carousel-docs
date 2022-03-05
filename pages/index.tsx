@@ -11,6 +11,7 @@ import ComposableIcon from "public/composable.svg";
 import { breakpoints, mediaQueries } from "src/mediaQueries";
 import { Header } from "templates/home/Header";
 import { useSpringCarousel } from "react-spring-carousel";
+import { a, useSprings } from "react-spring";
 
 const items = [
   {
@@ -81,9 +82,27 @@ const items = [
   },
 ];
 
+const springConfig = {
+  frequency: 0.64,
+};
+
+const initialDelay = 264;
+
 export default function Home() {
   const [itemsPerSlide, setItemsPerSlide] = useState(5);
   const [activeItem, setActiveItem] = useState(items[0].id);
+  const [styles] = useSprings(2, (i) => ({
+    config: springConfig,
+    delay: i === 0 ? initialDelay : i * (initialDelay + 240),
+    from: {
+      y: 16,
+      opacity: 0,
+    },
+    to: {
+      y: 0,
+      opacity: 1,
+    },
+  }));
   const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
     itemsPerSlide,
     withLoop: true,
@@ -165,7 +184,8 @@ export default function Home() {
           z-index: 150;
         `}
       >
-        <div
+        <a.div
+          style={styles[0]}
           className={css`
             display: flex;
             justify-content: center;
@@ -196,8 +216,9 @@ export default function Home() {
           >
             {carouselFragment}
           </div>
-        </div>
-        <div
+        </a.div>
+        <a.div
+          style={styles[1]}
           className={css`
             width: 100%;
             display: flex;
@@ -217,7 +238,7 @@ export default function Home() {
           >
             Documentation
           </Link>
-        </div>
+        </a.div>
       </main>
     </div>
   );

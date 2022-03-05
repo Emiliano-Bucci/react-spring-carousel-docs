@@ -2,9 +2,9 @@ import { SyntaxHiglight } from "atoms/SyntaxHiglight";
 import { css } from "linaria";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 
-const npmInstallCode = `// npm v7+
+const npmInstallCode = `// npm v7.x
 npm install --save react-spring-carousel`;
-const npmOldInstallCode = `// npm v7-
+const npmOldInstallCode = `// npm v6.x or less
 npm install --save react-spring-carousel react-spring`;
 const yarnInstallCode = `// yarn
 yarn add react-spring-carousel react-spring`;

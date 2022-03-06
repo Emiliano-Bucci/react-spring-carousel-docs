@@ -11,8 +11,8 @@ import { css } from "linaria";
 import { colors, shadows } from "src/theme";
 import { a, useSpring } from "react-spring";
 import { breakpoints, mediaQueries } from "src/mediaQueries";
-import { Button } from "atoms/Button";
 import Router from "next/router";
+import { MobileSidebarButton } from "./MobileSidebarButton";
 
 const heightValue = 42;
 
@@ -609,27 +609,10 @@ export function Sidebar() {
           <Accordion shouldExpandOnlyOneItem data={sidebarItems} />
         </nav>
       </a.div>
-      <Button
-        variant="secondary"
+      <MobileSidebarButton
+        isActive={showMobileSidebar}
         onClick={() => setShowMobileSidebar((p) => !p)}
-        className={css`
-          && {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            z-index: 150;
-            ${mediaQueries.until.tabletM} {
-              display: flex;
-            }
-          }
-        `}
-      >
-        H
-      </Button>
+      />
     </>
   );
 }

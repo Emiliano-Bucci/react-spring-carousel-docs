@@ -57,7 +57,7 @@ function ParentDecorator({ id }: { id: string }) {
       className={css`
         position: absolute;
         top: 0px;
-        left: 54px;
+        left: 39px;
         width: 2px;
         bottom: 0px;
         background-color: #fff;
@@ -563,7 +563,7 @@ export function Sidebar() {
           height: 100vh;
           position: sticky;
           top: 0;
-          max-width: 400px;
+          max-width: 380px;
           background-color: ${colors.primaryLight};
           box-shadow: ${shadows.small};
           ${mediaQueries.until.tabletM} {
@@ -583,7 +583,7 @@ export function Sidebar() {
           className={css`
             color: #fafafa;
             font-size: 2.4rem;
-            padding: 4rem;
+            padding: 3.2rem;
             background: ${colors.secondary};
             ${mediaQueries.until.tablet} {
               padding-left: 2.8rem;
@@ -599,7 +599,7 @@ export function Sidebar() {
           className={css`
             flex: 1;
             overflow-y: auto;
-            padding-top: 1.6rem;
+            padding-top: 0.8rem;
             padding-bottom: 3.2rem;
             ${mediaQueries.until.tablet} {
               margin-left: -1.2rem;

@@ -8,7 +8,7 @@ import Arrow from "public/up-arrow.svg";
 
 const childStyles = css`
   && {
-    padding-left: 7rem;
+    padding-left: 5.6rem;
   }
 `;
 
@@ -66,7 +66,7 @@ export function SidebarNavItem({
           font-size: 2rem;
           padding: 1.6rem 2.4rem;
           padding-bottom: 1.2rem;
-          padding-left: 4rem;
+          padding-left: 3.2rem;
           width: 100%;
           span {
             width: 100%;
@@ -94,13 +94,12 @@ export function SidebarNavItem({
               display: flex;
               color: #fafafa;
               padding: 0.8rem;
-              padding-left: 2.4rem;
               cursor: pointer;
               align-items: center;
               height: 42px;
               justify-content: flex-start;
               transition: all 280ms ease;
-              padding-left: 4.8rem;
+              padding-left: 3.2rem;
               border-radius: 0px;
               font-size: 1.8rem;
               span {
@@ -150,12 +149,11 @@ export function SidebarNavItem({
           color: #fafafa;
           padding: 0.8rem;
           height: 42px;
-          padding-left: 2.4rem;
           cursor: pointer;
           align-items: center;
           justify-content: flex-start;
           transition: all 280ms ease;
-          padding-left: 4.8rem;
+          padding-left: 4rem;
           font-size: 1.8rem;
           span {
             color: inherit;

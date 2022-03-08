@@ -5,6 +5,7 @@ import { GlobalPlayground } from "./GlobalPlayground";
 import { mediaQueries } from "src/mediaQueries";
 import { Sidebar } from "./Sidebar";
 import { PageContent } from "./PageContent";
+import { OnThisPage } from "./OnThisPage";
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
@@ -96,6 +97,7 @@ export function NavLayout({ pageContent, footerFragment }: Props) {
     <Wrapper>
       <Sidebar />
       <PageContent pageContent={pageContent} footerFragment={footerFragment} />
+      <OnThisPage />
       <GlobalPlayground />
     </Wrapper>
   );

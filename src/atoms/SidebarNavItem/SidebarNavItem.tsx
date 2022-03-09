@@ -2,13 +2,14 @@ import { Button } from "atoms/Button";
 import { Link } from "atoms/Link";
 import { css, cx } from "linaria";
 import { useEffect, useRef } from "react";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 
 import Arrow from "public/up-arrow.svg";
 
 const childStyles = css`
   && {
-    padding-left: 5.6rem;
+    width: auto;
+    margin-left: 3.8rem;
   }
 `;
 
@@ -64,10 +65,8 @@ export function SidebarNavItem({
           font-weight: bold;
           text-transform: uppercase;
           font-size: 2rem;
-          padding: 1.6rem 2.4rem;
-          padding-bottom: 1.2rem;
-          padding-left: 3.2rem;
           width: 100%;
+          margin-bottom: 0.8rem;
           span {
             width: 100%;
             color: #fafafa;
@@ -99,9 +98,10 @@ export function SidebarNavItem({
               height: 42px;
               justify-content: flex-start;
               transition: all 280ms ease;
-              padding-left: 3.2rem;
               border-radius: 0px;
               font-size: 1.8rem;
+              border-radius: 8px;
+              padding: 1.2rem;
               span {
                 color: inherit;
               }
@@ -109,6 +109,7 @@ export function SidebarNavItem({
               :focus {
                 color: #fff;
                 background-color: ${colors.primary};
+                box-shadow: ${shadows.medium};
               }
             }
           `
@@ -153,8 +154,9 @@ export function SidebarNavItem({
           align-items: center;
           justify-content: flex-start;
           transition: all 280ms ease;
-          padding-left: 4rem;
           font-size: 1.8rem;
+          border-radius: 8px;
+          padding: 1.2rem;
           span {
             color: inherit;
           }
@@ -162,6 +164,7 @@ export function SidebarNavItem({
           :focus {
             color: #fff;
             background-color: ${colors.primary};
+            box-shadow: ${shadows.medium};
           }
         `
       )}

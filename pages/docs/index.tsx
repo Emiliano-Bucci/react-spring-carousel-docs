@@ -222,6 +222,10 @@ export async function getStaticProps() {
   return {
     props: {
       title: "Introduction",
+      onThisPageItems: [
+        { id: "overview", label: "Overview" },
+        { id: "motivation", label: "Motivation" },
+      ],
     },
   };
 }

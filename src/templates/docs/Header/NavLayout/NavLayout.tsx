@@ -6,6 +6,7 @@ import { mediaQueries } from "src/mediaQueries";
 import { Sidebar } from "./Sidebar";
 import { PageContent } from "./PageContent";
 import { OnThisPage } from "./OnThisPage";
+import { OnThisPageItem } from "pages/_app";
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
@@ -90,14 +91,19 @@ function Wrapper({ children }: { children: ReactNode }) {
 type Props = {
   pageContent: ReactNode;
   footerFragment: ReactNode;
+  onThisPageItems: OnThisPageItem[];
 };
 
-export function NavLayout({ pageContent, footerFragment }: Props) {
+export function NavLayout({
+  pageContent,
+  footerFragment,
+  onThisPageItems,
+}: Props) {
   return (
     <Wrapper>
       <Sidebar />
       <PageContent pageContent={pageContent} footerFragment={footerFragment} />
-      <OnThisPage />
+      <OnThisPage items={onThisPageItems} />
       <GlobalPlayground />
     </Wrapper>
   );

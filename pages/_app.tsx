@@ -60,7 +60,15 @@ function MainWrapper({
   );
 }
 
-function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
+export type OnThisPageItem = {
+  id: string;
+  label: string;
+};
+
+function MyApp({
+  Component,
+  pageProps,
+}: AppProps<{ title?: string; onThisPageItems?: OnThisPageItem[] }>) {
   const { pathname } = useRouter();
   const isDocsPage = pathname.includes("/docs");
 
@@ -123,10 +131,10 @@ function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
               variant="secondary"
               size="icon"
               title="https://www.npmjs.com/package/react-spring-carousel"
+              target="_blank"
               linkProps={{
                 href: "https://www.npmjs.com/package/react-spring-carousel",
               }}
-              target="_blank"
               className={cx(
                 css`
                   svg {
@@ -151,6 +159,7 @@ function MyApp({ Component, pageProps }: AppProps<{ title?: string }>) {
             <NavLayout
               pageContent={<Component {...pageProps} />}
               footerFragment={<Footer />}
+              onThisPageItems={pageProps?.onThisPageItems ?? []}
             />
           </GlobalPlaygroundProvider>
         </div>

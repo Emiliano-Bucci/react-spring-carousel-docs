@@ -28,7 +28,6 @@ export function PageContent({ pageContent, footerFragment }: Props) {
             flex-direction: column;
             width: 100%;
             padding: 8rem 12rem;
-            max-width: 1240px;
             border-left: 1px solid ${colors.warm};
             border-right: 1px solid ${colors.warm};
             ${mediaQueries.until.tablet} {

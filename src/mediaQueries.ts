@@ -3,7 +3,9 @@ const breakpoints = {
   tabletSM: 768,
   tabletM: 1024,
   tablet: 1240,
+  desktopSM: 1360,
   desktop: 1440,
+  desktopL: 1640,
 };
 
 type BreakpointKeys = keyof typeof breakpoints;

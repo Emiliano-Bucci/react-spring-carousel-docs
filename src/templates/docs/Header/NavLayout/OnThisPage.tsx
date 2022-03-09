@@ -1,13 +1,17 @@
 import { css } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
+import { OnThisPageItem } from "pages/_app";
 
-export function OnThisPage() {
+type Props = {
+  items: OnThisPageItem[];
+};
+export function OnThisPage({}: Props) {
   return (
     <aside
       className={css`
         flex: 1;
-        max-width: 380px;
+        max-width: 340px;
       `}
     >
       <div
@@ -24,6 +28,7 @@ export function OnThisPage() {
             color: #fafafa;
             font-size: 2.4rem;
             padding: 3.2rem;
+            box-shadow: ${shadows.large};
             background: ${colors.secondary};
             ${mediaQueries.until.tablet} {
               padding-left: 2.8rem;

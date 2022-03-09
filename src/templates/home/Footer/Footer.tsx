@@ -56,7 +56,9 @@ export function Footer() {
         padding: 2.4rem;
         background-color: #fff;
         margin-top: auto;
-        border-top: 1px solid #eee;
+        border-top: 1px solid ${colors.warm};
+        border-left: 1px solid ${colors.warm};
+        border-right: 1px solid ${colors.warm};
       `}
     >
       <div

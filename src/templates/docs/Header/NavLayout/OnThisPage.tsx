@@ -7,6 +7,9 @@ import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { a, useSpring } from "@react-spring/web";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
+import GithubIcon from "public/github.svg";
+import NpmIcon from "public/npm.svg";
+import { Link } from "atoms/Link";
 
 type Props = {
   items: OnThisPageItem[];
@@ -116,6 +119,56 @@ export function OnThisPage({ items }: Props) {
               />
             )}
           </div>
+        </div>
+        <div
+          className={css`
+            display: flex;
+            margin-top: auto;
+            padding: 3rem 2.4rem;
+            background-color: ${colors.dark60};
+            justify-content: center;
+          `}
+        >
+          <Link
+            variant="secondary"
+            linkProps={{
+              href: "https://github.com/Emiliano-Bucci/react-spring-carousel",
+            }}
+            title="https://github.com/Emiliano-Bucci/react-spring-carousel"
+            target="_blank"
+            size="default"
+            className={cx(
+              css`
+                margin: 0 1.2rem;
+                svg {
+                  width: 24px;
+                  height: 24px;
+                }
+              `
+            )}
+          >
+            <GithubIcon />
+          </Link>
+          <Link
+            variant="secondary"
+            size="default"
+            linkProps={{
+              href: "https://www.npmjs.com/package/react-spring-carousel",
+            }}
+            title="https://www.npmjs.com/package/react-spring-carousel"
+            target="_blank"
+            className={cx(
+              css`
+                margin: 0 1.2rem;
+                svg {
+                  width: 26px;
+                  height: 26px;
+                }
+              `
+            )}
+          >
+            <NpmIcon />
+          </Link>
         </div>
       </div>
     </aside>

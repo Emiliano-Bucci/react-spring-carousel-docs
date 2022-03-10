@@ -21,7 +21,7 @@ export default function Page() {
         need to pass a <strong>React Element</strong> as well.
       </p>
       <p>
-        Why did I take this approach? Mainly for performance reasons. The{" "}
+        Why did I took this approach? Mainly for performance reasons. The{" "}
         <strong>useSpringCarousel</strong> hook doesn't leverage on{" "}
         <strong>React State</strong> at all, so there're no rerenders; plus,
         since the whole rendering structure of the carousel isn't a component,

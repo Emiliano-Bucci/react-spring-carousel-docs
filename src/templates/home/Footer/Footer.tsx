@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import { Link } from "atoms/Link/Link";
 import { Img } from "atoms/Img";
 import { mediaQueries } from "src/mediaQueries";
@@ -59,6 +59,7 @@ export function Footer() {
         border-top: 1px solid ${colors.warm};
         border-left: 1px solid ${colors.warm};
         border-right: 1px solid ${colors.warm};
+        box-shadow: ${shadows.small};
       `}
     >
       <div

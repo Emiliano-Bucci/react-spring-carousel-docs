@@ -127,6 +127,8 @@ export function OnThisPage({ items }: Props) {
             padding: 3rem 2.4rem;
             background-color: ${colors.dark60};
             justify-content: center;
+            height: 120px;
+            align-items: center;
           `}
         >
           <Link

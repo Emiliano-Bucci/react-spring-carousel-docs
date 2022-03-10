@@ -7,14 +7,24 @@ import { SidebarNavItem } from "atoms/SidebarNavItem";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ParentSidebarNavItem } from "atoms/SidebarNavItem/ParentSidebarNavItem";
 import { useRouter } from "next/dist/client/router";
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import { colors, shadows } from "src/theme";
 import { a, useSpring } from "react-spring";
 import { breakpoints, mediaQueries } from "src/mediaQueries";
 import Router from "next/router";
 import { MobileSidebarButton } from "./MobileSidebarButton";
 
-const heightValue = 42;
+export const sidebarWrapperStyles = css`
+  max-width: 340px;
+  ${mediaQueries.until.desktopL} {
+    max-width: 324px;
+  }
+  ${mediaQueries.until.desktop} {
+    max-width: 300px;
+  }
+`;
+
+const heightValue = 48;
 
 function ParentDecorator({ id }: { id: string }) {
   const { getActiveItems } = useAccordionProvider();
@@ -68,7 +78,7 @@ function ParentDecorator({ id }: { id: string }) {
         style={trackStyles}
         className={css`
           width: 8px;
-          height: 42px;
+          height: 48px;
           border-radius: 20px;
           background-color: ${colors.secondaryLight};
           margin-left: -3px;
@@ -557,28 +567,30 @@ export function Sidebar() {
       <a.div
         ref={ref}
         style={sidebarStyles}
-        className={css`
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          height: 100vh;
-          position: sticky;
-          top: 0;
-          max-width: 340px;
-          background-color: ${colors.primaryLight};
-          box-shadow: ${shadows.large};
-          ${mediaQueries.until.tabletM} {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        className={cx(
+          sidebarWrapperStyles,
+          css`
+            display: flex;
+            flex-direction: column;
             width: 100%;
-            height: 100%;
-            z-index: 100;
-            max-width: 100%;
-            overflow: hidden;
-          }
-        `}
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background-color: ${colors.primaryLight};
+            box-shadow: ${shadows.large};
+            ${mediaQueries.until.tabletM} {
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 100;
+              max-width: 100%;
+              overflow: hidden;
+            }
+          `
+        )}
       >
         <h1
           className={css`
@@ -587,8 +599,9 @@ export function Sidebar() {
             padding: 3.2rem;
             box-shadow: ${shadows.large};
             background: ${colors.secondary};
-            ${mediaQueries.until.tablet} {
-              padding-left: 2.8rem;
+            ${mediaQueries.until.desktop} {
+              padding: 2.8rem 2.4rem;
+              font-size: 2.2rem;
             }
             ${mediaQueries.until.tabletM} {
               display: none;
@@ -602,8 +615,8 @@ export function Sidebar() {
             flex: 1;
             overflow-y: auto;
             padding: 3.2rem;
-            ${mediaQueries.until.tablet} {
-              margin-left: -1.2rem;
+            ${mediaQueries.until.desktop} {
+              padding: 2.4rem;
             }
           `}
         >

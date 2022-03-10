@@ -10,13 +10,13 @@ import { HighlightText } from "atoms/HighlightText";
 export default function Page() {
   return (
     <>
-      <h1>Multiple items</h1>
+      <h1 id="multiple-items">Multiple items</h1>
       <p>
         Things can become hard to manage when you need to display more than one
         item, but not for <strong>React Spring Carousel</strong> 🦾
       </p>
       <UseSpringCarouselMultipleItemsExample />
-      <h2>Starting position</h2>
+      <h2 id="starting-positon">Starting position</h2>
       <p>
         If you want to, you can also change the starting position of the{" "}
         <strong>initial</strong> active item; the accepted values are:
@@ -31,10 +31,10 @@ export default function Page() {
         work if <strong>withLoop: true</strong>;
       </HighlightText>
       <UseSpringCarouselMultipleItemsExample2 />
-      <h2>Gutter</h2>
+      <h2 id="gutter">Gutter</h2>
       <p>You can also easily add some space between the items:</p>
       <UseSpringCarouselMultipleItemsExample3 />
-      <h2>Gutter on sides</h2>
+      <h2 id="gutter-on-sides">Gutter on sides</h2>
       <p>
         You can also add gutter on the <strong>sides</strong> of the{" "}
         <strong>visible</strong> items:
@@ -57,6 +57,12 @@ export async function getStaticProps() {
   return {
     props: {
       title: "useSpringCarousel docs - Multiple items example",
+      onThisPageItems: [
+        { id: "multiple-items", label: "Multiple items" },
+        { id: "starting-positon", label: "Starting positon" },
+        { id: "gutter", label: "Gutter" },
+        { id: "gutter-on-sides", label: "Gutter on sides" },
+      ],
     },
   };
 }

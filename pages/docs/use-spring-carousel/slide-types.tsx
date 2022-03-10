@@ -11,7 +11,7 @@ import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 export default function Page() {
   return (
     <>
-      <h1>Slide types</h1>
+      <h1 id="slide-types">Slide types</h1>
       <p>
         So far we've been scratching the surface of the possibilities offered by{" "}
         <strong>React Spring Carousel</strong>, covering all the basics. The
@@ -23,7 +23,7 @@ export default function Page() {
         carousel (<strong>itemsPerSlide</strong> which defaults to 1), and N
         items will fit in the entire viewport.
       </p>
-      <h2>Fluidity</h2>
+      <h2 id="fluidity">Fluidity</h2>
       <p>
         By specifying <strong>slideType: fluid</strong>, the philosophy of the
         carousel completely changes and the concept of{" "}
@@ -38,7 +38,7 @@ export default function Page() {
         <strong>withLoop: true</strong> properties! 👉
       </p>
       <UseSpringCarouselSlideTypesExample2 />
-      <h2>Custom slide value</h2>
+      <h2 id="custom-slide-value">Custom slide value</h2>
       <p>
         By default, the library will pick the width of the first item and will
         use that value to decide the quantity of px the carousel will slide.
@@ -49,7 +49,7 @@ export default function Page() {
         or greater than the items width.
       </HighlightText>
       <UseSpringCarouselSlideTypesExample3 />
-      <h2>Free scroll</h2>
+      <h2 id="free-scroll">Free scroll</h2>
       <p>
         You can also enable the <strong>free scroll</strong> modality, which
         basically enables the default browser scroll (it enables the mouse -
@@ -84,6 +84,12 @@ export async function getStaticProps() {
   return {
     props: {
       title: "useSpringCarousel docs - Slide types examples",
+      onThisPageItems: [
+        { id: "slide-types", label: "Slide types" },
+        { id: "fluidity", label: "Fluidity" },
+        { id: "custom-slide-value", label: "Custom slide value" },
+        { id: "free-scroll", label: "Free scroll" },
+      ],
     },
   };
 }

@@ -137,6 +137,7 @@ export const globalStyles = css`
       background-color: ${colors.warm};
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
+      scroll-behavior: smooth;
     }
     html,
     body,

@@ -9,7 +9,7 @@ import { HighlightText } from "atoms/HighlightText";
 export default function Page() {
   return (
     <>
-      <h1>Thumb list</h1>
+      <h1 id="thumb-list">Thumb list</h1>
       <p>
         Let's go now a bit deeper in the carousel world and let's add some
         thumbnails:
@@ -44,7 +44,7 @@ export default function Page() {
         You can also disable the automatic scroll of the thumbs if you desire
         to; in case, just pass <strong>enableThumbsWrapperScroll: false</strong>
       </p>
-      <h2>Slide to item</h2>
+      <h2 id="slide-to-items">Slide to item</h2>
       <p>
         I know, let me guess: if you click on a thumb nothing happens, right?
         Yeah, that goes against the common pattern, that <strong>should</strong>{" "}
@@ -54,7 +54,7 @@ export default function Page() {
         pattern. But how? Check the next example 😏
       </p>
       <UseSpringCarouselThumbListExample2 />
-      <h2>prepareThumbsData</h2>
+      <h2 id="prepareThumbsData">prepareThumbsData</h2>
       <p>
         Let's say you want to display a beautiful high-quality images carousel;
         maybe you'll need to show images in buckets of 10 and, eventually, if
@@ -93,6 +93,11 @@ export async function getStaticProps() {
   return {
     props: {
       title: "useSpringCarousel docs - Thumb list example",
+      onThisPageItems: [
+        { id: "thumb-list", label: "Thumb list" },
+        { id: "slide-to-items", label: "Slide to items" },
+        { id: "prepareThumbsData", label: "prepareThumbsData" },
+      ],
     },
   };
 }

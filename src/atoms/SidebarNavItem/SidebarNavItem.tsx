@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { colors, shadows } from "src/theme";
 
 import Arrow from "public/up-arrow.svg";
+import { Props as LinkProps } from "../Link/Link";
 
 const childStyles = css`
   && {
@@ -32,6 +33,7 @@ type Props = {
   href?: string;
   isChild?: boolean;
   isExpanded?: boolean;
+  onClick?: LinkProps["onClick"];
 };
 
 export function SidebarNavItem({
@@ -41,6 +43,7 @@ export function SidebarNavItem({
   href = "",
   isChild = false,
   isExpanded = false,
+  onClick,
 }: Props) {
   const ref = useRef<HTMLAnchorElement | null>(null);
 
@@ -95,7 +98,7 @@ export function SidebarNavItem({
               padding: 0.8rem;
               cursor: pointer;
               align-items: center;
-              height: 42px;
+              height: 48px;
               justify-content: flex-start;
               transition: all 280ms ease;
               border-radius: 0px;
@@ -141,6 +144,7 @@ export function SidebarNavItem({
       variant="none"
       size="none"
       ref={ref}
+      onClick={onClick}
       className={cx(
         isChild && childStyles,
         isActive && activeStyles,
@@ -149,7 +153,7 @@ export function SidebarNavItem({
           display: flex;
           color: #fafafa;
           padding: 0.8rem;
-          height: 42px;
+          height: 48px;
           cursor: pointer;
           align-items: center;
           justify-content: flex-start;

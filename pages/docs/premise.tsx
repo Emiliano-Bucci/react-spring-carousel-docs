@@ -68,7 +68,7 @@ function LinkItem({
 export default function Page() {
   return (
     <>
-      <h2>Premise</h2>
+      <h2 id="premise">Premise</h2>
       <p>
         The library offers two solutions that should cover all of your UI needs:
       </p>
@@ -113,7 +113,7 @@ export default function Page() {
         as expected. Apart from that, the library doesn't apply any extra css or
         came with some fancy .css file that you need to import.
       </HighlightText>
-      <h2>Start!</h2>
+      <h2 id="start">Start!</h2>
       <HighlightText type="warning">
         <strong>Note:</strong> In the following examples, I'll be using some
         wrapper's components and <strong>linaria</strong> for the styling part,
@@ -173,6 +173,10 @@ export async function getStaticProps() {
   return {
     props: {
       title: "Premise",
+      onThisPageItems: [
+        { id: "premise", label: "Premise" },
+        { id: "start", label: "Start" },
+      ],
     },
   };
 }

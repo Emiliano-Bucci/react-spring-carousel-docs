@@ -30,6 +30,12 @@ export function PageContent({ pageContent, footerFragment }: Props) {
             padding: 8rem 12rem;
             border-left: 1px solid ${colors.warm};
             border-right: 1px solid ${colors.warm};
+            ${mediaQueries.until.desktopL} {
+              padding: 8rem;
+            }
+            ${mediaQueries.until.desktop} {
+              padding: 4.8rem;
+            }
             ${mediaQueries.until.tablet} {
               padding: 4rem 4.8rem;
             }

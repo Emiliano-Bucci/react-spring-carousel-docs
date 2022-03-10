@@ -104,7 +104,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
 export default function Page() {
   return (
     <>
-      <h2>Overview</h2>
+      <h2 id="overview">Overview</h2>
       <p>
         <strong>React Spring Carousel</strong> is a new way of approaching the
         carousel experience on the web. It embraces the philosophy of{" "}
@@ -125,7 +125,7 @@ export default function Page() {
         carousel in any possible way.
       </p>
       <Decorator />
-      <h2>Motivation</h2>
+      <h2 id="motivation">Motivation</h2>
       <p>
         <strong>Why another carousel library?</strong> Many times happened to me
         that while I was investigating which library to implement a carousel I
@@ -158,7 +158,7 @@ export default function Page() {
         </p>
       </HighlightText>
       <Decorator />
-      <h2>Features</h2>
+      <h2 id="features">Features</h2>
       <ul
         className={css`
           display: grid;
@@ -225,6 +225,7 @@ export async function getStaticProps() {
       onThisPageItems: [
         { id: "overview", label: "Overview" },
         { id: "motivation", label: "Motivation" },
+        { id: "features", label: "Features" },
       ],
     },
   };

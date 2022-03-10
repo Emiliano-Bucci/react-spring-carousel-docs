@@ -16,7 +16,7 @@ const code = `
 export default function Page() {
   return (
     <>
-      <h2>Built in classNames</h2>
+      <h2 id="built-in-classnames">Built in classNames</h2>
       <p>
         Even if the library tries to do its best to be defined as a{" "}
         <strong>headless UI library</strong>, there might be some cases where we{" "}
@@ -36,7 +36,7 @@ export default function Page() {
         You can use the browser inspector to better check where those classNames
         are applied.
       </p>
-      <h2>Touch action</h2>
+      <h2 id="touch-action">Touch action</h2>
       <p>
         Since the library uses <strong>@use-gesture</strong> for handling the
         touch logic, we sutomatically set the correct css{" "}
@@ -58,7 +58,7 @@ export default function Page() {
         When <strong>disableGestures=true</strong>, we automatically set{" "}
         <strong>touch-action: unset</strong>.
       </HighlightText>
-      <h2>Spring config</h2>
+      <h2 id="spring-config">Spring config</h2>
       <p>
         By default, the library uses the default <strong>react spring</strong>{" "}
         configuration preset. If you like to, you can pass a{" "}
@@ -87,6 +87,11 @@ export async function getStaticProps() {
   return {
     props: {
       title: "useSpringCarousel docs - Extra info",
+      onThisPageItems: [
+        { id: "built-in-classnames", label: "Built in classNames" },
+        { id: "touch-action", label: "Touch action" },
+        { id: "spring-config", label: "Spring config" },
+      ],
     },
   };
 }

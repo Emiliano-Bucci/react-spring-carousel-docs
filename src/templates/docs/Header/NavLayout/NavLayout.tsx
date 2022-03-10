@@ -30,6 +30,9 @@ function Wrapper({ children }: { children: ReactNode }) {
             ${mediaQueries.until.tablet} {
               font-size: 3.2rem;
             }
+            ${mediaQueries.until.mobile} {
+              font-size: 2.8rem;
+            }
           }
           h2 {
             font-size: 3.2rem;
@@ -39,6 +42,9 @@ function Wrapper({ children }: { children: ReactNode }) {
             ${mediaQueries.until.tablet} {
               font-size: 2.8rem;
             }
+            ${mediaQueries.until.mobile} {
+              font-size: 2.4rem;
+            }
           }
           h1,
           h2 {
@@ -47,6 +53,7 @@ function Wrapper({ children }: { children: ReactNode }) {
             color: ${colors.secondary};
             position: relative;
             margin-right: auto;
+            letter-spacing: 1.4px;
             &:not(:first-of-type) {
               margin-top: 2.4rem;
             }

@@ -138,6 +138,7 @@ export const globalStyles = css`
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
       scroll-behavior: smooth;
+      letter-spacing: 0.09rem;
     }
     html,
     body,

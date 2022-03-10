@@ -72,7 +72,7 @@ export function SidebarNavItem({
           margin-bottom: 0.8rem;
           span {
             width: 100%;
-            color: #fafafa;
+            color: #fdfe;
           }
         `}
       >

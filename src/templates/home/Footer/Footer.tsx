@@ -123,8 +123,6 @@ export function Footer() {
           </Link>
         </span>
         <Divider />
-        <span>Build with</span>
-        <Divider />
         <span>
           Icons made by{" "}
           <Link

@@ -47,6 +47,7 @@ export function OnThisPage({ items }: Props) {
           flex: 1;
           height: 100vh;
           position: sticky;
+          box-shadow: ${shadows.large};
           top: 0;
           ${mediaQueries.until.tablet} {
             display: none;
@@ -63,24 +64,26 @@ export function OnThisPage({ items }: Props) {
           background-color: ${colors.primaryLight};
         `}
       >
-        <span
-          className={css`
-            color: #fafafa;
-            font-size: 2.4rem;
-            padding: 3.2rem;
-            box-shadow: ${shadows.large};
-            background: ${colors.secondary};
-            ${mediaQueries.until.desktop} {
-              padding: 2.8rem 2.4rem;
-              font-size: 2.2rem;
-            }
-            ${mediaQueries.until.tablet} {
-              padding-left: 2.8rem;
-            }
-          `}
-        >
-          On this page
-        </span>
+        {items.length > 0 && (
+          <span
+            className={css`
+              color: #fafafa;
+              font-size: 2.4rem;
+              padding: 3.2rem;
+              box-shadow: ${shadows.large};
+              background: ${colors.secondary};
+              ${mediaQueries.until.desktop} {
+                padding: 2.8rem 2.4rem;
+                font-size: 2.2rem;
+              }
+              ${mediaQueries.until.tablet} {
+                padding-left: 2.8rem;
+              }
+            `}
+          >
+            On this page
+          </span>
+        )}
         <div
           className={css`
             display: grid;

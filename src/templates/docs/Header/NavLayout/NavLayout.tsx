@@ -1,6 +1,6 @@
 import { css } from "linaria";
 import { ReactNode } from "react";
-import { colors } from "src/theme";
+import { colors, shadows } from "src/theme";
 import { GlobalPlayground } from "./GlobalPlayground";
 import { mediaQueries } from "src/mediaQueries";
 import { Sidebar } from "./Sidebar";
@@ -37,7 +37,7 @@ function Wrapper({ children }: { children: ReactNode }) {
               margin-top: 2.4rem;
             }
             ${mediaQueries.until.tablet} {
-              font-size: 2.4rem;
+              font-size: 2.8rem;
             }
           }
           h1,
@@ -46,8 +46,7 @@ function Wrapper({ children }: { children: ReactNode }) {
             margin-bottom: 3.2rem;
             color: ${colors.secondary};
             position: relative;
-            padding-left: 2.4rem;
-            padding-bottom: 0.8rem;
+            margin-right: auto;
             &:not(:first-of-type) {
               margin-top: 2.4rem;
             }
@@ -57,17 +56,17 @@ function Wrapper({ children }: { children: ReactNode }) {
               top: 100%;
               left: 0;
               width: 100%;
-              height: 4px;
+              height: 8px;
               border-radius: 20px;
+              box-shadow: ${shadows.small};
               background-image: linear-gradient(
                 to right,
                 ${colors.primaryLight},
                 ${colors.secondaryLight}
               );
-            }
-            ${mediaQueries.until.tablet} {
-              padding-left: 2rem;
-              padding-bottom: 0.4rem;
+              ${mediaQueries.until.tablet} {
+                height: 6px;
+              }
             }
           }
           p {

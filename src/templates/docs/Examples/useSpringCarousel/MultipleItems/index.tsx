@@ -45,8 +45,7 @@ export const code2 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      itemsPerSlide: 3,
-      withLoop: true,
+      initialStartingPosition: 'start' | 'center' | 'end',
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -73,7 +72,8 @@ export const code3 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
-      initialStartingPosition: 'start' | 'center' | 'end',
+      itemsPerSlide: 3,
+      withLoop: true,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -141,59 +141,6 @@ function Carousel1() {
   );
 }
 function Carousel2() {
-  const [gutter, setGutter] = useState(0);
-  const { carouselFragment } = useSpringCarousel({
-    itemsPerSlide: 3,
-    withLoop: true,
-    gutter,
-    items: mockedItems.map((i) => ({
-      id: i.id,
-      renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
-    })),
-  });
-
-  return (
-    <Playground
-      customControls={
-        <div
-          className={css`
-            display: flex;
-            justify-content: center;
-            background-color: #fff;
-            z-index: 10;
-            padding: 1.6rem;
-            button {
-              border-radius: 8px;
-              margin: 0 0.8rem;
-            }
-          `}
-        >
-          <Button variant="secondary" onClick={() => setGutter(0)}>
-            0
-          </Button>
-          <Button variant="secondary" onClick={() => setGutter(8)}>
-            8
-          </Button>
-          <Button variant="secondary" onClick={() => setGutter(16)}>
-            16
-          </Button>
-          <Button variant="secondary" onClick={() => setGutter(24)}>
-            24
-          </Button>
-          <Button variant="secondary" onClick={() => setGutter(32)}>
-            32
-          </Button>
-          <Button variant="secondary" onClick={() => setGutter(40)}>
-            40
-          </Button>
-        </div>
-      }
-    >
-      {carouselFragment}
-    </Playground>
-  );
-}
-function Carousel3() {
   const [startingPosition, setStartingPosition] = useState<
     "start" | "center" | "end"
   >("start");
@@ -259,6 +206,59 @@ function Carousel3() {
             }}
           >
             End
+          </Button>
+        </div>
+      }
+    >
+      {carouselFragment}
+    </Playground>
+  );
+}
+function Carousel3() {
+  const [gutter, setGutter] = useState(0);
+  const { carouselFragment } = useSpringCarousel({
+    itemsPerSlide: 3,
+    withLoop: true,
+    gutter,
+    items: mockedItems.map((i) => ({
+      id: i.id,
+      renderItem: <CarouselItem color={i.color}>{i.title}</CarouselItem>,
+    })),
+  });
+
+  return (
+    <Playground
+      customControls={
+        <div
+          className={css`
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            z-index: 10;
+            padding: 1.6rem;
+            button {
+              border-radius: 8px;
+              margin: 0 0.8rem;
+            }
+          `}
+        >
+          <Button variant="secondary" onClick={() => setGutter(0)}>
+            0
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(8)}>
+            8
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(16)}>
+            16
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(24)}>
+            24
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(32)}>
+            32
+          </Button>
+          <Button variant="secondary" onClick={() => setGutter(40)}>
+            40
           </Button>
         </div>
       }

@@ -27,8 +27,8 @@ export default function Page() {
         since the whole rendering structure of the carousel isn't a component,
         the rendering tree is very light, and this gives us better animation
         results, since react won't execute any lifecycle for the carousel
-        component; in most cases, rerenders are going be <strong>faster</strong>{" "}
-        and animations always smooth 🚄.
+        component; in most cases, rerenders will be <strong>faster</strong> and
+        animations always smooth 🚄.
       </p>
       <PageNavigationFooter
         nextBtn={{

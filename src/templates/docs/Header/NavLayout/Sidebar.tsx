@@ -486,6 +486,17 @@ export function Sidebar() {
               />
             ),
           },
+          {
+            id: "types",
+            isInitiallyExpanded: pathname === "/docs/types",
+            renderItem: (
+              <SidebarNavItem
+                label="Types"
+                href="/docs/types"
+                isActive={pathname === "/docs/types"}
+              />
+            ),
+          },
         ],
       },
     ] as AccordionRow[];

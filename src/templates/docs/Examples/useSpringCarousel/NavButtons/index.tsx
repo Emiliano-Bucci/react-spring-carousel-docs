@@ -1,7 +1,7 @@
 import { Playground, PlaygroundButtonExample } from "molecoles/Playground";
-import { useSpringCarousel } from "react-spring-carousel";
 import { mockedItems } from "utils/mockedItems";
 import { CarouselItem } from "atoms/CarouselItem";
+import { useSpringCarousel } from "react-spring-carousel";
 
 export const code = `
   import { useSpringCarousel } from 'react-spring-carousel'

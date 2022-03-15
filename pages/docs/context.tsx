@@ -5,7 +5,7 @@ const code = `
   // import { useTransitionCarouselContext } from "react-spring-carousel";
   import { useSpringCarouselContext } from "react-spring-carousel";
 
-  const Component = () => {
+  function Component() {
     const { slideToPrevItem, slideToNextItem } = useSpringCarouselContext()
 
     return (

@@ -21,8 +21,9 @@ export default function Page() {
       <h1>Types</h1>
       <p>
         If you're using typescript, you'll find that the library is fully typed
-        out of the box. An important thing to keep in mind, though, is to
-        correct type the context in case you'll use it. That's simple:
+        out of the box. An important thing to keep in mind, however, is that you
+        need to type the context to get the correct return types, based on the
+        slide type you're using.
       </p>
       <SyntaxHiglight code={code} />
       <HighlightText>

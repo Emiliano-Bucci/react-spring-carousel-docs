@@ -9,7 +9,7 @@ import { shadows } from "src/theme";
 export function SyntaxHiglight({
   code,
   ...rest
-}: { code: string } & SyntaxHighlighterProps) {
+}: { code: string } & Omit<SyntaxHighlighterProps, "children">) {
   return (
     <SyntaxHighlighter
       showLineNumbers

@@ -90,7 +90,6 @@ const initialDelay = 264;
 
 export default function Home() {
   const [itemsPerSlide, setItemsPerSlide] = useState(5);
-  const [activeItem, setActiveItem] = useState(items[0].id);
   const [styles] = useSprings(2, (i) => ({
     config: springConfig,
     delay: i === 0 ? initialDelay : i * (initialDelay + 240),
@@ -103,7 +102,7 @@ export default function Home() {
       opacity: 1,
     },
   }));
-  const { carouselFragment, useListenToCustomEvent } = useSpringCarousel({
+  const { carouselFragment } = useSpringCarousel({
     itemsPerSlide,
     withLoop: true,
     initialStartingPosition: "center",
@@ -116,16 +115,10 @@ export default function Home() {
           title={i.title}
           Icon={i.Icon}
           content={i.content}
-          activeItem={activeItem}
+          initialActiveItem={items[0].id}
         />
       ),
     })),
-  });
-
-  useListenToCustomEvent((event) => {
-    if (event.eventName === "onSlideStartChange") {
-      setActiveItem(event.nextItem.id);
-    }
   });
 
   useLayoutEffect(() => {
@@ -199,6 +192,7 @@ export default function Home() {
               margin-bottom: 8rem;
               .use-spring-carousel-main-wrapper {
                 overflow: hidden;
+                will-change: transform !important;
               }
               .use-spring-carousel-track-wrapper {
                 padding: 8rem 0;

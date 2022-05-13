@@ -1,25 +1,28 @@
 import { css, cx } from "linaria";
 import { useSpringCarouselContext } from "react-spring-carousel";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { animated, useSpring } from "react-spring";
 import { colors, shadows } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
+
+type Props = {
+  title: string;
+  content: React.ReactNode;
+  Icon: FC;
+  initialActiveItem: string;
+  id: string;
+};
 
 export function CarouselItem({
   title,
   content,
   Icon,
-  activeItem,
+  initialActiveItem,
   id,
-}: {
-  title: string;
-  content: React.ReactNode;
-  Icon: FC;
-  activeItem: string;
-  id: string;
-}) {
+}: Props) {
+  const { useListenToCustomEvent } = useSpringCarouselContext();
+  const [isActive, setIsActive] = useState(initialActiveItem === id);
   const { getIsNextItem, getIsPrevItem } = useSpringCarouselContext();
-  const isActive = activeItem === id;
   const styles = useSpring({
     x: getIsNextItem(id) ? 22 : getIsPrevItem(id) ? -22 : 0,
     scale: isActive
@@ -28,6 +31,13 @@ export function CarouselItem({
       ? 0.9
       : 0.78,
   });
+
+  useListenToCustomEvent((event) => {
+    if (event.eventName === "onSlideStartChange") {
+      setIsActive(event.nextItem.id === id);
+    }
+  });
+
   return (
     <div
       data-active={isActive}

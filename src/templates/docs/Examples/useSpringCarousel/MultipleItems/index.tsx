@@ -72,6 +72,7 @@ export const code3 = `
       slideToPrevItem, 
       slideToNextItem 
     } = useSpringCarousel({
+      gutter: 24,
       itemsPerSlide: 3,
       withLoop: true,
       items: mockedItems.map((i) => ({
@@ -102,7 +103,7 @@ export const code4 = `
     } = useSpringCarousel({
       itemsPerSlide: 3,
       withLoop: true,
-      startEndGutter: 16,
+      startEndGutter: 24,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -339,7 +340,7 @@ function UseSpringCarouselMultipleItemsExample3() {
 function UseSpringCarouselMultipleItemsExample4() {
   return (
     <PlaygroundButtonExample
-      code={code}
+      code={code4}
       title="Multiple items example 4"
       component={<Carousel4 />}
     />

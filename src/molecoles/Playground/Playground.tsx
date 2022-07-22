@@ -125,7 +125,6 @@ function PlaygroundButtonExample({
       <Button
         variant="secondary"
         onClick={() => {
-          console.log("here");
           dispatch({
             ...rest,
             code,

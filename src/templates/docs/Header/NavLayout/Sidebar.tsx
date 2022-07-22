@@ -465,6 +465,17 @@ export function Sidebar() {
         ...sectionProps,
         children: [
           {
+            id: "tips",
+            isInitiallyExpanded: pathname === "/docs/tips",
+            renderItem: (
+              <SidebarNavItem
+                label="Tips"
+                href="/docs/tips"
+                isActive={pathname === "/docs/tips"}
+              />
+            ),
+          },
+          {
             id: "events",
             isInitiallyExpanded: pathname === "/docs/events",
             renderItem: (

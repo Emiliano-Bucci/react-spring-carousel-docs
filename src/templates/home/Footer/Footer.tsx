@@ -114,9 +114,9 @@ export function Footer() {
           <Link
             variant="none"
             size="none"
-            title="https://cv.emilianobucci.com/"
+            title="https://emilianobucci.com/"
             linkProps={{
-              href: "https://cv.emilianobucci.com/",
+              href: "https://emilianobucci.com/",
             }}
           >
             Emiliano Bucci

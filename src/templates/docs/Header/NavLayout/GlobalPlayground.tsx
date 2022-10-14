@@ -113,10 +113,15 @@ function GlobalPlayground() {
         height: 100%;
         z-index: 100;
         border-left: 1px solid ${colors.warmDarker};
+        background-color: #474769;
+        padding: 4rem;
       `}
     >
       <div
         className={css`
+          overflow: hidden;
+          border-radius: 16px;
+          box-shadow: ${shadows.large};
           display: flex;
           width: 100%;
           ${mediaQueries.until.tablet} {
@@ -125,6 +130,48 @@ function GlobalPlayground() {
           }
         `}
       >
+        {code && (
+          <div
+            className={css`
+              display: flex;
+              flex: 1;
+              width: 100%;
+              height: 100%;
+              background-color: #474769;
+              overflow-y: auto;
+              & > * {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                border-radius: 0px;
+                overflow: hidden;
+              }
+              pre {
+                width: 100%;
+                border-radius: 0px !important;
+                padding: 3.2rem !important;
+                padding-right: 4.8rem !important;
+                padding-left: 2.4rem !important;
+                height: 100%;
+                ${mediaQueries.until.tablet} {
+                  padding: 1.6rem !important;
+                  font-size: 1.32rem !important;
+                }
+              }
+              ${mediaQueries.until.tablet} {
+                width: 100%;
+                height: auto;
+                flex: unset;
+                flex-shrink: 0;
+                padding: 2.4rem;
+              }
+            `}
+          >
+            {syntaxFragment}
+          </div>
+        )}
         <div
           className={css`
             display: flex;
@@ -170,47 +217,6 @@ function GlobalPlayground() {
             </div>
           )}
         </div>
-        {code && (
-          <div
-            className={css`
-              display: flex;
-              flex: 1;
-              width: 50%;
-              height: 100%;
-              background-color: #474769;
-              padding: 4rem;
-              overflow-y: auto;
-              & > * {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-                border-radius: 8px;
-                overflow: hidden;
-              }
-              pre {
-                padding: 3.2rem !important;
-                padding-right: 4.8rem !important;
-                padding-left: 2.4rem !important;
-                max-height: 724px;
-                ${mediaQueries.until.tablet} {
-                  padding: 1.6rem !important;
-                  font-size: 1.32rem !important;
-                }
-              }
-              ${mediaQueries.until.tablet} {
-                width: 100%;
-                height: auto;
-                flex: unset;
-                flex-shrink: 0;
-                padding: 2.4rem;
-              }
-            `}
-          >
-            {syntaxFragment}
-          </div>
-        )}
       </div>
       <div
         className={css`

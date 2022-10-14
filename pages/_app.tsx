@@ -13,6 +13,7 @@ import { shadows, colors } from "src/theme";
 import GithubIcon from "public/github.svg";
 import NpmIcon from "public/npm.svg";
 import { Link } from "atoms/Link";
+import Script from "next/script";
 
 type AppProps<P = Record<string, never>> = {
   pageProps: P;
@@ -28,6 +29,11 @@ function MainWrapper({
         title={
           title ? `${title} - React Spring Carousel` : "React Spring Carousel"
         }
+      />
+      <Script
+        src="https://scripts.simpleanalyticscdn.com/latest.js"
+        async={true}
+        defer={true}
       />
       <Head>
         <link
@@ -48,11 +54,6 @@ function MainWrapper({
           rel="preconnect"
           as="script"
           href="https://queue.simpleanalyticscdn.com"
-        />
-        <script
-          src="https://scripts.simpleanalyticscdn.com/latest.js"
-          async={true}
-          defer={true}
         />
       </Head>
       {children}

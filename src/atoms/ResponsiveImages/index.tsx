@@ -1,1 +1,1 @@
-export * from './ResponsiveImages'
+export * from "./ResponsiveImages";

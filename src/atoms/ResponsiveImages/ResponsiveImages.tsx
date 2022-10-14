@@ -24,11 +24,8 @@ export function LazyModule({
   });
 
   useEffect(() => {
-    if (imageRef.current) {
-      ref(imageRef.current);
-    }
-  }, []);
-
+    if (imageRef.current) ref(imageRef.current);
+  }, [imageRef, ref]);
   useEffect(() => {
     if (inView) {
       onImageInView();

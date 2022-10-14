@@ -20,21 +20,31 @@ export function CarouselItem({
   initialActiveItem,
   id,
 }: Props) {
-  const { useListenToCustomEvent } = useSpringCarouselContext();
   const [isActive, setIsActive] = useState(initialActiveItem === id);
-  const { getIsNextItem, getIsPrevItem } = useSpringCarouselContext();
-  const styles = useSpring({
+  const { getIsNextItem, getIsPrevItem, useListenToCustomEvent } =
+    useSpringCarouselContext();
+
+  const [styles, setStyles] = useSpring(() => ({
     x: getIsNextItem(id) ? 22 : getIsPrevItem(id) ? -22 : 0,
     scale: isActive
       ? 1.08
       : getIsNextItem(id) || getIsPrevItem(id)
       ? 0.9
-      : 0.78,
-  });
+      : 0.72,
+  }));
 
   useListenToCustomEvent((event) => {
     if (event.eventName === "onSlideStartChange") {
-      setIsActive(event.nextItem.id === id);
+      const nextIsActive = event.nextItem.id === id;
+      setIsActive(nextIsActive);
+      setStyles.start({
+        x: getIsNextItem(id) ? 22 : getIsPrevItem(id) ? -22 : 0,
+        scale: nextIsActive
+          ? 1.08
+          : getIsNextItem(id) || getIsPrevItem(id)
+          ? 0.9
+          : 0.72,
+      });
     }
   });
 

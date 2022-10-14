@@ -42,8 +42,8 @@ const items = [
     Icon: EventsIcon,
     content: (
       <>
-        Thanks to <strong>RxJS</strong> you'll be able to respond to every
-        carousel action in a very simple and elegant way!
+        Thanks to the native <strong>Custom events</strong> you'll be able to
+        respond to every carousel action in a very simple and elegant way!
       </>
     ),
   },
@@ -106,6 +106,7 @@ export default function Home() {
     itemsPerSlide,
     withLoop: true,
     initialStartingPosition: "center",
+    slideWhenThresholdIsReached: true,
     items: items.map((i, indx) => ({
       id: i.id,
       renderItem: (
@@ -160,8 +161,6 @@ export default function Home() {
       }
     });
   }, []);
-
-  console.log("here");
 
   return (
     <div

@@ -27,7 +27,7 @@ export function HighlightText({
           background-color: #fff;
           font-size: 1.6rem;
           strong {
-            color: ${colors.secondary};
+            color: ${colors.secondaryDarker};
           }
           ${mediaQueries.until.mobile} {
             padding: 2rem;

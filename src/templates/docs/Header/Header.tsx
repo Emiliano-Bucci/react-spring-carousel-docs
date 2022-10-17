@@ -2,7 +2,7 @@ import { css, cx } from "linaria";
 import GithubIcon from "public/github.svg";
 import NpmIcon from "public/npm.svg";
 import { Link } from "atoms/Link";
-import { colors, shadows } from "src/theme";
+import { colors } from "src/theme";
 
 export function Header() {
   return (
@@ -15,7 +15,6 @@ export function Header() {
         top: 0;
         backdrop-filter: blur(2px);
         z-index: 100;
-        /* box-shadow: ${shadows.small}; */
       `}
     >
       <div

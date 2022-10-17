@@ -22,7 +22,7 @@ function Wrapper({ children }: { children: ReactNode }) {
             }
           }
           strong {
-            color: ${colors.secondary};
+            color: ${colors.secondaryDarker};
           }
           h1 {
             font-size: 4rem;
@@ -95,7 +95,7 @@ function Wrapper({ children }: { children: ReactNode }) {
 
 type Props = {
   pageContent: ReactNode;
-  footerFragment: ReactNode;
+  footerFragment?: ReactNode;
   onThisPageItems: OnThisPageItem[];
 };
 

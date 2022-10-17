@@ -1,7 +1,7 @@
 import { css, cx } from "linaria";
-import { colors } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
 import { ReactNode } from "react";
+import { colors } from "theme";
 
 type Props = {
   pageContent: ReactNode;
@@ -16,10 +16,7 @@ export function PageContent({ pageContent, footerFragment }: Props) {
         flex-direction: column;
         flex: 1;
         width: 100%;
-        background-color: #fff;
-        border-left: 1px solid ${colors.warm};
-        border-right: 1px solid ${colors.warm};
-        background-color: #fdfdfc;
+        background-color: ${colors.warmLight};
       `}
     >
       <div
@@ -30,18 +27,9 @@ export function PageContent({ pageContent, footerFragment }: Props) {
             display: flex;
             flex-direction: column;
             width: 100%;
-            padding: 8rem 12rem;
+            padding: 4rem;
             max-width: 1116px;
             margin: auto;
-            ${mediaQueries.until.desktopL} {
-              padding: 8rem;
-            }
-            ${mediaQueries.until.desktop} {
-              padding: 4.8rem;
-            }
-            ${mediaQueries.until.tablet} {
-              padding: 4rem 4.8rem;
-            }
             ${mediaQueries.until.tabletSM} {
               padding: 3.2rem;
             }

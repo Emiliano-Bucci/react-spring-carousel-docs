@@ -35,18 +35,22 @@ export function OnThisPage({ items }: Props) {
     setActiveItem(activeItemIndex >= 0 ? activeItemIndex : 0);
   }, [asPath, items]);
 
+  console.log(items);
+
   return (
     <aside
       className={cx(
         sidebarWrapperStyles,
         css`
           display: flex;
+          align-items: flex-start;
           flex: 1;
-          height: auto;
+          height: calc(100vh - 70px);
           align-self: start;
           position: sticky;
-          top: 86px;
-          margin: 1.6rem;
+          top: 70px;
+          padding: 3.2rem;
+          background-color: ${colors.warmLight};
           ${mediaQueries.until.tablet} {
             display: none;
           }
@@ -57,7 +61,7 @@ export function OnThisPage({ items }: Props) {
         className={cx(
           items.length === 0 &&
             css`
-              display: none;
+              display: none !important;
             `,
           css`
             display: flex;
@@ -65,19 +69,19 @@ export function OnThisPage({ items }: Props) {
             justify-content: flex-start;
             flex: 1;
             background-color: #fff;
+            border-radius: 12px;
+            box-shadow: ${shadows.small};
           `
         )}
       >
         {items.length > 0 && (
           <span
             className={css`
-              color: #fafafa;
               font-size: 2rem;
               padding: 2.4rem;
+              padding-bottom: 0;
               padding-left: 2rem;
-              box-shadow: ${shadows.large};
-              background: ${colors.secondary};
-              border-radius: 8px;
+              color: ${colors.secondaryDarker};
             `}
           >
             On this page
@@ -87,6 +91,7 @@ export function OnThisPage({ items }: Props) {
           className={css`
             display: grid;
             padding: 3.2rem;
+            padding-top: 1.6rem;
             position: relative;
             & > * {
               :not(:last-child) {
@@ -104,7 +109,7 @@ export function OnThisPage({ items }: Props) {
               width: 2px;
               background-color: ${colors.dark60};
               bottom: 32px;
-              top: 32px;
+              top: 16px;
               left: 24px;
             `}
           >

@@ -1,6 +1,5 @@
 import type { AppProps as NextAppProps } from "next/app";
 import { useRouter } from "next/dist/client/router";
-import { Footer } from "templates/home/Footer";
 import { css, cx } from "linaria";
 import "src/globalStyles";
 import Head from "next/head";
@@ -8,8 +7,8 @@ import { PropsWithChildren } from "react";
 import { NavLayout } from "templates/docs/Header/NavLayout";
 import { NextSeo } from "next-seo";
 import { GlobalPlaygroundProvider } from "templates/docs/Header/NavLayout/GlobalPlayground";
-import { mediaQueries } from "src/mediaQueries";
-import { shadows, colors } from "src/theme";
+
+import { colors } from "src/theme";
 import GithubIcon from "public/github.svg";
 import NpmIcon from "public/npm.svg";
 import { Link } from "atoms/Link";
@@ -85,13 +84,11 @@ function MyApp({
             top: 0;
             left: 0;
             padding: 1.6rem 2.4rem;
-            box-shadow: ${shadows.small};
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
             z-index: 90;
             font-size: 2rem;
-            ${mediaQueries.until.tabletM} {
-              display: flex;
-            }
+            border-bottom: 1px solid ${colors.light};
           `}
         >
           <h1
@@ -106,7 +103,7 @@ function MyApp({
             className={css`
               display: grid;
               grid-auto-flow: column;
-              grid-gap: 0.8rem;
+              grid-gap: 1.2rem;
             `}
           >
             <Link
@@ -159,7 +156,7 @@ function MyApp({
           <GlobalPlaygroundProvider>
             <NavLayout
               pageContent={<Component {...pageProps} />}
-              footerFragment={<Footer />}
+              // footerFragment={<Footer />}
               onThisPageItems={pageProps?.onThisPageItems ?? []}
             />
           </GlobalPlaygroundProvider>

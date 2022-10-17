@@ -92,6 +92,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
         <h3
           className={css`
             font-size: 1.8rem;
+            text-align: left;
           `}
         >
           <strong>{title}</strong>
@@ -170,7 +171,7 @@ export default function Page() {
       <ul
         className={css`
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           grid-gap: 2.4rem;
           &&&& li {
             margin: 0;

@@ -593,6 +593,7 @@ export function Sidebar() {
           sidebarWrapperStyles,
           css`
             display: flex;
+            border-right: 1px solid ${colors.light};
             flex-direction: column;
             width: 100%;
             height: calc(100vh - 70px);

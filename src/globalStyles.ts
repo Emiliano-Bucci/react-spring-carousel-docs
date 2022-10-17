@@ -176,7 +176,6 @@ export const globalStyles = css`
       line-height: 1.6;
       font-size: 1.6rem;
       letter-spacing: 0.8px;
-      font-size: 1.8rem;
     }
     p,
     span {

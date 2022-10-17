@@ -12,6 +12,7 @@ export const colors = {
   lighter: "#F6F6F6",
   warm: "#f7f6f0",
   warmDarker: "#E9E5DB",
+  warmLight: "#fdfdfc",
   warning: "#F1C40F",
   warningDarker: "#F39C12",
 };

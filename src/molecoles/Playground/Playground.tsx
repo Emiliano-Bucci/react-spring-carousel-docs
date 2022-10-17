@@ -72,7 +72,7 @@ const Playground = forwardRef<HTMLDivElement, PropsWithChildren<Props>>(
               display: flex;
               justify-content: space-between;
               background-color: #fff;
-              padding: 1.6rem;
+              padding: 2.4rem;
               right: 0;
             `}
           >

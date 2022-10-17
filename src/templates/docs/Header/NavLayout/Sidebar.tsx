@@ -24,7 +24,7 @@ export const sidebarWrapperStyles = css`
   }
 `;
 
-const heightValue = 48;
+const heightValue = 44;
 
 function ParentDecorator({ id }: { id: string }) {
   const { getActiveItems } = useAccordionProvider();
@@ -67,10 +67,10 @@ function ParentDecorator({ id }: { id: string }) {
       className={css`
         position: absolute;
         top: 0px;
-        left: 19px;
+        left: 18px;
         width: 2px;
         bottom: 0px;
-        background-color: #fff;
+        background-color: ${colors.dark60};
         transform-origin: top;
       `}
     >
@@ -78,7 +78,7 @@ function ParentDecorator({ id }: { id: string }) {
         style={trackStyles}
         className={css`
           width: 8px;
-          height: 48px;
+          height: 44px;
           border-radius: 20px;
           background-color: ${colors.secondaryLight};
           margin-left: -3px;
@@ -595,11 +595,11 @@ export function Sidebar() {
             display: flex;
             flex-direction: column;
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 70px);
             position: sticky;
-            top: 0;
-            background-color: ${colors.primaryLight};
-            box-shadow: ${shadows.large};
+            top: 70px;
+            flex-shrink: 0;
+            background-color: #fff;
             ${mediaQueries.until.tabletM} {
               display: none;
               position: fixed;
@@ -614,29 +614,11 @@ export function Sidebar() {
           `
         )}
       >
-        <h1
-          className={css`
-            color: #fafafa;
-            font-size: 2.4rem;
-            padding: 3.2rem;
-            box-shadow: ${shadows.large};
-            background: ${colors.secondary};
-            ${mediaQueries.until.desktop} {
-              padding: 2.8rem 2.4rem;
-              font-size: 2.2rem;
-            }
-            ${mediaQueries.until.tabletM} {
-              display: none;
-            }
-          `}
-        >
-          React Spring Carousel
-        </h1>
         <nav
           className={css`
             flex: 1;
             overflow-y: auto;
-            padding: 3.2rem;
+            padding: 2.4rem;
             ${mediaQueries.until.desktop} {
               padding: 2.4rem;
             }

@@ -14,7 +14,6 @@ function Wrapper({ children }: { children: ReactNode }) {
       className={css`
         display: flex;
         .page-wrapper {
-          background-color: #fdfdfc;
           ul {
             list-style: initial;
             padding-left: 2.4rem;

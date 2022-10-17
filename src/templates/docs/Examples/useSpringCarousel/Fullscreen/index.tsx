@@ -110,12 +110,7 @@ function Carousel() {
             }
           `}
         >
-          <Button
-            variant="secondary"
-            onClick={() => {
-              enterFullscreen();
-            }}
-          >
+          <Button variant="secondary" onClick={() => enterFullscreen()}>
             Enter fullscreen!
           </Button>
         </div>

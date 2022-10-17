@@ -17,6 +17,9 @@ export function PageContent({ pageContent, footerFragment }: Props) {
         flex: 1;
         width: 100%;
         background-color: #fff;
+        border-left: 1px solid ${colors.warm};
+        border-right: 1px solid ${colors.warm};
+        background-color: #fdfdfc;
       `}
     >
       <div
@@ -28,8 +31,8 @@ export function PageContent({ pageContent, footerFragment }: Props) {
             flex-direction: column;
             width: 100%;
             padding: 8rem 12rem;
-            border-left: 1px solid ${colors.warm};
-            border-right: 1px solid ${colors.warm};
+            max-width: 960px;
+            margin: auto;
             ${mediaQueries.until.desktopL} {
               padding: 8rem;
             }

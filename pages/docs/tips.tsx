@@ -1,6 +1,6 @@
 import { HighlightText } from "atoms/HighlightText";
 import { Link } from "atoms/Link";
-import { TipsExample1 } from "templates/docs/Examples/tips";
+import { TipsExample1, TipsExample2 } from "templates/docs/Examples/tips";
 
 export default function Page() {
   return (
@@ -54,7 +54,21 @@ export default function Page() {
       <p>
         This is how many of us would do it, in a simple but common{" "}
         <strong>react</strong> way. On paper, and on modern devices, this is
-        just fine. But imagine a real situation, where heavy stuff is updated
+        just fine. But imagine a real situation where heavy stuff is updated
+        continuously and you're making calculations at runtime (specially on
+        mobile), well this can lead pretty quick to a really not usable app.
+      </p>
+      <p>
+        So how can we rewrite this by colocating the state? Pretty simple i'll
+        say:
+      </p>
+      <TipsExample2 />
+      <p>
+        By doing this we've colocated the state <strong>only</strong> where it
+        was needed; of course this is a pattern that we should always follow,
+        regardless this library, but in this case it's very important, because
+        by not making any rerender we ensure to always have smooth animations
+        without any kind of interferences.
       </p>
     </>
   );

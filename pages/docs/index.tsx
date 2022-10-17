@@ -52,8 +52,6 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
       className={css`
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
         text-align: center;
         border-radius: 8px;
         border: 1px solid ${colors.secondaryLight};
@@ -71,28 +69,38 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
     >
       <div
         className={css`
-          min-width: 32px;
-          min-height: 32px;
+          display: flex;
+          align-items: center;
           margin-bottom: 0.8rem;
         `}
       >
-        <CheckedSVG
+        <div
           className={css`
-            fill: ${colors.secondary};
-            transition: all 280ms ease;
+            display: flex;
+            min-width: 28px;
+            min-height: 28px;
+            margin-right: 0.8rem;
           `}
-        />
+        >
+          <CheckedSVG
+            className={css`
+              fill: ${colors.secondary};
+              transition: all 280ms ease;
+            `}
+          />
+        </div>
+        <h3
+          className={css`
+            font-size: 1.8rem;
+          `}
+        >
+          <strong>{title}</strong>
+        </h3>
       </div>
-      <h3
-        className={css`
-          font-size: 1.8rem;
-        `}
-      >
-        <strong>{title}</strong>
-      </h3>
       <span
         className={css`
           font-size: 1.48rem;
+          text-align: left;
         `}
       >
         {children}

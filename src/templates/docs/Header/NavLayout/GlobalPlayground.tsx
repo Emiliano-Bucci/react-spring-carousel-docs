@@ -5,6 +5,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 import { Dialog } from "react-spring-dialog";
 import { colors, shadows } from "src/theme";
 import Close from "public/close.svg";
+import Code from "public/code.svg";
 import { a, useTransition } from "@react-spring/web";
 import { mediaQueries } from "src/mediaQueries";
 
@@ -50,6 +51,7 @@ function GlobalPlaygroundProvider({ children }: { children: ReactNode }) {
 
 function GlobalPlayground() {
   const { title, component, isActive, dispatch, code } = useGlobalPlayground();
+  const [showCode, setShowCode] = useState(false);
   const syntax = useTransition(isActive, {
     from: {
       opacity: 0,
@@ -84,6 +86,7 @@ function GlobalPlayground() {
       isActive: false,
     });
   }
+
   return (
     <Dialog
       isActive={isActive}
@@ -130,7 +133,7 @@ function GlobalPlayground() {
           }
         `}
       >
-        {code && (
+        {code && showCode && (
           <div
             className={css`
               display: flex;
@@ -186,25 +189,62 @@ function GlobalPlayground() {
             }
           `}
         >
-          {title && (
-            <h3
+          <div
+            className={css`
+              display: flex;
+              background-color: ${colors.secondary};
+              padding: 2.4rem;
+            `}
+          >
+            {title && (
+              <h3
+                className={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 2.8rem;
+                  color: #fff;
+                `}
+              >
+                {title}
+              </h3>
+            )}
+            <div
               className={css`
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 3.2rem;
-                color: #fff;
-                background-color: ${colors.secondary};
-                height: 96px;
-                ${mediaQueries.until.tablet} {
-                  font-size: 2.4rem;
-                  height: 64px;
+                display: grid;
+                grid-auto-flow: column;
+                grid-gap: 1.6rem;
+                margin-left: auto;
+                button {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 0px !important;
+                  width: 40px;
+                  height: 40px;
                 }
               `}
             >
-              {title}
-            </h3>
-          )}
+              <Button onClick={() => setShowCode((p) => !p)}>
+                <Code
+                  className={css`
+                    stroke: #fff;
+                    width: 22px;
+                    height: 22px;
+                  `}
+                />
+              </Button>
+              <Button onClick={handleOnClose}>
+                <Close
+                  className={css`
+                    fill: #fff;
+                    width: 28px;
+                    height: 28px;
+                  `}
+                />
+              </Button>
+            </div>
+          </div>
           {component && (
             <div
               className={css`
@@ -217,52 +257,6 @@ function GlobalPlayground() {
             </div>
           )}
         </div>
-      </div>
-      <div
-        className={css`
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          position: absolute;
-          top: 0;
-          right: 0;
-          z-index: 100;
-          height: 96px;
-          padding: 2.4rem;
-          flex: 1;
-          ${mediaQueries.until.tablet} {
-            height: 64px;
-            padding: 1.6rem;
-            button {
-              width: 40px;
-              height: 40px;
-              svg {
-                width: 28px;
-                height: 28px;
-              }
-            }
-          }
-        `}
-      >
-        <Button
-          onClick={handleOnClose}
-          variant="secondary"
-          className={css`
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0px !important;
-            width: 48px;
-            height: 48px;
-            svg {
-              width: 32px;
-              height: 32px;
-              fill: #fff;
-            }
-          `}
-        >
-          <Close />
-        </Button>
       </div>
     </Dialog>
   );

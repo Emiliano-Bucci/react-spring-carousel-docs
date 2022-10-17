@@ -78,7 +78,7 @@ function MyApp({
       <MainWrapper title={pageProps.title ?? ""}>
         <header
           className={css`
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;

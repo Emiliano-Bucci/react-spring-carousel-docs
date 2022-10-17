@@ -2,7 +2,7 @@ import { Button } from "atoms/Button";
 import { Link } from "atoms/Link";
 import { css, cx } from "linaria";
 import { useEffect, useRef } from "react";
-import { colors, shadows } from "src/theme";
+import { colors } from "src/theme";
 
 import Arrow from "public/up-arrow.svg";
 import { Props as LinkProps } from "../Link/Link";
@@ -15,7 +15,17 @@ const childStyles = css`
 `;
 
 const activeStyles = css`
-  color: ${colors.secondaryLight} !important;
+  && {
+    background-color: ${colors.warm};
+    color: ${colors.secondaryDarker} !important;
+    border: 1px solid ${colors.warmDarker};
+    :focus,
+    :hover {
+      background-color: ${colors.warm};
+      color: ${colors.secondaryDarker} !important;
+      border: 1px solid ${colors.warmDarker};
+    }
+  }
 `;
 
 const expandedStyles = css`
@@ -67,12 +77,12 @@ export function SidebarNavItem({
           align-items: center;
           font-weight: bold;
           text-transform: uppercase;
-          font-size: 2rem;
+          font-size: 1.8rem;
           width: 100%;
           margin-bottom: 0.8rem;
           span {
             width: 100%;
-            color: #fdfe;
+            color: ${colors.secondaryDarker};
           }
         `}
       >
@@ -94,25 +104,23 @@ export function SidebarNavItem({
             && {
               width: 100%;
               display: flex;
-              color: #fafafa;
-              padding: 0.8rem;
+              color: ${colors.secondary};
+              padding: 0.64rem 0.8rem;
               cursor: pointer;
               align-items: center;
-              height: 48px;
+              height: 44px;
               justify-content: flex-start;
-              transition: all 280ms ease;
+              transition: all 220ms ease;
               border-radius: 0px;
-              font-size: 1.8rem;
-              border-radius: 8px;
+              border-radius: 6px;
               padding: 1.2rem;
+              border: 1px solid transparent;
               span {
                 color: inherit;
               }
               :hover,
               :focus {
-                color: #fff;
-                background-color: ${colors.primary};
-                box-shadow: ${shadows.medium};
+                background-color: #efefef;
               }
             }
           `
@@ -121,13 +129,13 @@ export function SidebarNavItem({
         <div
           className={css`
             display: flex;
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             margin-right: 0.8rem;
             margin-top: 0.4rem;
             svg {
               transition: all 320ms ease;
-              fill: #fff;
+              fill: currentColor;
               transform: rotate(180deg);
             }
           `}
@@ -151,24 +159,22 @@ export function SidebarNavItem({
         css`
           width: 100%;
           display: flex;
-          color: #fafafa;
-          padding: 0.8rem;
-          height: 48px;
+          color: ${colors.secondary};
+          padding: 0.64rem 0.8rem;
+          height: 44px;
           cursor: pointer;
           align-items: center;
           justify-content: flex-start;
           transition: all 280ms ease;
-          font-size: 1.8rem;
-          border-radius: 8px;
+          border-radius: 6px;
           padding: 1.2rem;
+          border: 1px solid transparent;
           span {
             color: inherit;
           }
           :hover,
           :focus {
-            color: #fff;
-            background-color: ${colors.primary};
-            box-shadow: ${shadows.medium};
+            background-color: #efefef;
           }
         `
       )}

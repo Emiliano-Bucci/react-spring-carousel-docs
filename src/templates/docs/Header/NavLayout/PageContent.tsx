@@ -31,7 +31,7 @@ export function PageContent({ pageContent, footerFragment }: Props) {
             flex-direction: column;
             width: 100%;
             padding: 8rem 12rem;
-            max-width: 960px;
+            max-width: 1116px;
             margin: auto;
             ${mediaQueries.until.desktopL} {
               padding: 8rem;

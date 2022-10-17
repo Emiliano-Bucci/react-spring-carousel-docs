@@ -108,15 +108,13 @@ function GlobalPlayground() {
       }}
       className={css`
         display: flex;
-        background-color: #fff;
+        background-color: ${colors.warm};
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: 100;
-        border-left: 1px solid ${colors.warmDarker};
-        background-color: #474769;
         padding: 4rem;
       `}
     >

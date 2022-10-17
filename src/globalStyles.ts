@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { colors } from "src/theme";
+
 export const globalStyles = css`
   :global() {
     @font-face {
@@ -134,7 +134,7 @@ export const globalStyles = css`
       letter-spacing: 0.64px;
       font-size: 1.6rem;
       color: #616161;
-      background-color: ${colors.warm};
+      background-color: #fff;
       -webkit-font-smoothing: antialised;
       line-height: 1.4;
       scroll-behavior: smooth;

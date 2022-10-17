@@ -15,7 +15,7 @@ export function Header() {
         top: 0;
         backdrop-filter: blur(2px);
         z-index: 100;
-        box-shadow: ${shadows.small};
+        /* box-shadow: ${shadows.small}; */
       `}
     >
       <div

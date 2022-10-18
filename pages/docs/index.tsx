@@ -53,8 +53,7 @@ function ListItem({ title, children }: PropsWithChildren<{ title: string }>) {
         display: flex;
         flex-direction: column;
         text-align: center;
-        border-radius: 8px;
-        border: 1px solid ${colors.secondaryLight};
+        border-radius: 12px;
         padding: 2.4rem;
         transition: all 280ms ease;
         box-shadow: ${shadows.small};

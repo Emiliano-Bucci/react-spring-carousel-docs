@@ -13,6 +13,7 @@ import { a, useSpring } from "react-spring";
 import { breakpoints, mediaQueries } from "src/mediaQueries";
 import Router from "next/router";
 import { MobileSidebarButton } from "./MobileSidebarButton";
+import { Link } from "atoms/Link";
 
 export const sidebarWrapperStyles = css`
   max-width: 340px;
@@ -552,6 +553,7 @@ export function Sidebar() {
       } else {
         setShowMobileSidebar(true);
         showSidebar(ref.current!);
+        document.body.style.overflow = "unset";
       }
     }
 
@@ -627,6 +629,34 @@ export function Sidebar() {
         >
           <Accordion shouldExpandOnlyOneItem data={sidebarItems} />
         </nav>
+        <div
+          className={css`
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding: 2.4rem;
+            border-top: 1px solid ${colors.light};
+            position: sticky;
+            bottom: 0;
+            background-color: #fff;
+            ${mediaQueries.until.mobile} {
+              padding: 2rem;
+            }
+          `}
+        >
+          <Link
+            variant="default-link"
+            title="Author web site"
+            size="none"
+            linkProps={{
+              href: "https://emilianobucci.com",
+            }}
+          >
+            Emiliano Bucci
+          </Link>
+          <img src="https://img.shields.io/npm/v/react-spring-carousel" />
+        </div>
       </a.div>
       <MobileSidebarButton
         isActive={showMobileSidebar}

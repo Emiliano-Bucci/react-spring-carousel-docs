@@ -1,5 +1,5 @@
 import { css, cx } from "linaria";
-import { colors, shadows } from "src/theme";
+import { colors } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
 import { OnThisPageItem } from "pages/_app";
 import { sidebarWrapperStyles } from "./Sidebar";
@@ -71,7 +71,8 @@ export function OnThisPage({ items }: Props) {
             flex: 1;
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: ${shadows.small};
+            border: 1px solid ${colors.light};
+            max-width: 256px;
           `
         )}
       >

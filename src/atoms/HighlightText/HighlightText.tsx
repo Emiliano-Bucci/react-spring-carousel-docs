@@ -20,7 +20,7 @@ export function HighlightText({
             border-color: ${colors.warning} !important;
           `,
         css`
-          border-radius: 8px;
+          border-radius: 12px;
           padding: 2.4rem;
           border-left: 6px solid ${colors.secondaryLight};
           box-shadow: ${shadows.small};

@@ -105,18 +105,6 @@ function MyApp({
           </h1>
           <div
             className={css`
-              display: flex;
-              margin-left: 1.6rem;
-              margin-right: auto;
-              ${mediaQueries.until.mobile} {
-                display: none;
-              }
-            `}
-          >
-            <img src="https://img.shields.io/npm/v/react-spring-carousel" />
-          </div>
-          <div
-            className={css`
               display: grid;
               grid-auto-flow: column;
               grid-gap: 1.2rem;

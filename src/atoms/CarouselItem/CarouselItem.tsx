@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { css, cx } from "linaria";
 
 type Props = {
@@ -13,6 +13,12 @@ export function CarouselItem({
   className,
   width,
 }: PropsWithChildren<Props>) {
+  useEffect(() => {
+    console.log("effect body");
+    return () => {
+      console.log("cleanup effect ");
+    };
+  }, []);
   return (
     <div
       className={cx(

@@ -3,7 +3,7 @@ import { Link } from "atoms/Link";
 import { HighlightText } from "atoms/HighlightText";
 import { PageNavigationFooter } from "templates/docs/PageNavigationFooter";
 import { css } from "linaria";
-import { colors, shadows } from "src/theme";
+import { shadows } from "src/theme";
 import { mediaQueries } from "src/mediaQueries";
 
 function LinkItem({
@@ -19,16 +19,16 @@ function LinkItem({
     <Link
       variant="none"
       className={css`
-        display: grid;
-        grid-gap: 0.8rem;
-        text-align: center;
-        justify-content: stretch;
-        && {
+        &&&& {
+          display: grid;
+          align-content: start;
+          height: 100%;
+          grid-gap: 0.8rem;
+          justify-content: stretch;
           background-color: #fff;
           box-shadow: ${shadows.small};
-          border-radius: 8px;
-          padding: 1.6rem;
-          padding-bottom: 2.4rem;
+          border-radius: 12px;
+          padding: 2.4rem;
           :hover,
           :focus {
             box-shadow: ${shadows.medium};
@@ -43,24 +43,11 @@ function LinkItem({
         className={css`
           font-size: 2rem;
           font-weight: bold;
-          background-color: ${colors.secondary};
-          color: #fff;
-          box-shadow: ${shadows.medium};
-          border-radius: 8px;
-          padding: 1.2rem 0.8rem;
         `}
       >
         {title}
       </h4>
-      <div
-        className={css`
-          max-width: 380px;
-          margin: auto;
-          margin-top: 0.8rem;
-        `}
-      >
-        {description}
-      </div>
+      <div>{description}</div>
     </Link>
   );
 }
@@ -124,8 +111,9 @@ export default function Page() {
       <ul
         className={css`
           display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           grid-gap: 3.2rem;
-          grid-auto-flow: column;
+          margin-top: 3.2rem;
           &&&& {
             list-style: none;
             padding: 0;
@@ -146,14 +134,14 @@ export default function Page() {
       >
         <li>
           <LinkItem
-            title="useSpringCarousel"
+            title="UseSpringCarousel"
             href="/docs/use-spring-carousel"
             description={`With this carousel you'll be able to cover most of your UI needs. You'll be able to create stunning carousels!`}
           />
         </li>
         <li>
           <LinkItem
-            title="useTransitionCarousel"
+            title="UseTransitionCarousel"
             href="/docs/use-transition-carousel"
             description="With this hook, you'll be able to create beautiful slideshows. This solution is more specific, but not less important!"
           />

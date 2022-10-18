@@ -16,13 +16,7 @@ import { MobileSidebarButton } from "./MobileSidebarButton";
 import { Link } from "atoms/Link";
 
 export const sidebarWrapperStyles = css`
-  max-width: 340px;
-  ${mediaQueries.until.desktopL} {
-    max-width: 324px;
-  }
-  ${mediaQueries.until.desktop} {
-    max-width: 300px;
-  }
+  max-width: 300px;
 `;
 
 const heightValue = 44;
@@ -93,7 +87,9 @@ function ParentDecorator({ id }: { id: string }) {
 
 const sectionItemStyles = css`
   &:not(:last-of-type) {
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid ${colors.light};
   }
 `;
 
@@ -205,6 +201,21 @@ export function Sidebar() {
                     label="Styled"
                     isActive={pathname === "/docs/use-spring-carousel/styled"}
                     href="/docs/use-spring-carousel/styled"
+                    isChild
+                  />
+                ),
+              },
+              {
+                id: "/docs/use-spring-carousel/render-item",
+                isInitiallyExpanded:
+                  pathname === "/docs/use-spring-carousel/render-item",
+                renderItem: (
+                  <SidebarNavItem
+                    label="Render item"
+                    isActive={
+                      pathname === "/docs/use-spring-carousel/render-item"
+                    }
+                    href="/docs/use-spring-carousel/render-item"
                     isChild
                   />
                 ),
@@ -570,7 +581,6 @@ export function Sidebar() {
       isTabletM.removeListener(handleListener);
     };
   }, [setSidebarStyles, showMobileSidebar]);
-
   useEffect(() => {
     const isTabletM = window.matchMedia(
       `(max-width: ${breakpoints.tabletM}px)`

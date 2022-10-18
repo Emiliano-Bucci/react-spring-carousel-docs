@@ -25,6 +25,14 @@ function Wrapper({ children }: { children: ReactNode }) {
             color: ${colors.secondaryDarker};
           }
           h1 {
+            background: -webkit-linear-gradient(
+              right,
+              ${colors.secondaryLight},
+              ${colors.primaryLight}
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 4rem;
             ${mediaQueries.until.tablet} {
               font-size: 3.2rem;
@@ -47,9 +55,16 @@ function Wrapper({ children }: { children: ReactNode }) {
           }
           h1,
           h2 {
+            background: -webkit-linear-gradient(
+              right,
+              ${colors.secondaryLight},
+              ${colors.primaryLight}
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: bold;
             margin-bottom: 3.2rem;
-            color: ${colors.secondary};
             position: relative;
             margin-right: auto;
             letter-spacing: 1.4px;

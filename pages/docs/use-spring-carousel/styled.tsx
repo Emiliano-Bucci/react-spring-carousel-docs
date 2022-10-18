@@ -13,8 +13,8 @@ export default function Page() {
           href: "/docs/use-spring-carousel/basic",
         }}
         nextBtn={{
-          label: "Nav buttons",
-          href: "/docs/use-spring-carousel/nav-buttons",
+          label: "Render item",
+          href: "/docs/use-spring-carousel/render-item",
         }}
       />
     </>

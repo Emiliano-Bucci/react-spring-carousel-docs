@@ -62,7 +62,7 @@ export function PageNavigationButton({
           position: relative;
           justify-content: center;
           flex-direction: column;
-          border: 1px solid ${colors.primaryLight};
+          border: 1px solid ${colors.secondaryLight};
           padding: 1.2rem 1.4rem;
           border-radius: 8px;
           transition: all 280ms ease;
@@ -71,7 +71,7 @@ export function PageNavigationButton({
           min-width: 132px;
           :hover,
           :focus {
-            border-color: ${colors.primaryLight};
+            border-color: ${colors.secondaryDarker};
             box-shadow: ${shadows.medium};
           }
           ${mediaQueries.until.tablet} {

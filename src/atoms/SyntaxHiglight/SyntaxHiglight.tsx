@@ -16,14 +16,14 @@ export function SyntaxHiglight({
       style={tomorrow}
       language="tsx"
       {...rest}
+      className={cx("code-snippet")}
       customStyle={{
         margin: 0,
-        borderRadius: "8px",
+        borderRadius: "16px",
         boxShadow: shadows.medium,
         fontSize: "1.4rem",
         backgroundColor: "#393954",
       }}
-      className={cx("code-snippet")}
     >
       {code}
     </SyntaxHighlighter>

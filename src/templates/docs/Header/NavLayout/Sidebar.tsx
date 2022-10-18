@@ -620,8 +620,8 @@ export function Sidebar() {
             flex: 1;
             overflow-y: auto;
             padding: 2.4rem;
-            ${mediaQueries.until.desktop} {
-              padding: 2.4rem;
+            ${mediaQueries.until.mobile} {
+              padding: 2rem;
             }
           `}
         >

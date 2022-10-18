@@ -190,7 +190,7 @@ export default function Home() {
               width: 100%;
               max-width: 100%;
               margin-top: -16rem;
-              margin-bottom: 8rem;
+              margin-bottom: 4rem;
               .use-spring-carousel-main-wrapper {
                 overflow: hidden;
                 will-change: transform !important;

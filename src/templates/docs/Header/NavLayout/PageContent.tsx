@@ -34,7 +34,7 @@ export function PageContent({ pageContent, footerFragment }: Props) {
               padding: 3.2rem;
             }
             ${mediaQueries.until.mobile} {
-              padding: 2.4rem;
+              padding: 2rem;
             }
           `
         )}

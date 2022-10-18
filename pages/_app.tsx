@@ -13,6 +13,7 @@ import GithubIcon from "public/github.svg";
 import NpmIcon from "public/npm.svg";
 import { Link } from "atoms/Link";
 import Script from "next/script";
+import { mediaQueries } from "mediaQueries";
 
 type AppProps<P = Record<string, never>> = {
   pageProps: P;
@@ -89,6 +90,9 @@ function MyApp({
             z-index: 90;
             font-size: 2rem;
             border-bottom: 1px solid ${colors.light};
+            ${mediaQueries.until.mobile} {
+              padding: 1.6rem 2rem;
+            }
           `}
         >
           <h1
@@ -99,6 +103,18 @@ function MyApp({
           >
             React Spring Carousel
           </h1>
+          <div
+            className={css`
+              display: flex;
+              margin-left: 1.6rem;
+              margin-right: auto;
+              ${mediaQueries.until.mobile} {
+                display: none;
+              }
+            `}
+          >
+            <img src="https://img.shields.io/npm/v/react-spring-carousel" />
+          </div>
           <div
             className={css`
               display: grid;

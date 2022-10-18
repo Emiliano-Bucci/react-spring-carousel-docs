@@ -16,7 +16,8 @@ export function PageNavigationFooter({ prevBtn, nextBtn }: Props) {
     <div
       className={css`
         display: flex;
-        padding-top: 8rem;
+        padding-top: 4rem;
+        margin-bottom: 4rem;
         margin-top: auto;
         ${mediaQueries.until.tablet} {
           display: grid;

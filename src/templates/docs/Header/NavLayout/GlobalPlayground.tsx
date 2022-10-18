@@ -116,6 +116,9 @@ function GlobalPlayground() {
         height: 100%;
         z-index: 100;
         padding: 4rem;
+        ${mediaQueries.until.mobile} {
+          padding: 0;
+        }
       `}
     >
       <div
@@ -128,6 +131,9 @@ function GlobalPlayground() {
           ${mediaQueries.until.tablet} {
             flex-direction: column;
             overflow-y: auto;
+          }
+          ${mediaQueries.until.mobile} {
+            border-radius: 0px;
           }
         `}
       >
@@ -192,6 +198,9 @@ function GlobalPlayground() {
               display: flex;
               background-color: ${colors.secondary};
               padding: 2.4rem;
+              ${mediaQueries.until.mobile} {
+                padding: 1.6rem;
+              }
             `}
           >
             {title && (
@@ -202,6 +211,9 @@ function GlobalPlayground() {
                   align-items: center;
                   font-size: 2.8rem;
                   color: #fff;
+                  ${mediaQueries.until.mobile} {
+                    font-size: 2.4rem;
+                  }
                 `}
               >
                 {title}

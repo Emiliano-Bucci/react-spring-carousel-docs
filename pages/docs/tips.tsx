@@ -70,6 +70,10 @@ export default function Page() {
         by not making any rerender we ensure to always have smooth animations
         without any kind of interferences.
       </p>
+      <HighlightText type="warning">
+        So to sum up, the important thing to keep in mind is:{" "}
+        <strong>don't update state (avoind rerenders) while animating.</strong>
+      </HighlightText>
     </>
   );
 }

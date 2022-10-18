@@ -74,6 +74,9 @@ const Playground = forwardRef<HTMLDivElement, PropsWithChildren<Props>>(
               background-color: #fff;
               padding: 2.4rem;
               right: 0;
+              ${mediaQueries.until.mobile} {
+                padding: 1.6rem;
+              }
             `}
           >
             <Button variant="secondary" onClick={slideToPrevItem}>

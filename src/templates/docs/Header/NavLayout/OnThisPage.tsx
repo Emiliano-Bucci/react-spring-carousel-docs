@@ -49,7 +49,8 @@ export function OnThisPage({ items }: Props) {
           align-self: start;
           position: sticky;
           top: 70px;
-          padding: 3.2rem;
+          padding: 4rem;
+          padding-left: 0rem;
           background-color: ${colors.warmLight};
           ${mediaQueries.until.tablet} {
             display: none;

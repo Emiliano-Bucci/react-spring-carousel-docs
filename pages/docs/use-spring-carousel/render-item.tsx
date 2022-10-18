@@ -7,7 +7,7 @@ export default function Page() {
       <p>
         If you want to, you could instead pass a function to render the items;
         this way you will have access to some useful methods that you could use
-        to interact with the carousel inside your items.
+        to interact with the carousel inside your components.
       </p>
       <UseSpringCarouselRenderItemExample />
       <PageNavigationFooter

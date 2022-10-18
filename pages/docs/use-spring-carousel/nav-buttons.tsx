@@ -20,8 +20,8 @@ export default function Page() {
       </p>
       <PageNavigationFooter
         prevBtn={{
-          label: "Styled",
-          href: "/docs/use-spring-carousel/styled",
+          label: "Render item",
+          href: "/docs/use-spring-carousel/render-item",
         }}
         nextBtn={{
           label: "Loop",

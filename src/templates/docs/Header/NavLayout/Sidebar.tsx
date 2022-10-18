@@ -520,6 +520,17 @@ export function Sidebar() {
               />
             ),
           },
+          {
+            id: "playground",
+            isInitiallyExpanded: pathname === "/docs/playground",
+            renderItem: (
+              <SidebarNavItem
+                label="Playground"
+                href="/docs/playground"
+                isActive={false}
+              />
+            ),
+          },
         ],
       },
     ] as AccordionRow[];

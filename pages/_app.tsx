@@ -90,6 +90,7 @@ function MyApp({
             z-index: 90;
             font-size: 2rem;
             border-bottom: 1px solid ${colors.light};
+            max-height: 70px;
             ${mediaQueries.until.mobile} {
               padding: 1.6rem 2rem;
             }
@@ -103,6 +104,21 @@ function MyApp({
           >
             React Spring Carousel
           </h1>
+          <Link
+            className={css`
+              &&&& {
+                padding: 0.9rem 1.6rem;
+                ${mediaQueries.until.mobile} {
+                  display: none;
+                }
+              }
+            `}
+            linkProps={{
+              href: "/playground",
+            }}
+          >
+            Playground
+          </Link>
           <div
             className={css`
               display: grid;

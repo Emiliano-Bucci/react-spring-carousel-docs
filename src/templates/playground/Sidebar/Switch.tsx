@@ -6,12 +6,19 @@ type Props = {
   id: string;
   checked: boolean;
   label: string;
+  isDisabled?: boolean;
   onChange(value: boolean): void;
 };
 
-export function Switch({ id, checked, label, onChange }: Props) {
+export function Switch({
+  id,
+  checked,
+  label,
+  onChange,
+  isDisabled = false,
+}: Props) {
   return (
-    <BaseOption id={id} label={label}>
+    <BaseOption id={id} label={label} isDisabled={isDisabled}>
       <SwitchComponent
         height={26}
         width={44}

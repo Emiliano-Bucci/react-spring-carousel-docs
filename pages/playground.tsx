@@ -72,6 +72,8 @@ export type Props = {
   initialStartingPosition: "start" | "center" | "end";
   animateWhenActiveItemChange: boolean;
   initialActiveItem: string;
+  freeScroll: boolean;
+  enableFreeScrollDrag: boolean;
 };
 
 export default function Page() {
@@ -90,6 +92,8 @@ export default function Page() {
     initialStartingPosition: "start",
     animateWhenActiveItemChange: true,
     initialActiveItem: "0",
+    freeScroll: false,
+    enableFreeScrollDrag: false,
   });
 
   function handleOnChange(newState: Partial<Props>) {
@@ -163,6 +167,8 @@ export default function Page() {
               initialStartingPosition={state.initialStartingPosition}
               animateWhenActiveItemChange={state.animateWhenActiveItemChange}
               initialActiveItem={state.initialActiveItem}
+              freeScroll={state.freeScroll}
+              enableFreeScrollDrag={state.enableFreeScrollDrag}
             />
           )}
         </div>

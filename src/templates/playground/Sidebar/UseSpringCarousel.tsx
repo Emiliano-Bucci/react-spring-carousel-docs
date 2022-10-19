@@ -23,6 +23,8 @@ type Props = {
   initialStartingPosition: "start" | "center" | "end";
   animateWhenActiveItemChange: boolean;
   initialActiveItem: string;
+  freeScroll: boolean;
+  enableFreeScrollDrag: boolean;
 };
 
 export function UseSpringCarousel({
@@ -39,6 +41,8 @@ export function UseSpringCarousel({
   initialStartingPosition,
   animateWhenActiveItemChange,
   initialActiveItem,
+  freeScroll,
+  enableFreeScrollDrag,
 }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
@@ -47,7 +51,7 @@ export function UseSpringCarousel({
         renderItem: (
           <div
             style={{
-              width: slideType === "fluid" ? "280px" : "100%",
+              width: slideType === "fluid" || freeScroll ? "280px" : "100%",
               backgroundColor: i.color,
             }}
           >
@@ -68,6 +72,10 @@ export function UseSpringCarousel({
       animateWhenActiveItemChange,
       // @ts-ignore
       initialActiveItem: Number(initialActiveItem),
+      // @ts-ignore
+      freeScroll,
+      // @ts-ignore
+      enableFreeScrollDrag,
     });
 
   return (

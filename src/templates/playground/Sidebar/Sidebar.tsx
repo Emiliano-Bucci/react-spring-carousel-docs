@@ -61,6 +61,7 @@ type SelectOption = BaseOption & {
 
 type ToggleOption = BaseOption & {
   type: "toggle";
+  getIsDisabled?(state: PlaygroundState): boolean;
 };
 type NumberOption = BaseOption & {
   type: "number";
@@ -75,6 +76,7 @@ const configs = {
       label: "slideType",
       type: "select",
       minWidth: true,
+      getIsDisabled: (state) => state.freeScroll,
       options: [
         {
           value: "fixed",
@@ -144,13 +146,14 @@ const configs = {
       id: "withLoop",
       label: "withLoop",
       type: "toggle",
+      getIsDisabled: (state) => state.freeScroll,
     },
     {
       id: "itemsPerSlide",
       label: "itemsPerSlide",
       type: "select",
       minWidth: false,
-      getIsDisabled: (state) => state.slideType !== "fixed",
+      getIsDisabled: (state) => state.slideType !== "fixed" || state.freeScroll,
       options: [
         {
           value: "1",
@@ -187,12 +190,13 @@ const configs = {
       id: "slideWhenThresholdIsReached",
       label: "slideWhenThresholdIsReached",
       type: "toggle",
+      getIsDisabled: (state) => state.freeScroll,
     },
     {
       id: "initialStartingPosition",
       label: "initialStartingPosition",
       type: "select",
-      getIsDisabled: (state) => !state.withLoop,
+      getIsDisabled: (state) => !state.withLoop || state.freeScroll,
       options: [
         {
           value: "start",
@@ -212,6 +216,7 @@ const configs = {
       id: "initialActiveItem",
       label: "initialActiveItem",
       type: "select",
+      getIsDisabled: (state) => state.freeScroll,
       options: [
         {
           value: "0",
@@ -239,6 +244,18 @@ const configs = {
       id: "animateWhenActiveItemChange",
       label: "animateWhenActiveItemChange",
       type: "toggle",
+      getIsDisabled: (state) => state.freeScroll,
+    },
+    {
+      id: "freeScroll",
+      label: "freeScroll",
+      type: "toggle",
+    },
+    {
+      id: "enableFreeScrollDrag",
+      label: "enableFreeScrollDrag",
+      type: "toggle",
+      getIsDisabled: (state) => !state.freeScroll,
     },
   ] as Options[],
   useTransitionCarousel: [{}] as Options[],
@@ -379,6 +396,7 @@ export function Sidebar({ onChange, state }: Props) {
                 key={i.id}
                 id={i.id}
                 label={i.label}
+                isDisabled={i.getIsDisabled && i.getIsDisabled(state)}
                 onChange={(value) => {
                   onChange({
                     [i.id]: value,

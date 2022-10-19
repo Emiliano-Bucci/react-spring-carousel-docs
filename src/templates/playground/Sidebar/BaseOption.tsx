@@ -38,7 +38,7 @@ export function BaseOption({ children, id, label, isDisabled = false }: Props) {
       >
         <span
           className={css`
-            background-color: ${colors.secondaryDarker};
+            background-color: ${colors.primary};
             color: #fff;
             padding: 0.4rem 0.8rem;
             border-radius: 8px;

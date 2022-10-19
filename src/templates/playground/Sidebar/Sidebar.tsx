@@ -273,16 +273,16 @@ function Section({ title, children }: SectionProps) {
         display: grid;
         grid-gap: 1.24rem;
         padding: 1.2rem;
-        border: 2px solid ${colors.secondaryLight};
+        border: 2px solid ${colors.primaryLighter};
         border-radius: 12px;
         background-color: ${colors.warm};
-        box-shadow: ${shadows.small};
+        box-shadow: ${shadows.medium};
       `}
     >
       <h2
         className={css`
           font-weight: bold;
-          color: ${colors.secondary};
+          color: ${colors.primary};
         `}
       >
         {title}

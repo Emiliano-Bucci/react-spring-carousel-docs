@@ -61,7 +61,7 @@ export function PreviewWrapper({ children, device, orientation }: Props) {
           max-height: 90%;
           box-shadow: 0 0.5em 2em 0.2em rgba(0, 0, 0, 0.33),
             0 0 0 0.5px #000 inset;
-          border-radius: 8px;
+          border-radius: 12px;
           border: 20px solid #111;
         }
         &[data-device="laptop"] {
@@ -69,7 +69,7 @@ export function PreviewWrapper({ children, device, orientation }: Props) {
           max-height: 76%;
           box-shadow: 0 0.5em 2em 0.2em rgba(0, 0, 0, 0.33),
             0 0 0 0.5px #000 inset;
-          border-radius: 8px;
+          border-radius: 12px;
           border: 20px solid #111;
         }
       `}

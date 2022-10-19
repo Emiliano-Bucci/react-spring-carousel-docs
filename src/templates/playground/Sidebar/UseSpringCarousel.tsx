@@ -17,7 +17,12 @@ type Props = {
   previewDevice: PreviewDevice;
   previewDeviceOrientation: PreviewDeviceOrientation;
   slideType: SlideType;
-  itemWidth: number;
+  gutter: string;
+  startEndGutter: string;
+  slideWhenThresholdIsReached: boolean;
+  initialStartingPosition: "start" | "center" | "end";
+  animateWhenActiveItemChange: boolean;
+  initialActiveItem: string;
 };
 
 export function UseSpringCarousel({
@@ -28,9 +33,13 @@ export function UseSpringCarousel({
   previewDevice,
   previewDeviceOrientation,
   slideType,
-  itemWidth,
+  gutter,
+  startEndGutter,
+  slideWhenThresholdIsReached,
+  initialStartingPosition,
+  animateWhenActiveItemChange,
+  initialActiveItem,
 }: Props) {
-  console.log(slideType);
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       items: mockedItems.map((i) => ({
@@ -38,7 +47,7 @@ export function UseSpringCarousel({
         renderItem: (
           <div
             style={{
-              width: slideType === "fluid" ? itemWidth : "100%",
+              width: slideType === "fluid" ? "280px" : "100%",
               backgroundColor: i.color,
             }}
           >
@@ -46,10 +55,19 @@ export function UseSpringCarousel({
           </div>
         ),
       })),
+      // @ts-ignore
       itemsPerSlide,
       withLoop,
       disableGestures,
       slideType,
+      gutter: Number(gutter),
+      // @ts-ignore
+      startEndGutter: Number(startEndGutter),
+      slideWhenThresholdIsReached,
+      initialStartingPosition,
+      animateWhenActiveItemChange,
+      // @ts-ignore
+      initialActiveItem: Number(initialActiveItem),
     });
 
   return (

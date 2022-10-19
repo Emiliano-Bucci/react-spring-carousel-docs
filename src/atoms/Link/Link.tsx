@@ -71,7 +71,7 @@ export const styles = css`
     }
   }
   &[data-variant="secondary"] {
-    &[data-isActive="true"] {
+    &[data-active="true"] {
       background-color: ${colors.secondaryDarker} !important;
     }
     background-color: ${colors.secondaryLight};

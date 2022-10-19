@@ -87,9 +87,58 @@ const configs = {
       ],
     },
     {
-      id: "itemWidth",
-      label: "Item width",
-      type: "number",
+      id: "gutter",
+      label: "gutter",
+      type: "select",
+      options: [
+        {
+          value: "0",
+          label: "0",
+        },
+        {
+          value: "8",
+          label: "8",
+        },
+        {
+          value: "16",
+          label: "16",
+        },
+        {
+          value: "24",
+          label: "24",
+        },
+        {
+          value: "32",
+          label: "32",
+        },
+      ],
+    },
+    {
+      id: "startEndGutter",
+      label: "startEndGutter",
+      type: "select",
+      options: [
+        {
+          value: "0",
+          label: "0",
+        },
+        {
+          value: "8",
+          label: "8",
+        },
+        {
+          value: "16",
+          label: "16",
+        },
+        {
+          value: "24",
+          label: "24",
+        },
+        {
+          value: "32",
+          label: "32",
+        },
+      ],
     },
     {
       id: "withLoop",
@@ -132,6 +181,63 @@ const configs = {
     {
       id: "disableGestures",
       label: "disableGestures",
+      type: "toggle",
+    },
+    {
+      id: "slideWhenThresholdIsReached",
+      label: "slideWhenThresholdIsReached",
+      type: "toggle",
+    },
+    {
+      id: "initialStartingPosition",
+      label: "initialStartingPosition",
+      type: "select",
+      getIsDisabled: (state) => !state.withLoop,
+      options: [
+        {
+          value: "start",
+          label: "Start",
+        },
+        {
+          value: "center",
+          label: "Center",
+        },
+        {
+          value: "end",
+          label: "End",
+        },
+      ],
+    },
+    {
+      id: "initialActiveItem",
+      label: "initialActiveItem",
+      type: "select",
+      options: [
+        {
+          value: "0",
+          label: "0",
+        },
+        {
+          value: "1",
+          label: "1",
+        },
+        {
+          value: "2",
+          label: "2",
+        },
+        {
+          value: "3",
+          label: "3",
+        },
+        {
+          value: "4",
+          label: "4",
+        },
+      ],
+    },
+    {
+      id: "animateWhenActiveItemChange",
+      label: "animateWhenActiveItemChange",
       type: "toggle",
     },
   ] as Options[],
@@ -181,11 +287,12 @@ export function Sidebar({ onChange, state }: Props) {
         display: grid;
         grid-gap: 1.6rem;
         align-content: start;
-        width: 348px;
+        width: 364px;
         height: calc(100vh - 56px);
         background-color: #fff;
         padding: 1.6rem;
         box-shadow: ${shadows.medium};
+        overflow-y: auto;
       `}
     >
       <Section title="Choose your carousel">

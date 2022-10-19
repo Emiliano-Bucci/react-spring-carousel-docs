@@ -66,7 +66,12 @@ export type Props = {
   previewDevice: PreviewDevice;
   previewDeviceOrientation: PreviewDeviceOrientation;
   slideType: SlideType;
-  itemWidth: number;
+  gutter: string;
+  startEndGutter: string;
+  slideWhenThresholdIsReached: boolean;
+  initialStartingPosition: "start" | "center" | "end";
+  animateWhenActiveItemChange: boolean;
+  initialActiveItem: string;
 };
 
 export default function Page() {
@@ -79,7 +84,12 @@ export default function Page() {
     previewDevice: "desktop",
     previewDeviceOrientation: "landscape",
     slideType: "fixed",
-    itemWidth: 240,
+    gutter: "0",
+    startEndGutter: "0",
+    slideWhenThresholdIsReached: false,
+    initialStartingPosition: "start",
+    animateWhenActiveItemChange: true,
+    initialActiveItem: "0",
   });
 
   function handleOnChange(newState: Partial<Props>) {
@@ -147,7 +157,12 @@ export default function Page() {
               previewDevice={state.previewDevice}
               previewDeviceOrientation={state.previewDeviceOrientation}
               slideType={state.slideType}
-              itemWidth={state.itemWidth}
+              gutter={state.gutter}
+              startEndGutter={state.startEndGutter}
+              slideWhenThresholdIsReached={state.slideWhenThresholdIsReached}
+              initialStartingPosition={state.initialStartingPosition}
+              animateWhenActiveItemChange={state.animateWhenActiveItemChange}
+              initialActiveItem={state.initialActiveItem}
             />
           )}
         </div>

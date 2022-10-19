@@ -40,7 +40,7 @@ export function Button({
       {...rest}
       data-variant={variant}
       data-size={size}
-      data-isActive={isActive}
+      data-active={isActive}
       type={type}
       className={cx(baseButtonStyles, styles, className)}
     >

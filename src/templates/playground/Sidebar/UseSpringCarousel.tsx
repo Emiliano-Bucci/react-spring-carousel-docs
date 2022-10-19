@@ -1,14 +1,21 @@
 import { Button } from "atoms/Button";
 import { css } from "linaria";
 import { useSpringCarousel } from "react-spring-carousel";
-import { shadows, colors } from "theme";
-import { mockedItems } from "../../../../pages/playground";
+import { shadows } from "theme";
+import {
+  mockedItems,
+  PreviewDevice,
+  PreviewDeviceOrientation,
+} from "pages/playground";
+import { PreviewWrapper } from "./PreviewWrapper";
 
 type Props = {
   withLoop: boolean;
   itemsPerSlide: number;
   showControls: boolean;
   disableGestures: boolean;
+  previewDevice: PreviewDevice;
+  previewDeviceOrientation: PreviewDeviceOrientation;
 };
 
 export function UseSpringCarousel({
@@ -16,6 +23,8 @@ export function UseSpringCarousel({
   withLoop,
   showControls,
   disableGestures,
+  previewDevice,
+  previewDeviceOrientation,
 }: Props) {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
@@ -36,15 +45,11 @@ export function UseSpringCarousel({
       withLoop,
       disableGestures,
     });
+
   return (
-    <div
-      className={css`
-        display: flex;
-        flex: 1;
-        overflow: hidden;
-        position: relative;
-        background-color: ${colors.warm};
-      `}
+    <PreviewWrapper
+      device={previewDevice}
+      orientation={previewDeviceOrientation}
     >
       {carouselFragment}
       {showControls && (
@@ -67,6 +72,6 @@ export function UseSpringCarousel({
           <Button onClick={slideToNextItem}>Next item</Button>
         </div>
       )}
-    </div>
+    </PreviewWrapper>
   );
 }

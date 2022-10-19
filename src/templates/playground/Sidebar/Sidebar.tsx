@@ -1,10 +1,48 @@
 import { css } from "linaria";
 import { colors, shadows } from "theme";
 import { Radio } from "./Radio";
-import { Props as PlaygroundState } from "../../../../pages/playground";
+import {
+  PreviewDevice,
+  PreviewDeviceOrientation,
+  Props as PlaygroundState,
+} from "pages/playground";
 import { Switch } from "./Switch";
 import { BaseOption } from "./BaseOption";
 import React, { ReactNode } from "react";
+import { Select } from "./Select";
+
+const previewDevices = [
+  {
+    value: "desktop",
+    label: "Desktop",
+  },
+  {
+    value: "laptop",
+    label: "Laptop",
+  },
+  {
+    value: "tablet",
+    label: "Tablet",
+  },
+  {
+    value: "mobile",
+    label: "Mobile",
+  },
+  {
+    value: "responsive",
+    label: "Responsive",
+  },
+];
+const previewDevicesOrientation = [
+  {
+    value: "portrait",
+    label: "Portrait",
+  },
+  {
+    value: "landscape",
+    label: "Landscape",
+  },
+];
 
 type BaseOption = {
   id: string;
@@ -13,7 +51,10 @@ type BaseOption = {
 
 type SelectOption = BaseOption & {
   type: "select";
-  options: Array<string | number>;
+  options: {
+    value: string;
+    label: string;
+  }[];
 };
 
 type ToggleOption = BaseOption & {
@@ -33,7 +74,32 @@ const configs = {
       id: "itemsPerSlide",
       label: "itemsPerSlide",
       type: "select",
-      options: [1, 2, 3, 4, 5, 6],
+      options: [
+        {
+          value: "1",
+          label: "1",
+        },
+        {
+          value: "2",
+          label: "2",
+        },
+        {
+          value: "3",
+          label: "3",
+        },
+        {
+          value: "4",
+          label: "4",
+        },
+        {
+          value: "5",
+          label: "5",
+        },
+        {
+          value: "6",
+          label: "6",
+        },
+      ],
     },
     {
       id: "disableGestures",
@@ -137,6 +203,38 @@ export function Sidebar({ onChange, state }: Props) {
           onChange={(v) => onChange({ showControls: v })}
         />
       </Section>
+      <Section title="Preview device">
+        <BaseOption id="previewDevice" label="Type">
+          <Select
+            id="previewDevice"
+            options={previewDevices}
+            defaultValue={state.previewDevice}
+            onChange={(value) => {
+              onChange({
+                previewDevice: value as PreviewDevice,
+              });
+            }}
+          />
+        </BaseOption>
+        <BaseOption
+          id="previewDeviceOrientation"
+          label="Orientation"
+          isDisabled={
+            state.previewDevice !== "mobile" && state.previewDevice !== "tablet"
+          }
+        >
+          <Select
+            id="previewDeviceOrientation"
+            defaultValue={state.previewDeviceOrientation}
+            options={previewDevicesOrientation}
+            onChange={(value) => {
+              onChange({
+                previewDeviceOrientation: value as PreviewDeviceOrientation,
+              });
+            }}
+          />
+        </BaseOption>
+      </Section>
       <Section title="Options">
         {configs[state.carouselType].map((i) => {
           if (i.type === "toggle") {
@@ -157,18 +255,17 @@ export function Sidebar({ onChange, state }: Props) {
           if (i.type === "select") {
             return (
               <BaseOption key={i.id} id={i.id} label={i.label}>
-                <select
-                  key={i.id}
-                  onChange={(v) => {
+                <Select
+                  id={i.id}
+                  defaultValue={state[i.id]}
+                  options={i.options}
+                  minWidth={false}
+                  onChange={(value) => {
                     onChange({
-                      [i.id]: Number(v.currentTarget.value),
+                      [i.id]: Number(value),
                     });
                   }}
-                >
-                  {i.options.map((op) => (
-                    <option key={`${i.id}-${op}`}>{op}</option>
-                  ))}
-                </select>
+                />
               </BaseOption>
             );
           }

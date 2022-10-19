@@ -3,7 +3,6 @@ import { colors, shadows } from "theme";
 import { Sidebar } from "templates/playground/Sidebar";
 import { useState } from "react";
 import { UseSpringCarousel } from "../src/templates/playground/Sidebar/UseSpringCarousel";
-import { Button } from "atoms/Button";
 
 export const mockedItems = [
   {
@@ -48,7 +47,14 @@ export const mockedItems = [
   },
 ];
 
-type PreviewDevice = "desktop" | "laptop" | "tablet" | "mobile";
+export type PreviewDevice =
+  | "desktop"
+  | "laptop"
+  | "tablet"
+  | "mobile"
+  | "responsive";
+
+export type PreviewDeviceOrientation = "landscape" | "portrait";
 
 export type Props = {
   carouselType: "useSpringCarousel" | "useTransitionCarousel";
@@ -57,26 +63,8 @@ export type Props = {
   showControls: boolean;
   disableGestures: boolean;
   previewDevice: PreviewDevice;
+  previewDeviceOrientation: PreviewDeviceOrientation;
 };
-
-const previewDevices = [
-  {
-    id: "desktop",
-    icon: "D",
-  },
-  {
-    id: "laptop",
-    icon: "L",
-  },
-  {
-    id: "tablet",
-    icon: "T",
-  },
-  {
-    id: "mobile",
-    icon: "M",
-  },
-];
 
 export default function Page() {
   const [state, setState] = useState<Props>({
@@ -86,6 +74,7 @@ export default function Page() {
     showControls: true,
     disableGestures: false,
     previewDevice: "desktop",
+    previewDeviceOrientation: "landscape",
   });
 
   function handleOnChange(newState: Partial<Props>) {
@@ -122,30 +111,6 @@ export default function Page() {
         >
           React spring carousel playground
         </h1>
-        <div
-          className={css`
-            display: grid;
-            grid-auto-flow: column;
-            margin-left: auto;
-            grid-gap: 0.8rem;
-          `}
-        >
-          {previewDevices.map((i) => (
-            <Button
-              size="icon"
-              key={i.id}
-              variant="secondary"
-              isActive={state.previewDevice === i.id}
-              onClick={() => {
-                handleOnChange({
-                  previewDevice: i.id as PreviewDevice,
-                });
-              }}
-            >
-              {i.icon}
-            </Button>
-          ))}
-        </div>
       </header>
       <div
         className={css`
@@ -158,7 +123,7 @@ export default function Page() {
             display: flex;
             flex: 1;
             overflow: hidden;
-            background-color: ${colors.warmLight};
+            background-color: ${colors.warm};
             .use-spring-carousel-item > * {
               display: flex;
               justify-content: center;
@@ -174,6 +139,8 @@ export default function Page() {
               withLoop={state.withLoop}
               showControls={state.showControls}
               disableGestures={state.disableGestures}
+              previewDevice={state.previewDevice}
+              previewDeviceOrientation={state.previewDeviceOrientation}
             />
           )}
         </div>

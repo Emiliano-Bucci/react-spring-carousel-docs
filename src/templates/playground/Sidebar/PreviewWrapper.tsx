@@ -22,6 +22,12 @@ export function PreviewWrapper({ children, device, orientation }: Props) {
         margin: auto;
         width: 100%;
         height: 100%;
+        .use-spring-carousel-main-wrapper {
+          cursor: grab;
+          &:active {
+            cursor: grabbing;
+          }
+        }
         &[data-device="mobile"] {
           &[data-device-orientation="portrait"] {
             max-width: 370px;

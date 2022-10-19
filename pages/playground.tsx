@@ -3,6 +3,7 @@ import { colors, shadows } from "theme";
 import { Sidebar } from "templates/playground/Sidebar";
 import { useState } from "react";
 import { UseSpringCarousel } from "../src/templates/playground/Sidebar/UseSpringCarousel";
+import { SlideType } from "react-spring-carousel";
 
 export const mockedItems = [
   {
@@ -64,6 +65,8 @@ export type Props = {
   disableGestures: boolean;
   previewDevice: PreviewDevice;
   previewDeviceOrientation: PreviewDeviceOrientation;
+  slideType: SlideType;
+  itemWidth: number;
 };
 
 export default function Page() {
@@ -75,6 +78,8 @@ export default function Page() {
     disableGestures: false,
     previewDevice: "desktop",
     previewDeviceOrientation: "landscape",
+    slideType: "fixed",
+    itemWidth: 240,
   });
 
   function handleOnChange(newState: Partial<Props>) {
@@ -141,6 +146,8 @@ export default function Page() {
               disableGestures={state.disableGestures}
               previewDevice={state.previewDevice}
               previewDeviceOrientation={state.previewDeviceOrientation}
+              slideType={state.slideType}
+              itemWidth={state.itemWidth}
             />
           )}
         </div>

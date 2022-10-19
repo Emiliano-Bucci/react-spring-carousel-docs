@@ -1,6 +1,6 @@
 import { Button } from "atoms/Button";
 import { css } from "linaria";
-import { useSpringCarousel } from "react-spring-carousel";
+import { SlideType, useSpringCarousel } from "react-spring-carousel";
 import { shadows } from "theme";
 import {
   mockedItems,
@@ -16,6 +16,8 @@ type Props = {
   disableGestures: boolean;
   previewDevice: PreviewDevice;
   previewDeviceOrientation: PreviewDeviceOrientation;
+  slideType: SlideType;
+  itemWidth: number;
 };
 
 export function UseSpringCarousel({
@@ -25,7 +27,10 @@ export function UseSpringCarousel({
   disableGestures,
   previewDevice,
   previewDeviceOrientation,
+  slideType,
+  itemWidth,
 }: Props) {
+  console.log(slideType);
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       items: mockedItems.map((i) => ({
@@ -33,7 +38,7 @@ export function UseSpringCarousel({
         renderItem: (
           <div
             style={{
-              width: "100%",
+              width: slideType === "fluid" ? itemWidth : "100%",
               backgroundColor: i.color,
             }}
           >
@@ -44,6 +49,7 @@ export function UseSpringCarousel({
       itemsPerSlide,
       withLoop,
       disableGestures,
+      slideType,
     });
 
   return (

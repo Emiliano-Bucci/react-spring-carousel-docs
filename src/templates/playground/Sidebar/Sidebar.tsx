@@ -51,6 +51,8 @@ type BaseOption = {
 
 type SelectOption = BaseOption & {
   type: "select";
+  minWidth?: boolean;
+  getIsDisabled?(state: PlaygroundState): boolean;
   options: {
     value: string;
     label: string;
@@ -60,11 +62,35 @@ type SelectOption = BaseOption & {
 type ToggleOption = BaseOption & {
   type: "toggle";
 };
+type NumberOption = BaseOption & {
+  type: "number";
+};
 
-type Options = SelectOption | ToggleOption;
+type Options = SelectOption | ToggleOption | NumberOption;
 
 const configs = {
   useSpringCarousel: [
+    {
+      id: "slideType",
+      label: "slideType",
+      type: "select",
+      minWidth: true,
+      options: [
+        {
+          value: "fixed",
+          label: "Fixed",
+        },
+        {
+          value: "fluid",
+          label: "Fluid",
+        },
+      ],
+    },
+    {
+      id: "itemWidth",
+      label: "Item width",
+      type: "number",
+    },
     {
       id: "withLoop",
       label: "withLoop",
@@ -74,6 +100,8 @@ const configs = {
       id: "itemsPerSlide",
       label: "itemsPerSlide",
       type: "select",
+      minWidth: false,
+      getIsDisabled: (state) => state.slideType !== "fixed",
       options: [
         {
           value: "1",
@@ -254,15 +282,21 @@ export function Sidebar({ onChange, state }: Props) {
           }
           if (i.type === "select") {
             return (
-              <BaseOption key={i.id} id={i.id} label={i.label}>
+              <BaseOption
+                key={i.id}
+                id={i.id}
+                label={i.label}
+                isDisabled={i.getIsDisabled && i.getIsDisabled(state)}
+              >
                 <Select
-                  id={i.id}
+                  // @ts-ignore
                   defaultValue={state[i.id]}
+                  id={i.id}
                   options={i.options}
-                  minWidth={false}
+                  minWidth={i.minWidth}
                   onChange={(value) => {
                     onChange({
-                      [i.id]: Number(value),
+                      [i.id]: value,
                     });
                   }}
                 />

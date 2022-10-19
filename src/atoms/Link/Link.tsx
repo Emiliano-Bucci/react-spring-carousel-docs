@@ -71,6 +71,9 @@ export const styles = css`
     }
   }
   &[data-variant="secondary"] {
+    &[data-isActive="true"] {
+      background-color: ${colors.secondaryDarker} !important;
+    }
     background-color: ${colors.secondaryLight};
     color: #fff;
     border-radius: 8px;

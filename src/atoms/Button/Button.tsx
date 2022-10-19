@@ -8,6 +8,7 @@ type Props = DetailedHTMLProps<
 > & {
   variant?: "primary" | "secondary" | "none" | "default-link";
   size?: "default" | "small" | "icon" | "none";
+  isActive?: boolean;
 };
 
 const baseButtonStyles = css`
@@ -31,6 +32,7 @@ export function Button({
   className = "",
   variant = "primary",
   size = "default",
+  isActive = false,
   ...rest
 }: Props) {
   return (
@@ -38,6 +40,7 @@ export function Button({
       {...rest}
       data-variant={variant}
       data-size={size}
+      data-isActive={isActive}
       type={type}
       className={cx(baseButtonStyles, styles, className)}
     >

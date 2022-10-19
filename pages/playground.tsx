@@ -3,6 +3,7 @@ import { colors, shadows } from "theme";
 import { Sidebar } from "templates/playground/Sidebar";
 import { useState } from "react";
 import { UseSpringCarousel } from "../src/templates/playground/Sidebar/UseSpringCarousel";
+import { Button } from "atoms/Button";
 
 export const mockedItems = [
   {
@@ -47,13 +48,35 @@ export const mockedItems = [
   },
 ];
 
+type PreviewDevice = "desktop" | "laptop" | "tablet" | "mobile";
+
 export type Props = {
   carouselType: "useSpringCarousel" | "useTransitionCarousel";
   withLoop: boolean;
   itemsPerSlide: number;
   showControls: boolean;
   disableGestures: boolean;
+  previewDevice: PreviewDevice;
 };
+
+const previewDevices = [
+  {
+    id: "desktop",
+    icon: "D",
+  },
+  {
+    id: "laptop",
+    icon: "L",
+  },
+  {
+    id: "tablet",
+    icon: "T",
+  },
+  {
+    id: "mobile",
+    icon: "M",
+  },
+];
 
 export default function Page() {
   const [state, setState] = useState<Props>({
@@ -62,7 +85,15 @@ export default function Page() {
     itemsPerSlide: 1,
     showControls: true,
     disableGestures: false,
+    previewDevice: "desktop",
   });
+
+  function handleOnChange(newState: Partial<Props>) {
+    setState((p) => ({
+      ...p,
+      ...newState,
+    }));
+  }
 
   return (
     <div
@@ -91,21 +122,37 @@ export default function Page() {
         >
           React spring carousel playground
         </h1>
+        <div
+          className={css`
+            display: grid;
+            grid-auto-flow: column;
+            margin-left: auto;
+            grid-gap: 0.8rem;
+          `}
+        >
+          {previewDevices.map((i) => (
+            <Button
+              size="icon"
+              key={i.id}
+              variant="secondary"
+              isActive={state.previewDevice === i.id}
+              onClick={() => {
+                handleOnChange({
+                  previewDevice: i.id as PreviewDevice,
+                });
+              }}
+            >
+              {i.icon}
+            </Button>
+          ))}
+        </div>
       </header>
       <div
         className={css`
           display: flex;
         `}
       >
-        <Sidebar
-          state={state}
-          onChange={(newState) => {
-            setState((p) => ({
-              ...p,
-              ...newState,
-            }));
-          }}
-        />
+        <Sidebar state={state} onChange={handleOnChange} />
         <div
           className={css`
             display: flex;

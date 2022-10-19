@@ -21,6 +21,7 @@ export function BaseOption({ children, id, label }: Props) {
       <span
         className={css`
           background-color: ${colors.secondaryDarker};
+          color: #fff;
           padding: 0.4rem 0.8rem;
           border-radius: 8px;
           font-size: 1.48rem;

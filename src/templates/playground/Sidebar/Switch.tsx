@@ -1,4 +1,5 @@
 import SwitchComponent from "react-switch";
+import { colors } from "theme";
 import { BaseOption } from "./BaseOption";
 
 type Props = {
@@ -20,6 +21,8 @@ export function Switch({ id, checked, label, onChange }: Props) {
         onChange={onChange}
         checkedIcon={false}
         uncheckedIcon={false}
+        onColor="#2ECC71"
+        offColor={colors.secondaryLight}
       />
     </BaseOption>
   );

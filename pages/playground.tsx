@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { colors } from "theme";
+import { colors, shadows } from "theme";
 import { Sidebar } from "templates/playground/Sidebar";
 import { useState } from "react";
 import { UseSpringCarousel } from "../src/templates/playground/Sidebar/UseSpringCarousel";
@@ -7,68 +7,43 @@ import { UseSpringCarousel } from "../src/templates/playground/Sidebar/UseSpring
 export const mockedItems = [
   {
     id: "item-1",
-    renderItem: (
-      <div
-        style={{
-          flex: "1",
-          background: "#34495E",
-        }}
-      >
-        Item 1
-      </div>
-    ),
+    title: "Item 1",
+    color: "#1ABC9C",
   },
   {
     id: "item-2",
-    renderItem: (
-      <div
-        style={{
-          flex: "1",
-          background: "#E74C3C",
-        }}
-      >
-        Item 2
-      </div>
-    ),
+    title: "Item 2",
+    color: "#2ECC71",
   },
   {
     id: "item-3",
-    renderItem: (
-      <div
-        style={{
-          flex: "1",
-          background: "#2ECC71",
-        }}
-      >
-        Item 3
-      </div>
-    ),
+    title: "Item 3",
+    color: "#3498DB",
   },
   {
     id: "item-4",
-    renderItem: (
-      <div
-        style={{
-          flex: "1",
-          background: "#F39C12",
-        }}
-      >
-        Item 4
-      </div>
-    ),
+    title: "Item 4",
+    color: "#F1C40F",
   },
   {
     id: "item-5",
-    renderItem: (
-      <div
-        style={{
-          flex: "5",
-          background: "#16A085",
-        }}
-      >
-        Item 5
-      </div>
-    ),
+    title: "Item 5",
+    color: "#9B59B6",
+  },
+  {
+    id: "item-6",
+    title: "Item 6",
+    color: "#E74C3C",
+  },
+  {
+    id: "item-7",
+    title: "Item 7",
+    color: "#E9967A",
+  },
+  {
+    id: "item-8",
+    title: "Item 8",
+    color: "#FFDAB9",
   },
 ];
 
@@ -76,6 +51,8 @@ export type Props = {
   carouselType: "useSpringCarousel" | "useTransitionCarousel";
   withLoop: boolean;
   itemsPerSlide: number;
+  showControls: boolean;
+  disableGestures: boolean;
 };
 
 export default function Page() {
@@ -83,6 +60,8 @@ export default function Page() {
     carouselType: "useSpringCarousel",
     withLoop: false,
     itemsPerSlide: 1,
+    showControls: true,
+    disableGestures: false,
   });
 
   return (
@@ -93,18 +72,21 @@ export default function Page() {
     >
       <header
         className={css`
+          position: relative;
           display: flex;
           align-items: center;
           padding: 1.6rem;
-          background-color: ${colors.dark};
+          background-color: #fff;
           height: 56px;
-          border-bottom: 1px solid ${colors.dark60};
+          box-shadow: ${shadows.small};
+          z-index: 10;
         `}
       >
         <h1
           className={css`
-            color: ${colors.warmLight};
+            color: ${colors.secondary};
             font-size: 1.8rem;
+            font-weight: bold;
           `}
         >
           React spring carousel playground
@@ -129,6 +111,7 @@ export default function Page() {
             display: flex;
             flex: 1;
             overflow: hidden;
+            background-color: ${colors.warmLight};
             .use-spring-carousel-item > * {
               display: flex;
               justify-content: center;
@@ -142,6 +125,8 @@ export default function Page() {
             <UseSpringCarousel
               itemsPerSlide={state.itemsPerSlide}
               withLoop={state.withLoop}
+              showControls={state.showControls}
+              disableGestures={state.disableGestures}
             />
           )}
         </div>

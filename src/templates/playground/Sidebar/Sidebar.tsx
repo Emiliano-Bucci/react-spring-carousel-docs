@@ -1,9 +1,10 @@
 import { css } from "linaria";
-import { colors } from "theme";
+import { colors, shadows } from "theme";
 import { Radio } from "./Radio";
 import { Props as PlaygroundState } from "../../../../pages/playground";
 import { Switch } from "./Switch";
 import { BaseOption } from "./BaseOption";
+import React, { ReactNode } from "react";
 
 type BaseOption = {
   id: string;
@@ -34,9 +35,45 @@ const configs = {
       type: "select",
       options: [1, 2, 3, 4, 5, 6],
     },
+    {
+      id: "disableGestures",
+      label: "disableGestures",
+      type: "toggle",
+    },
   ] as Options[],
   useTransitionCarousel: [{}] as Options[],
 };
+
+type SectionProps = {
+  title: string;
+  children: ReactNode;
+};
+
+function Section({ title, children }: SectionProps) {
+  return (
+    <div
+      className={css`
+        display: grid;
+        grid-gap: 1.24rem;
+        padding: 1.2rem;
+        border: 2px solid ${colors.secondaryLight};
+        border-radius: 12px;
+        background-color: ${colors.warm};
+        box-shadow: ${shadows.small};
+      `}
+    >
+      <h2
+        className={css`
+          font-weight: bold;
+          color: ${colors.secondary};
+        `}
+      >
+        {title}
+      </h2>
+      {children}
+    </div>
+  );
+}
 
 type Props = {
   onChange(state: Partial<PlaygroundState>): void;
@@ -48,25 +85,16 @@ export function Sidebar({ onChange, state }: Props) {
     <aside
       className={css`
         display: grid;
-        grid-gap: 2.4rem;
+        grid-gap: 1.6rem;
         align-content: start;
         width: 348px;
         height: calc(100vh - 56px);
-        background-color: ${colors.dark};
+        background-color: #fff;
         padding: 1.6rem;
-        color: ${colors.warmLight};
+        box-shadow: ${shadows.medium};
       `}
     >
-      <div
-        className={css`
-          display: grid;
-          grid-gap: 0.8rem;
-          padding: 1.2rem;
-          border: 1px solid ${colors.dark60};
-          border-radius: 8px;
-        `}
-      >
-        <h2>Choose your carousel</h2>
+      <Section title="Choose your carousel">
         <div
           className={css`
             display: grid;
@@ -100,17 +128,16 @@ export function Sidebar({ onChange, state }: Props) {
             useTransitionCarousel
           </Radio>
         </div>
-      </div>
-      <div
-        className={css`
-          display: grid;
-          grid-gap: 1.24rem;
-          padding: 1.2rem;
-          border: 1px solid ${colors.dark60};
-          border-radius: 8px;
-        `}
-      >
-        <h2>Options</h2>
+      </Section>
+      <Section title="Controls">
+        <Switch
+          id="show-controls"
+          label="Show controls"
+          checked={state.showControls}
+          onChange={(v) => onChange({ showControls: v })}
+        />
+      </Section>
+      <Section title="Options">
         {configs[state.carouselType].map((i) => {
           if (i.type === "toggle") {
             return (
@@ -147,7 +174,7 @@ export function Sidebar({ onChange, state }: Props) {
           }
           return null;
         })}
-      </div>
+      </Section>
     </aside>
   );
 }

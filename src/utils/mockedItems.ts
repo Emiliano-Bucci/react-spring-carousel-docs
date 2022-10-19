@@ -2,31 +2,36 @@ export const mockedItems = [
   {
     id: "item-1",
     title: "Item 1",
-    color: "#34495E",
+    color: "#1ABC9C",
   },
   {
     id: "item-2",
     title: "Item 2",
-    color: "#C0392B",
+    color: "#2ECC71",
   },
   {
     id: "item-3",
     title: "Item 3",
-    color: "#27AE60",
+    color: "#3498DB",
   },
   {
     id: "item-4",
     title: "Item 4",
-    color: "#8E44AD",
+    color: "#F1C40F",
   },
   {
     id: "item-5",
     title: "Item 5",
-    color: "#D35400",
+    color: "#9B59B6",
   },
   {
     id: "item-6",
     title: "Item 6",
-    color: "#16A085",
+    color: "#E74C3C",
+  },
+  {
+    id: "item-7",
+    title: "Item 7",
+    color: "#ECF0F1",
   },
 ];

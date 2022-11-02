@@ -24,9 +24,7 @@ export default function Page() {
           variant="default-link"
           size="none"
           target="_blank"
-          linkProps={{
-            href: "https://kentcdodds.com/blog/state-colocation-will-make-your-react-app-faster",
-          }}
+          href="https://kentcdodds.com/blog/state-colocation-will-make-your-react-app-faster"
         >
           this
         </Link>{" "}

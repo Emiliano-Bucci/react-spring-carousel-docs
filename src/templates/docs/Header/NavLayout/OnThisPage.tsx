@@ -4,8 +4,8 @@ import { mediaQueries } from "src/mediaQueries";
 import { OnThisPageItem } from "pages/_app";
 import { sidebarWrapperStyles } from "./Sidebar";
 import { SidebarNavItem } from "atoms/SidebarNavItem";
-import { a, useSpring } from "@react-spring/web";
-import { useLayoutEffect, useState } from "react";
+import { a, useSpring, useIsomorphicLayoutEffect } from "@react-spring/web";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -29,13 +29,11 @@ export function OnThisPage({ items }: Props) {
     },
   });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const hash = asPath.split("#")[1];
     const activeItemIndex = items.findIndex((i) => i.id === hash);
     setActiveItem(activeItemIndex >= 0 ? activeItemIndex : 0);
   }, [asPath, items]);
-
-  console.log(items);
 
   return (
     <aside

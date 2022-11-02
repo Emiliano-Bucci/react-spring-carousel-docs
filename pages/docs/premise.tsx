@@ -18,6 +18,7 @@ function LinkItem({
   return (
     <Link
       variant="none"
+      href={href}
       className={css`
         &&&& {
           display: grid;
@@ -35,9 +36,6 @@ function LinkItem({
           }
         }
       `}
-      linkProps={{
-        href,
-      }}
     >
       <h4
         className={css`
@@ -72,9 +70,7 @@ export default function Page() {
             variant="default-link"
             size="none"
             target="_blank"
-            linkProps={{
-              href: "https://react-spring.io/hooks/use-spring",
-            }}
+            href="https://react-spring.io/hooks/use-spring"
           >
             useSpring
           </Link>,
@@ -84,9 +80,7 @@ export default function Page() {
             variant="default-link"
             size="none"
             target="_blank"
-            linkProps={{
-              href: "https://react-spring.io/hooks/use-transition",
-            }}
+            href="https://react-spring.io/hooks/use-transition"
           >
             useTransition
           </Link>,

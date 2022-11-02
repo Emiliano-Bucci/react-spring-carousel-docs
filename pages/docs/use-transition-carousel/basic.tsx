@@ -23,9 +23,7 @@ export default function Page() {
           size="none"
           variant="default-link"
           target="_blank"
-          linkProps={{
-            href: "https://react-spring.io/hooks/use-transition",
-          }}
+          href="https://react-spring.io/hooks/use-transition"
         >
           here
         </Link>

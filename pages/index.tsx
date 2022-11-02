@@ -1,17 +1,17 @@
 import { css } from "linaria";
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "atoms/Link/Link";
 import { CarouselItem } from "templates/home/CarouselItem/CarouselItem";
 import PerformanceIcon from "public/performance.svg";
 import ConfigureIcon from "public/configure.svg";
-import MobileIcon from "public/mobile.svg";
+import MobileIcon from "public/events.svg";
 import EventsIcon from "public/events.svg";
 import HeadlessIcon from "public/headless.svg";
 import ComposableIcon from "public/composable.svg";
 import { breakpoints, mediaQueries } from "src/mediaQueries";
 import { Header } from "templates/home/Header";
 import { useSpringCarousel } from "react-spring-carousel";
-import { a, useSprings } from "react-spring";
+import { a, useIsomorphicLayoutEffect, useSprings } from "@react-spring/web";
 
 const items = [
   {
@@ -122,7 +122,7 @@ export default function Home() {
     })),
   });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const desktopDevice = window.matchMedia(
       `(min-width: ${breakpoints.desktop + 1}px)`
     );
@@ -224,9 +224,7 @@ export default function Home() {
           `}
         >
           <Link
-            linkProps={{
-              href: "/docs",
-            }}
+            href="/docs"
             className={css`
               font-size: 1.8rem;
             `}

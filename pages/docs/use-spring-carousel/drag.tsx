@@ -22,9 +22,7 @@ export default function Page() {
           className={css`
             display: inline;
           `}
-          linkProps={{
-            href: "https://use-gesture.netlify.app/docs",
-          }}
+          href="https://use-gesture.netlify.app/docs"
         >
           <strong>@use-gesture</strong>
         </Link>

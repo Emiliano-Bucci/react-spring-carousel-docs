@@ -9,11 +9,14 @@ import { css, cx } from "linaria";
 import { colors, shadows } from "src/theme";
 
 export type Props = PropsWithChildren<{
-  linkProps: LinkProps;
   variant?: "primary" | "secondary" | "none" | "default-link";
   size?: "default" | "small" | "icon" | "none";
 }> &
-  DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
+  DetailedHTMLProps<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > &
+  LinkProps;
 
 export const styles = css`
   display: flex;
@@ -90,7 +93,6 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(
   (
     {
       children,
-      linkProps,
       className = "",
       variant = "primary",
       size = "default",
@@ -100,17 +102,15 @@ export const Link = forwardRef<HTMLAnchorElement, Props>(
     ref
   ) => {
     return (
-      <NextLink {...linkProps}>
-        <a
-          {...rest}
-          ref={ref}
-          data-variant={variant}
-          data-size={size}
-          data-type={type}
-          className={cx(styles, className)}
-        >
-          {children}
-        </a>
+      <NextLink
+        ref={ref}
+        data-variant={variant}
+        data-size={size}
+        data-type={type}
+        {...rest}
+        className={cx(styles, className)}
+      >
+        {children}
       </NextLink>
     );
   }

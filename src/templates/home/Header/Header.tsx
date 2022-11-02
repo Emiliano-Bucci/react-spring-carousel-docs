@@ -138,9 +138,7 @@ export function Header() {
       >
         <Link
           variant="secondary"
-          linkProps={{
-            href: "https://github.com/Emiliano-Bucci/react-spring-carousel",
-          }}
+          href="https://github.com/Emiliano-Bucci/react-spring-carousel"
           title="https://github.com/Emiliano-Bucci/react-spring-carousel"
           target="_blank"
           size="default"
@@ -159,9 +157,7 @@ export function Header() {
         <Link
           variant="secondary"
           size="default"
-          linkProps={{
-            href: "https://www.npmjs.com/package/react-spring-carousel",
-          }}
+          href="https://www.npmjs.com/package/react-spring-carousel"
           title="https://www.npmjs.com/package/react-spring-carousel"
           target="_blank"
           className={cx(

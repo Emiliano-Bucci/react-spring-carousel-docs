@@ -214,13 +214,7 @@ export default function Page() {
           margin-top: 8rem;
         `}
       >
-        <Link
-          linkProps={{
-            href: "/docs/install",
-          }}
-        >
-          Let's start!
-        </Link>
+        <Link href="/docs/install">Let's start!</Link>
       </div>
     </>
   );

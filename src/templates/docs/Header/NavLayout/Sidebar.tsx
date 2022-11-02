@@ -670,9 +670,7 @@ export function Sidebar() {
             variant="default-link"
             title="Author web site"
             size="none"
-            linkProps={{
-              href: "https://emilianobucci.com",
-            }}
+            href="https://emilianobucci.com"
           >
             Emiliano Bucci
           </Link>

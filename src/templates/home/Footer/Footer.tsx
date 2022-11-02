@@ -115,9 +115,7 @@ export function Footer() {
             variant="none"
             size="none"
             title="https://emilianobucci.com/"
-            linkProps={{
-              href: "https://emilianobucci.com/",
-            }}
+            href="https://emilianobucci.com/"
           >
             Emiliano Bucci
           </Link>
@@ -130,9 +128,7 @@ export function Footer() {
             size="none"
             target="_blank"
             title="https://freeicons.io/profile/3335"
-            linkProps={{
-              href: "https://freeicons.io/profile/3335",
-            }}
+            href="https://freeicons.io/profile/3335"
           >
             MD Badsha Meah
           </Link>

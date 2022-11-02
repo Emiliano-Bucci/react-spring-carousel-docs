@@ -113,9 +113,7 @@ function MyApp({
                 }
               }
             `}
-            linkProps={{
-              href: "/playground",
-            }}
+            href="/playground"
           >
             Playground
           </Link>
@@ -129,9 +127,7 @@ function MyApp({
             <Link
               variant="secondary"
               title="https://github.com/Emiliano-Bucci/react-spring-carousel"
-              linkProps={{
-                href: "https://github.com/Emiliano-Bucci/react-spring-carousel",
-              }}
+              href="https://github.com/Emiliano-Bucci/react-spring-carousel"
               target="_blank"
               size="icon"
               className={cx(
@@ -150,9 +146,7 @@ function MyApp({
               size="icon"
               title="https://www.npmjs.com/package/react-spring-carousel"
               target="_blank"
-              linkProps={{
-                href: "https://www.npmjs.com/package/react-spring-carousel",
-              }}
+              href="https://www.npmjs.com/package/react-spring-carousel"
               className={cx(
                 css`
                   svg {

@@ -46,9 +46,7 @@ export function Header() {
           <Link
             variant="secondary"
             size="icon"
-            linkProps={{
-              href: "https://github.com/Emiliano-Bucci/react-spring-carousel",
-            }}
+            href="https://github.com/Emiliano-Bucci/react-spring-carousel"
             title="https://github.com/Emiliano-Bucci/react-spring-carousel"
             target="_blank"
             className={cx(
@@ -64,9 +62,7 @@ export function Header() {
             size="icon"
             title="https://www.npmjs.com/package/react-spring-carousel"
             target="_blank"
-            linkProps={{
-              href: "https://www.npmjs.com/package/react-spring-carousel",
-            }}
+            href="https://www.npmjs.com/package/react-spring-carousel"
           >
             <NpmIcon />
           </Link>

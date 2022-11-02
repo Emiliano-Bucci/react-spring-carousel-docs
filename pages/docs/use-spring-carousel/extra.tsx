@@ -46,9 +46,7 @@ export default function Page() {
           size="none"
           target="_blank"
           variant="default-link"
-          linkProps={{
-            href: "https://use-gesture.netlify.app/docs/extras/",
-          }}
+          href="https://use-gesture.netlify.app/docs/extras/"
         >
           Here
         </Link>{" "}
@@ -67,7 +65,7 @@ export default function Page() {
           size="none"
           variant="default-link"
           target="_blank"
-          linkProps={{ href: "https://react-spring.io/common/configs" }}
+          href="https://react-spring.io/common/configs"
         >
           here
         </Link>{" "}

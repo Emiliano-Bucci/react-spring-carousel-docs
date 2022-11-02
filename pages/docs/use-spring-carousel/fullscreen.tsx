@@ -20,9 +20,7 @@ export default function Page() {
           variant="default-link"
           target="_blank"
           title="Visit the screenfull npm repo - https://www.npmjs.com/package/screenfull"
-          linkProps={{
-            href: "https://www.npmjs.com/package/screenfull",
-          }}
+          href="https://www.npmjs.com/package/screenfull"
         >
           <strong>screenfull</strong>
         </Link>{" "}

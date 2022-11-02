@@ -54,7 +54,7 @@ export function PageNavigationButton({
     <Link
       variant="none"
       size="none"
-      title={`Visit the page ${rest.linkProps.href.toString()}`}
+      title={`Visit the page ${rest.href.toString()}`}
       className={cx(
         type === "next" ? nextStyles : prevStyles,
         css`

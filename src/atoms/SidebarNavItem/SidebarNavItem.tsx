@@ -153,6 +153,7 @@ export function SidebarNavItem({
       size="none"
       ref={ref}
       onClick={onClick}
+      href={href}
       className={cx(
         isChild && childStyles,
         isActive && activeStyles,
@@ -178,9 +179,6 @@ export function SidebarNavItem({
           }
         `
       )}
-      linkProps={{
-        href,
-      }}
     >
       <span>{label}</span>
     </Link>

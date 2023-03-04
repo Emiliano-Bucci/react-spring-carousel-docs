@@ -31,22 +31,12 @@ export function PageNavigationFooter({ prevBtn, nextBtn }: Props) {
       `}
     >
       {prevBtn && (
-        <PageNavigationButton
-          type="prev"
-          linkProps={{
-            href: prevBtn.href,
-          }}
-        >
+        <PageNavigationButton type="prev" href={prevBtn.href}>
           {prevBtn.label}
         </PageNavigationButton>
       )}
       {nextBtn && (
-        <PageNavigationButton
-          type="next"
-          linkProps={{
-            href: nextBtn.href,
-          }}
-        >
+        <PageNavigationButton type="next" href={nextBtn.href}>
           {nextBtn.label}
         </PageNavigationButton>
       )}

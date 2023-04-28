@@ -33,6 +33,16 @@ export function CarouselItem({
       : 0.72,
   }));
 
+  console.log({
+    id,
+    x: getIsNextItem(id) ? 22 : getIsPrevItem(id) ? -22 : 0,
+    scale: isActive
+      ? 1.08
+      : getIsNextItem(id) || getIsPrevItem(id)
+      ? 0.9
+      : 0.72,
+  });
+
   useListenToCustomEvent((event) => {
     if (event.eventName === "onSlideStartChange") {
       const nextIsActive = event.nextItem.id === id;

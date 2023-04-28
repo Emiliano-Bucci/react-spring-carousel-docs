@@ -72,7 +72,7 @@ const code3 = `
       slideToNextItem 
     } = useSpringCarousel({
       slideType: 'fluid',
-      slideAmount: 375,
+      customSlideValue: 375,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -102,7 +102,7 @@ const code4 = `
       slideToNextItem 
     } = useSpringCarousel({
       slideType: 'fluid',
-      slideAmount: 375,
+      customSlideValue: 375,
       freeScroll: true,
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -133,7 +133,7 @@ const code5 = `
       slideToNextItem 
     } = useSpringCarousel({
       slideType: 'fluid',
-      slideAmount: 375,
+      customSlideValue: 375,
       freeScroll: true,
       enableFreeScrollDrag: true // -> yooo!,
       items: mockedItems.map((i) => ({
@@ -186,7 +186,7 @@ function Carousel2() {
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
-          <CarouselItem color={i.color} width={300}>
+          <CarouselItem color={i.color} width={380}>
             {i.title}
           </CarouselItem>
         ),
@@ -205,7 +205,7 @@ function Carousel3() {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
       slideType: "fluid",
-      slideAmount: 375,
+      customSlideValue: 375,
       items: mockedItems.map((i) => ({
         id: i.id,
         renderItem: (
@@ -227,8 +227,7 @@ function Carousel3() {
 function Carousel4() {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
-      slideType: "fluid",
-      slideAmount: 375,
+      customSlideValue: 375,
       freeScroll: true,
       items: mockedItems.map((i) => ({
         id: i.id,
@@ -251,8 +250,7 @@ function Carousel4() {
 function Carousel5() {
   const { carouselFragment, slideToPrevItem, slideToNextItem } =
     useSpringCarousel({
-      slideType: "fluid",
-      slideAmount: 375,
+      customSlideValue: 375,
       freeScroll: true,
       enableFreeScrollDrag: true,
       items: mockedItems.map((i) => ({

@@ -13,12 +13,6 @@ export function CarouselItem({
   className,
   width,
 }: PropsWithChildren<Props>) {
-  useEffect(() => {
-    console.log("effect body");
-    return () => {
-      console.log("cleanup effect ");
-    };
-  }, []);
   return (
     <div
       className={cx(

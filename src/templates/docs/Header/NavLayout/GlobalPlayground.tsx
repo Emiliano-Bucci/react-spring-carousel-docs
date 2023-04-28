@@ -93,15 +93,24 @@ function GlobalPlayground() {
       onClose={handleOnClose}
       initial={{
         opacity: 0,
-        x: 40,
+        y: 164,
+        config: {
+          tension: 180,
+        },
       }}
       enter={{
         opacity: 1,
-        x: 0,
+        y: 0,
+        config: {
+          tension: 180,
+        },
       }}
       leave={{
         opacity: 0,
-        x: -40,
+        y: 164,
+        config: {
+          tension: 180,
+        },
       }}
       focusTrapProps={{
         active: false,
@@ -115,25 +124,17 @@ function GlobalPlayground() {
         width: 100%;
         height: 100%;
         z-index: 100;
-        padding: 4rem;
-        ${mediaQueries.until.mobile} {
-          padding: 0;
-        }
       `}
     >
       <div
         className={css`
           overflow: hidden;
-          border-radius: 16px;
           box-shadow: ${shadows.large};
           display: flex;
           width: 100%;
           ${mediaQueries.until.tablet} {
             flex-direction: column;
             overflow-y: auto;
-          }
-          ${mediaQueries.until.mobile} {
-            border-radius: 0px;
           }
         `}
       >

@@ -100,8 +100,8 @@ export function UseSpringCarousel({
             box-shadow: ${shadows.large};
           `}
         >
-          <Button onClick={slideToPrevItem}>Prev item</Button>
-          <Button onClick={slideToNextItem}>Next item</Button>
+          <Button onClick={() => slideToPrevItem()}>Prev item</Button>
+          <Button onClick={() => slideToNextItem()}>Next item</Button>
         </div>
       )}
     </PreviewWrapper>

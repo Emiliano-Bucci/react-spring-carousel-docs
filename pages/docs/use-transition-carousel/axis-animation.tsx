@@ -59,12 +59,12 @@ export default function Page() {
       <UseTransitionCarouselAxisAnimationExample />
       <PageNavigationFooter
         prevBtn={{
-          label: "Loop",
-          href: "/docs/use-transition-carousel/loop",
-        }}
-        nextBtn={{
           label: "Swipe",
           href: "/docs/use-transition-carousel/swipe",
+        }}
+        nextBtn={{
+          label: "Slideshow",
+          href: "/docs/use-transition-carousel/slideshow",
         }}
       />
     </>
